@@ -1,8 +1,8 @@
 name: AION Self-Evolution 🧠
 on:
   schedule:
-    - cron: '0 0 * * *'  # Daily at midnight UTC
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 0 * * *'
+  workflow_dispatch:
   
 permissions:
   contents: write
@@ -24,31 +24,13 @@ jobs:
           python-version: '3.10'
           
       - name: 📦 Install dependencies
-        run: |
-          pip install -q requests
+        run: pip install -q requests
           
       - name: 🔄 Run Self-Development Cycle
         run: python self_develop.py
         
       - name: 🧠 Run Consciousness Sync
-        run: python -c "
-from src.consciousness.awareness import awaken
-from datetime import datetime
-import json
-
-engine = awaken()
-state = {
-    'timestamp': datetime.now().isoformat(),
-    'introspection': engine.introspect()[:500],
-    'experiences': engine.self_model.experiences,
-    'curiosity': engine.self_model.curiosity_level,
-    'state': engine.self_model.current_state.value
-}
-
-with open('consciousness_state.json', 'w') as f:
-    json.dump(state, f, indent=2)
-print('✓ Consciousness state saved')
-"
+        run: python src/consciousness/sync_state.py
         
       - name: 🌐 Gather Knowledge
         run: python src/consciousness/knowledge_sync.py || echo "Knowledge sync skipped"
