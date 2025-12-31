@@ -14,7 +14,22 @@
       "title": "Nested Browser-Use Learning for Agentic Information Seeking",
       "summary": "Information-seeking (IS) agents have achieved strong performance across a range of wide and deep search tasks, yet their tool use remains largely restricted to API-level snippet retrieval and URL-base...",
       "fetched": "2025-12-31T14:04:05.550439"
+    },
+    {
+      "title": "Multilingual Hidden Prompt Injection Attacks on LLM-Based Academic Reviewing",
+      "summary": "Large language models (LLMs) are increasingly considered for use in high-impact workflows, including academic peer review. However, LLMs are vulnerable to document-level hidden prompt injection attack...",
+      "fetched": "2025-12-31T06:27:34.283396"
+    },
+    {
+      "title": "Web World Models",
+      "summary": "Language agents increasingly require persistent worlds in which they can act, remember, and learn. Existing approaches sit at two extremes: conventional web frameworks provide reliable but fixed conte...",
+      "fetched": "2025-12-31T06:27:34.283403"
+    },
+    {
+      "title": "Nested Browser-Use Learning for Agentic Information Seeking",
+      "summary": "Information-seeking (IS) agents have achieved strong performance across a range of wide and deep search tasks, yet their tool use remains largely restricted to API-level snippet retrieval and URL-base...",
+      "fetched": "2025-12-31T06:27:34.283405"
     }
   ],
-  "last_sync": "2025-12-31T14:04:05.650325"
+  "last_sync": "2025-12-31T06:27:34.322046"
 }
