@@ -1,0 +1,96 @@
+"""
+AION Protein Folding Agent
+Demonstrates how AION's reasoning capabilities apply to protein folding.
+
+This agent uses:
+- Reflection to critique folding attempts
+- Self-correction to improve solutions
+- Memory to track successful conformations
+"""
+
+# AION Agent for Protein Structure Prediction
+agent ProteinFolder {
+  goal "Predict optimal 3D structure from amino acid sequence"
+  
+  # Memory systems
+  memory working       # Current folding attempt
+  memory episodic      # History of attempts and energies
+  memory semantic      # Known folding patterns and principles
+  
+  # Model for reasoning
+  model LocalBrain {
+    provider = "local"
+    name = "aion-local"
+  }
+  
+  # Event handler: receive protein sequence
+  on input(sequence):
+    think "Analyzing amino acid sequence properties"
+    
+    # Store the sequence
+    store sequence in working
+    
+    # Analyze sequence properties
+    analyze sequence
+    
+    # Reflect on what we know about folding
+    reflect "What do I know about protein folding principles?"
+    
+    # Key insights from semantic memory:
+    # 1. Hydrophobic residues tend to cluster in core
+    # 2. Charged residues prefer surface
+    # 3. Lower energy = more stable structure
+    # 4. Large search space requires smart sampling
+    
+    think "Generating initial conformations using Monte Carlo"
+    
+    # Generate multiple candidate structures
+    think "Testing different folding strategies"
+    
+    # Use self-correction loop
+    analyze "Current best energy state"
+    
+    if energy_improved:
+      think "Found better conformation!"
+      store conformation in episodic
+    
+    # Decide on final structure
+    decide best_structure
+    
+    # Store insights for future use
+    store folding_pattern in semantic
+    
+    respond best_structure
+  
+  # Error recovery
+  on error(err):
+    think "Folding attempt failed, trying alternative approach"
+    reflect "What went wrong?"
+    decide retry_strategy
+}
+
+# Supporting agent for multi-scale analysis
+agent StructureValidator {
+  goal "Validate predicted structures for physical plausibility"
+  
+  memory working
+  
+  model LocalBrain {
+    provider = "local"
+  }
+  
+  on input(structure):
+    think "Checking structure validity"
+    
+    # Check for clashes
+    analyze atomic_distances
+    
+    # Check energy reasonableness
+    analyze energy_landscape
+    
+    # Check against known patterns
+    reflect "Does this match known structural motifs?"
+    
+    decide validation_result
+    respond validation_result
+}

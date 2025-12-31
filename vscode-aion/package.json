@@ -1,0 +1,58 @@
+{
+  "name": "aion-language",
+  "displayName": "AION Language",
+  "description": "Language support for AION (Artificial Intelligence Oriented Notation)",
+  "version": "0.1.0",
+  "publisher": "aion",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "aion",
+    "ai",
+    "agent",
+    "llm",
+    "declarative"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aion-lang/aion"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "aion",
+        "aliases": [
+          "AION",
+          "aion"
+        ],
+        "extensions": [
+          ".aion",
+          ".ai"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "aion",
+        "scopeName": "source.aion",
+        "path": "./syntaxes/aion.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "aion",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onLanguage:aion"
+  ],
+  "main": "./out/extension.js"
+}

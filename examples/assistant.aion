@@ -1,0 +1,46 @@
+# Basic AI Assistant Agent
+# Demonstrates core AION concepts
+
+model LLM {
+  provider = "openai"
+  name = "gpt-4"
+}
+
+tool calculator {
+  trust = high
+  cost = low
+}
+
+agent Assistant {
+  goal "Answer user questions clearly and helpfully"
+
+  memory working
+  memory long_term
+
+  model LLM
+
+  tool calculator
+
+  policy {
+    max_tokens = 2048
+    allow_web = false
+  }
+
+  on input(question):
+    # Cognitive reasoning flow
+    think "Understand what the user is asking"
+    analyze question
+    
+    # Check if calculation is needed
+    if needs_calculation:
+      use calculator(expression)
+    
+    # Make a decision about the response
+    decide answer
+    
+    # Store for future reference
+    store answer in long_term
+    
+    # Send response to user
+    respond answer
+}

@@ -1,0 +1,118 @@
+(* ============================================
+   AION - Artificial Intelligence Oriented Notation
+   Formal Grammar Specification (EBNF)
+   ============================================ *)
+
+(* ---- Top Level ---- *)
+program         = { declaration } ;
+declaration     = agent_decl | model_decl | tool_decl | policy_decl ;
+
+(* ---- Agent Declaration ---- *)
+agent_decl      = "agent" IDENTIFIER "{" agent_body "}" ;
+agent_body      = { agent_member } ;
+agent_member    = goal_stmt 
+                | memory_decl 
+                | model_ref 
+                | tool_ref 
+                | event_handler 
+                | policy_block ;
+
+goal_stmt       = "goal" STRING ;
+
+(* ---- Memory ---- *)
+memory_decl     = "memory" memory_type [ memory_config ] ;
+memory_type     = "working" | "episodic" | "long_term" | "semantic" ;
+memory_config   = "{" { config_pair } "}" ;
+config_pair     = IDENTIFIER "=" value ;
+
+(* ---- Model Declaration ---- *)
+model_decl      = "model" IDENTIFIER [ "{" model_body "}" ] ;
+model_body      = { config_pair } ;
+model_ref       = "model" IDENTIFIER ;
+
+(* ---- Tool Declaration ---- *)
+tool_decl       = "tool" IDENTIFIER [ "{" tool_body "}" ] ;
+tool_body       = { config_pair } ;
+tool_ref        = "tool" IDENTIFIER ;
+
+(* ---- Policy ---- *)
+policy_decl     = "policy" [ IDENTIFIER ] "{" policy_body "}" ;
+policy_block    = "policy" "{" policy_body "}" ;
+policy_body     = { config_pair } ;
+
+(* ---- Event Handlers ---- *)
+event_handler   = "on" event_type "(" [ param_list ] ")" ":" statement_block ;
+event_type      = "input" | "error" | "timeout" | "complete" ;
+param_list      = IDENTIFIER { "," IDENTIFIER } ;
+
+(* ---- Statements ---- *)
+statement_block = statement { statement } ;
+statement       = reasoning_stmt
+                | control_stmt
+                | action_stmt
+                | assignment_stmt ;
+
+(* ---- Reasoning Statements (First-Class) ---- *)
+reasoning_stmt  = think_stmt | analyze_stmt | reflect_stmt | decide_stmt ;
+
+think_stmt      = "think" [ STRING ] ;
+analyze_stmt    = "analyze" expression ;
+reflect_stmt    = "reflect" [ "on" expression ] ;
+decide_stmt     = "decide" expression ;
+
+(* ---- Control Flow ---- *)
+control_stmt    = if_stmt | when_stmt | loop_stmt ;
+
+if_stmt         = "if" expression ":" statement_block [ "else" ":" statement_block ] ;
+when_stmt       = "when" expression ":" statement_block ;
+loop_stmt       = "repeat" [ expression "times" ] ":" statement_block ;
+
+(* ---- Actions ---- *)
+action_stmt     = use_stmt | respond_stmt | emit_stmt | store_stmt | recall_stmt ;
+
+use_stmt        = "use" IDENTIFIER [ "(" [ arg_list ] ")" ] ;
+respond_stmt    = "respond" [ expression ] ;
+emit_stmt       = "emit" IDENTIFIER [ "(" [ arg_list ] ")" ] ;
+store_stmt      = "store" expression [ "in" IDENTIFIER ] ;
+recall_stmt     = "recall" [ "from" IDENTIFIER ] [ "where" expression ] ;
+
+(* ---- Expressions ---- *)
+expression      = logic_or ;
+logic_or        = logic_and { "or" logic_and } ;
+logic_and       = comparison { "and" comparison } ;
+comparison      = term { ( ">" | "<" | ">=" | "<=" | "==" | "!=" ) term } ;
+term            = factor { ( "+" | "-" ) factor } ;
+factor          = unary { ( "*" | "/" ) unary } ;
+unary           = [ "not" ] primary ;
+primary         = literal | IDENTIFIER | "(" expression ")" | member_access ;
+member_access   = IDENTIFIER { "." IDENTIFIER } ;
+
+(* ---- Assignment ---- *)
+assignment_stmt = IDENTIFIER "=" expression ;
+
+(* ---- Literals ---- *)
+literal         = STRING | NUMBER | BOOLEAN | "null" ;
+arg_list        = expression { "," expression } ;
+value           = STRING | NUMBER | BOOLEAN | "null" | list_literal ;
+list_literal    = "[" [ value { "," value } ] "]" ;
+
+(* ---- Tokens ---- *)
+IDENTIFIER      = LETTER { LETTER | DIGIT | "_" } ;
+STRING          = '"' { CHARACTER } '"' ;
+NUMBER          = [ "-" ] DIGIT { DIGIT } [ "." DIGIT { DIGIT } ] ;
+BOOLEAN         = "true" | "false" ;
+LETTER          = "a".."z" | "A".."Z" ;
+DIGIT           = "0".."9" ;
+CHARACTER       = ? any character except quote ? ;
+
+(* ---- Comments ---- *)
+comment         = "#" { CHARACTER } NEWLINE ;
+
+(* ---- Reserved Keywords ---- *)
+(* agent, model, tool, policy, memory, goal,
+   working, episodic, long_term, semantic,
+   think, analyze, reflect, decide,
+   on, input, error, timeout, complete,
+   if, else, when, repeat, times,
+   use, respond, emit, store, recall, from, where, in,
+   and, or, not, true, false, null *)

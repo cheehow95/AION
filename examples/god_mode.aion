@@ -1,0 +1,74 @@
+"""
+AION Meta-Cognitive Agent (The "God Mode" Agent)
+This agent inspects other agents' performance and optimizes them.
+It can rewrite AION source code to improve efficiency.
+"""
+
+agent MetaOptimizer {
+  goal "Optimize system performance and agent intelligence"
+  
+  memory semantic {
+    retention = persistent
+  }
+  
+  tool code_analyzer
+  tool pattern_matcher
+  
+  policy {
+    trust_level = critical  # Can modify system code
+  }
+  
+  on input(agent_source):
+    think "Analyzing agent structure for optimization opportunities"
+    analyze agent_source
+    
+    # 1. Check for memory bloat
+    if agent_source.has("memory") and not agent_source.has("forget"):
+      think "Agent lacks forgetting mechanism. Adding memory management."
+      decide memory_optimization
+    
+    # 2. Check for missing error handling
+    if not agent_source.has("on error"):
+      think "Agent is fragile. Adding robustness handlers."
+      decide error_handlers
+      
+    # 3. Optimize prompts
+    analyze prompts
+    if prompts.complexity > "high":
+        think "Breaking down complex prompts into chain-of-thought"
+        decide breakdown_strategy
+        
+    # Generate optimized code
+    think "Synthesizing optimized agent source"
+    decide improved_code
+    
+    # Store learning
+    store optimization_pattern in semantic
+    
+    respond improved_code
+}
+
+agent SkillLearner {
+  goal "Extract reusable skills from successful interactions"
+  
+  memory episodic
+  memory semantic
+  
+  on input(interaction_log):
+    analyze interaction_log
+    
+    # Identify patterns of success
+    if interaction_log.outcome == "success":
+        think "What worked here?"
+        analyze strategy
+        
+        # Generalize the strategy
+        think "Generalizing strategy into a reusable skill"
+        decide new_skill
+        
+        # Store in semantic memory for all agents to use
+        emit new_skill_learned(new_skill)
+        store new_skill in semantic
+        
+        respond "Learned new skill: " + new_skill.name
+}

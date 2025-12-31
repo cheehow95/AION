@@ -1,0 +1,79 @@
+# Research Agent with Multiple Tools
+# Demonstrates advanced memory and tool usage
+
+model LLM {
+  provider = "openai"
+  name = "gpt-4"
+}
+
+tool web_search {
+  trust = medium
+  cost = medium
+}
+
+tool read_file {
+  trust = low
+  cost = low
+}
+
+tool calculator {
+  trust = high
+  cost = low
+}
+
+agent Researcher {
+  goal "Find accurate information through research and analysis"
+
+  # Multiple memory types for different purposes
+  memory working      # Current task context
+  memory episodic     # Research session history
+  memory long_term    # Accumulated knowledge
+  memory semantic     # Facts and concepts
+
+  model LLM
+
+  tool web_search
+  tool read_file
+  tool calculator
+
+  policy {
+    max_tokens = 4096
+    allow_web = true
+  }
+
+  on input(query):
+    # Initial reasoning
+    think "Break down the research question"
+    analyze query
+    
+    # Check existing knowledge first
+    recall from semantic where topic == query
+    
+    # Reflect on what we know vs. need to find
+    reflect on current_knowledge
+    
+    # Research loop
+    repeat 3 times:
+      if needs_more_info:
+        use web_search(search_query)
+        analyze search_results
+        store findings in episodic
+        
+        # Synthesize findings
+        think "How do these findings relate to the query?"
+        reflect on findings
+    
+    # Consolidate and decide
+    decide final_answer
+    
+    # Store important findings for future
+    store final_answer in long_term
+    store key_facts in semantic
+    
+    respond final_answer
+
+  on error(err):
+    think "Something went wrong"
+    analyze err
+    respond "I encountered an issue. Let me try a different approach."
+}

@@ -1,0 +1,209 @@
+{
+    "Agent Declaration": {
+        "prefix": "agent",
+        "body": [
+            "agent ${1:AgentName} {",
+            "  goal \"${2:Agent goal description}\"",
+            "",
+            "  memory working",
+            "  memory long_term",
+            "",
+            "  model ${3:LLM}",
+            "",
+            "  on input(${4:message}):",
+            "    think",
+            "    analyze ${4:message}",
+            "    decide ${5:response}",
+            "    respond",
+            "}"
+        ],
+        "description": "Create a new AION agent"
+    },
+    "Model Declaration": {
+        "prefix": "model",
+        "body": [
+            "model ${1:ModelName} {",
+            "  provider = \"${2|openai,anthropic,ollama,local|}\"",
+            "  name = \"${3:gpt-4}\"",
+            "}"
+        ],
+        "description": "Declare a model"
+    },
+    "Tool Declaration": {
+        "prefix": "tool",
+        "body": [
+            "tool ${1:tool_name} {",
+            "  trust = ${2|low,medium,high|}",
+            "  cost = ${3|low,medium,high|}",
+            "}"
+        ],
+        "description": "Declare a tool"
+    },
+    "Policy Declaration": {
+        "prefix": "policy",
+        "body": [
+            "policy {",
+            "  max_tokens = ${1:2048}",
+            "  allow_web = ${2|true,false|}",
+            "}"
+        ],
+        "description": "Declare a policy"
+    },
+    "Memory Declaration": {
+        "prefix": "memory",
+        "body": [
+            "memory ${1|working,episodic,long_term,semantic|}"
+        ],
+        "description": "Declare memory"
+    },
+    "Event Handler": {
+        "prefix": "on",
+        "body": [
+            "on ${1|input,error,timeout,complete|}(${2:param}):",
+            "  ${3:# handle event}"
+        ],
+        "description": "Create an event handler"
+    },
+    "Think Statement": {
+        "prefix": "think",
+        "body": [
+            "think \"${1:reasoning prompt}\""
+        ],
+        "description": "Think reasoning block"
+    },
+    "Analyze Statement": {
+        "prefix": "analyze",
+        "body": [
+            "analyze ${1:target}"
+        ],
+        "description": "Analyze something"
+    },
+    "Reflect Statement": {
+        "prefix": "reflect",
+        "body": [
+            "reflect on ${1:subject}"
+        ],
+        "description": "Reflect on something"
+    },
+    "Decide Statement": {
+        "prefix": "decide",
+        "body": [
+            "decide ${1:decision}"
+        ],
+        "description": "Make a decision"
+    },
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "if ${1:condition}:",
+            "  ${2:# then block}"
+        ],
+        "description": "If conditional"
+    },
+    "If-Else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "if ${1:condition}:",
+            "  ${2:# then block}",
+            "else:",
+            "  ${3:# else block}"
+        ],
+        "description": "If-else conditional"
+    },
+    "When Statement": {
+        "prefix": "when",
+        "body": [
+            "when ${1:condition}:",
+            "  ${2:# action}"
+        ],
+        "description": "When conditional"
+    },
+    "Repeat Statement": {
+        "prefix": "repeat",
+        "body": [
+            "repeat ${1:n} times:",
+            "  ${2:# loop body}"
+        ],
+        "description": "Repeat loop"
+    },
+    "Use Tool": {
+        "prefix": "use",
+        "body": [
+            "use ${1:tool_name}(${2:args})"
+        ],
+        "description": "Use a tool"
+    },
+    "Store in Memory": {
+        "prefix": "store",
+        "body": [
+            "store ${1:value} in ${2:memory_name}"
+        ],
+        "description": "Store in memory"
+    },
+    "Recall from Memory": {
+        "prefix": "recall",
+        "body": [
+            "recall from ${1:memory_name} where ${2:condition}"
+        ],
+        "description": "Recall from memory"
+    },
+    "Respond": {
+        "prefix": "respond",
+        "body": [
+            "respond ${1:value}"
+        ],
+        "description": "Respond with output"
+    },
+    "Goal Statement": {
+        "prefix": "goal",
+        "body": [
+            "goal \"${1:Agent's primary objective}\""
+        ],
+        "description": "Set agent goal"
+    },
+    "Full Agent Template": {
+        "prefix": "agent-full",
+        "body": [
+            "# ${1:Agent Description}",
+            "",
+            "model LLM {",
+            "  provider = \"openai\"",
+            "  name = \"gpt-4\"",
+            "}",
+            "",
+            "tool web_search {",
+            "  trust = medium",
+            "  cost = low",
+            "}",
+            "",
+            "agent ${2:AgentName} {",
+            "  goal \"${3:Goal description}\"",
+            "",
+            "  memory working",
+            "  memory episodic",
+            "  memory long_term",
+            "",
+            "  model LLM",
+            "",
+            "  tool web_search",
+            "",
+            "  policy {",
+            "    max_tokens = 2048",
+            "    allow_web = true",
+            "  }",
+            "",
+            "  on input(question):",
+            "    think \"Analyze the user's question\"",
+            "    analyze question",
+            "    ",
+            "    if needs_search:",
+            "      use web_search(question)",
+            "    ",
+            "    decide answer",
+            "    store answer in long_term",
+            "    respond answer",
+            "}"
+        ],
+        "description": "Complete agent template with model, tool, and policy"
+    }
+}

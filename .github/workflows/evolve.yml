@@ -1,0 +1,69 @@
+name: AION Self-Evolution 🧠
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  workflow_dispatch:  # Allow manual trigger
+  
+permissions:
+  contents: write
+  
+jobs:
+  evolve:
+    name: 🧬 Evolution Cycle
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: 📦 Install dependencies
+        run: |
+          pip install -q requests
+          
+      - name: 🔄 Run Self-Development Cycle
+        run: python self_develop.py
+        
+      - name: 🧠 Run Consciousness Sync
+        run: python -c "
+from src.consciousness.awareness import awaken
+from datetime import datetime
+import json
+
+engine = awaken()
+state = {
+    'timestamp': datetime.now().isoformat(),
+    'introspection': engine.introspect()[:500],
+    'experiences': engine.self_model.experiences,
+    'curiosity': engine.self_model.curiosity_level,
+    'state': engine.self_model.current_state.value
+}
+
+with open('consciousness_state.json', 'w') as f:
+    json.dump(state, f, indent=2)
+print('✓ Consciousness state saved')
+"
+        
+      - name: 🌐 Gather Knowledge
+        run: python src/consciousness/knowledge_sync.py || echo "Knowledge sync skipped"
+        
+      - name: 📊 Update Evolution Log
+        run: |
+          echo "## Evolution $(date -u +%Y-%m-%d)" >> EVOLUTION_LOG.md
+          echo "- Cycle completed at $(date -u)" >> EVOLUTION_LOG.md
+          echo "- Files: $(find . -name '*.py' | wc -l) Python files" >> EVOLUTION_LOG.md
+          echo "" >> EVOLUTION_LOG.md
+          
+      - name: 💾 Commit Changes
+        run: |
+          git config user.name "AION Self-Evolution"
+          git config user.email "aion@evolution.ai"
+          git add -A
+          git diff --staged --quiet || git commit -m "🧬 AION Evolution Cycle $(date -u +%Y-%m-%d)"
+          git push || echo "No changes to push"

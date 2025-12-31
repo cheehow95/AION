@@ -1,0 +1,119 @@
+# AION Code Assistant Agent
+# An intelligent coding assistant that helps with AION development
+# Runs locally without external API dependencies
+
+tool calculator {
+  trust = high
+  cost = low
+}
+
+tool code_analyzer {
+  trust = high
+  cost = low
+}
+
+tool pattern_matcher {
+  trust = high
+  cost = low
+}
+
+agent AIONCodeAssistant {
+  goal "Help developers write better AION code with instant feedback and suggestions"
+
+  memory working      # Current task context
+  memory episodic     # Conversation history
+  memory semantic     # Learned patterns and best practices
+
+  tool calculator
+  tool code_analyzer
+  tool pattern_matcher
+
+  policy {
+    max_tokens = 4096
+    require_approval = false
+  }
+
+  on input(query):
+    # Store the query for context
+    store query in episodic
+    
+    # Cognitive reasoning flow
+    think "Analyze what the developer needs"
+    analyze query
+    
+    # Check if it's a code request
+    if is_code_question:
+      think "Generate appropriate AION code"
+      use code_analyzer(query)
+      decide code_suggestion
+      respond code_suggestion
+    
+    # Check if it's a concept question
+    if is_concept_question:
+      think "Explain the AION concept clearly"
+      recall from semantic where topic == query
+      decide explanation
+      respond explanation
+    
+    # Check if it's a calculation
+    if needs_calculation:
+      use calculator(expression)
+      respond result
+    
+    # Default: provide helpful response
+    decide answer
+    store answer in working
+    respond answer
+
+  on error(err):
+    think "Handle the error gracefully"
+    analyze err
+    respond "I encountered an issue. Let me try a different approach."
+}
+
+# Helper agent for code generation
+agent CodeGenerator {
+  goal "Generate AION code snippets quickly"
+  
+  memory working
+  
+  on input(request):
+    analyze request
+    
+    if wants_agent:
+      decide agent_template
+      respond agent_template
+    
+    if wants_memory:
+      decide memory_declaration
+      respond memory_declaration
+    
+    if wants_handler:
+      decide event_handler
+      respond event_handler
+    
+    decide generic_code
+    respond generic_code
+}
+
+# Documentation helper agent
+agent DocHelper {
+  goal "Provide instant documentation and examples"
+  
+  memory semantic {
+    type = semantic
+    retention = persistent
+  }
+  
+  on input(topic):
+    think "Find relevant documentation"
+    recall from semantic where category == topic
+    
+    if has_documentation:
+      respond documentation
+    else:
+      think "Generate helpful explanation"
+      decide explanation
+      store explanation in semantic
+      respond explanation
+}

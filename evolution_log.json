@@ -1,0 +1,61 @@
+{
+  "improvements": [],
+  "metrics": {
+    "codebase": {
+      "total_files": 78,
+      "total_lines": 14603,
+      "python_files": 66,
+      "aion_files": 7,
+      "test_files": 11,
+      "modules": [
+        "builder",
+        "compiler",
+        "consciousness",
+        "domains",
+        "interpreter",
+        "lexer",
+        "lsp",
+        "parser",
+        "runtime",
+        "tools",
+        "transpiler"
+      ],
+      "missing_tests": [
+        "src\\consciousness\\awareness.py",
+        "src\\consciousness\\explorer.py",
+        "src\\domains\\alphafold_db.py",
+        "src\\domains\\protein_folding.py",
+        "src\\domains\\protein_physics.py",
+        "src\\domains\\protein_solver.py",
+        "src\\interpreter\\interpreter.py",
+        "src\\lexer\\token_types.py",
+        "src\\lsp\\server.py",
+        "src\\parser\\ast_nodes.py",
+        "src\\runtime\\distributed.py",
+        "src\\runtime\\environment.py",
+        "src\\runtime\\local_engine.py",
+        "src\\runtime\\memory_system.py",
+        "src\\runtime\\messaging.py",
+        "src\\runtime\\model_interface.py",
+        "src\\runtime\\reasoning.py",
+        "src\\runtime\\reflexion.py",
+        "src\\runtime\\router.py",
+        "src\\runtime\\tool_registry.py",
+        "src\\runtime\\vector_memory.py",
+        "src\\tools\\search.py",
+        "src\\transpiler\\codegen.py"
+      ],
+      "missing_docs": []
+    },
+    "tests": {
+      "passed": 0,
+      "failed": 1,
+      "errors": [
+        "Traceback (most recent call last):\n  File \"D:\\Time\\aion\\run_tests.py\", line 402, in <module>\n    test_lexer()\n  File \"D:\\Time\\aion\\run_tests.py\", line 18, in test_lexer\n    print(\"\\u2713 Basic keywords\")\n  File \"C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python310\\lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2713' in position 0: character maps to <undefined>\n\nDurin"
+      ],
+      "duration_ms": 112.07769999964512,
+      "status": "failed"
+    }
+  },
+  "last_updated": "2025-12-31T13:56:25.460561"
+}

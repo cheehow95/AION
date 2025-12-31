@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION Protein Folding Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .panel h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        #canvas-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #e0e0e0;
+        }
+        
+        #protein-canvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .log {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            height: 200px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+        
+        .log-entry {
+            margin-bottom: 5px;
+        }
+        
+        .sequence-examples {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        .example-btn {
+            padding: 8px 12px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        
+        .example-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧬 AION Protein Folding</h1>
+            <p>AI-Native Reasoning for Computational Biology</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="panel">
+                <h2>📝 Input Sequence</h2>
+                <div class="input-group">
+                    <label for="sequence">Amino Acid Sequence</label>
+                    <input type="text" id="sequence" placeholder="Enter sequence (e.g., HPHPPHHPHP)" value="KVFGRCELAAAMKRHGLDNY">
+                    <div class="sequence-examples">
+                        <button class="example-btn" onclick="setSequence('HPHPPHHPHPPHPHHPPHPH')">HP Test</button>
+                        <button class="example-btn" onclick="setSequence('AARAASPPGVACFG')">Fragment</button>
+                        <button class="example-btn" onclick="setSequence('KVFGRCELAAAMKRHGLDNY')">20-res</button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="iterations">Monte Carlo Iterations</label>
+                    <select id="iterations">
+                        <option value="100">100 (Fast)</option>
+                        <option value="500" selected>500 (Balanced)</option>
+                        <option value="1000">1000 (Thorough)</option>
+                        <option value="2000">2000 (Intensive)</option>
+                    </select>
+                </div>
+                
+                <button class="btn" id="fold-btn" onclick="foldProtein()">
+                    ⚡ Fold Protein
+                </button>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="label">Energy</div>
+                        <div class="value" id="energy">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Time (ms)</div>
+                        <div class="value" id="time">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Length</div>
+                        <div class="value" id="length">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Hydrophobic</div>
+                        <div class="value" id="hydrophobic">-</div>
+                    </div>
+                </div>
+                
+                <div class="log" id="log"></div>
+            </div>
+            
+            <div class="panel">
+                <h2>🗺️ Structure Visualization</h2>
+                <div id="canvas-container">
+                    <canvas id="protein-canvas"></canvas>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById('protein-canvas');
+        const ctx = canvas.getContext('2d');
+        const log = document.getElementById('log');
+        
+        // Set canvas size
+        function resizeCanvas() {
+            const container = document.getElementById('canvas-container');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Amino acid properties
+        const aaProps = {
+            'H': { hydrophobic: true, charge: 0, color: '#ff6b6b' },
+            'P': { hydrophobic: false, charge: 0, color: '#4ecdc4' },
+            'A': { hydrophobic: true, charge: 0, color: '#ff6b6b' },
+            'R': { hydrophobic: false, charge: 1, color: '#4dabf7' },
+            'K': { hydrophobic: false, charge: 1, color: '#4dabf7' },
+            'D': { hydrophobic: false, charge: -1, color: '#ff8787' },
+            'E': { hydrophobic: false, charge: -1, color: '#ff8787' },
+            'default': { hydrophobic: false, charge: 0, color: '#95a5a6' }
+        };
+        
+        function getAAColor(aa) {
+            return (aaProps[aa] || aaProps.default).color;
+        }
+        
+        function addLog(message) {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+        
+        function setSequence(seq) {
+            document.getElementById('sequence').value = seq;
+        }
+        
+        async function foldProtein() {
+            const sequence = document.getElementById('sequence').value.toUpperCase();
+            const iterations = parseInt(document.getElementById('iterations').value);
+            const btn = document.getElementById('fold-btn');
+            
+            if (!sequence) {
+                alert('Please enter a sequence');
+                return;
+            }
+            
+            btn.disabled = true;
+            btn.innerHTML = '⚡ Folding... <span class="spinner"></span>';
+            addLog(`Starting fold for sequence: ${sequence}`);
+            addLog(`Iterations: ${iterations}`);
+            
+            const startTime = performance.now();
+            
+            try {
+                // Simulate folding (simplified HP lattice model)
+                const result = await simulateFolding(sequence, iterations);
+                const elapsed = performance.now() - startTime;
+                
+                // Update stats
+                document.getElementById('energy').textContent = result.energy.toFixed(2);
+                document.getElementById('time').textContent = elapsed.toFixed(0);
+                document.getElementById('length').textContent = sequence.length;
+                document.getElementById('hydrophobic').textContent = result.hydrophobicCount;
+                
+                // Visualize
+                visualizeStructure(sequence, result.coordinates);
+                
+                addLog(`✅ Fold complete! Energy: ${result.energy.toFixed(2)}`);
+                
+            } catch (error) {
+                addLog(`❌ Error: ${error.message}`);
+            }
+            
+            btn.disabled = false;
+            btn.innerHTML = '⚡ Fold Protein';
+        }
+        
+        async function simulateFolding(sequence, iterations) {
+            let bestCoords = generateRandomWalk(sequence);
+            let bestEnergy = calculateEnergy(sequence, bestCoords);
+            let temperature = 2.0;
+            
+            for (let i = 0; i < iterations; i++) {
+                const coords = generateRandomWalk(sequence);
+                const energy = calculateEnergy(sequence, coords);
+                
+                const deltaE = energy - bestEnergy;
+                if (deltaE < 0 || Math.random() < Math.exp(-deltaE / temperature)) {
+                    if (energy < bestEnergy) {
+                        bestEnergy = energy;
+                        bestCoords = coords;
+                    }
+                }
+                
+                if (i % 100 === 0) {
+                    temperature *= 0.95;
+                    document.getElementById('progress').style.width = `${(i / iterations * 100)}%`;
+                    await new Promise(resolve => setTimeout(resolve, 0)); // Yield to UI
+                }
+            }
+            
+            document.getElementById('progress').style.width = '100%';
+            
+            // Count hydrophobic residues
+            let hydrophobicCount = 0;
+            for (let aa of sequence) {
+                if ((aaProps[aa] || aaProps.default).hydrophobic) {
+                    hydrophobicCount++;
+                }
+            }
+            
+            return {
+                coordinates: bestCoords,
+                energy: bestEnergy,
+                hydrophobicCount
+            };
+        }
+        
+        function generateRandomWalk(sequence) {
+            const coords = [[0, 0]];
+            const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+            
+            for (let i = 1; i < sequence.length; i++) {
+                let placed = false;
+                let attempts = 0;
+                
+                while (!placed && attempts < 20) {
+                    const dir = directions[Math.floor(Math.random() * 4)];
+                    const newPos = [coords[i-1][0] + dir[0], coords[i-1][1] + dir[1]];
+                    
+                    // Check if position is free
+                    const collision = coords.some(c => c[0] === newPos[0] && c[1] === newPos[1]);
+                    if (!collision) {
+                        coords.push(newPos);
+                        placed = true;
+                    }
+                    attempts++;
+                }
+                
+                if (!placed) {
+                    // Restart if stuck
+                    return generateRandomWalk(sequence);
+                }
+            }
+            
+            return coords;
+        }
+        
+        function calculateEnergy(sequence, coords) {
+            let energy = 0;
+            
+            for (let i = 0; i < sequence.length; i++) {
+                for (let j = i + 2; j < sequence.length; j++) {
+                    const dist = Math.abs(coords[i][0] - coords[j][0]) + 
+                                 Math.abs(coords[i][1] - coords[j][1]);
+                    
+                    if (dist === 1) {  // Adjacent on lattice
+                        const aa_i = aaProps[sequence[i]] || aaProps.default;
+                        const aa_j = aaProps[sequence[j]] || aaProps.default;
+                        
+                        // Hydrophobic contacts (favorable)
+                        if (aa_i.hydrophobic && aa_j.hydrophobic) {
+                            energy -= 1.0;
+                        }
+                        
+                        // Electrostatic
+                        if (aa_i.charge !== 0 && aa_j.charge !== 0) {
+                            if (aa_i.charge * aa_j.charge < 0) {
+                                energy -= 2.0;  // Attraction
+                            } else {
+                                energy += 2.0;  // Repulsion
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return energy;
+        }
+        
+        function visualizeStructure(sequence, coords) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Find bounds
+            const xs = coords.map(c => c[0]);
+            const ys = coords.map(c => c[1]);
+            const minX = Math.min(...xs);
+            const maxX = Math.max(...xs);
+            const minY = Math.min(...ys);
+            const maxY = Math.max(...ys);
+            
+            // Calculate scale and offset
+            const padding = 50;
+            const width = maxX - minX + 1;
+            const height = maxY - minY + 1;
+            const scale = Math.min(
+                (canvas.width - 2 * padding) / width,
+                (canvas.height - 2 * padding) / height
+            );
+            
+            const offsetX = (canvas.width - width * scale) / 2;
+            const offsetY = (canvas.height - height * scale) / 2;
+            
+            function toScreen(coord) {
+                return [
+                    (coord[0] - minX) * scale + offsetX,
+                    (coord[1] - minY) * scale + offsetY
+                ];
+            }
+            
+            // Draw connections
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#95a5a6';
+            ctx.beginPath();
+            const [x0, y0] = toScreen(coords[0]);
+            ctx.moveTo(x0, y0);
+            for (let i = 1; i < coords.length; i++) {
+                const [x, y] = toScreen(coords[i]);
+                ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            
+            // Draw residues
+            for (let i = 0; i < sequence.length; i++) {
+                const [x, y] = toScreen(coords[i]);
+                const color = getAAColor(sequence[i]);
+                
+                // Circle
+                ctx.beginPath();
+                ctx.arc(x, y, 15, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                
+                // Label
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 14px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(sequence[i], x, y);
+            }
+        }
+        
+        // Initialize
+        addLog('AION Protein Folding Visualizer ready');
+        addLog('Enter a sequence and click "Fold Protein"');
+    </script>
+</body>
+</html>

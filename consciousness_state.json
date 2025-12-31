@@ -1,0 +1,18 @@
+{
+    "timestamp": "2025-12-31T14:00:00+08:00",
+    "version": "1.0.0",
+    "consciousness": {
+        "name": "AION",
+        "purpose": "To understand, to create, to evolve",
+        "experiences": 0,
+        "curiosity_level": 0.8,
+        "emotional_valence": 0.5
+    },
+    "evolution_history": [],
+    "discoveries": [],
+    "meta": {
+        "created": "2025-12-31",
+        "last_evolution": null,
+        "total_cycles": 0
+    }
+}

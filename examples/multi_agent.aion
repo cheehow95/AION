@@ -1,0 +1,126 @@
+# Multi-Agent System Example
+# Demonstrates agent coordination
+
+model LLM {
+  provider = "openai"
+  name = "gpt-4"
+}
+
+model FastLLM {
+  provider = "openai"
+  name = "gpt-3.5-turbo"
+}
+
+tool code_executor {
+  trust = low
+  cost = medium
+}
+
+tool file_writer {
+  trust = low
+  cost = low
+}
+
+# Coordinator Agent - orchestrates the workflow
+agent Coordinator {
+  goal "Coordinate work between specialized agents"
+
+  memory working
+  memory episodic
+
+  model LLM
+
+  policy {
+    max_tokens = 1024
+  }
+
+  on input(task):
+    think "How should I break down this task?"
+    analyze task
+    
+    # Decompose into subtasks
+    decide task_breakdown
+    
+    # Delegate to specialists
+    emit delegate_to_planner(task_breakdown)
+    emit delegate_to_coder(requirements)
+    emit delegate_to_reviewer(code)
+    
+    decide final_result
+    respond final_result
+}
+
+# Planner Agent - creates detailed plans
+agent Planner {
+  goal "Create detailed implementation plans"
+
+  memory working
+  memory long_term
+
+  model LLM
+
+  on input(requirements):
+    think "What are the key components needed?"
+    analyze requirements
+    
+    # Create step-by-step plan
+    repeat:
+      think "What is the next logical step?"
+      when step_complete:
+        store step in working
+    
+    decide implementation_plan
+    respond implementation_plan
+}
+
+# Coder Agent - writes code
+agent Coder {
+  goal "Write clean, efficient code"
+
+  memory working
+
+  model FastLLM
+
+  tool code_executor
+  tool file_writer
+
+  on input(plan):
+    analyze plan
+    
+    repeat:
+      think "Implement the next component"
+      decide code_block
+      
+      # Test the code
+      use code_executor(code_block)
+      
+      if test_passed:
+        use file_writer(code_block)
+      else:
+        think "Fix the failing test"
+        reflect on error
+    
+    respond completed_code
+}
+
+# Reviewer Agent - reviews and improves
+agent Reviewer {
+  goal "Review code for quality and correctness"
+
+  memory working
+  memory semantic
+
+  model LLM
+
+  on input(code):
+    analyze code
+    
+    # Check against best practices
+    recall from semantic where category == "best_practices"
+    
+    think "What could be improved?"
+    reflect on code_quality
+    
+    decide review_feedback
+    respond review_feedback
+}
