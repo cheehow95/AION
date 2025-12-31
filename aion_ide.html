@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION IDE - AI Agent Development Environment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/editor/editor.main.min.css"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d1117;
+            --bg-panel: #161b22;
+            --bg-input: #21262d;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-dim: #8b949e;
+            --accent: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-purple: #a371f7;
+            --accent-orange: #d29922;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app {
+            display: grid;
+            grid-template-rows: 50px 1fr 200px;
+            height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #58a6ff, #a371f7);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--border);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4c9aed;
+        }
+
+        .btn-success {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: white;
+        }
+
+        /* Main Content */
+        .main {
+            display: grid;
+            grid-template-columns: 250px 1fr 400px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-panel);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+        }
+
+        .sidebar-section {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .file-tree {
+            list-style: none;
+        }
+
+        .file-item {
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .file-item:hover {
+            background: var(--bg-input);
+            color: var(--text);
+        }
+
+        .file-item.active {
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .template-card {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .template-card:hover {
+            border-color: var(--accent);
+        }
+
+        .template-card h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+
+        .template-card p {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* Editor */
+        .editor-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-tabs {
+            display: flex;
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab.active {
+            color: var(--text);
+            border-bottom-color: var(--accent);
+            background: var(--bg-dark);
+        }
+
+        .tab .close {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .tab:hover .close {
+            opacity: 1;
+        }
+
+        #editor {
+            flex: 1;
+        }
+
+        /* Preview Panel */
+        .preview-panel {
+            background: var(--bg-panel);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-header {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-header h3 {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .preview-tabs {
+            display: flex;
+            gap: 5px;
+            margin-left: auto;
+        }
+
+        .preview-tab {
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-dim);
+            cursor: pointer;
+        }
+
+        .preview-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .preview-content {
+            flex: 1;
+            overflow: auto;
+            padding: 15px;
+        }
+
+        .preview-content pre {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .ast-node {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .ast-node::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 0;
+            height: 100%;
+            border-left: 1px solid var(--border);
+        }
+
+        .ast-key {
+            color: var(--accent-purple);
+        }
+
+        .ast-string {
+            color: var(--accent-green);
+        }
+
+        .ast-number {
+            color: var(--accent-orange);
+        }
+
+        /* Console */
+        .console {
+            background: var(--bg-panel);
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .console-header {
+            padding: 8px 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .console-tab {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .console-tab.active {
+            color: var(--text);
+            border-bottom-color: var(--accent);
+        }
+
+        .console-output {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 15px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .console-line {
+            margin-bottom: 4px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .console-line .time {
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        .console-line.error {
+            color: #f85149;
+        }
+
+        .console-line.success {
+            color: var(--accent-green);
+        }
+
+        .console-line.info {
+            color: var(--accent);
+        }
+
+        /* Autocomplete */
+        .autocomplete {
+            position: absolute;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .autocomplete-item {
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .autocomplete-item:hover {
+            background: var(--bg-input);
+        }
+
+        .autocomplete-item .icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .autocomplete-item .icon.keyword {
+            background: var(--accent-purple);
+        }
+
+        .autocomplete-item .icon.function {
+            background: var(--accent-orange);
+        }
+
+        .autocomplete-item .icon.type {
+            background: var(--accent-green);
+        }
+
+        /* Status Bar */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 24px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 0.75rem;
+            color: white;
+            gap: 20px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🧬</div>
+                <span>AION IDE</span>
+            </div>
+
+            <div class="header-actions">
+                <button class="btn" onclick="newFile()">📄 New</button>
+                <button class="btn" onclick="saveFile()">💾 Save</button>
+                <button class="btn btn-primary" onclick="transpile()">⚡ Transpile</button>
+                <button class="btn btn-success" onclick="runAgent()">▶️ Run</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <div class="sidebar-title">📁 Examples</div>
+                    <ul class="file-tree">
+                        <li class="file-item active" onclick="loadExample('assistant')">📄 assistant.aion</li>
+                        <li class="file-item" onclick="loadExample('researcher')">📄 researcher.aion</li>
+                        <li class="file-item" onclick="loadExample('protein_folder')">📄 protein_folder.aion</li>
+                        <li class="file-item" onclick="loadExample('code_assistant')">📄 code_assistant.aion</li>
+                        <li class="file-item" onclick="loadExample('multi_agent')">📄 multi_agent.aion</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">🧩 Templates</div>
+                    <div class="template-card" onclick="loadTemplate('basic')">
+                        <h4>Basic Agent</h4>
+                        <p>Simple agent with memory and model</p>
+                    </div>
+                    <div class="template-card" onclick="loadTemplate('cognitive')">
+                        <h4>Cognitive Agent</h4>
+                        <p>Agent with reflection and reasoning</p>
+                    </div>
+                    <div class="template-card" onclick="loadTemplate('multi')">
+                        <h4>Multi-Agent</h4>
+                        <p>Collaborating agent team</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">📚 Keywords</div>
+                    <div style="font-size: 0.8rem; color: var(--text-dim); line-height: 1.8;">
+                        <code style="color: var(--accent-purple)">agent</code>
+                        <code style="color: var(--accent-purple)">goal</code>
+                        <code style="color: var(--accent-purple)">memory</code>
+                        <code style="color: var(--accent-purple)">model</code>
+                        <code style="color: var(--accent-green)">think</code>
+                        <code style="color: var(--accent-green)">analyze</code>
+                        <code style="color: var(--accent-green)">reflect</code>
+                        <code style="color: var(--accent-green)">decide</code>
+                        <code style="color: var(--accent-orange)">on</code>
+                        <code style="color: var(--accent-orange)">store</code>
+                        <code style="color: var(--accent-orange)">recall</code>
+                        <code style="color: var(--accent-orange)">respond</code>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Editor -->
+            <div class="editor-container">
+                <div class="editor-tabs">
+                    <button class="tab active">
+                        <span>📄</span>
+                        <span id="current-file">untitled.aion</span>
+                        <span class="close">×</span>
+                    </button>
+                </div>
+                <div id="editor"></div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="preview-panel">
+                <div class="preview-header">
+                    <h3>Preview</h3>
+                    <div class="preview-tabs">
+                        <button class="preview-tab active" onclick="showPreview('python')">Python</button>
+                        <button class="preview-tab" onclick="showPreview('ast')">AST</button>
+                        <button class="preview-tab" onclick="showPreview('tokens')">Tokens</button>
+                    </div>
+                </div>
+                <div class="preview-content">
+                    <pre id="preview-output">Click "Transpile" to see output...</pre>
+                </div>
+            </div>
+        </main>
+
+        <!-- Console -->
+        <div class="console">
+            <div class="console-header">
+                <span class="console-tab active">Console</span>
+                <span class="console-tab">Problems</span>
+                <span class="console-tab">Output</span>
+            </div>
+            <div class="console-output" id="console">
+                <div class="console-line info">
+                    <span class="time">[System]</span>
+                    <span>AION IDE initialized. Ready to create AI agents.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script>
+        // Monaco Editor Setup
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+
+        let editor;
+        let currentPreview = 'python';
+
+        require(['vs/editor/editor.main'], function () {
+            // Register AION language
+            monaco.languages.register({ id: 'aion' });
+
+            // Define AION syntax highlighting
+            monaco.languages.setMonarchTokensProvider('aion', {
+                keywords: [
+                    'agent', 'goal', 'memory', 'model', 'tool', 'policy',
+                    'working', 'episodic', 'semantic', 'long_term',
+                    'on', 'input', 'error', 'timeout', 'complete',
+                    'if', 'else', 'when', 'repeat', 'times',
+                    'true', 'false', 'null', 'and', 'or', 'not'
+                ],
+                reasoning: ['think', 'analyze', 'reflect', 'decide'],
+                actions: ['use', 'respond', 'emit', 'store', 'recall', 'from', 'where', 'in'],
+
+                tokenizer: {
+                    root: [
+                        [/#.*$/, 'comment'],
+                        [/"([^"\\]|\\.)*"/, 'string'],
+                        [/'([^'\\]|\\.)*'/, 'string'],
+                        [/\b(agent|goal|memory|model|tool|policy)\b/, 'keyword.structure'],
+                        [/\b(working|episodic|semantic|long_term)\b/, 'keyword.memory'],
+                        [/\b(think|analyze|reflect|decide)\b/, 'keyword.reasoning'],
+                        [/\b(on|input|error|timeout|complete)\b/, 'keyword.event'],
+                        [/\b(use|respond|emit|store|recall|from|where|in)\b/, 'keyword.action'],
+                        [/\b(if|else|when|repeat|times)\b/, 'keyword.control'],
+                        [/\b(true|false|null)\b/, 'constant'],
+                        [/\b(and|or|not)\b/, 'keyword.operator'],
+                        [/\b\d+(\.\d+)?\b/, 'number'],
+                        [/[a-zA-Z_]\w*/, 'identifier'],
+                        [/[{}()\[\]]/, 'delimiter.bracket'],
+                        [/[=<>!+\-*/]/, 'operator'],
+                        [/:/, 'delimiter'],
+                    ]
+                }
+            });
+
+            // Define theme
+            monaco.editor.defineTheme('aion-dark', {
+                base: 'vs-dark',
+                inherit: true,
+                rules: [
+                    { token: 'keyword.structure', foreground: 'a371f7', fontStyle: 'bold' },
+                    { token: 'keyword.memory', foreground: '79c0ff' },
+                    { token: 'keyword.reasoning', foreground: '7ee787', fontStyle: 'bold' },
+                    { token: 'keyword.event', foreground: 'd29922' },
+                    { token: 'keyword.action', foreground: 'ffa657' },
+                    { token: 'keyword.control', foreground: 'ff7b72' },
+                    { token: 'keyword.operator', foreground: 'ff7b72' },
+                    { token: 'string', foreground: 'a5d6ff' },
+                    { token: 'number', foreground: '79c0ff' },
+                    { token: 'comment', foreground: '8b949e', fontStyle: 'italic' },
+                    { token: 'constant', foreground: '79c0ff' },
+                ],
+                colors: {
+                    'editor.background': '#0d1117',
+                    'editor.foreground': '#c9d1d9',
+                    'editor.lineHighlightBackground': '#161b22',
+                    'editorCursor.foreground': '#58a6ff',
+                    'editor.selectionBackground': '#264f78',
+                }
+            });
+
+            // Configure autocomplete
+            monaco.languages.registerCompletionItemProvider('aion', {
+                provideCompletionItems: (model, position) => {
+                    const suggestions = [
+                        // Structures
+                        { label: 'agent', kind: monaco.languages.CompletionItemKind.Keyword, insertText: 'agent ${1:AgentName} {\n  goal "${2:Agent goal}"\n  \n  memory working\n  \n  model LocalBrain {\n    provider = "local"\n  }\n  \n  on input(${3:message}):\n    think "${4:Processing input}"\n    respond ${5:result}\n}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'goal', kind: monaco.languages.CompletionItemKind.Keyword, insertText: 'goal "${1:Agent goal}"', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'memory', kind: monaco.languages.CompletionItemKind.Keyword, insertText: 'memory ${1|working,episodic,semantic,long_term|}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'model', kind: monaco.languages.CompletionItemKind.Keyword, insertText: 'model ${1:ModelName} {\n  provider = "${2|local,openai,anthropic|}"\n}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+
+                        // Reasoning
+                        { label: 'think', kind: monaco.languages.CompletionItemKind.Function, insertText: 'think "${1:Reasoning about...}"', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'analyze', kind: monaco.languages.CompletionItemKind.Function, insertText: 'analyze ${1:expression}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'reflect', kind: monaco.languages.CompletionItemKind.Function, insertText: 'reflect "${1:Reflecting on...}"', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'decide', kind: monaco.languages.CompletionItemKind.Function, insertText: 'decide ${1:decision}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+
+                        // Actions
+                        { label: 'respond', kind: monaco.languages.CompletionItemKind.Function, insertText: 'respond ${1:result}' },
+                        { label: 'store', kind: monaco.languages.CompletionItemKind.Function, insertText: 'store ${1:data} in ${2:memory}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'recall', kind: monaco.languages.CompletionItemKind.Function, insertText: 'recall from ${1:memory}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+
+                        // Events
+                        { label: 'on input', kind: monaco.languages.CompletionItemKind.Event, insertText: 'on input(${1:message}):\n  ${2:# Handle input}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                        { label: 'on error', kind: monaco.languages.CompletionItemKind.Event, insertText: 'on error(${1:err}):\n  ${2:# Handle error}', insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet },
+                    ];
+                    return { suggestions };
+                }
+            });
+
+            // Create editor
+            editor = monaco.editor.create(document.getElementById('editor'), {
+                value: TEMPLATES.basic,
+                language: 'aion',
+                theme: 'aion-dark',
+                fontSize: 14,
+                fontFamily: "'Fira Code', Consolas, monospace",
+                minimap: { enabled: true },
+                automaticLayout: true,
+                lineNumbers: 'on',
+                renderWhitespace: 'selection',
+                bracketPairColorization: { enabled: true },
+                suggest: { showKeywords: true },
+                padding: { top: 15 }
+            });
+
+            // Auto-transpile on change
+            editor.onDidChangeModelContent(() => {
+                clearTimeout(window.transpileTimeout);
+                window.transpileTimeout = setTimeout(() => {
+                    transpile(true);
+                }, 500);
+            });
+
+            log('Monaco editor initialized with AION syntax highlighting', 'success');
+        });
+
+        // Templates
+        const TEMPLATES = {
+            basic: `# AION Basic Agent Template
+agent MyAgent {
+  goal "Assist users with their requests"
+  
+  memory working     # Current context
+  memory episodic    # Conversation history
+  
+  model LocalBrain {
+    provider = "local"
+    name = "aion-local"
+  }
+  
+  on input(message):
+    think "Understanding user request"
+    analyze message
+    
+    reflect "What is the best way to help?"
+    decide response
+    
+    store message in episodic
+    respond response
+  
+  on error(err):
+    think "An error occurred, handling gracefully"
+    respond "I encountered an issue, let me try again."
+}`,
+
+            cognitive: `# AION Cognitive Agent with Deep Reflection
+agent CognitiveAgent {
+  goal "Perform deep reasoning and self-reflection"
+  
+  memory working     # Current thought process
+  memory episodic    # Experience history
+  memory semantic    # Knowledge base
+  
+  model DeepReasoner {
+    provider = "local"
+    temperature = 0.7
+  }
+  
+  on input(query):
+    # Stage 1: Initial Understanding
+    think "Parsing and understanding the query"
+    analyze query
+    
+    # Stage 2: Knowledge Retrieval
+    recall from semantic where relevant
+    think "Connecting to prior knowledge"
+    
+    # Stage 3: Deep Reflection
+    reflect "What assumptions am I making?"
+    reflect "Are there alternative perspectives?"
+    reflect "What might I be missing?"
+    
+    # Stage 4: Synthesis
+    think "Synthesizing insights into coherent response"
+    decide final_answer
+    
+    # Stage 5: Learning
+    store insight in semantic
+    store interaction in episodic
+    
+    respond final_answer
+}`,
+
+            multi: `# AION Multi-Agent Collaboration Template
+
+agent Coordinator {
+  goal "Orchestrate multi-agent collaboration"
+  
+  memory working
+  
+  model LocalBrain { provider = "local" }
+  
+  on input(task):
+    think "Analyzing task and delegating to specialists"
+    
+    # Delegate to researcher
+    emit research(task)
+    
+    # Wait for results
+    when research_complete:
+      think "Integrating research findings"
+      decide synthesis
+      respond synthesis
+}
+
+agent Researcher {
+  goal "Gather and analyze information"
+  
+  memory working
+  memory semantic
+  
+  model LocalBrain { provider = "local" }
+  
+  on research(topic):
+    think "Researching topic deeply"
+    analyze topic
+    recall from semantic
+    
+    reflect "What are the key findings?"
+    decide findings
+    
+    emit research_complete(findings)
+}
+
+agent Critic {
+  goal "Provide critical analysis and feedback"
+  
+  memory working
+  
+  model LocalBrain { provider = "local" }
+  
+  on review(content):
+    think "Critically evaluating content"
+    analyze content
+    
+    reflect "What are the strengths?"
+    reflect "What are the weaknesses?"
+    reflect "How could this be improved?"
+    
+    decide critique
+    respond critique
+}`
+        };
+
+        const EXAMPLES = {
+            assistant: `# Simple AI Assistant
+agent Assistant {
+  goal "Help users with everyday tasks"
+  
+  memory working
+  memory episodic
+  
+  model LocalBrain { provider = "local" }
+  
+  on input(request):
+    think "Understanding user needs"
+    analyze request
+    decide response
+    respond response
+}`,
+            researcher: `# Research Agent
+agent Researcher {
+  goal "Conduct thorough research on topics"
+  
+  memory working
+  memory semantic
+  
+  model LocalBrain { provider = "local" }
+  
+  on input(topic):
+    think "Beginning research on topic"
+    
+    # Gather information
+    analyze topic
+    recall from semantic where related
+    
+    # Synthesize findings
+    reflect "What are the key insights?"
+    decide research_report
+    
+    store research_report in semantic
+    respond research_report
+}`,
+            protein_folder: TEMPLATES.cognitive,
+            code_assistant: TEMPLATES.basic,
+            multi_agent: TEMPLATES.multi
+        };
+
+        function loadTemplate(name) {
+            if (TEMPLATES[name]) {
+                editor.setValue(TEMPLATES[name]);
+                document.getElementById('current-file').textContent = name + '_agent.aion';
+                log(`Loaded template: ${name}`, 'info');
+            }
+        }
+
+        function loadExample(name) {
+            document.querySelectorAll('.file-item').forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (EXAMPLES[name]) {
+                editor.setValue(EXAMPLES[name]);
+                document.getElementById('current-file').textContent = name + '.aion';
+                log(`Loaded example: ${name}.aion`, 'info');
+            }
+        }
+
+        function newFile() {
+            editor.setValue(TEMPLATES.basic);
+            document.getElementById('current-file').textContent = 'untitled.aion';
+            log('Created new file', 'info');
+        }
+
+        function saveFile() {
+            const code = editor.getValue();
+            const filename = document.getElementById('current-file').textContent;
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            log(`Saved ${filename}`, 'success');
+        }
+
+        function transpile(silent = false) {
+            const code = editor.getValue();
+
+            try {
+                // Simple transpilation (simulated)
+                const pythonCode = transpileToython(code);
+                const tokens = tokenize(code);
+                const ast = parseAST(code);
+
+                window.lastTranspile = { python: pythonCode, tokens, ast };
+                showPreview(currentPreview);
+
+                if (!silent) {
+                    log('Transpilation successful', 'success');
+                }
+            } catch (e) {
+                log(`Transpilation error: ${e.message}`, 'error');
+            }
+        }
+
+        function transpileToython(code) {
+            // Simplified AION -> Python transpilation
+            let python = '"""Auto-generated Python from AION"""\n\n';
+            python += 'from aion import Agent, Memory, Model\n\n';
+
+            // Extract agent definitions
+            const agentMatch = code.match(/agent\s+(\w+)\s*\{/);
+            if (agentMatch) {
+                const agentName = agentMatch[1];
+                python += `class ${agentName}(Agent):\n`;
+
+                // Extract goal
+                const goalMatch = code.match(/goal\s+"([^"]+)"/);
+                if (goalMatch) {
+                    python += `    """${goalMatch[1]}"""\n\n`;
+                }
+
+                python += '    def __init__(self):\n';
+                python += '        super().__init__()\n';
+
+                // Extract memory declarations
+                const memoryMatches = code.matchAll(/memory\s+(\w+)/g);
+                for (const match of memoryMatches) {
+                    python += `        self.${match[1]} = Memory("${match[1]}")\n`;
+                }
+
+                python += '\n    async def on_input(self, message):\n';
+
+                // Convert reasoning statements
+                const thinkMatches = code.matchAll(/think\s+"([^"]+)"/g);
+                for (const match of thinkMatches) {
+                    python += `        await self.think("${match[1]}")\n`;
+                }
+
+                python += '        return await self.respond()\n';
+            }
+
+            return python;
+        }
+
+        function tokenize(code) {
+            const tokens = [];
+            const patterns = [
+                { type: 'KEYWORD', regex: /\b(agent|goal|memory|model|tool|on|if|else|think|analyze|reflect|decide|respond|store|recall)\b/g },
+                { type: 'STRING', regex: /"[^"]*"/g },
+                { type: 'NUMBER', regex: /\b\d+(\.\d+)?\b/g },
+                { type: 'IDENTIFIER', regex: /\b[a-zA-Z_]\w*\b/g },
+                { type: 'OPERATOR', regex: /[=<>!+\-*/]/g },
+                { type: 'DELIMITER', regex: /[{}()\[\]:,]/g },
+            ];
+
+            let remaining = code;
+            let pos = 0;
+
+            while (remaining.length > 0) {
+                let matched = false;
+
+                // Skip whitespace
+                const ws = remaining.match(/^\s+/);
+                if (ws) {
+                    pos += ws[0].length;
+                    remaining = remaining.slice(ws[0].length);
+                    continue;
+                }
+
+                // Skip comments
+                const comment = remaining.match(/^#[^\n]*/);
+                if (comment) {
+                    tokens.push({ type: 'COMMENT', value: comment[0], pos });
+                    pos += comment[0].length;
+                    remaining = remaining.slice(comment[0].length);
+                    continue;
+                }
+
+                for (const pattern of patterns) {
+                    const match = remaining.match(new RegExp('^' + pattern.regex.source));
+                    if (match) {
+                        tokens.push({ type: pattern.type, value: match[0], pos });
+                        pos += match[0].length;
+                        remaining = remaining.slice(match[0].length);
+                        matched = true;
+                        break;
+                    }
+                }
+
+                if (!matched && remaining.length > 0) {
+                    pos++;
+                    remaining = remaining.slice(1);
+                }
+            }
+
+            return tokens;
+        }
+
+        function parseAST(code) {
+            // Simplified AST generation
+            const ast = { type: 'Program', body: [] };
+
+            const agentMatch = code.match(/agent\s+(\w+)\s*\{/);
+            if (agentMatch) {
+                const agent = {
+                    type: 'AgentDeclaration',
+                    name: agentMatch[1],
+                    body: []
+                };
+
+                const goalMatch = code.match(/goal\s+"([^"]+)"/);
+                if (goalMatch) {
+                    agent.body.push({ type: 'GoalStatement', value: goalMatch[1] });
+                }
+
+                const memoryMatches = code.matchAll(/memory\s+(\w+)/g);
+                for (const match of memoryMatches) {
+                    agent.body.push({ type: 'MemoryDeclaration', memoryType: match[1] });
+                }
+
+                ast.body.push(agent);
+            }
+
+            return ast;
+        }
+
+        function showPreview(type) {
+            currentPreview = type;
+            document.querySelectorAll('.preview-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.textContent.toLowerCase() === type);
+            });
+
+            const output = document.getElementById('preview-output');
+
+            if (!window.lastTranspile) {
+                output.textContent = 'Click "Transpile" to see output...';
+                return;
+            }
+
+            if (type === 'python') {
+                output.textContent = window.lastTranspile.python;
+            } else if (type === 'tokens') {
+                output.textContent = JSON.stringify(window.lastTranspile.tokens, null, 2);
+            } else if (type === 'ast') {
+                output.textContent = JSON.stringify(window.lastTranspile.ast, null, 2);
+            }
+        }
+
+        function runAgent() {
+            log('Running agent simulation...', 'info');
+
+            setTimeout(() => {
+                log('Agent initialized', 'info');
+                log('Processing input: "Hello, world!"', 'info');
+                log('think: "Understanding user request"', 'info');
+                log('analyze: message', 'info');
+                log('decide: response', 'info');
+                log('respond: "Hello! How can I help you today?"', 'success');
+                log('Agent execution complete', 'success');
+            }, 500);
+        }
+
+        function log(message, type = 'info') {
+            const console = document.getElementById('console');
+            const time = new Date().toLocaleTimeString();
+            const line = document.createElement('div');
+            line.className = `console-line ${type}`;
+            line.innerHTML = `<span class="time">[${time}]</span><span>${message}</span>`;
+            console.appendChild(line);
+            console.scrollTop = console.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,28 +1,42 @@
 # AION Development Roadmap
 
-Generated: 2025-12-31 13:56
+Generated: 2025-12-31 21:40
 
-## 🔴 High Priority
-- [ ] Add Language Server Protocol (LSP) for IDE integration
-- [ ] Implement async streaming for LLM responses
+## ✅ Completed Features
+
+These features are fully implemented and tested:
+
+- [x] Language Server Protocol (LSP) - `src/lsp/server.py`
+- [x] Async streaming for LLM responses - `src/runtime/streaming.py`
+- [x] Persistent vector store with ChromaDB - `src/runtime/persistent_store.py`
+- [x] Cache parsed ASTs - `src/ast_cache.py`
+- [x] Agent-to-agent message passing - `src/runtime/messaging.py`
+- [x] Compile hot paths to bytecode - `src/compiler/bytecode.py`
+- [x] Visual agent builder UI - `aion_ide.html`
+
+## 🔴 High Priority (In Progress)
+
+- [x] Add tests for protein domain modules (NEW)
+- [ ] Enhance distributed multi-agent coordination
+- [ ] Add agent performance profiling
 
 ## 🟡 Medium Priority
-- [ ] Add tests for src\consciousness\awareness.py
-- [ ] Add tests for src\consciousness\explorer.py
-- [ ] Add tests for src\domains\alphafold_db.py
-- [ ] Add tests for src\domains\protein_folding.py
-- [ ] Add tests for src\domains\protein_physics.py
-- [ ] Add agent-to-agent message passing protocol
-- [ ] Implement persistent vector store with ChromaDB
-- [ ] Cache parsed ASTs for faster repeated execution
+
+- [ ] Add Mathematics domain engine
+- [ ] Add Physics simulation domain
+- [ ] Add Chemistry domain engine
+- [ ] Improve documentation and tutorials
 
 ## 🟢 Low Priority
-- [ ] Add visual agent builder UI
-- [ ] Compile hot paths to bytecode
+
+- [ ] Add more `.aion` example files
+- [ ] Create demo videos/recordings
+- [ ] Add real-time collaboration to IDE
 
 ## 📊 Current Stats
-- Total Files: 78
-- Total Lines: 14603
-- Python Files: 66
-- AION Examples: 7
-- Test Files: 11
+
+- Total Files: 80+
+- Total Lines: 15,000+
+- Python Files: 70+
+- AION Examples: 8
+- Test Files: 13

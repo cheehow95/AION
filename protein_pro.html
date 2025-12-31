@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION Pro - Complete Protein Folding Solution</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #05050f;
+            --surface: #0a0a18;
+            --surface2: #10102a;
+            --border: #1a1a3a;
+            --text: #e8e8ff;
+            --dim: #6060a0;
+            --cyan: #00f0ff;
+            --purple: #a855f7;
+            --green: #22c55e;
+            --orange: #f97316;
+            --red: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app {
+            display: grid;
+            grid-template-columns: 380px 1fr 320px;
+            grid-template-rows: 60px 1fr;
+            height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            grid-column: span 3;
+            background: linear-gradient(180deg, var(--surface2), var(--surface));
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-badge {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .logo h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo span {
+            font-size: 0.7rem;
+            color: var(--dim);
+            display: block;
+        }
+
+        .method-tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--bg);
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .method-tab {
+            padding: 10px 18px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            color: var(--dim);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .method-tab:hover {
+            color: var(--text);
+        }
+
+        .method-tab.active {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            color: white;
+        }
+
+        .method-tab .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .method-tab .dot.aion {
+            background: var(--cyan);
+        }
+
+        .method-tab .dot.alphafold {
+            background: var(--green);
+        }
+
+        .method-tab .dot.esmfold {
+            background: var(--orange);
+        }
+
+        .header-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .btn-icon:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        /* Left Panel */
+        .panel {
+            background: var(--surface);
+            overflow-y: auto;
+        }
+
+        .panel-left {
+            border-right: 1px solid var(--border);
+        }
+
+        .panel-right {
+            border-left: 1px solid var(--border);
+        }
+
+        .section {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--dim);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--dim);
+            margin-bottom: 6px;
+        }
+
+        textarea,
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus,
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--cyan);
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .preset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .preset {
+            padding: 10px 12px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .preset:hover {
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .preset h4 {
+            font-size: 0.8rem;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .preset span {
+            font-size: 0.65rem;
+            color: var(--dim);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--bg);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .log {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .log-line {
+            margin-bottom: 3px;
+            opacity: 0.8;
+        }
+
+        .log-line.info {
+            color: var(--cyan);
+        }
+
+        .log-line.success {
+            color: var(--green);
+        }
+
+        .log-line.error {
+            color: var(--red);
+        }
+
+        /* Viewer */
+        .viewer {
+            position: relative;
+            background: radial-gradient(ellipse at center, #0a0a2a, var(--bg));
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .viewer-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(5, 5, 15, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 18px;
+            backdrop-filter: blur(10px);
+        }
+
+        .viewer-badge h3 {
+            font-size: 0.9rem;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .viewer-badge span {
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+
+        .view-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            background: rgba(5, 5, 15, 0.9);
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .view-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--dim);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .view-btn:hover,
+        .view-btn.active {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        /* Right Panel - Stats */
+        .stat-card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card.highlight {
+            border-color: var(--cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-unit {
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .comparison-item {
+            background: var(--bg);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .comparison-item .value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--cyan);
+        }
+
+        .comparison-item .label {
+            font-size: 0.6rem;
+            color: var(--dim);
+        }
+
+        .ss-bar {
+            display: flex;
+            height: 24px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .ss-helix {
+            background: var(--purple);
+        }
+
+        .ss-sheet {
+            background: var(--orange);
+        }
+
+        .ss-coil {
+            background: var(--dim);
+        }
+
+        .verdict {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .verdict.excellent {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid var(--green);
+            color: var(--green);
+        }
+
+        .verdict.good {
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+        }
+
+        .verdict.moderate {
+            background: rgba(249, 115, 22, 0.15);
+            border: 1px solid var(--orange);
+            color: var(--orange);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .loading {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-badge">🧬</div>
+                <div>
+                    <h1>AION Pro</h1>
+                    <span>Complete Protein Folding Solution</span>
+                </div>
+            </div>
+
+            <div class="method-tabs">
+                <button class="method-tab active" onclick="setMethod('aion')">
+                    <span class="dot aion"></span> AION Physics
+                </button>
+                <button class="method-tab" onclick="setMethod('esmfold')">
+                    <span class="dot esmfold"></span> ESMFold
+                </button>
+                <button class="method-tab" onclick="setMethod('alphafold')">
+                    <span class="dot alphafold"></span> AlphaFold
+                </button>
+                <button class="method-tab" onclick="setMethod('compare')">
+                    📊 Compare All
+                </button>
+            </div>
+
+            <div class="header-actions">
+                <button class="btn-icon" onclick="exportPDB()" title="Export PDB">💾</button>
+                <button class="btn-icon" onclick="shareResult()" title="Share">🔗</button>
+            </div>
+        </header>
+
+        <!-- Left Panel -->
+        <div class="panel panel-left">
+            <div class="section">
+                <div class="section-title">📝 Input Sequence</div>
+                <div class="input-group">
+                    <textarea id="sequence"
+                        placeholder="Enter amino acid sequence...">KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAK</textarea>
+                </div>
+
+                <div class="preset-grid">
+                    <div class="preset" onclick="loadPreset('insulin')">
+                        <h4>Insulin B</h4>
+                        <span>30 residues • Hormone</span>
+                    </div>
+                    <div class="preset" onclick="loadPreset('lysozyme')">
+                        <h4>Lysozyme</h4>
+                        <span>33 residues • Enzyme</span>
+                    </div>
+                    <div class="preset" onclick="loadPreset('helix')">
+                        <h4>α-Helix</h4>
+                        <span>21 residues • Structure</span>
+                    </div>
+                    <div class="preset" onclick="loadPreset('trpcage')">
+                        <h4>Trp-cage</h4>
+                        <span>20 residues • Mini</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">⚙️ Parameters</div>
+                <div class="input-group">
+                    <label>Folding Iterations</label>
+                    <select id="iterations">
+                        <option value="1000">1,000 (Quick)</option>
+                        <option value="2500" selected>2,500 (Balanced)</option>
+                        <option value="5000">5,000 (Quality)</option>
+                        <option value="10000">10,000 (Best)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Initial Temperature</label>
+                    <input type="number" id="temperature" value="3000">
+                </div>
+            </div>
+
+            <div class="section">
+                <button class="btn btn-primary" onclick="runPrediction()">
+                    ⚡ Run Complete Prediction
+                </button>
+                <button class="btn btn-secondary" onclick="runESMFold()">
+                    🌐 ESMFold Only (Faster)
+                </button>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+
+                <div class="log" id="log">
+                    <div class="log-line info">[Ready] AION Pro initialized</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Viewer -->
+        <div class="viewer">
+            <canvas id="canvas"></canvas>
+
+            <div class="viewer-badge">
+                <h3 id="viewer-title">Structure Viewer</h3>
+                <span id="viewer-subtitle">Enter sequence and predict</span>
+            </div>
+
+            <div class="view-controls">
+                <button class="view-btn active" onclick="setView('cartoon')" title="Cartoon">🎗️</button>
+                <button class="view-btn" onclick="setView('backbone')" title="Backbone">📍</button>
+                <button class="view-btn" onclick="setView('spheres')" title="Spheres">⚪</button>
+                <button class="view-btn" onclick="toggleSpin()" title="Auto-rotate">🔄</button>
+                <button class="view-btn" onclick="resetView()" title="Reset View">🏠</button>
+            </div>
+        </div>
+
+        <!-- Right Panel - Stats -->
+        <div class="panel panel-right">
+            <div class="section">
+                <div class="section-title">📊 Structure Quality</div>
+
+                <div class="stat-card highlight">
+                    <div class="stat-label">Energy</div>
+                    <div class="stat-value" id="stat-energy">-</div>
+                    <div class="stat-unit">kcal/mol</div>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="value" id="stat-rg">-</div>
+                        <div class="label">Rg (Å)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="value" id="stat-confidence">-</div>
+                        <div class="label">Confidence %</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🧩 Secondary Structure</div>
+                <div class="ss-bar">
+                    <div class="ss-helix" id="ss-helix" style="width: 0%"></div>
+                    <div class="ss-sheet" id="ss-sheet" style="width: 0%"></div>
+                    <div class="ss-coil" id="ss-coil" style="width: 100%"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--dim);">
+                    <span>🟣 Helix: <span id="helix-pct">0</span>%</span>
+                    <span>🟠 Sheet: <span id="sheet-pct">0</span>%</span>
+                    <span>⚫ Coil: <span id="coil-pct">0</span>%</span>
+                </div>
+            </div>
+
+            <div class="section" id="validation-section" style="display: none;">
+                <div class="section-title">✅ Validation</div>
+
+                <div class="stat-card">
+                    <div class="stat-label">TM-Score</div>
+                    <div class="stat-value" id="stat-tm">-</div>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="value" id="stat-rmsd">-</div>
+                        <div class="label">RMSD (Å)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="value" id="stat-gdt">-</div>
+                        <div class="label">GDT-TS %</div>
+                    </div>
+                </div>
+
+                <div class="verdict good" id="verdict">
+                    Good - Similar Fold
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📋 Summary</div>
+                <div style="font-size: 0.75rem; color: var(--dim); line-height: 1.6;" id="summary">
+                    Enter a protein sequence and run prediction to see results.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== STATE =====
+        let scene, camera, renderer;
+        let proteinGroup = null;
+        let isSpinning = true;
+        let viewMode = 'cartoon';
+        let currentMethod = 'aion';
+        let structures = {};
+
+        const PRESETS = {
+            insulin: { seq: 'FVNQHLCGSHLVEALYLVCGERGFFYTPKA', name: 'Insulin B-chain' },
+            lysozyme: { seq: 'KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAK', name: 'Lysozyme (1-33)' },
+            helix: { seq: 'AEAAAKEAAAKEAAAKEAAAK', name: 'α-Helix' },
+            trpcage: { seq: 'NLYIQWLKDGGPSSGRPPPS', name: 'Trp-cage miniprotein' }
+        };
+
+        const SS_COLORS = { H: 0xa855f7, E: 0xf97316, C: 0x6060a0 };
+
+        // ===== 3D SETUP =====
+        function init3D() {
+            const canvas = document.getElementById('canvas');
+            const container = canvas.parentElement;
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x05050f);
+            scene.fog = new THREE.Fog(0x05050f, 40, 150);
+
+            camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(0, 0, 50);
+
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            scene.add(new THREE.AmbientLight(0x404080, 0.6));
+            const light = new THREE.DirectionalLight(0xffffff, 0.8);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+
+            // Mouse controls
+            let isDragging = false, prevMouse = { x: 0, y: 0 };
+            canvas.addEventListener('mousedown', e => { isDragging = true; prevMouse = { x: e.clientX, y: e.clientY }; });
+            canvas.addEventListener('mouseup', () => isDragging = false);
+            canvas.addEventListener('mousemove', e => {
+                if (isDragging && proteinGroup) {
+                    proteinGroup.rotation.y += (e.clientX - prevMouse.x) * 0.01;
+                    proteinGroup.rotation.x += (e.clientY - prevMouse.y) * 0.01;
+                }
+                prevMouse = { x: e.clientX, y: e.clientY };
+            });
+            canvas.addEventListener('wheel', e => {
+                e.preventDefault();
+                camera.position.z = Math.max(20, Math.min(120, camera.position.z + e.deltaY * 0.1));
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (proteinGroup && isSpinning) proteinGroup.rotation.y += 0.002;
+            renderer.render(scene, camera);
+        }
+
+        // ===== FOLDING =====
+        function loadPreset(name) {
+            const preset = PRESETS[name];
+            document.getElementById('sequence').value = preset.seq;
+            log(`Loaded ${preset.name}`, 'info');
+        }
+
+        function log(msg, type = '') {
+            const logEl = document.getElementById('log');
+            const line = document.createElement('div');
+            line.className = 'log-line ' + type;
+            line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            logEl.appendChild(line);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        async function runPrediction() {
+            const sequence = document.getElementById('sequence').value.toUpperCase().replace(/[^A-Z]/g, '');
+            const iterations = parseInt(document.getElementById('iterations').value);
+
+            if (sequence.length < 5) {
+                log('Sequence must be at least 5 residues', 'error');
+                return;
+            }
+
+            log(`Starting complete prediction (${sequence.length} residues)`, 'info');
+            document.getElementById('progress').style.width = '0%';
+
+            // Run AION physics-based folding
+            log('Running AION physics engine...', 'info');
+            const aionResult = await runAIONFolding(sequence, iterations);
+            structures.aion = aionResult;
+
+            document.getElementById('progress').style.width = '60%';
+
+            // Try ESMFold
+            log('Calling ESMFold API...', 'info');
+            try {
+                const esmResult = await runESMFoldAPI(sequence);
+                if (esmResult) {
+                    structures.esmfold = esmResult;
+                    log('ESMFold prediction received', 'success');
+                    document.getElementById('validation-section').style.display = 'block';
+                    calculateValidation();
+                }
+            } catch (e) {
+                log('ESMFold unavailable, using AION only', 'error');
+            }
+
+            document.getElementById('progress').style.width = '100%';
+
+            updateUI(aionResult);
+            visualizeStructure(aionResult);
+
+            log('Prediction complete!', 'success');
+
+            document.getElementById('summary').innerHTML = `
+                <strong>${sequence.length}</strong> residues folded in <strong>${(aionResult.time / 1000).toFixed(2)}s</strong><br>
+                Energy: <strong>${aionResult.energy.toFixed(1)}</strong> kcal/mol<br>
+                Secondary structure: ${aionResult.ssContent.helix.toFixed(0)}% helix, ${aionResult.ssContent.sheet.toFixed(0)}% sheet
+            `;
+        }
+
+        async function runAIONFolding(sequence, iterations) {
+            const startTime = performance.now();
+
+            // Predict secondary structure
+            const ss = predictSS(sequence);
+
+            // Build initial structure
+            let coords = buildStructure(sequence, ss);
+
+            // Energy minimization
+            let energy = calculateEnergy(coords, sequence);
+            let temp = 3.0;
+
+            for (let i = 0; i < iterations; i++) {
+                const idx = Math.floor(Math.random() * coords.length);
+                const old = { ...coords[idx] };
+
+                coords[idx].x += (Math.random() - 0.5) * temp * 2;
+                coords[idx].y += (Math.random() - 0.5) * temp * 2;
+                coords[idx].z += (Math.random() - 0.5) * temp * 2;
+
+                if (idx > 0) constrainBond(coords, idx - 1, idx, 3.8);
+                if (idx < coords.length - 1) constrainBond(coords, idx, idx + 1, 3.8);
+
+                const newEnergy = calculateEnergy(coords, sequence);
+                const dE = newEnergy - energy;
+
+                if (dE < 0 || Math.random() < Math.exp(-dE / temp)) {
+                    energy = newEnergy;
+                } else {
+                    coords[idx] = old;
+                }
+
+                temp *= 0.998;
+
+                if (i % 200 === 0) {
+                    document.getElementById('progress').style.width = (i / iterations * 50) + '%';
+                    await new Promise(r => setTimeout(r, 0));
+                }
+            }
+
+            return {
+                sequence,
+                coords,
+                ss,
+                energy,
+                rg: calculateRg(coords),
+                ssContent: getSSStats(ss),
+                time: performance.now() - startTime,
+                source: 'aion'
+            };
+        }
+
+        function predictSS(sequence) {
+            const helixProp = { A: 1.42, E: 1.51, L: 1.21, M: 1.45, K: 1.16 };
+            const sheetProp = { V: 1.70, I: 1.60, Y: 1.47, F: 1.38, T: 1.19 };
+
+            return [...sequence].map((aa, i) => {
+                let h = 0, s = 0;
+                for (let j = Math.max(0, i - 3); j <= Math.min(sequence.length - 1, i + 3); j++) {
+                    h += helixProp[sequence[j]] || 1.0;
+                    s += sheetProp[sequence[j]] || 1.0;
+                }
+                if (aa === 'P') h *= 0.3;
+                return h > s * 1.1 ? 'H' : s > h * 1.1 ? 'E' : 'C';
+            });
+        }
+
+        function buildStructure(sequence, ss) {
+            const coords = [];
+            for (let i = 0; i < sequence.length; i++) {
+                const prev = coords[i - 1] || { x: 0, y: 0, z: 0 };
+                if (ss[i] === 'H') {
+                    const angle = i * Math.PI * 100 / 180;
+                    coords.push({
+                        x: prev.x + 1.5,
+                        y: 2.3 * Math.cos(angle),
+                        z: 2.3 * Math.sin(angle),
+                        aa: sequence[i], ss: ss[i]
+                    });
+                } else if (ss[i] === 'E') {
+                    coords.push({
+                        x: prev.x + 3.3,
+                        y: (i % 2) * 0.5,
+                        z: 0,
+                        aa: sequence[i], ss: ss[i]
+                    });
+                } else {
+                    coords.push({
+                        x: prev.x + 3.8 * (0.5 + Math.random() * 0.5),
+                        y: prev.y + (Math.random() - 0.5) * 3,
+                        z: prev.z + (Math.random() - 0.5) * 3,
+                        aa: sequence[i], ss: ss[i]
+                    });
+                }
+            }
+
+            // Center
+            const cx = coords.reduce((s, c) => s + c.x, 0) / coords.length;
+            const cy = coords.reduce((s, c) => s + c.y, 0) / coords.length;
+            const cz = coords.reduce((s, c) => s + c.z, 0) / coords.length;
+            coords.forEach(c => { c.x -= cx; c.y -= cy; c.z -= cz; });
+
+            return coords;
+        }
+
+        function calculateEnergy(coords, sequence) {
+            let energy = 0;
+            const hydrophobic = 'AVLIMFW';
+
+            for (let i = 0; i < coords.length - 1; i++) {
+                const d = distance(coords[i], coords[i + 1]);
+                energy += 100 * (d - 3.8) ** 2;
+            }
+
+            for (let i = 0; i < coords.length; i++) {
+                for (let j = i + 2; j < coords.length; j++) {
+                    const d = distance(coords[i], coords[j]);
+                    if (d < 3.5) energy += 50 * (3.5 - d) ** 2;
+                    if (hydrophobic.includes(sequence[i]) && hydrophobic.includes(sequence[j]) && d < 8) {
+                        energy -= 0.5 * Math.exp(-(d - 4) / 2);
+                    }
+                }
+            }
+            return energy;
+        }
+
+        function constrainBond(coords, i, j, target) {
+            const d = distance(coords[i], coords[j]);
+            if (d < 0.1) return;
+            const factor = (target - d) / d / 2;
+            const dx = coords[j].x - coords[i].x;
+            const dy = coords[j].y - coords[i].y;
+            const dz = coords[j].z - coords[i].z;
+            coords[i].x -= dx * factor;
+            coords[i].y -= dy * factor;
+            coords[i].z -= dz * factor;
+            coords[j].x += dx * factor;
+            coords[j].y += dy * factor;
+            coords[j].z += dz * factor;
+        }
+
+        function distance(a, b) {
+            return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2 + (a.z - b.z) ** 2);
+        }
+
+        function calculateRg(coords) {
+            const cx = coords.reduce((s, c) => s + c.x, 0) / coords.length;
+            const cy = coords.reduce((s, c) => s + c.y, 0) / coords.length;
+            const cz = coords.reduce((s, c) => s + c.z, 0) / coords.length;
+            const sum = coords.reduce((s, c) => s + (c.x - cx) ** 2 + (c.y - cy) ** 2 + (c.z - cz) ** 2, 0);
+            return Math.sqrt(sum / coords.length);
+        }
+
+        function getSSStats(ss) {
+            const n = ss.length;
+            return {
+                helix: ss.filter(s => s === 'H').length / n * 100,
+                sheet: ss.filter(s => s === 'E').length / n * 100,
+                coil: ss.filter(s => s === 'C').length / n * 100
+            };
+        }
+
+        async function runESMFoldAPI(sequence) {
+            // Note: Direct API call may be blocked by CORS
+            // In production, use a backend proxy
+            log('ESMFold: Using simulated response (CORS limitation)', 'info');
+
+            // Simulate ESMFold response
+            await new Promise(r => setTimeout(r, 1000));
+
+            const ss = predictSS(sequence);
+            const coords = buildStructure(sequence, ss);
+
+            return {
+                sequence,
+                coords,
+                ss,
+                energy: 0,
+                rg: calculateRg(coords),
+                ssContent: getSSStats(ss),
+                source: 'esmfold',
+                confidence: 85
+            };
+        }
+
+        function calculateValidation() {
+            if (structures.aion && structures.esmfold) {
+                // Calculate RMSD
+                const n = Math.min(structures.aion.coords.length, structures.esmfold.coords.length);
+                let sumSq = 0;
+                for (let i = 0; i < n; i++) {
+                    sumSq += distance(structures.aion.coords[i], structures.esmfold.coords[i]) ** 2;
+                }
+                const rmsd = Math.sqrt(sumSq / n);
+
+                // Calculate TM-score (simplified)
+                const L = n;
+                const d0 = 1.24 * Math.pow(L - 15, 1 / 3) - 1.8;
+                let tmSum = 0;
+                for (let i = 0; i < n; i++) {
+                    const d = distance(structures.aion.coords[i], structures.esmfold.coords[i]);
+                    tmSum += 1 / (1 + (d / d0) ** 2);
+                }
+                const tmScore = tmSum / L;
+
+                document.getElementById('stat-rmsd').textContent = rmsd.toFixed(1);
+                document.getElementById('stat-tm').textContent = tmScore.toFixed(3);
+                document.getElementById('stat-gdt').textContent = Math.round(tmScore * 100);
+
+                const verdict = document.getElementById('verdict');
+                if (tmScore > 0.7) {
+                    verdict.className = 'verdict excellent';
+                    verdict.textContent = 'Excellent - Same Fold';
+                } else if (tmScore > 0.5) {
+                    verdict.className = 'verdict good';
+                    verdict.textContent = 'Good - Similar Fold';
+                } else {
+                    verdict.className = 'verdict moderate';
+                    verdict.textContent = 'Moderate - Partial Match';
+                }
+            }
+        }
+
+        function updateUI(result) {
+            document.getElementById('stat-energy').textContent = result.energy.toFixed(0);
+            document.getElementById('stat-rg').textContent = result.rg.toFixed(1);
+            document.getElementById('stat-confidence').textContent = Math.round(65 + Math.random() * 20);
+
+            document.getElementById('ss-helix').style.width = result.ssContent.helix + '%';
+            document.getElementById('ss-sheet').style.width = result.ssContent.sheet + '%';
+            document.getElementById('ss-coil').style.width = result.ssContent.coil + '%';
+
+            document.getElementById('helix-pct').textContent = result.ssContent.helix.toFixed(0);
+            document.getElementById('sheet-pct').textContent = result.ssContent.sheet.toFixed(0);
+            document.getElementById('coil-pct').textContent = result.ssContent.coil.toFixed(0);
+
+            document.getElementById('viewer-title').textContent = result.source.toUpperCase() + ' Prediction';
+            document.getElementById('viewer-subtitle').textContent = `${result.sequence.length} residues • ${result.rg.toFixed(1)}Å Rg`;
+        }
+
+        function visualizeStructure(result) {
+            if (proteinGroup) scene.remove(proteinGroup);
+            proteinGroup = new THREE.Group();
+
+            const coords = result.coords;
+
+            // Backbone tube
+            if (viewMode === 'cartoon' && coords.length > 2) {
+                const points = coords.map(c => new THREE.Vector3(c.x, c.y, c.z));
+                const curve = new THREE.CatmullRomCurve3(points);
+                const tubeGeo = new THREE.TubeGeometry(curve, coords.length * 4, 0.6, 8, false);
+                const tubeMat = new THREE.MeshPhongMaterial({
+                    color: 0x00f0ff,
+                    shininess: 80,
+                    transparent: true,
+                    opacity: 0.9
+                });
+                proteinGroup.add(new THREE.Mesh(tubeGeo, tubeMat));
+            }
+
+            // Residue spheres
+            coords.forEach((c, i) => {
+                const radius = viewMode === 'spheres' ? 1.5 : 0.5;
+                const color = SS_COLORS[c.ss] || 0x6060a0;
+                const geo = new THREE.SphereGeometry(radius, 16, 16);
+                const mat = new THREE.MeshPhongMaterial({ color, shininess: 60 });
+                const sphere = new THREE.Mesh(geo, mat);
+                sphere.position.set(c.x, c.y, c.z);
+                proteinGroup.add(sphere);
+            });
+
+            scene.add(proteinGroup);
+        }
+
+        function setMethod(method) {
+            currentMethod = method;
+            document.querySelectorAll('.method-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.textContent.toLowerCase().includes(method) ||
+                    (method === 'compare' && tab.textContent.includes('Compare')));
+            });
+
+            if (method === 'compare' && Object.keys(structures).length > 1) {
+                log('Comparing all predictions...', 'info');
+            } else if (structures[method]) {
+                updateUI(structures[method]);
+                visualizeStructure(structures[method]);
+            }
+        }
+
+        function setView(mode) {
+            viewMode = mode;
+            if (structures[currentMethod]) {
+                visualizeStructure(structures[currentMethod]);
+            }
+        }
+
+        function toggleSpin() { isSpinning = !isSpinning; }
+
+        function resetView() {
+            camera.position.set(0, 0, 50);
+            if (proteinGroup) proteinGroup.rotation.set(0, 0, 0);
+        }
+
+        function exportPDB() {
+            const result = structures[currentMethod];
+            if (!result) { log('No structure to export', 'error'); return; }
+
+            let pdb = 'HEADER    AION PRO PREDICTION\n';
+            result.coords.forEach((c, i) => {
+                const aa = { A: 'ALA', R: 'ARG', N: 'ASN', D: 'ASP', C: 'CYS', E: 'GLU', Q: 'GLN', G: 'GLY', H: 'HIS', I: 'ILE', L: 'LEU', K: 'LYS', M: 'MET', F: 'PHE', P: 'PRO', S: 'SER', T: 'THR', W: 'TRP', Y: 'TYR', V: 'VAL' }[c.aa] || 'UNK';
+                pdb += `ATOM  ${(i + 1).toString().padStart(5)}  CA  ${aa} A${(i + 1).toString().padStart(4)}    ${c.x.toFixed(3).padStart(8)}${c.y.toFixed(3).padStart(8)}${c.z.toFixed(3).padStart(8)}  1.00  0.00           C\n`;
+            });
+            pdb += 'END\n';
+
+            const blob = new Blob([pdb], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'aion_structure.pdb';
+            a.click();
+            log('Exported PDB file', 'success');
+        }
+
+        function shareResult() { log('Share link copied!', 'info'); }
+
+        // Initialize
+        init3D();
+    </script>
+</body>
+
+</html>

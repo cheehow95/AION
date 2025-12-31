@@ -1,0 +1,175 @@
+"""
+AION v2.0 Language Features Demo
+================================
+This example showcases all new language features in AION 2.0:
+- Async/Await for concurrent operations
+- Pattern Matching with match/case
+- Pipeline Operator |>
+- Type Hints with ::
+- Imports and Exports
+- Try/Catch error handling
+- For loops
+"""
+
+# === IMPORTS ===
+# Import modules and agents
+import utils.helpers as helpers
+import agents.specialized.Researcher
+
+# Export this agent for use by others
+export agent AdvancedAgent
+
+# === TYPE DEFINITIONS ===
+# Define custom types for better type safety
+type Message = {
+  content: String,
+  sender: String,
+  timestamp: Number,
+  metadata: Map
+}
+
+type Response = {
+  text: String,
+  confidence: Number,
+  sources: List[String]
+}
+
+# === ADVANCED AGENT ===
+agent AdvancedAgent {
+  goal "Demonstrate AION 2.0 advanced features"
+  
+  # Memory with type hints
+  memory working :: Map[String, Any]
+  memory episodic :: List[Message]
+  memory semantic :: VectorStore
+  
+  model GPT4 {
+    provider = "openai"
+    name = "gpt-4"
+    temperature = 0.7
+  }
+  
+  # === ASYNC EVENT HANDLER ===
+  async on input(message :: Message):
+    think "Processing message asynchronously"
+    
+    # === PIPELINE OPERATOR ===
+    # Chain operations elegantly with |>
+    result = message 
+      |> analyze 
+      |> enrich_with_context 
+      |> generate_response
+    
+    # === PARALLEL EXECUTION ===
+    # Run multiple tasks concurrently
+    parallel:
+      task1 = spawn search_knowledge_base(message)
+      task2 = spawn get_recent_context()
+      task3 = spawn analyze_sentiment(message)
+    
+    # Wait for all parallel tasks
+    results = await join(task1, task2, task3)
+    
+    # === PATTERN MATCHING ===
+    match message.content:
+      case "help" | "助けて" | "帮助":
+        respond show_help()
+      
+      case pattern /^search (.+)$/ as query:
+        results = await search(query)
+        respond results
+      
+      case pattern /^remind me (.+) at (.+)$/ as (task, time):
+        await schedule_reminder(task, time)
+        respond "Reminder set for {time}"
+      
+      case _ where message.sender == "admin":
+        think "Admin request, prioritizing"
+        respond await handle_admin(message)
+      
+      default:
+        respond await generate_response(message)
+    
+    store message in episodic
+  
+  # === TRY/CATCH ERROR HANDLING ===
+  on error(err):
+    try:
+      think "Attempting error recovery"
+      
+      match err.type:
+        case "network":
+          await retry_with_backoff()
+        case "timeout":
+          respond "Request timed out, please try again"
+        case "rate_limit":
+          await wait_for_rate_limit()
+        default:
+          raise err
+    
+    catch recoveryErr:
+      think "Recovery failed, escalating"
+      emit escalate(err, recoveryErr)
+    
+    finally:
+      store err in episodic  # Always log errors
+
+  # === FOR LOOPS ===
+  async function process_batch(items :: List[Message]) -> List[Response]:
+    responses = []
+    
+    for each item in items:
+      if item.priority > 0.8:
+        response = await handle_priority(item)
+      else:
+        response = await handle_normal(item)
+      
+      responses.push(response)
+    
+    return responses
+  
+  # === HELPER WITH TYPE ANNOTATIONS ===
+  function enrich_with_context(msg :: Message) -> Message:
+    context = recall from semantic where relevant_to(msg)
+    return msg with { context: context }
+}
+
+# === MULTI-AGENT COLLABORATION ===
+agent Coordinator {
+  goal "Coordinate multiple specialized agents"
+  
+  memory working
+  
+  model Orchestrator { provider = "local" }
+  
+  async on input(task):
+    # Spawn specialized agents in parallel
+    parallel:
+      research = spawn Researcher.investigate(task)
+      analysis = spawn Analyst.evaluate(task)
+      code = spawn Coder.implement(task)
+    
+    # Wait for all results
+    results = await join(research, analysis, code)
+    
+    # Synthesize using pipeline
+    final = results 
+      |> merge_findings
+      |> validate_consistency
+      |> format_output
+    
+    respond final
+}
+
+# === DECORATOR PATTERN ===
+@logged
+@rate_limited(max_calls=100, per_minute=1)
+agent RateLimitedAgent {
+  goal "Agent with rate limiting"
+  
+  memory working
+  model LocalBrain { provider = "local" }
+  
+  on input(msg):
+    respond process(msg)
+}

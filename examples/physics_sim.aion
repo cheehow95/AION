@@ -1,0 +1,105 @@
+// AION Physics Simulator Agent
+// An agent that can run physics simulations
+
+model PhysicsModel {
+  provider = "local"
+  engine = "physics_engine"
+}
+
+tool projectile_motion {
+  description = "Simulate projectile motion"
+  trust = high
+  input = (velocity: number, angle: number, drag: number)
+  output = dict
+}
+
+tool orbital_mechanics {
+  description = "Calculate orbital parameters"
+  trust = high
+  input = (radius: number, central_mass: number)
+  output = dict
+}
+
+tool electric_field {
+  description = "Calculate electric field from charges"
+  trust = high
+  input = (charges: list, point: tuple)
+  output = dict
+}
+
+tool wave_properties {
+  description = "Calculate wave properties"
+  trust = high
+  input = (amplitude: number, wavelength: number, frequency: number)
+  output = dict
+}
+
+agent PhysicsSimulator {
+  goal "Simulate and analyze physical phenomena"
+  
+  memory working
+  memory episodic
+  
+  model PhysicsModel
+  
+  tool projectile_motion
+  tool orbital_mechanics
+  tool electric_field
+  tool wave_properties
+  
+  state {
+    simulation_type = ""
+    parameters = {}
+    results = {}
+  }
+  
+  on input(query):
+    think "Understanding the physics problem"
+    remember query
+    
+    analyze query
+    extract simulation_type
+    extract parameters
+    
+    if simulation_type == "projectile":
+      results = use projectile_motion(
+        parameters.velocity,
+        parameters.angle,
+        parameters.drag
+      )
+      
+    elif simulation_type == "orbital":
+      results = use orbital_mechanics(
+        parameters.radius,
+        parameters.central_mass
+      )
+      
+    elif simulation_type == "electrostatic":
+      results = use electric_field(
+        parameters.charges,
+        parameters.point
+      )
+      
+    elif simulation_type == "wave":
+      results = use wave_properties(
+        parameters.amplitude,
+        parameters.wavelength,
+        parameters.frequency
+      )
+    
+    analyze results
+    explain physical_meaning
+    
+    respond results
+
+  on query "launch at $velocity m/s at $angle degrees":
+    think "Simulating projectile motion"
+    results = use projectile_motion(velocity, angle, 0)
+    respond "Max range: {results.max_range}m, Max height: {results.max_height}m"
+
+  on query "orbit at $altitude km":
+    think "Calculating orbital parameters"
+    radius = 6.371e6 + altitude * 1000
+    results = use orbital_mechanics(radius, 5.972e24)
+    respond "Orbital velocity: {results.orbital_velocity / 1000} km/s"
+}

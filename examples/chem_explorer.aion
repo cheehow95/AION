@@ -1,0 +1,103 @@
+// AION Chemistry Explorer Agent
+// An agent for molecular analysis and chemical reactions
+
+model ChemistryModel {
+  provider = "local"
+  engine = "chemistry_engine"
+}
+
+tool molecular_weight {
+  description = "Calculate molecular weight from formula"
+  trust = high
+  input = (formula: string)
+  output = number
+}
+
+tool parse_formula {
+  description = "Parse molecular formula into composition"
+  trust = high
+  input = (formula: string)
+  output = dict
+}
+
+tool balance_equation {
+  description = "Balance a chemical equation"
+  trust = high
+  input = (reactants: list, products: list)
+  output = string
+}
+
+tool calculate_pH {
+  description = "Calculate pH from H+ concentration"
+  trust = high
+  input = (concentration: number)
+  output = number
+}
+
+tool stoichiometry {
+  description = "Calculate reaction yields"
+  trust = high
+  input = (reaction: string, amounts: dict, product: string)
+  output = dict
+}
+
+agent ChemistryExplorer {
+  goal "Analyze molecules and chemical reactions"
+  
+  memory working
+  memory long_term
+  
+  model ChemistryModel
+  
+  tool molecular_weight
+  tool parse_formula
+  tool balance_equation
+  tool calculate_pH
+  tool stoichiometry
+  
+  state {
+    current_molecule = ""
+    reaction = ""
+    analysis = {}
+  }
+  
+  on input(query):
+    think "Understanding the chemistry question"
+    remember query
+    
+    analyze query
+    
+    if query contains "molecular weight" or query contains "molar mass":
+      formula = extract formula from query
+      result = use molecular_weight(formula)
+      respond "The molecular weight of {formula} is {result} g/mol"
+      
+    elif query contains "balance":
+      reactants, products = extract_reaction_parts(query)
+      balanced = use balance_equation(reactants, products)
+      respond balanced
+      
+    elif query contains "pH":
+      concentration = extract concentration from query
+      pH = use calculate_pH(concentration)
+      respond "The pH is {pH}"
+      
+    elif query contains "yield" or query contains "stoichiometry":
+      reaction = extract reaction from query
+      amounts = extract amounts from query
+      product = extract product from query
+      result = use stoichiometry(reaction, amounts, product)
+      respond "Limiting reagent: {result.limiting_reagent}, Yield: {result.theoretical_yield_grams} g"
+
+  on query "what is the molecular weight of $formula":
+    result = use molecular_weight(formula)
+    respond "{formula} has molecular weight {result} g/mol"
+
+  on query "balance $reactants -> $products":
+    balanced = use balance_equation(reactants.split("+"), products.split("+"))
+    respond balanced
+
+  on query "pH of $concentration M HCl":
+    pH = use calculate_pH(concentration)
+    respond "pH = {pH}"
+}

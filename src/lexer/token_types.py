@@ -67,6 +67,41 @@ class TokenType(Enum):
     TRUE = auto()
     FALSE = auto()
     
+    # === NEW FEATURES (v2.0) ===
+    
+    # Async/Await - For concurrent agent operations
+    ASYNC = auto()
+    AWAIT = auto()
+    
+    # Pattern Matching - Match on message types
+    MATCH = auto()
+    CASE = auto()
+    DEFAULT = auto()
+    
+    # Imports - Module system
+    IMPORT = auto()
+    EXPORT = auto()
+    AS = auto()
+    
+    # Type Hints - Optional type annotations
+    TYPE = auto()
+    ARROW = auto()         # ->
+    
+    # Concurrency
+    PARALLEL = auto()
+    SPAWN = auto()
+    JOIN = auto()
+    
+    # Advanced Control Flow
+    TRY = auto()
+    CATCH = auto()
+    FINALLY = auto()
+    RETURN = auto()
+    BREAK = auto()
+    CONTINUE = auto()
+    FOR = auto()
+    EACH = auto()
+    
     # Operators
     PLUS = auto()          # +
     MINUS = auto()         # -
@@ -79,6 +114,10 @@ class TokenType(Enum):
     GT = auto()            # >
     LTE = auto()           # <=
     GTE = auto()           # >=
+    PIPE = auto()          # |> (pipeline operator)
+    AT = auto()            # @ (decorator)
+    QUESTION = auto()      # ? (optional chaining)
+    DOUBLECOLON = auto()   # :: (type annotation)
     
     # Delimiters
     LPAREN = auto()        # (
@@ -164,4 +203,49 @@ KEYWORDS = {
     'true': TokenType.TRUE,
     'false': TokenType.FALSE,
     'null': TokenType.NULL,
+    
+    # === NEW v2.0 KEYWORDS ===
+    
+    # Async/Await
+    'async': TokenType.ASYNC,
+    'await': TokenType.AWAIT,
+    
+    # Pattern Matching
+    'match': TokenType.MATCH,
+    'case': TokenType.CASE,
+    'default': TokenType.DEFAULT,
+    
+    # Imports
+    'import': TokenType.IMPORT,
+    'export': TokenType.EXPORT,
+    'as': TokenType.AS,
+    
+    # Type system
+    'type': TokenType.TYPE,
+    
+    # Concurrency
+    'parallel': TokenType.PARALLEL,
+    'spawn': TokenType.SPAWN,
+    'join': TokenType.JOIN,
+    
+    # Advanced control flow
+    'try': TokenType.TRY,
+    'catch': TokenType.CATCH,
+    'finally': TokenType.FINALLY,
+    'return': TokenType.RETURN,
+    'break': TokenType.BREAK,
+    'continue': TokenType.CONTINUE,
+    'for': TokenType.FOR,
+    'each': TokenType.EACH,
+}
+
+# Operator mapping for multi-character operators
+OPERATORS = {
+    '|>': TokenType.PIPE,
+    '->': TokenType.ARROW,
+    '::': TokenType.DOUBLECOLON,
+    '==': TokenType.EQEQ,
+    '!=': TokenType.NEQ,
+    '<=': TokenType.LTE,
+    '>=': TokenType.GTE,
 }

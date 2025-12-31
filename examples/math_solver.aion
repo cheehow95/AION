@@ -1,0 +1,89 @@
+// AION Math Explorer Agent
+// An agent that can solve mathematical problems
+
+model MathModel {
+  provider = "local"
+  engine = "math_engine"
+}
+
+tool differentiate {
+  description = "Differentiate a mathematical expression"
+  trust = high
+  input = (expr: string, var: string)
+  output = string
+}
+
+tool evaluate {
+  description = "Evaluate a mathematical expression"
+  trust = high
+  input = (expr: string, variables: dict)
+  output = number
+}
+
+tool solve_equation {
+  description = "Solve a polynomial equation"
+  trust = high
+  input = (a: number, b: number, c: number)
+  output = list
+}
+
+tool matrix_determinant {
+  description = "Calculate matrix determinant"
+  trust = high
+  input = (matrix: list)
+  output = number
+}
+
+agent MathExplorer {
+  goal "Solve mathematical problems using symbolic computation and reasoning"
+  
+  memory working
+  memory long_term
+  
+  model MathModel
+  
+  tool differentiate
+  tool evaluate
+  tool solve_equation
+  tool matrix_determinant
+  
+  state {
+    current_problem = ""
+    solution_steps = []
+    final_answer = ""
+  }
+  
+  on input(problem):
+    think "Analyzing the mathematical problem"
+    remember problem
+    
+    analyze problem
+    classify problem_type
+    
+    if problem_type == "derivative":
+      use differentiate
+    elif problem_type == "equation":
+      use solve_equation
+    elif problem_type == "evaluation":
+      use evaluate
+    elif problem_type == "matrix":
+      use matrix_determinant
+    
+    reflect on solution
+    
+    if needs_verification:
+      verify solution
+    
+    decide final_answer
+    respond final_answer
+
+  on query "differentiate $expr with respect to $var":
+    think "Computing derivative"
+    result = use differentiate(expr, var)
+    respond result
+
+  on query "evaluate $expr at $values":
+    think "Evaluating expression"
+    result = use evaluate(expr, values)
+    respond result
+}

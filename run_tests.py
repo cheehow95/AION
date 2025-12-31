@@ -392,6 +392,71 @@ def test_runtime_advanced():
     
     print("ADVANCED RUNTIME: All tests passed!")
 
+def test_protein_domains():
+    print("\n=== PROTEIN DOMAIN TESTS ===")
+    
+    # Test 1: Protein folding module
+    from src.domains.protein_folding import (
+        AA_PROPERTIES, ProteinFolder, analyze_sequence, ProteinStructure
+    )
+    
+    # Test amino acid properties
+    assert len(AA_PROPERTIES) == 20
+    assert AA_PROPERTIES["I"].hydrophobicity > 4.0  # Isoleucine is hydrophobic
+    print("✓ Amino acid properties")
+    
+    # Test sequence analysis
+    result = analyze_sequence("AAKDE")
+    assert result['length'] == 5
+    assert 'net_charge' in result
+    print("✓ Sequence analysis")
+    
+    # Test protein folder
+    folder = ProteinFolder("AAAA")
+    structure = folder.generate_random_conformation()
+    assert len(structure.coordinates) == 4
+    print("✓ Protein folder")
+    
+    # Test 2: Protein physics module
+    from src.domains.protein_physics import (
+        SecondaryStructure, BackboneAngles, AMINO_ACID_CHEMISTRY,
+        ProteinStructurePredictor
+    )
+    
+    # Test secondary structure
+    assert SecondaryStructure.HELIX.value == "helix"
+    print("✓ Secondary structure")
+    
+    # Test backbone angles
+    helix = BackboneAngles.alpha_helix()
+    assert helix.phi == -60
+    print("✓ Backbone angles")
+    
+    # Test chemistry database
+    assert len(AMINO_ACID_CHEMISTRY) == 20
+    assert AMINO_ACID_CHEMISTRY['P'].is_proline is True
+    print("✓ Amino acid chemistry")
+    
+    # Test structure prediction
+    predictor = ProteinStructurePredictor("AEAAAK")
+    residues = predictor.predict()
+    assert len(residues) == 6
+    print("✓ Structure prediction")
+    
+    # Test 3: AlphaFold DB module
+    from src.domains.alphafold_db import AlphaFoldDB, PROTEOMES
+    
+    db = AlphaFoldDB()
+    urls = db.get_structure_urls("P00533")
+    assert 'pdb' in urls
+    assert 'alphafold' in urls['pdb'].lower()
+    print("✓ AlphaFold DB client")
+    
+    assert len(PROTEOMES) >= 8
+    print("✓ Proteome database")
+    
+    print("PROTEIN DOMAINS: All tests passed!")
+
 
 if __name__ == "__main__":
     print("=" * 50)
@@ -413,6 +478,7 @@ if __name__ == "__main__":
         test_streaming()
         test_persistent_store()
         test_runtime_advanced()
+        test_protein_domains()
         
         print("\n" + "=" * 50)
         print("ALL TESTS PASSED! ✓")
