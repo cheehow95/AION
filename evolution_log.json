@@ -2,11 +2,11 @@
   "improvements": [],
   "metrics": {
     "codebase": {
-      "total_files": 81,
-      "total_lines": 14755,
-      "python_files": 68,
-      "aion_files": 7,
-      "test_files": 11,
+      "total_files": 95,
+      "total_lines": 22858,
+      "python_files": 78,
+      "aion_files": 11,
+      "test_files": 12,
       "modules": [
         "transpiler",
         "builder",
@@ -22,12 +22,18 @@
       ],
       "missing_tests": [
         "src/transpiler/codegen.py",
+        "src/domains/chemistry_engine.py",
         "src/domains/protein_physics.py",
+        "src/domains/structure_api.py",
         "src/domains/alphafold_db.py",
+        "src/domains/physics_engine.py",
+        "src/domains/protein_engine.py",
+        "src/domains/math_engine.py",
         "src/domains/protein_folding.py",
         "src/domains/protein_solver.py",
         "src/tools/search.py",
         "src/runtime/reflexion.py",
+        "src/runtime/reasoning_strategies.py",
         "src/runtime/vector_memory.py",
         "src/runtime/distributed.py",
         "src/runtime/reasoning.py",
@@ -44,18 +50,23 @@
         "src/consciousness/knowledge_sync.py",
         "src/consciousness/explorer.py",
         "src/consciousness/sync_state.py",
+        "src/consciousness/meta_cognition.py",
         "src/consciousness/awareness.py",
+        "src/consciousness/goal_architecture.py",
+        "src/consciousness/self_modifier.py",
         "src/lsp/server.py"
       ],
       "missing_docs": []
     },
     "tests": {
-      "passed": 48,
-      "failed": 0,
-      "errors": [],
-      "duration_ms": 213.15092600002572,
-      "status": "success"
+      "passed": 0,
+      "failed": 1,
+      "errors": [
+        "Traceback (most recent call last):\n  File \"/home/runner/work/AION/AION/run_tests.py\", line 481, in <module>\n    test_protein_domains()\n  File \"/home/runner/work/AION/AION/run_tests.py\", line 399, in test_protein_domains\n    from src.domains.protein_folding import (\n  File \"/home/runner/work/AION/AION/./src/domains/__init__.py\", line 2, in <module>\n    from .protein_folding import (\n  File \"/home/runner/work/AION/AION/./src/domains/protein_folding.py\", line 9, in <module>\n    import numpy as np\nM"
+      ],
+      "duration_ms": 208.49700799999482,
+      "status": "failed"
     }
   },
-  "last_updated": "2025-12-31T06:27:34.112955"
+  "last_updated": "2026-01-01T01:52:02.180308"
 }
