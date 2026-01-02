@@ -44,7 +44,22 @@
       "title": "Nested Browser-Use Learning for Agentic Information Seeking",
       "summary": "Information-seeking (IS) agents have achieved strong performance across a range of wide and deep search tasks, yet their tool use remains largely restricted to API-level snippet retrieval and URL-base...",
       "fetched": "2026-01-01T01:52:02.694403"
+    },
+    {
+      "title": "SpaceTimePilot: Generative Rendering of Dynamic Scenes Across Space and Time",
+      "summary": "We present SpaceTimePilot, a video diffusion model that disentangles space and time for controllable generative rendering. Given a monocular video, SpaceTimePilot can independently alter the camera vi...",
+      "fetched": "2026-01-02T01:43:45.531080"
+    },
+    {
+      "title": "Coordinated Humanoid Manipulation with Choice Policies",
+      "summary": "Humanoid robots hold great promise for operating in human-centric environments, yet achieving robust whole-body coordination across the head, hands, and legs remains a major challenge. We present a sy...",
+      "fetched": "2026-01-02T01:43:45.531090"
+    },
+    {
+      "title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
+      "summary": "Resource-management tasks in modern operating and distributed systems continue to rely primarily on hand-designed heuristics for tasks such as scheduling, caching, or active queue management. Designin...",
+      "fetched": "2026-01-02T01:43:45.531092"
     }
   ],
-  "last_sync": "2026-01-01T01:52:02.734008"
+  "last_sync": "2026-01-02T01:43:45.624230"
 }
