@@ -1,11 +1,36 @@
 (* ============================================
-   AION - Artificial Intelligence Oriented Notation
+   AION v2.0 - Artificial Intelligence Oriented Notation
    Formal Grammar Specification (EBNF)
+   Complete grammar with all v2.0 features
    ============================================ *)
 
 (* ---- Top Level ---- *)
 program         = { declaration } ;
-declaration     = agent_decl | model_decl | tool_decl | policy_decl ;
+declaration     = import_stmt
+                | export_decl
+                | type_def
+                | decorated_decl
+                | agent_decl 
+                | model_decl 
+                | tool_decl 
+                | policy_decl ;
+
+(* ---- v2.0: Imports/Exports ---- *)
+import_stmt     = "import" module_path [ "as" IDENTIFIER ] ;
+module_path     = IDENTIFIER { "." IDENTIFIER } ;
+export_decl     = "export" ( "agent" | "tool" | "model" ) IDENTIFIER ;
+
+(* ---- v2.0: Type Definitions ---- *)
+type_def        = "type" IDENTIFIER "=" "{" type_fields "}" ;
+type_fields     = { type_field [ "," ] } ;
+type_field      = IDENTIFIER ":" type_annotation_inline ;
+type_annotation = "::" type_annotation_inline ;
+type_annotation_inline = IDENTIFIER [ "[" type_params "]" ] ;
+type_params     = IDENTIFIER { "," IDENTIFIER } ;
+
+(* ---- v2.0: Decorators ---- *)
+decorated_decl  = decorator { decorator } declaration ;
+decorator       = "@" IDENTIFIER [ "(" [ arg_list ] ")" ] ;
 
 (* ---- Agent Declaration ---- *)
 agent_decl      = "agent" IDENTIFIER "{" agent_body "}" ;
@@ -15,20 +40,22 @@ agent_member    = goal_stmt
                 | model_ref 
                 | tool_ref 
                 | event_handler 
+                | async_event_handler
+                | function_def
                 | policy_block ;
 
 goal_stmt       = "goal" STRING ;
 
 (* ---- Memory ---- *)
-memory_decl     = "memory" memory_type [ memory_config ] ;
-memory_type     = "working" | "episodic" | "long_term" | "semantic" ;
+memory_decl     = "memory" memory_type [ type_annotation ] [ memory_config ] ;
+memory_type     = "working" | "episodic" | "long_term" | "semantic" | IDENTIFIER ;
 memory_config   = "{" { config_pair } "}" ;
 config_pair     = IDENTIFIER "=" value ;
 
 (* ---- Model Declaration ---- *)
 model_decl      = "model" IDENTIFIER [ "{" model_body "}" ] ;
 model_body      = { config_pair } ;
-model_ref       = "model" IDENTIFIER ;
+model_ref       = "model" IDENTIFIER [ "{" model_body "}" ] ;
 
 (* ---- Tool Declaration ---- *)
 tool_decl       = "tool" IDENTIFIER [ "{" tool_body "}" ] ;
@@ -42,15 +69,24 @@ policy_body     = { config_pair } ;
 
 (* ---- Event Handlers ---- *)
 event_handler   = "on" event_type "(" [ param_list ] ")" ":" statement_block ;
+async_event_handler = "async" "on" event_type "(" [ typed_param_list ] ")" ":" statement_block ;
 event_type      = "input" | "error" | "timeout" | "complete" ;
 param_list      = IDENTIFIER { "," IDENTIFIER } ;
+typed_param_list = typed_param { "," typed_param } ;
+typed_param     = IDENTIFIER [ type_annotation ] ;
+
+(* ---- v2.0: Function Definitions ---- *)
+function_def    = [ "async" ] "function" IDENTIFIER "(" [ typed_param_list ] ")" [ "->" type_annotation_inline ] ":" statement_block ;
 
 (* ---- Statements ---- *)
-statement_block = statement { statement } ;
+statement_block = INDENT { statement } DEDENT | statement ;
 statement       = reasoning_stmt
                 | control_stmt
                 | action_stmt
-                | assignment_stmt ;
+                | assignment_stmt
+                | expression_stmt ;
+
+expression_stmt = expression ;
 
 (* ---- Reasoning Statements (First-Class) ---- *)
 reasoning_stmt  = think_stmt | analyze_stmt | reflect_stmt | decide_stmt ;
@@ -61,11 +97,45 @@ reflect_stmt    = "reflect" [ "on" expression ] ;
 decide_stmt     = "decide" expression ;
 
 (* ---- Control Flow ---- *)
-control_stmt    = if_stmt | when_stmt | loop_stmt ;
+control_stmt    = if_stmt 
+                | when_stmt 
+                | loop_stmt 
+                | match_stmt 
+                | try_stmt 
+                | for_stmt
+                | parallel_block
+                | return_stmt 
+                | break_stmt 
+                | continue_stmt
+                | raise_stmt ;
 
 if_stmt         = "if" expression ":" statement_block [ "else" ":" statement_block ] ;
 when_stmt       = "when" expression ":" statement_block ;
 loop_stmt       = "repeat" [ expression "times" ] ":" statement_block ;
+
+(* ---- v2.0: Pattern Matching ---- *)
+match_stmt      = "match" expression ":" INDENT { case_clause } DEDENT ;
+case_clause     = ( "case" pattern_list [ "as" binding ] [ "where" expression ] | "default" ) ":" statement_block ;
+pattern_list    = pattern { "|" pattern } ;
+pattern         = expression | "pattern" REGEX [ "as" "(" binding_list ")" ] | "_" ;
+binding         = IDENTIFIER | "(" binding_list ")" ;
+binding_list    = IDENTIFIER { "," IDENTIFIER } ;
+
+(* ---- v2.0: Error Handling ---- *)
+try_stmt        = "try" ":" statement_block 
+                  [ "catch" [ IDENTIFIER ] ":" statement_block ]
+                  [ "finally" ":" statement_block ] ;
+raise_stmt      = "raise" expression ;
+
+(* ---- v2.0: Loops ---- *)
+for_stmt        = "for" [ "each" ] IDENTIFIER "in" expression ":" statement_block ;
+return_stmt     = "return" [ expression ] ;
+break_stmt      = "break" ;
+continue_stmt   = "continue" ;
+
+(* ---- v2.0: Concurrency ---- *)
+parallel_block  = "parallel" ":" statement_block ;
+spawn_stmt      = IDENTIFIER "=" "spawn" expression ;
 
 (* ---- Actions ---- *)
 action_stmt     = use_stmt | respond_stmt | emit_stmt | store_stmt | recall_stmt ;
@@ -76,43 +146,91 @@ emit_stmt       = "emit" IDENTIFIER [ "(" [ arg_list ] ")" ] ;
 store_stmt      = "store" expression [ "in" IDENTIFIER ] ;
 recall_stmt     = "recall" [ "from" IDENTIFIER ] [ "where" expression ] ;
 
+(* ---- Assignment ---- *)
+assignment_stmt = IDENTIFIER "=" expression ;
+
 (* ---- Expressions ---- *)
-expression      = logic_or ;
+expression      = pipeline_expr ;
+pipeline_expr   = logic_or { "|>" logic_or } ;
 logic_or        = logic_and { "or" logic_and } ;
 logic_and       = comparison { "and" comparison } ;
 comparison      = term { ( ">" | "<" | ">=" | "<=" | "==" | "!=" ) term } ;
 term            = factor { ( "+" | "-" ) factor } ;
 factor          = unary { ( "*" | "/" ) unary } ;
-unary           = [ "not" ] primary ;
-primary         = literal | IDENTIFIER | "(" expression ")" | member_access ;
-member_access   = IDENTIFIER { "." IDENTIFIER } ;
+unary           = [ "not" | "-" | "await" | "spawn" ] postfix ;
+postfix         = primary { call_suffix | member_suffix | index_suffix } ;
 
-(* ---- Assignment ---- *)
-assignment_stmt = IDENTIFIER "=" expression ;
+call_suffix     = "(" [ arg_list ] ")" ;
+member_suffix   = "." IDENTIFIER ;
+index_suffix    = "[" expression "]" ;
+
+primary         = literal 
+                | IDENTIFIER 
+                | "(" expression ")" 
+                | list_literal 
+                | map_literal 
+                | join_expr
+                | with_expr ;
+
+(* ---- v2.0: Join Expression ---- *)
+join_expr       = "join" "(" [ arg_list ] ")" ;
+
+(* ---- v2.0: With Expression ---- *)
+with_expr       = primary "with" map_literal ;
 
 (* ---- Literals ---- *)
 literal         = STRING | NUMBER | BOOLEAN | "null" ;
 arg_list        = expression { "," expression } ;
 value           = STRING | NUMBER | BOOLEAN | "null" | list_literal ;
-list_literal    = "[" [ value { "," value } ] "]" ;
+list_literal    = "[" [ expression { "," expression } ] "]" ;
+map_literal     = "{" [ map_entry { "," map_entry } ] "}" ;
+map_entry       = IDENTIFIER ":" expression ;
 
 (* ---- Tokens ---- *)
 IDENTIFIER      = LETTER { LETTER | DIGIT | "_" } ;
-STRING          = '"' { CHARACTER } '"' ;
+STRING          = '"' { CHARACTER | ESCAPE | INTERPOLATION } '"' ;
+INTERPOLATION   = "{" expression "}" ;
 NUMBER          = [ "-" ] DIGIT { DIGIT } [ "." DIGIT { DIGIT } ] ;
 BOOLEAN         = "true" | "false" ;
+REGEX           = "/" { CHARACTER } "/" ;
 LETTER          = "a".."z" | "A".."Z" ;
 DIGIT           = "0".."9" ;
 CHARACTER       = ? any character except quote ? ;
+ESCAPE          = "\" ( "n" | "t" | "r" | '"' | "\" ) ;
 
 (* ---- Comments ---- *)
 comment         = "#" { CHARACTER } NEWLINE ;
+block_comment   = '"""' { CHARACTER } '"""' ;
+
+(* ---- Operators ---- *)
+(* Multi-character operators:
+   |>  pipeline
+   ->  arrow (return type)
+   ::  type annotation
+   ==  equals
+   !=  not equals
+   <=  less than or equal
+   >=  greater than or equal
+*)
 
 (* ---- Reserved Keywords ---- *)
-(* agent, model, tool, policy, memory, goal,
+(* 
+   v1.0 Keywords:
+   agent, model, tool, policy, memory, goal,
    working, episodic, long_term, semantic,
    think, analyze, reflect, decide,
    on, input, error, timeout, complete,
    if, else, when, repeat, times,
    use, respond, emit, store, recall, from, where, in,
-   and, or, not, true, false, null *)
+   and, or, not, true, false, null
+   
+   v2.0 Keywords:
+   import, export, as, type,
+   async, await, 
+   match, case, default, pattern,
+   try, catch, finally, raise,
+   function, return, break, continue,
+   for, each,
+   parallel, spawn, join,
+   with
+*)

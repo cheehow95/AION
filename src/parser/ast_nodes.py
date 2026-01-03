@@ -320,3 +320,303 @@ class ListLiteral(Expression):
     
     def accept(self, visitor: ASTVisitor) -> Any:
         return visitor.visit_list_literal(self)
+
+
+# ============ v2.0 Features: Imports/Exports ============
+
+@dataclass
+class ImportStmt(ASTNode):
+    """Import statement: import path.to.module as alias"""
+    module_path: str
+    alias: Optional[str] = None
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_import_stmt(self)
+
+
+@dataclass
+class ExportDecl(ASTNode):
+    """Export declaration: export agent/tool/model Name"""
+    export_type: str  # 'agent', 'tool', 'model'
+    target_name: str
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_export_decl(self)
+
+
+# ============ v2.0 Features: Type System ============
+
+@dataclass
+class TypeDef(ASTNode):
+    """Type definition: type Name = { field: Type, ... }"""
+    name: str
+    fields: dict[str, 'TypeAnnotation'] = field(default_factory=dict)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_type_def(self)
+
+
+@dataclass
+class TypeAnnotation(ASTNode):
+    """Type annotation: :: Type or :: Type[T]"""
+    type_name: str
+    type_params: list[str] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_type_annotation(self)
+
+
+# ============ v2.0 Features: Async/Await ============
+
+@dataclass
+class AsyncEventHandler(ASTNode):
+    """Async event handler: async on event(params):"""
+    event_type: str
+    params: list[str] = field(default_factory=list)
+    param_types: list[Optional['TypeAnnotation']] = field(default_factory=list)
+    body: list[ASTNode] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_async_event_handler(self)
+
+
+@dataclass
+class AwaitExpr(Expression):
+    """Await expression: await expr"""
+    expression: Expression
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_await_expr(self)
+
+
+# ============ v2.0 Features: Pattern Matching ============
+
+@dataclass
+class MatchStmt(ASTNode):
+    """Match statement: match expr: case patterns..."""
+    target: Expression
+    cases: list['CaseClause'] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_match_stmt(self)
+
+
+@dataclass
+class CaseClause(ASTNode):
+    """Case clause with pattern, guard, and body."""
+    patterns: list[Expression] = field(default_factory=list)  # Multiple patterns with |
+    guard: Optional[Expression] = None  # where condition
+    binding: Optional[str] = None  # as name
+    body: list[ASTNode] = field(default_factory=list)
+    is_default: bool = False
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_case_clause(self)
+
+
+@dataclass
+class PatternExpr(Expression):
+    """Pattern expression: pattern /regex/ as binding"""
+    regex: str
+    bindings: list[str] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_pattern_expr(self)
+
+
+# ============ v2.0 Features: Error Handling ============
+
+@dataclass
+class TryStmt(ASTNode):
+    """Try/catch/finally statement."""
+    try_body: list[ASTNode] = field(default_factory=list)
+    catch_param: Optional[str] = None
+    catch_body: list[ASTNode] = field(default_factory=list)
+    finally_body: list[ASTNode] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_try_stmt(self)
+
+
+@dataclass
+class RaiseStmt(ASTNode):
+    """Raise statement: raise expr"""
+    expression: Expression
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_raise_stmt(self)
+
+
+# ============ v2.0 Features: Function Definitions ============
+
+@dataclass
+class FunctionDef(ASTNode):
+    """Function definition with optional async and type annotations."""
+    name: str
+    params: list['ParamDef'] = field(default_factory=list)
+    return_type: Optional[TypeAnnotation] = None
+    body: list[ASTNode] = field(default_factory=list)
+    is_async: bool = False
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_function_def(self)
+
+
+@dataclass
+class ParamDef(ASTNode):
+    """Parameter definition: name :: Type"""
+    name: str
+    type_annotation: Optional[TypeAnnotation] = None
+    default_value: Optional[Expression] = None
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_param_def(self)
+
+
+@dataclass
+class ReturnStmt(ASTNode):
+    """Return statement: return expr"""
+    value: Optional[Expression] = None
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_return_stmt(self)
+
+
+@dataclass
+class BreakStmt(ASTNode):
+    """Break statement in loops."""
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_break_stmt(self)
+
+
+@dataclass
+class ContinueStmt(ASTNode):
+    """Continue statement in loops."""
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_continue_stmt(self)
+
+
+# ============ v2.0 Features: Loops ============
+
+@dataclass
+class ForStmt(ASTNode):
+    """For each loop: for each item in collection:"""
+    variable: str
+    iterable: Expression
+    body: list[ASTNode] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_for_stmt(self)
+
+
+# ============ v2.0 Features: Concurrency ============
+
+@dataclass
+class ParallelBlock(ASTNode):
+    """Parallel block: parallel: spawn tasks..."""
+    statements: list[ASTNode] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_parallel_block(self)
+
+
+@dataclass
+class SpawnExpr(Expression):
+    """Spawn expression: spawn call()"""
+    expression: Expression
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_spawn_expr(self)
+
+
+@dataclass
+class JoinExpr(Expression):
+    """Join expression: join(task1, task2, ...)"""
+    tasks: list[Expression] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_join_expr(self)
+
+
+# ============ v2.0 Features: Pipeline & Expressions ============
+
+@dataclass
+class PipelineExpr(Expression):
+    """Pipeline expression: expr |> func1 |> func2"""
+    initial: Expression
+    stages: list[Expression] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_pipeline_expr(self)
+
+
+@dataclass
+class CallExpr(Expression):
+    """Function/method call: func(args)"""
+    callee: Expression
+    args: list[Expression] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_call_expr(self)
+
+
+@dataclass
+class MapLiteral(Expression):
+    """Map/object literal: { key: value, ... }"""
+    entries: list[tuple[str, Expression]] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_map_literal(self)
+
+
+@dataclass
+class WithExpr(Expression):
+    """With expression: obj with { updates }"""
+    base: Expression
+    updates: 'MapLiteral'
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_with_expr(self)
+
+
+@dataclass
+class IndexExpr(Expression):
+    """Index expression: arr[index]"""
+    object: Expression
+    index: Expression
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_index_expr(self)
+
+
+@dataclass
+class StringInterpolation(Expression):
+    """String with interpolation: "Hello {name}"."""
+    parts: list[Any] = field(default_factory=list)  # Alternating str and Expression
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_string_interpolation(self)
+
+
+# ============ v2.0 Features: Decorators ============
+
+@dataclass
+class DecoratorExpr(ASTNode):
+    """Decorator: @name or @name(args)"""
+    name: str
+    args: list[Expression] = field(default_factory=list)
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_decorator_expr(self)
+
+
+@dataclass
+class DecoratedDecl(ASTNode):
+    """A declaration with decorators applied."""
+    decorators: list[DecoratorExpr] = field(default_factory=list)
+    declaration: ASTNode = None
+    
+    def accept(self, visitor: ASTVisitor) -> Any:
+        return visitor.visit_decorated_decl(self)

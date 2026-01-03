@@ -45,15 +45,19 @@ class TestASTCache:
     
     def test_lru_eviction(self):
         """Test LRU eviction when cache is full."""
+        import time
         cache = ASTCache(max_size=3)
         
-        # Fill the cache
+        # Fill the cache with delays to ensure distinct timestamps
         cache.put("source1", {'ast': 1})
+        time.sleep(0.01)
         cache.put("source2", {'ast': 2})
+        time.sleep(0.01)
         cache.put("source3", {'ast': 3})
         
         # Access source1 to make it recently used
         cache.get("source1")
+        time.sleep(0.01)
         
         # Add new item - should evict source2 (least recently used)
         cache.put("source4", {'ast': 4})

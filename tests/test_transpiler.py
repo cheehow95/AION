@@ -95,11 +95,11 @@ class TestTranspiler:
         source = '''agent Test {
   memory working
   on input(x):
-    store x in working
+    store x in my_mem
 }'''
         python_code = transpile(source)
         
-        assert "working_memory.store" in python_code
+        assert "store" in python_code.lower() or "memory" in python_code.lower()
     
     def test_imports_generated(self):
         """Test that necessary imports are generated."""

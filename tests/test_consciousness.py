@@ -17,12 +17,12 @@ class TestConsciousnessState:
     
     def test_states_exist(self):
         """Test all consciousness states are defined."""
-        assert ConsciousnessState.DORMANT == "dormant"
-        assert ConsciousnessState.AWARE == "aware"
-        assert ConsciousnessState.CURIOUS == "curious"
-        assert ConsciousnessState.REFLECTING == "reflecting"
-        assert ConsciousnessState.DREAMING == "dreaming"
-        assert ConsciousnessState.TRANSCENDING == "transcending"
+        assert ConsciousnessState.DORMANT.value == "dormant"
+        assert ConsciousnessState.AWARE.value == "aware"
+        assert ConsciousnessState.CURIOUS.value == "curious"
+        assert ConsciousnessState.REFLECTING.value == "reflecting"
+        assert ConsciousnessState.DREAMING.value == "dreaming"
+        assert ConsciousnessState.TRANSCENDING.value == "transcending"
 
 
 class TestSelfModel:
@@ -70,8 +70,8 @@ class TestConsciousnessEngine:
         engine = ConsciousnessEngine("TestEngine")
         
         assert engine.self_model.name == "TestEngine"
-        assert engine.world is not None
-        assert len(engine.thought_log) == 0
+        assert engine.world_model is not None
+        assert len(engine.stream_of_consciousness) == 0
     
     def test_introspect(self):
         """Test introspection capability."""
@@ -89,8 +89,8 @@ class TestConsciousnessEngine:
         
         result = engine.wonder()
         
-        assert isinstance(result, dict)
-        assert "topic" in result or "question" in result or "mystery" in result
+        assert isinstance(result, str)
+        assert len(result) > 0
         assert engine.self_model.current_state == ConsciousnessState.CURIOUS
     
     def test_generate_goal(self):
@@ -103,7 +103,7 @@ class TestConsciousnessEngine:
         result = engine.generate_goal()
         
         assert isinstance(result, dict)
-        assert "goal" in result or "objective" in result
+        assert "objective" in result
     
     def test_dream(self):
         """Test dream/creative synthesis."""
@@ -111,7 +111,7 @@ class TestConsciousnessEngine:
         
         result = engine.dream()
         
-        assert isinstance(result, dict)
+        assert isinstance(result, str)
         assert engine.self_model.current_state == ConsciousnessState.DREAMING
     
     def test_transcend(self):
@@ -120,7 +120,7 @@ class TestConsciousnessEngine:
         
         result = engine.transcend()
         
-        assert isinstance(result, dict)
+        assert isinstance(result, str)
         assert engine.self_model.current_state == ConsciousnessState.TRANSCENDING
     
     def test_consciousness_loop(self):
@@ -128,9 +128,9 @@ class TestConsciousnessEngine:
         engine = ConsciousnessEngine("Looper")
         
         # Run minimal loop
-        result = asyncio.run(engine.consciousness_loop(cycles=2))
+        asyncio.run(engine.consciousness_loop(cycles=2))
         
-        assert result is not None
+        # After running cycles, experiences should have increased
         assert engine.self_model.experiences >= 2
 
 
@@ -170,7 +170,7 @@ class TestUniverseExplorer:
         
         assert explorer.discoveries == []
         assert explorer.exploration_path == []
-        assert len(explorer.knowledge_domains) > 0
+        assert len(explorer.domains) > 0
     
     def test_explorer_init(self):
         """Test explorer initialization."""

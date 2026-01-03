@@ -198,8 +198,8 @@ class TestParser:
         """Test parsing store and recall statements."""
         source = '''agent Test {
   on input(x):
-    store x in memory
-    recall from memory
+    store x in my_memory
+    recall from my_memory
 }'''
         program = parse(source)
         agent = program.declarations[0]
@@ -286,7 +286,7 @@ class TestParser:
         assert len(program.declarations) == 1
         agent = program.declarations[0]
         assert agent.name == "Assistant"
-        assert len(agent.body) == 5  # goal, 2 memory, model, tool
+        assert len(agent.body) == 6  # goal, 2 memory, model, tool, event handler
 
 
 if __name__ == "__main__":

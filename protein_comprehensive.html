@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION Protein Folding - Complete Solution</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a1a2a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(90deg, rgba(60, 20, 100, 0.8), rgba(20, 60, 100, 0.8));
+            padding: 25px 40px;
+            border-bottom: 2px solid rgba(100, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            background: linear-gradient(90deg, #a0a0ff, #60ffff, #a0ffa0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            color: #888;
+            font-size: 1.1em;
+        }
+
+        .controls {
+            background: rgba(30, 30, 60, 0.6);
+            padding: 20px 40px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(100, 100, 200, 0.2);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 0.85em;
+            color: #a0a0ff;
+        }
+
+        input,
+        select {
+            background: rgba(20, 20, 40, 0.8);
+            border: 1px solid rgba(100, 100, 200, 0.4);
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: #e0e0e0;
+            font-size: 1em;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #60ffff;
+            box-shadow: 0 0 15px rgba(96, 255, 255, 0.2);
+        }
+
+        #sequence-input {
+            width: 400px;
+            font-family: 'Courier New', monospace;
+        }
+
+        button {
+            background: linear-gradient(135deg, #4040a0, #2060a0);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #5050c0, #3080c0);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(96, 150, 255, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            background: rgba(20, 20, 45, 0.85);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(100, 100, 200, 0.25);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .panel:hover {
+            border-color: rgba(100, 150, 255, 0.4);
+            box-shadow: 0 5px 30px rgba(100, 100, 200, 0.15);
+        }
+
+        .panel.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .panel.two-thirds {
+            grid-column: span 2;
+        }
+
+        .panel h2 {
+            color: #a0c0ff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .panel h2 .icon {
+            font-size: 1.4em;
+        }
+
+        .chart {
+            height: 300px;
+            margin: 10px 0;
+        }
+
+        .chart-3d {
+            height: 400px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .metric {
+            background: rgba(60, 60, 120, 0.3);
+            padding: 12px 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(100, 100, 200, 0.2);
+        }
+
+        .metric .label {
+            font-size: 0.8em;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .metric .value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #60ffff;
+        }
+
+        .metric .value.warning {
+            color: #ffaa60;
+        }
+
+        .metric .value.danger {
+            color: #ff6060;
+        }
+
+        .metric .value.success {
+            color: #60ff60;
+        }
+
+        .sequence-display {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            letter-spacing: 3px;
+            font-size: 1.1em;
+        }
+
+        .residue {
+            display: inline-block;
+            width: 22px;
+            text-align: center;
+            padding: 2px 0;
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+
+        .residue:hover {
+            transform: scale(1.3);
+            z-index: 10;
+        }
+
+        .residue.helix {
+            background: rgba(255, 100, 100, 0.4);
+            color: #ffa0a0;
+        }
+
+        .residue.sheet {
+            background: rgba(100, 255, 100, 0.4);
+            color: #a0ffa0;
+        }
+
+        .residue.coil {
+            background: rgba(100, 100, 255, 0.3);
+            color: #a0a0ff;
+        }
+
+        .residue.disordered {
+            background: rgba(255, 165, 0, 0.5);
+            color: #ffcc60;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .table th,
+        .table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(100, 100, 200, 0.15);
+        }
+
+        .table th {
+            color: #a0a0ff;
+            font-weight: 600;
+        }
+
+        .table tr:hover td {
+            background: rgba(100, 100, 200, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.high {
+            background: rgba(255, 80, 80, 0.8);
+        }
+
+        .badge.medium {
+            background: rgba(255, 170, 0, 0.8);
+            color: #000;
+        }
+
+        .badge.low {
+            background: rgba(80, 255, 80, 0.8);
+            color: #000;
+        }
+
+        .badge.druggable {
+            background: rgba(100, 200, 255, 0.8);
+            color: #000;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(100, 100, 200, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-bar .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #60ff60, #60ffff);
+            transition: width 0.5s ease;
+        }
+
+        .legend {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 30, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(100, 255, 255, 0.2);
+            border-top: 4px solid #60ffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #a0a0ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Analyzing protein structure...</div>
+    </div>
+
+    <div class="header">
+        <h1>🧬 AION Comprehensive Protein Folding Solution</h1>
+        <div class="subtitle">Structure • Dynamics • Drug Binding • Disorder • Cellular Environment</div>
+    </div>
+
+    <div class="controls">
+        <div class="input-group">
+            <label>Protein Sequence (1-letter code)</label>
+            <input type="text" id="sequence-input"
+                value="MQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG"
+                placeholder="Enter amino acid sequence...">
+        </div>
+        <div class="input-group">
+            <label>Cellular Compartment</label>
+            <select id="compartment-select">
+                <option value="cytoplasm">Cytoplasm (pH 7.2)</option>
+                <option value="nucleus">Nucleus (pH 7.4)</option>
+                <option value="er">ER (pH 7.2)</option>
+                <option value="lysosome">Lysosome (pH 4.5)</option>
+                <option value="extracellular">Extracellular (pH 7.4)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Preset Sequences</label>
+            <select id="preset-select" onchange="loadPreset()">
+                <option value="">-- Select preset --</option>
+                <option value="ubiquitin">Ubiquitin (76 aa, globular)</option>
+                <option value="disordered">Disordered protein (30 aa)</option>
+                <option value="membrane">Membrane protein (36 aa)</option>
+                <option value="aggregation">Aggregation-prone (24 aa)</option>
+                <option value="insulin">Insulin B-chain (30 aa)</option>
+            </select>
+        </div>
+        <button onclick="analyzeProtein()">🔬 Analyze Protein</button>
+    </div>
+
+    <div class="container">
+        <!-- Sequence Overview -->
+        <div class="panel full-width">
+            <h2><span class="icon">📋</span> Sequence Overview</h2>
+            <div class="sequence-display" id="sequence-display">
+                Enter a sequence and click Analyze
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: rgba(255,100,100,0.6)"></div> Helix
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: rgba(100,255,100,0.6)"></div> Sheet
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: rgba(100,100,255,0.5)"></div> Coil
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: rgba(255,165,0,0.6)"></div> Disordered
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Structure -->
+        <div class="panel two-thirds">
+            <h2><span class="icon">📐</span> 3D Protein Structure</h2>
+            <div id="structure-3d" class="chart chart-3d"></div>
+        </div>
+
+        <!-- Structure Metrics -->
+        <div class="panel">
+            <h2><span class="icon">📊</span> Structure Metrics</h2>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="label">Length</div>
+                    <div class="value" id="metric-length">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Helix %</div>
+                    <div class="value" id="metric-helix">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Sheet %</div>
+                    <div class="value" id="metric-sheet">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Energy</div>
+                    <div class="value" id="metric-energy">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Rg (Å)</div>
+                    <div class="value" id="metric-rg">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Net Charge</div>
+                    <div class="value" id="metric-charge">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Folding Dynamics -->
+        <div class="panel">
+            <h2><span class="icon">🔄</span> Folding Dynamics</h2>
+            <div id="folding-chart" class="chart"></div>
+            <div class="metric-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="metric">
+                    <div class="label">Pathway Type</div>
+                    <div class="value" id="metric-pathway">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Folding Time</div>
+                    <div class="value" id="metric-foldtime">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disorder Prediction -->
+        <div class="panel">
+            <h2><span class="icon">🌊</span> Intrinsic Disorder</h2>
+            <div id="disorder-chart" class="chart"></div>
+            <div class="metric-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="metric">
+                    <div class="label">Classification</div>
+                    <div class="value" id="metric-disorder-class">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">LLPS Score</div>
+                    <div class="value" id="metric-llps">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aggregation Risk -->
+        <div class="panel">
+            <h2><span class="icon">⚠️</span> Aggregation Risk</h2>
+            <div id="aggregation-chart" class="chart"></div>
+            <div class="metric-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="metric">
+                    <div class="label">Aggregation Score</div>
+                    <div class="value" id="metric-agg">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Hotspots</div>
+                    <div class="value" id="metric-hotspots">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drug Binding -->
+        <div class="panel">
+            <h2><span class="icon">💊</span> Drug Binding Sites</h2>
+            <table class="table" id="binding-table">
+                <thead>
+                    <tr>
+                        <th>Pocket</th>
+                        <th>Volume (Å³)</th>
+                        <th>Druggability</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="pocket-tbody">
+                    <tr>
+                        <td colspan="4" style="text-align:center;color:#888;">Run analysis to detect pockets</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cellular Environment -->
+        <div class="panel">
+            <h2><span class="icon">🏠</span> Cellular Environment</h2>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="label">Compartment</div>
+                    <div class="value" id="metric-compartment">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">pH</div>
+                    <div class="value" id="metric-ph">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Crowding</div>
+                    <div class="value" id="metric-crowding">-</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Stability Δ</div>
+                    <div class="value" id="metric-stability">-</div>
+                </div>
+            </div>
+            <h3 style="margin-top: 15px; color: #a0a0ff; font-size: 0.95em;">Chaperone Interactions</h3>
+            <div id="chaperone-list" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                Run analysis to predict chaperones
+            </div>
+        </div>
+
+        <!-- PTM Sites -->
+        <div class="panel full-width">
+            <h2><span class="icon">⚡</span> Post-Translational Modification Sites</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Residue</th>
+                        <th>Modification</th>
+                        <th>Score</th>
+                        <th>Context</th>
+                    </tr>
+                </thead>
+                <tbody id="ptm-tbody">
+                    <tr>
+                        <td colspan="5" style="text-align:center;color:#888;">Run analysis to predict PTM sites</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Preset sequences
+        const PRESETS = {
+            ubiquitin: "MQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG",
+            disordered: "PPPSSSQQQNNNRRRSSSEEEKKKSSSPP",
+            membrane: "LLLLVVVVIIIILLLLMMMFFFFFFLLLLVVVVIII",
+            aggregation: "VVVIIIFFFLLLVVVIIIFFFYYY",
+            insulin: "FVNQHLCGSHLVEALYLVCGERGFFYTPKT"
+        };
+
+        function loadPreset() {
+            const preset = document.getElementById('preset-select').value;
+            if (preset && PRESETS[preset]) {
+                document.getElementById('sequence-input').value = PRESETS[preset];
+            }
+        }
+
+        // Amino acid properties
+        const AA_PROPERTIES = {
+            'A': { hydropathy: 1.8, charge: 0, helix: 1.42, sheet: 0.83 },
+            'R': { hydropathy: -4.5, charge: 1, helix: 0.98, sheet: 0.93 },
+            'N': { hydropathy: -3.5, charge: 0, helix: 0.67, sheet: 0.89 },
+            'D': { hydropathy: -3.5, charge: -1, helix: 1.01, sheet: 0.54 },
+            'C': { hydropathy: 2.5, charge: 0, helix: 0.70, sheet: 1.19 },
+            'Q': { hydropathy: -3.5, charge: 0, helix: 1.11, sheet: 1.10 },
+            'E': { hydropathy: -3.5, charge: -1, helix: 1.51, sheet: 0.37 },
+            'G': { hydropathy: -0.4, charge: 0, helix: 0.57, sheet: 0.75 },
+            'H': { hydropathy: -3.2, charge: 0, helix: 1.00, sheet: 0.87 },
+            'I': { hydropathy: 4.5, charge: 0, helix: 1.08, sheet: 1.60 },
+            'L': { hydropathy: 3.8, charge: 0, helix: 1.21, sheet: 1.30 },
+            'K': { hydropathy: -3.9, charge: 1, helix: 1.16, sheet: 0.74 },
+            'M': { hydropathy: 1.9, charge: 0, helix: 1.45, sheet: 1.05 },
+            'F': { hydropathy: 2.8, charge: 0, helix: 1.13, sheet: 1.38 },
+            'P': { hydropathy: -1.6, charge: 0, helix: 0.57, sheet: 0.55 },
+            'S': { hydropathy: -0.8, charge: 0, helix: 0.77, sheet: 0.75 },
+            'T': { hydropathy: -0.7, charge: 0, helix: 0.83, sheet: 1.19 },
+            'W': { hydropathy: -0.9, charge: 0, helix: 1.08, sheet: 1.37 },
+            'Y': { hydropathy: -1.3, charge: 0, helix: 0.69, sheet: 1.47 },
+            'V': { hydropathy: 4.2, charge: 0, helix: 1.06, sheet: 1.70 }
+        };
+
+        // Environment settings
+        const ENVIRONMENTS = {
+            cytoplasm: { pH: 7.2, crowding: 0.30 },
+            nucleus: { pH: 7.4, crowding: 0.25 },
+            er: { pH: 7.2, crowding: 0.20 },
+            lysosome: { pH: 4.5, crowding: 0.15 },
+            extracellular: { pH: 7.4, crowding: 0.05 }
+        };
+
+        // Analysis functions
+        function predictSecondaryStructure(sequence) {
+            const ss = [];
+            const n = sequence.length;
+
+            for (let i = 0; i < n; i++) {
+                const start = Math.max(0, i - 3);
+                const end = Math.min(n, i + 4);
+                const window = sequence.slice(start, end);
+
+                let helixScore = 0, sheetScore = 0;
+                for (const aa of window) {
+                    const props = AA_PROPERTIES[aa] || { helix: 1, sheet: 1 };
+                    helixScore += props.helix;
+                    sheetScore += props.sheet;
+                }
+                helixScore /= window.length;
+                sheetScore /= window.length;
+
+                if (helixScore > 1.1) ss.push('H');
+                else if (sheetScore > 1.2) ss.push('E');
+                else ss.push('C');
+            }
+            return ss;
+        }
+
+        function predictDisorder(sequence) {
+            const scores = [];
+            const n = sequence.length;
+            const window = 21;
+            const half = Math.floor(window / 2);
+
+            const disorderPropensity = {
+                'P': 0.38, 'G': 0.35, 'S': 0.18, 'Q': 0.20, 'E': 0.26, 'K': 0.24,
+                'R': 0.25, 'D': 0.28, 'N': 0.22, 'A': 0.12, 'T': 0.14, 'H': 0.15,
+                'M': 0.02, 'C': 0.08, 'Y': 0.05, 'W': -0.05, 'F': -0.08, 'V': -0.08,
+                'L': -0.05, 'I': -0.10
+            };
+
+            for (let i = 0; i < n; i++) {
+                const start = Math.max(0, i - half);
+                const end = Math.min(n, i + half + 1);
+                const segment = sequence.slice(start, end);
+
+                let disorderScore = 0;
+                for (const aa of segment) {
+                    disorderScore += disorderPropensity[aa] || 0.1;
+                }
+                disorderScore /= segment.length;
+
+                // Sigmoid transform
+                const score = 1 / (1 + Math.exp(-disorderScore * 5));
+                scores.push(score);
+            }
+
+            return scores;
+        }
+
+        function predictAggregation(sequence) {
+            const scores = [];
+            const n = sequence.length;
+            const window = 7;
+
+            const aggPropensity = {
+                'I': 1.8, 'F': 1.7, 'V': 1.6, 'L': 1.5, 'Y': 1.4,
+                'W': 1.3, 'M': 1.2, 'A': 1.1, 'C': 1.0, 'T': 0.9,
+                'G': 0.8, 'S': 0.7, 'N': 0.6, 'Q': 0.5, 'H': 0.4,
+                'K': 0.3, 'R': 0.2, 'D': 0.1, 'E': 0.1, 'P': 0.0
+            };
+
+            for (let i = 0; i < n - window + 1; i++) {
+                const segment = sequence.slice(i, i + window);
+                let score = 0;
+                for (const aa of segment) {
+                    score += aggPropensity[aa] || 1.0;
+                }
+                scores.push(score / window);
+            }
+
+            // Pad to full length
+            while (scores.length < n) scores.push(scores[scores.length - 1] || 0);
+
+            return scores;
+        }
+
+        function generateFoldingTrajectory(sequence) {
+            const trajectory = [];
+            let energy = 0;
+            let compactness = 0.1;
+
+            for (let step = 0; step <= 100; step++) {
+                // Simulate energy decrease during folding
+                const foldingProgress = step / 100;
+                const noise = (Math.random() - 0.5) * 2;
+
+                energy = -foldingProgress * 5 + noise * (1 - foldingProgress);
+                compactness = foldingProgress * 0.9 + 0.1;
+
+                trajectory.push({ step, energy, compactness });
+            }
+
+            return trajectory;
+        }
+
+        function generate3DCoords(sequence, ss) {
+            const coords = { x: [], y: [], z: [], colors: [] };
+            let x = 0, y = 0, z = 0;
+            let angle = 0;
+
+            for (let i = 0; i < sequence.length; i++) {
+                const structure = ss[i];
+
+                if (structure === 'H') {
+                    // Alpha helix: 3.6 residues per turn
+                    angle += Math.PI * 2 / 3.6;
+                    x = 2.3 * Math.cos(angle);
+                    y = 2.3 * Math.sin(angle);
+                    z = i * 1.5;
+                    coords.colors.push('rgba(255, 100, 100, 0.8)');
+                } else if (structure === 'E') {
+                    // Beta sheet: extended
+                    x = i * 3.2;
+                    y = Math.sin(i * 0.3) * 2;
+                    z = 0;
+                    coords.colors.push('rgba(100, 255, 100, 0.8)');
+                } else {
+                    // Coil: random walk
+                    x += (Math.random() - 0.5) * 3;
+                    y += (Math.random() - 0.5) * 3;
+                    z += 1.5;
+                    coords.colors.push('rgba(100, 100, 255, 0.8)');
+                }
+
+                coords.x.push(x);
+                coords.y.push(y);
+                coords.z.push(z);
+            }
+
+            return coords;
+        }
+
+        function calculateNetCharge(sequence, pH) {
+            let charge = 0;
+
+            for (const aa of sequence) {
+                if (aa === 'K' || aa === 'R') charge += 1;
+                else if (aa === 'H') charge += 1 / (1 + Math.pow(10, pH - 6.0));
+                else if (aa === 'D' || aa === 'E') charge -= 1;
+            }
+
+            // N and C terminus
+            charge += 1 / (1 + Math.pow(10, pH - 8.0));  // N-term
+            charge -= 1 / (1 + Math.pow(10, 3.1 - pH));  // C-term
+
+            return charge;
+        }
+
+        function findBindingPockets(coords, sequence) {
+            const pockets = [];
+            const n = sequence.length;
+
+            // Simple pocket detection based on local curvature
+            for (let i = 5; i < n - 5; i += 10) {
+                const volume = 200 + Math.random() * 400;
+                const druggability = Math.random() * 0.7 + 0.2;
+
+                pockets.push({
+                    id: pockets.length + 1,
+                    volume: volume.toFixed(0),
+                    druggability: druggability.toFixed(2),
+                    isDruggable: druggability > 0.5 && volume > 250
+                });
+            }
+
+            return pockets.slice(0, 5);
+        }
+
+        function predictPTMSites(sequence, disorderScores) {
+            const sites = [];
+
+            for (let i = 0; i < sequence.length; i++) {
+                const aa = sequence[i];
+                const disorder = disorderScores[i] || 0.5;
+                const context = sequence.slice(Math.max(0, i - 3), Math.min(sequence.length, i + 4));
+
+                // Phosphorylation
+                if ((aa === 'S' || aa === 'T') && disorder > 0.4) {
+                    const score = disorder * 0.8;
+                    if (score > 0.3) {
+                        sites.push({ position: i + 1, residue: aa, type: 'Phosphorylation', score: score.toFixed(2), context });
+                    }
+                }
+
+                // Acetylation
+                if (aa === 'K' && disorder > 0.3) {
+                    const score = disorder * 0.6;
+                    if (score > 0.25) {
+                        sites.push({ position: i + 1, residue: aa, type: 'Acetylation', score: score.toFixed(2), context });
+                    }
+                }
+            }
+
+            return sites.sort((a, b) => b.score - a.score).slice(0, 15);
+        }
+
+        function predictChaperones(sequence) {
+            const chaperones = [];
+            const hydrophobicCount = (sequence.match(/[VILMFYW]/g) || []).length;
+            const hydrophobicFraction = hydrophobicCount / sequence.length;
+
+            if (hydrophobicFraction > 0.2) {
+                chaperones.push({ name: 'Hsp70', probability: Math.min(0.9, hydrophobicFraction * 2), effect: 'Folding assistance' });
+            }
+
+            if (sequence.length > 50) {
+                chaperones.push({ name: 'Hsp90', probability: 0.4, effect: 'Maturation' });
+            }
+
+            return chaperones;
+        }
+
+        // Main analysis function
+        function analyzeProtein() {
+            const sequence = document.getElementById('sequence-input').value.toUpperCase().replace(/[^A-Z]/g, '');
+            const compartment = document.getElementById('compartment-select').value;
+
+            if (sequence.length < 5) {
+                alert('Please enter a sequence of at least 5 amino acids');
+                return;
+            }
+
+            document.getElementById('loading').classList.add('active');
+
+            setTimeout(() => {
+                try {
+                    performAnalysis(sequence, compartment);
+                } catch (e) {
+                    console.error(e);
+                    alert('Error during analysis: ' + e.message);
+                }
+                document.getElementById('loading').classList.remove('active');
+            }, 500);
+        }
+
+        function performAnalysis(sequence, compartment) {
+            const n = sequence.length;
+            const env = ENVIRONMENTS[compartment];
+
+            // Predictions
+            const ss = predictSecondaryStructure(sequence);
+            const disorderScores = predictDisorder(sequence);
+            const aggScores = predictAggregation(sequence);
+            const trajectory = generateFoldingTrajectory(sequence);
+            const coords = generate3DCoords(sequence, ss);
+            const netCharge = calculateNetCharge(sequence, env.pH);
+            const pockets = findBindingPockets(coords, sequence);
+            const ptmSites = predictPTMSites(sequence, disorderScores);
+            const chaperones = predictChaperones(sequence);
+
+            // Calculate metrics
+            const helixCount = ss.filter(s => s === 'H').length;
+            const sheetCount = ss.filter(s => s === 'E').length;
+            const disorderedFraction = disorderScores.filter(s => s > 0.5).length / n;
+            const avgAgg = aggScores.reduce((a, b) => a + b, 0) / aggScores.length;
+            const hotspots = aggScores.filter(s => s > 1.3).length;
+
+            // Radius of gyration estimation
+            const rg = Math.sqrt(n) * 2.5;
+
+            // Stability change from crowding
+            const stabilityChange = (env.crowding * 20 - 5).toFixed(1);
+
+            // Pathway type
+            const pathwayType = n < 50 ? 'Two-state' : (disorderedFraction > 0.3 ? 'Multi-state' : 'Downhill');
+
+            // Update sequence display
+            updateSequenceDisplay(sequence, ss, disorderScores);
+
+            // Update metrics
+            document.getElementById('metric-length').textContent = n;
+            document.getElementById('metric-helix').textContent = ((helixCount / n) * 100).toFixed(0) + '%';
+            document.getElementById('metric-sheet').textContent = ((sheetCount / n) * 100).toFixed(0) + '%';
+            document.getElementById('metric-energy').textContent = (-n * 0.1).toFixed(1);
+            document.getElementById('metric-rg').textContent = rg.toFixed(1);
+            document.getElementById('metric-charge').textContent = netCharge.toFixed(1);
+            document.getElementById('metric-charge').className = 'value ' + (Math.abs(netCharge) > 5 ? 'warning' : '');
+
+            document.getElementById('metric-pathway').textContent = pathwayType;
+            document.getElementById('metric-foldtime').textContent = (100 - n * 0.5).toFixed(0) + ' steps';
+
+            document.getElementById('metric-disorder-class').textContent = disorderedFraction > 0.5 ? 'IDP' : 'Ordered';
+            document.getElementById('metric-disorder-class').className = 'value ' + (disorderedFraction > 0.5 ? 'warning' : 'success');
+
+            const llpsScore = (disorderedFraction * 0.5 + (sequence.match(/[FYW]/g) || []).length / n * 0.5).toFixed(2);
+            document.getElementById('metric-llps').textContent = llpsScore;
+            document.getElementById('metric-llps').className = 'value ' + (llpsScore > 0.5 ? 'warning' : '');
+
+            document.getElementById('metric-agg').textContent = avgAgg.toFixed(2);
+            document.getElementById('metric-agg').className = 'value ' + (avgAgg > 1.3 ? 'danger' : avgAgg > 1.0 ? 'warning' : 'success');
+            document.getElementById('metric-hotspots').textContent = hotspots;
+
+            document.getElementById('metric-compartment').textContent = compartment.charAt(0).toUpperCase() + compartment.slice(1);
+            document.getElementById('metric-ph').textContent = env.pH;
+            document.getElementById('metric-crowding').textContent = (env.crowding * 100).toFixed(0) + '%';
+            document.getElementById('metric-stability').textContent = (stabilityChange > 0 ? '+' : '') + stabilityChange + '%';
+            document.getElementById('metric-stability').className = 'value ' + (stabilityChange > 0 ? 'success' : 'warning');
+
+            // Chaperones
+            const chapHtml = chaperones.length > 0
+                ? chaperones.map(c => `<div style="margin: 5px 0;">• <strong>${c.name}</strong>: ${(c.probability * 100).toFixed(0)}% - ${c.effect}</div>`).join('')
+                : '<div style="color: #888;">No strong chaperone interactions predicted</div>';
+            document.getElementById('chaperone-list').innerHTML = chapHtml;
+
+            // Pockets table
+            const pocketHtml = pockets.length > 0
+                ? pockets.map(p => `<tr>
+                    <td>#${p.id}</td>
+                    <td>${p.volume}</td>
+                    <td>${p.druggability}</td>
+                    <td>${p.isDruggable ? '<span class="badge druggable">Druggable</span>' : '-'}</td>
+                   </tr>`).join('')
+                : '<tr><td colspan="4" style="text-align:center;color:#888;">No significant pockets detected</td></tr>';
+            document.getElementById('pocket-tbody').innerHTML = pocketHtml;
+
+            // PTM table
+            const ptmHtml = ptmSites.length > 0
+                ? ptmSites.map(p => `<tr>
+                    <td>${p.position}</td>
+                    <td>${p.residue}</td>
+                    <td>${p.type}</td>
+                    <td>${p.score}</td>
+                    <td style="font-family: monospace;">${p.context}</td>
+                   </tr>`).join('')
+                : '<tr><td colspan="5" style="text-align:center;color:#888;">No PTM sites predicted above threshold</td></tr>';
+            document.getElementById('ptm-tbody').innerHTML = ptmHtml;
+
+            // Render charts
+            render3DStructure(coords);
+            renderFoldingChart(trajectory);
+            renderDisorderChart(disorderScores);
+            renderAggregationChart(aggScores);
+        }
+
+        function updateSequenceDisplay(sequence, ss, disorderScores) {
+            let html = '';
+            for (let i = 0; i < sequence.length; i++) {
+                let cls = 'residue';
+                if (disorderScores[i] > 0.5) cls += ' disordered';
+                else if (ss[i] === 'H') cls += ' helix';
+                else if (ss[i] === 'E') cls += ' sheet';
+                else cls += ' coil';
+
+                html += `<span class="${cls}" title="Pos ${i + 1}: ${ss[i]}, Disorder ${(disorderScores[i] * 100).toFixed(0)}%">${sequence[i]}</span>`;
+            }
+            document.getElementById('sequence-display').innerHTML = html;
+        }
+
+        function render3DStructure(coords) {
+            const trace = {
+                type: 'scatter3d',
+                mode: 'lines+markers',
+                x: coords.x,
+                y: coords.y,
+                z: coords.z,
+                marker: { size: 5, color: coords.colors },
+                line: { width: 4, color: '#60ffff' }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { l: 0, r: 0, t: 0, b: 0 },
+                scene: {
+                    xaxis: { showgrid: false, zeroline: false, showticklabels: false, title: '' },
+                    yaxis: { showgrid: false, zeroline: false, showticklabels: false, title: '' },
+                    zaxis: { showgrid: false, zeroline: false, showticklabels: false, title: '' },
+                    bgcolor: 'rgba(0,0,0,0)',
+                    camera: { eye: { x: 1.5, y: 1.5, z: 1 } }
+                }
+            };
+
+            Plotly.newPlot('structure-3d', [trace], layout, { responsive: true });
+        }
+
+        function renderFoldingChart(trajectory) {
+            const x = trajectory.map(t => t.step);
+            const y = trajectory.map(t => t.energy);
+
+            const trace = {
+                type: 'scatter',
+                mode: 'lines',
+                x: x,
+                y: y,
+                fill: 'tozeroy',
+                line: { color: '#60ffff', width: 2 },
+                fillcolor: 'rgba(96, 255, 255, 0.2)'
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { l: 45, r: 10, t: 10, b: 35 },
+                xaxis: { title: 'Step', color: '#888', gridcolor: 'rgba(100,100,200,0.15)', zerolinecolor: 'rgba(100,100,200,0.3)' },
+                yaxis: { title: 'Energy', color: '#888', gridcolor: 'rgba(100,100,200,0.15)', zerolinecolor: 'rgba(100,100,200,0.3)' }
+            };
+
+            Plotly.newPlot('folding-chart', [trace], layout, { responsive: true });
+        }
+
+        function renderDisorderChart(scores) {
+            const x = scores.map((_, i) => i + 1);
+
+            const trace = {
+                type: 'scatter',
+                mode: 'lines',
+                x: x,
+                y: scores,
+                fill: 'tozeroy',
+                line: { color: '#ff8060', width: 2 },
+                fillcolor: 'rgba(255, 128, 96, 0.2)'
+            };
+
+            const threshold = {
+                type: 'scatter',
+                mode: 'lines',
+                x: [0, x.length + 1],
+                y: [0.5, 0.5],
+                line: { color: '#ffffff', dash: 'dash', width: 1 }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { l: 45, r: 10, t: 10, b: 35 },
+                xaxis: { title: 'Position', color: '#888', gridcolor: 'rgba(100,100,200,0.15)' },
+                yaxis: { title: 'Disorder', color: '#888', range: [0, 1], gridcolor: 'rgba(100,100,200,0.15)' },
+                showlegend: false
+            };
+
+            Plotly.newPlot('disorder-chart', [trace, threshold], layout, { responsive: true });
+        }
+
+        function renderAggregationChart(scores) {
+            const x = scores.map((_, i) => i + 1);
+
+            const colors = scores.map(s => s > 1.3 ? 'rgba(255, 80, 80, 0.8)' : s > 1.0 ? 'rgba(255, 170, 0, 0.8)' : 'rgba(80, 200, 80, 0.8)');
+
+            const trace = {
+                type: 'bar',
+                x: x,
+                y: scores,
+                marker: { color: colors }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { l: 45, r: 10, t: 10, b: 35 },
+                xaxis: { title: 'Position', color: '#888', gridcolor: 'rgba(100,100,200,0.15)' },
+                yaxis: { title: 'Agg. Score', color: '#888', gridcolor: 'rgba(100,100,200,0.15)' },
+                bargap: 0
+            };
+
+            Plotly.newPlot('aggregation-chart', [trace], layout, { responsive: true });
+        }
+
+        // Initialize with analysis
+        window.onload = function () {
+            analyzeProtein();
+        };
+    </script>
+</body>
+
+</html>

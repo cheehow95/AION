@@ -92,9 +92,12 @@ class TestProteinStructure:
     
     def test_energy_electrostatic_attraction(self):
         """Test opposite charges attract."""
-        # K is positive, D is negative
-        coords = [(0, 0), (1, 0), (2, 0), (2, 1)]
-        structure = ProteinStructure("AAKD", coords)
+        # K is positive (index 0), D is negative (index 3)
+        # They must be at least 2 positions apart in sequence, but adjacent on lattice
+        # Sequence: KAAD - K at (0,0), A at (1,0), A at (1,1), D at (0,1)
+        # K and D are 3 apart in sequence and adjacent on lattice (Manhattan dist = 1)
+        coords = [(0, 0), (1, 0), (1, 1), (0, 1)]
+        structure = ProteinStructure("KAAD", coords)
         
         energy = structure.calculate_energy()
         # Opposite charges should give negative (favorable) energy

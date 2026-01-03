@@ -1,18 +1,45 @@
 """
-AION Parser
+AION Parser v2.0
 Recursive descent parser that generates AST from tokens.
+Supports all v2.0 language features.
 """
 
-from typing import Optional, Any
+from typing import Optional, Any, List
 from ..lexer import Token, TokenType, Lexer
 from .ast_nodes import (
-    Program, AgentDecl, GoalStmt, MemoryDecl, ModelDecl, ModelRef,
+    # Core
+    Program, ASTNode,
+    # Declarations
+    AgentDecl, GoalStmt, MemoryDecl, ModelDecl, ModelRef,
     ToolDecl, ToolRef, PolicyDecl, EventHandler,
+    # Reasoning
     ThinkStmt, AnalyzeStmt, ReflectStmt, DecideStmt,
+    # Control Flow v1
     IfStmt, WhenStmt, RepeatStmt,
+    # Actions
     UseStmt, RespondStmt, EmitStmt, StoreStmt, RecallStmt, AssignStmt,
+    # Expressions v1
     Expression, BinaryExpr, UnaryExpr, Literal, Identifier, MemberAccess, ListLiteral,
-    ASTNode
+    # v2.0: Imports/Exports
+    ImportStmt, ExportDecl,
+    # v2.0: Type System
+    TypeDef, TypeAnnotation,
+    # v2.0: Async/Await
+    AsyncEventHandler, AwaitExpr,
+    # v2.0: Pattern Matching
+    MatchStmt, CaseClause, PatternExpr,
+    # v2.0: Error Handling
+    TryStmt, RaiseStmt,
+    # v2.0: Function Definitions
+    FunctionDef, ParamDef, ReturnStmt, BreakStmt, ContinueStmt,
+    # v2.0: Loops
+    ForStmt,
+    # v2.0: Concurrency
+    ParallelBlock, SpawnExpr, JoinExpr,
+    # v2.0: Pipeline & Expressions
+    PipelineExpr, CallExpr, MapLiteral, WithExpr, IndexExpr, StringInterpolation,
+    # v2.0: Decorators
+    DecoratorExpr, DecoratedDecl
 )
 
 
@@ -26,7 +53,7 @@ class ParserError(Exception):
 
 class Parser:
     """
-    Recursive descent parser for the AION programming language.
+    Recursive descent parser for the AION programming language v2.0.
     """
     
     def __init__(self, tokens: list[Token]):
@@ -71,7 +98,12 @@ class Parser:
         raise ParserError(f"Expected {message}, got {self.current.type.name}", self.current)
     
     def skip_newlines(self) -> None:
-        """Skip newline, indent, and dedent tokens (inside brace blocks)."""
+        """Skip newline tokens (preserves indent structure for statement blocks)."""
+        while self.check(TokenType.NEWLINE):
+            self.advance()
+    
+    def skip_in_braces(self) -> None:
+        """Skip newline, indent, and dedent tokens inside brace blocks."""
         while self.check(TokenType.NEWLINE, TokenType.INDENT, TokenType.DEDENT):
             self.advance()
     
@@ -92,6 +124,23 @@ class Parser:
     
     def parse_declaration(self) -> Optional[ASTNode]:
         """Parse a top-level declaration."""
+        # v2.0: Handle decorators
+        if self.check(TokenType.AT):
+            return self.parse_decorated_decl()
+        
+        # v2.0: Imports
+        if self.check(TokenType.IMPORT):
+            return self.parse_import_stmt()
+        
+        # v2.0: Exports
+        if self.check(TokenType.EXPORT):
+            return self.parse_export_decl()
+        
+        # v2.0: Type definitions
+        if self.check(TokenType.TYPE):
+            return self.parse_type_def()
+        
+        # v1.0 declarations
         if self.check(TokenType.AGENT):
             return self.parse_agent_decl()
         elif self.check(TokenType.MODEL):
@@ -103,6 +152,114 @@ class Parser:
         else:
             raise ParserError(f"Unexpected token: {self.current.type.name}", self.current)
     
+    # ============ v2.0: Imports/Exports ============
+    
+    def parse_import_stmt(self) -> ImportStmt:
+        """Parse import statement: import path.to.module as alias"""
+        self.expect(TokenType.IMPORT, "'import'")
+        
+        # Parse module path (dotted identifier)
+        path_parts = [self.expect(TokenType.IDENTIFIER, "module name").value]
+        while self.match(TokenType.DOT):
+            path_parts.append(self.expect(TokenType.IDENTIFIER, "module name").value)
+        
+        module_path = ".".join(path_parts)
+        
+        # Optional alias
+        alias = None
+        if self.match(TokenType.AS):
+            alias = self.expect(TokenType.IDENTIFIER, "alias name").value
+        
+        return ImportStmt(module_path, alias)
+    
+    def parse_export_decl(self) -> ExportDecl:
+        """Parse export declaration: export agent/tool/model Name"""
+        self.expect(TokenType.EXPORT, "'export'")
+        
+        # Determine export type
+        if self.check(TokenType.AGENT):
+            self.advance()
+            export_type = "agent"
+        elif self.check(TokenType.TOOL):
+            self.advance()
+            export_type = "tool"
+        elif self.check(TokenType.MODEL):
+            self.advance()
+            export_type = "model"
+        else:
+            raise ParserError("Expected 'agent', 'tool', or 'model' after 'export'", self.current)
+        
+        target_name = self.expect(TokenType.IDENTIFIER, "name to export").value
+        return ExportDecl(export_type, target_name)
+    
+    # ============ v2.0: Type System ============
+    
+    def parse_type_def(self) -> TypeDef:
+        """Parse type definition: type Name = { field: Type, ... }"""
+        self.expect(TokenType.TYPE, "'type'")
+        name = self.expect(TokenType.IDENTIFIER, "type name").value
+        self.expect(TokenType.EQ, "'='")
+        
+        self.expect(TokenType.LBRACE, "'{'")
+        self.skip_newlines()
+        
+        fields = {}
+        while not self.check(TokenType.RBRACE, TokenType.EOF):
+            field_name = self.expect(TokenType.IDENTIFIER, "field name").value
+            self.expect(TokenType.COLON, "':'")
+            field_type = self.parse_type_annotation_inline()
+            fields[field_name] = field_type
+            
+            self.match(TokenType.COMMA)
+            self.skip_newlines()
+        
+        self.expect(TokenType.RBRACE, "'}'")
+        return TypeDef(name, fields)
+    
+    def parse_type_annotation(self) -> TypeAnnotation:
+        """Parse :: Type or :: Type[T]"""
+        self.expect(TokenType.DOUBLECOLON, "'::'")
+        return self.parse_type_annotation_inline()
+    
+    def parse_type_annotation_inline(self) -> TypeAnnotation:
+        """Parse Type or Type[T] without leading ::"""
+        type_name = self.expect(TokenType.IDENTIFIER, "type name").value
+        
+        # Check for type parameters [T, U, ...]
+        type_params = []
+        if self.match(TokenType.LBRACKET):
+            type_params.append(self.expect(TokenType.IDENTIFIER, "type parameter").value)
+            while self.match(TokenType.COMMA):
+                type_params.append(self.expect(TokenType.IDENTIFIER, "type parameter").value)
+            self.expect(TokenType.RBRACKET, "']'")
+        
+        return TypeAnnotation(type_name, type_params)
+    
+    # ============ v2.0: Decorators ============
+    
+    def parse_decorated_decl(self) -> DecoratedDecl:
+        """Parse decorated declaration: @decorator ... agent/tool/model Name"""
+        decorators = []
+        
+        while self.check(TokenType.AT):
+            self.advance()
+            name = self.expect(TokenType.IDENTIFIER, "decorator name").value
+            
+            args = []
+            if self.match(TokenType.LPAREN):
+                if not self.check(TokenType.RPAREN):
+                    args.append(self.parse_expression())
+                    while self.match(TokenType.COMMA):
+                        args.append(self.parse_expression())
+                self.expect(TokenType.RPAREN, "')'")
+            
+            decorators.append(DecoratorExpr(name, args))
+            self.skip_newlines()
+        
+        # Parse the actual declaration
+        declaration = self.parse_declaration()
+        return DecoratedDecl(decorators, declaration)
+    
     # ============ Agent Parsing ============
     
     def parse_agent_decl(self) -> AgentDecl:
@@ -110,14 +267,14 @@ class Parser:
         self.expect(TokenType.AGENT, "'agent'")
         name_token = self.expect(TokenType.IDENTIFIER, "agent name")
         self.expect(TokenType.LBRACE, "'{'")
-        self.skip_newlines()
+        self.skip_in_braces()
         
         body = []
         while not self.check(TokenType.RBRACE, TokenType.EOF):
             member = self.parse_agent_member()
             if member:
                 body.append(member)
-            self.skip_newlines()
+            self.skip_in_braces()
         
         self.expect(TokenType.RBRACE, "'}'")
         return AgentDecl(name_token.value, body)
@@ -129,13 +286,19 @@ class Parser:
         elif self.check(TokenType.MEMORY):
             return self.parse_memory_decl()
         elif self.check(TokenType.MODEL):
-            return self.parse_model_ref()
+            return self.parse_model_ref_with_config()
         elif self.check(TokenType.TOOL):
             return self.parse_tool_ref()
         elif self.check(TokenType.POLICY):
             return self.parse_policy_block()
+        # v2.0: async event handlers
+        elif self.check(TokenType.ASYNC):
+            return self.parse_async_event_handler()
         elif self.check(TokenType.ON):
             return self.parse_event_handler()
+        # v2.0: function definitions inside agent
+        elif self.check(TokenType.FUNCTION) if hasattr(TokenType, 'FUNCTION') else False:
+            return self.parse_function_def()
         else:
             raise ParserError(f"Unexpected agent member: {self.current.type.name}", self.current)
     
@@ -170,10 +333,18 @@ class Parser:
             else:
                 raise ParserError("Expected memory type", self.current)
         
+        # v2.0: Optional type annotation
+        type_annotation = None
+        if self.check(TokenType.DOUBLECOLON):
+            type_annotation = self.parse_type_annotation()
+        
         config = {}
         if self.match(TokenType.LBRACE):
             config = self.parse_config_pairs()
             self.expect(TokenType.RBRACE, "'}'")
+        
+        if type_annotation:
+            config['_type_annotation'] = type_annotation
         
         return MemoryDecl(memory_type, config)
     
@@ -184,17 +355,32 @@ class Parser:
         
         config = {}
         if self.match(TokenType.LBRACE):
-            self.skip_newlines()
+            self.skip_in_braces()
             config = self.parse_config_pairs()
-            self.skip_newlines()
+            self.skip_in_braces()
             self.expect(TokenType.RBRACE, "'}'")
         
         return ModelDecl(name_token.value, config)
     
     def parse_model_ref(self) -> ModelRef:
-        """Parse a model reference within an agent."""
+        """Parse a model reference within an agent (simple)."""
         self.expect(TokenType.MODEL, "'model'")
         name_token = self.expect(TokenType.IDENTIFIER, "model name")
+        return ModelRef(name_token.value)
+    
+    def parse_model_ref_with_config(self) -> ASTNode:
+        """Parse a model reference with optional config block."""
+        self.expect(TokenType.MODEL, "'model'")
+        name_token = self.expect(TokenType.IDENTIFIER, "model name")
+        
+        # Check if there's a config block
+        if self.match(TokenType.LBRACE):
+            self.skip_in_braces()
+            config = self.parse_config_pairs()
+            self.skip_in_braces()
+            self.expect(TokenType.RBRACE, "'}'")
+            return ModelDecl(name_token.value, config)
+        
         return ModelRef(name_token.value)
     
     def parse_tool_decl(self) -> ToolDecl:
@@ -204,9 +390,9 @@ class Parser:
         
         config = {}
         if self.match(TokenType.LBRACE):
-            self.skip_newlines()
+            self.skip_in_braces()
             config = self.parse_config_pairs()
-            self.skip_newlines()
+            self.skip_in_braces()
             self.expect(TokenType.RBRACE, "'}'")
         
         return ToolDecl(name_token.value, config)
@@ -226,9 +412,9 @@ class Parser:
             name = self.advance().value
         
         self.expect(TokenType.LBRACE, "'{'")
-        self.skip_newlines()
+        self.skip_in_braces()
         config = self.parse_config_pairs()
-        self.skip_newlines()
+        self.skip_in_braces()
         self.expect(TokenType.RBRACE, "'}'")
         
         return PolicyDecl(name, config)
@@ -302,13 +488,18 @@ class Parser:
         if event_type is None:
             raise ParserError("Expected event type", self.current)
         
-        # Parse parameters
+        # Parse parameters with optional type annotations
         params = []
         self.expect(TokenType.LPAREN, "'('")
         if self.check(TokenType.IDENTIFIER):
             params.append(self.advance().value)
+            # v2.0: Skip type annotation for now in simple handler
+            if self.check(TokenType.DOUBLECOLON):
+                self.parse_type_annotation()
             while self.match(TokenType.COMMA):
                 params.append(self.expect(TokenType.IDENTIFIER, "parameter name").value)
+                if self.check(TokenType.DOUBLECOLON):
+                    self.parse_type_annotation()
         self.expect(TokenType.RPAREN, "')'")
         
         self.expect(TokenType.COLON, "':'")
@@ -318,6 +509,53 @@ class Parser:
         body = self.parse_statement_block()
         
         return EventHandler(event_type, params, body)
+    
+    def parse_async_event_handler(self) -> AsyncEventHandler:
+        """Parse async event handler: async on event(params):"""
+        self.expect(TokenType.ASYNC, "'async'")
+        self.expect(TokenType.ON, "'on'")
+        
+        event_types = {
+            TokenType.INPUT: 'input',
+            TokenType.ERROR: 'error',
+            TokenType.TIMEOUT: 'timeout',
+            TokenType.COMPLETE: 'complete',
+        }
+        
+        event_type = None
+        for token_type, type_name in event_types.items():
+            if self.check(token_type):
+                self.advance()
+                event_type = type_name
+                break
+        
+        if event_type is None:
+            raise ParserError("Expected event type", self.current)
+        
+        # Parse parameters with optional type annotations
+        params = []
+        param_types = []
+        self.expect(TokenType.LPAREN, "'('")
+        if self.check(TokenType.IDENTIFIER):
+            params.append(self.advance().value)
+            if self.check(TokenType.DOUBLECOLON):
+                param_types.append(self.parse_type_annotation())
+            else:
+                param_types.append(None)
+            while self.match(TokenType.COMMA):
+                params.append(self.expect(TokenType.IDENTIFIER, "parameter name").value)
+                if self.check(TokenType.DOUBLECOLON):
+                    param_types.append(self.parse_type_annotation())
+                else:
+                    param_types.append(None)
+        self.expect(TokenType.RPAREN, "')'")
+        
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        body = self.parse_statement_block()
+        
+        return AsyncEventHandler(event_type, params, param_types, body)
     
     # ============ Statement Parsing ============
     
@@ -352,13 +590,35 @@ class Parser:
         elif self.check(TokenType.DECIDE):
             return self.parse_decide_stmt()
         
-        # Control flow
+        # v1.0 Control flow
         elif self.check(TokenType.IF):
             return self.parse_if_stmt()
         elif self.check(TokenType.WHEN):
             return self.parse_when_stmt()
         elif self.check(TokenType.REPEAT):
             return self.parse_repeat_stmt()
+        
+        # v2.0 Control flow
+        elif self.check(TokenType.MATCH):
+            return self.parse_match_stmt()
+        elif self.check(TokenType.TRY):
+            return self.parse_try_stmt()
+        elif self.check(TokenType.FOR):
+            return self.parse_for_stmt()
+        elif self.check(TokenType.RETURN):
+            return self.parse_return_stmt()
+        elif self.check(TokenType.BREAK):
+            return self.parse_break_stmt()
+        elif self.check(TokenType.CONTINUE):
+            return self.parse_continue_stmt()
+        elif self.check(TokenType.RAISE) if hasattr(TokenType, 'RAISE') else False:
+            return self.parse_raise_stmt()
+        
+        # v2.0 Concurrency
+        elif self.check(TokenType.PARALLEL):
+            return self.parse_parallel_block()
+        elif self.check(TokenType.AWAIT):
+            return self.parse_await_as_stmt()
         
         # Actions
         elif self.check(TokenType.USE):
@@ -377,7 +637,9 @@ class Parser:
             # Look ahead to check for assignment
             if self.peek().type == TokenType.EQ:
                 return self.parse_assign_stmt()
-            # Otherwise it's an expression statement (which we'll skip for now)
+            # Otherwise parse as expression statement
+            expr = self.parse_expression()
+            return expr  # Expression statements are valid
         
         return None
     
@@ -456,6 +718,168 @@ class Parser:
         body = self.parse_statement_block()
         return RepeatStmt(times, body)
     
+    # ============ v2.0: Pattern Matching ============
+    
+    def parse_match_stmt(self) -> MatchStmt:
+        """Parse match statement: match expr: case patterns..."""
+        self.expect(TokenType.MATCH, "'match'")
+        target = self.parse_expression()
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        cases = []
+        self.expect(TokenType.INDENT, "indented case clauses")
+        
+        while not self.check(TokenType.DEDENT, TokenType.EOF):
+            case_clause = self.parse_case_clause()
+            if case_clause:
+                cases.append(case_clause)
+            self.skip_newlines()
+        
+        self.match(TokenType.DEDENT)
+        
+        return MatchStmt(target, cases)
+    
+    def parse_case_clause(self) -> CaseClause:
+        """Parse a case clause."""
+        is_default = False
+        patterns = []
+        guard = None
+        binding = None
+        
+        if self.match(TokenType.DEFAULT):
+            is_default = True
+        elif self.match(TokenType.CASE):
+            # Parse pattern(s) with | for alternatives
+            patterns.append(self.parse_pattern())
+            while self.match(TokenType.PIPE) if hasattr(TokenType, 'PIPE') and self.check(TokenType.PIPE) else False:
+                # Handle | for OR patterns - but PIPE is |> not |
+                # For now, use simple string matching in patterns
+                pass
+            
+            # Check for 'as' binding
+            if self.match(TokenType.AS):
+                if self.match(TokenType.LPAREN):
+                    # Multiple bindings: as (a, b)
+                    bindings = [self.expect(TokenType.IDENTIFIER, "binding").value]
+                    while self.match(TokenType.COMMA):
+                        bindings.append(self.expect(TokenType.IDENTIFIER, "binding").value)
+                    self.expect(TokenType.RPAREN, "')'")
+                    binding = tuple(bindings)
+                else:
+                    binding = self.expect(TokenType.IDENTIFIER, "binding").value
+            
+            # Check for 'where' guard
+            if self.match(TokenType.WHERE):
+                guard = self.parse_expression()
+        else:
+            raise ParserError("Expected 'case' or 'default'", self.current)
+        
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        body = self.parse_statement_block()
+        
+        return CaseClause(patterns, guard, binding, body, is_default)
+    
+    def parse_pattern(self) -> Expression:
+        """Parse a pattern expression."""
+        # For now, patterns are just expressions
+        # Could be string literals, regex patterns, wildcards, etc.
+        return self.parse_expression()
+    
+    # ============ v2.0: Error Handling ============
+    
+    def parse_try_stmt(self) -> TryStmt:
+        """Parse try/catch/finally statement."""
+        self.expect(TokenType.TRY, "'try'")
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        try_body = self.parse_statement_block()
+        
+        catch_param = None
+        catch_body = []
+        finally_body = []
+        
+        self.skip_newlines()
+        
+        if self.match(TokenType.CATCH):
+            if self.check(TokenType.IDENTIFIER):
+                catch_param = self.advance().value
+            self.expect(TokenType.COLON, "':'")
+            self.skip_newlines()
+            catch_body = self.parse_statement_block()
+        
+        self.skip_newlines()
+        
+        if self.match(TokenType.FINALLY):
+            self.expect(TokenType.COLON, "':'")
+            self.skip_newlines()
+            finally_body = self.parse_statement_block()
+        
+        return TryStmt(try_body, catch_param, catch_body, finally_body)
+    
+    def parse_raise_stmt(self) -> RaiseStmt:
+        """Parse raise statement."""
+        self.advance()  # consume 'raise'
+        expr = self.parse_expression()
+        return RaiseStmt(expr)
+    
+    # ============ v2.0: Loops ============
+    
+    def parse_for_stmt(self) -> ForStmt:
+        """Parse for each loop: for each item in collection:"""
+        self.expect(TokenType.FOR, "'for'")
+        self.match(TokenType.EACH)  # 'each' is optional
+        
+        variable = self.expect(TokenType.IDENTIFIER, "loop variable").value
+        self.expect(TokenType.IN, "'in'")
+        iterable = self.parse_expression()
+        
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        body = self.parse_statement_block()
+        
+        return ForStmt(variable, iterable, body)
+    
+    def parse_return_stmt(self) -> ReturnStmt:
+        """Parse return statement."""
+        self.expect(TokenType.RETURN, "'return'")
+        value = None
+        if not self.check(TokenType.NEWLINE, TokenType.EOF, TokenType.DEDENT):
+            value = self.parse_expression()
+        return ReturnStmt(value)
+    
+    def parse_break_stmt(self) -> BreakStmt:
+        """Parse break statement."""
+        self.expect(TokenType.BREAK, "'break'")
+        return BreakStmt()
+    
+    def parse_continue_stmt(self) -> ContinueStmt:
+        """Parse continue statement."""
+        self.expect(TokenType.CONTINUE, "'continue'")
+        return ContinueStmt()
+    
+    # ============ v2.0: Concurrency ============
+    
+    def parse_parallel_block(self) -> ParallelBlock:
+        """Parse parallel block: parallel: spawn tasks..."""
+        self.expect(TokenType.PARALLEL, "'parallel'")
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        statements = self.parse_statement_block()
+        
+        return ParallelBlock(statements)
+    
+    def parse_await_as_stmt(self) -> AssignStmt:
+        """Parse await as a statement: result = await expr"""
+        # This is handled in assignment typically
+        expr = self.parse_expression()
+        return expr
+    
     # ============ Action Statements ============
     
     def parse_use_stmt(self) -> UseStmt:
@@ -529,11 +953,73 @@ class Parser:
         value = self.parse_expression()
         return AssignStmt(name, value)
     
+    # ============ v2.0: Function Definitions ============
+    
+    def parse_function_def(self) -> FunctionDef:
+        """Parse function definition: [async] function name(params) -> Type:"""
+        is_async = False
+        if self.match(TokenType.ASYNC):
+            is_async = True
+        
+        # Note: FUNCTION token may not exist, check identifier "function"
+        if self.check(TokenType.IDENTIFIER) and self.current.value == "function":
+            self.advance()
+        
+        name = self.expect(TokenType.IDENTIFIER, "function name").value
+        
+        # Parse parameters
+        self.expect(TokenType.LPAREN, "'('")
+        params = []
+        if not self.check(TokenType.RPAREN):
+            params.append(self.parse_param_def())
+            while self.match(TokenType.COMMA):
+                params.append(self.parse_param_def())
+        self.expect(TokenType.RPAREN, "')'")
+        
+        # Optional return type
+        return_type = None
+        if self.match(TokenType.ARROW):
+            return_type = self.parse_type_annotation_inline()
+        
+        self.expect(TokenType.COLON, "':'")
+        self.skip_newlines()
+        
+        body = self.parse_statement_block()
+        
+        return FunctionDef(name, params, return_type, body, is_async)
+    
+    def parse_param_def(self) -> ParamDef:
+        """Parse parameter definition: name :: Type = default"""
+        name = self.expect(TokenType.IDENTIFIER, "parameter name").value
+        
+        type_annotation = None
+        if self.check(TokenType.DOUBLECOLON):
+            type_annotation = self.parse_type_annotation()
+        
+        default_value = None
+        if self.match(TokenType.EQ):
+            default_value = self.parse_expression()
+        
+        return ParamDef(name, type_annotation, default_value)
+    
     # ============ Expression Parsing ============
     
     def parse_expression(self) -> Expression:
         """Parse an expression."""
-        return self.parse_logic_or()
+        return self.parse_pipeline()
+    
+    def parse_pipeline(self) -> Expression:
+        """Parse pipeline expressions: expr |> func1 |> func2"""
+        expr = self.parse_logic_or()
+        
+        if self.check(TokenType.PIPE):
+            stages = []
+            while self.match(TokenType.PIPE):
+                stage = self.parse_logic_or()
+                stages.append(stage)
+            return PipelineExpr(expr, stages)
+        
+        return expr
     
     def parse_logic_or(self) -> Expression:
         """Parse OR expressions."""
@@ -608,7 +1094,48 @@ class Parser:
             operand = self.parse_unary()
             return UnaryExpr('-', operand)
         
-        return self.parse_primary()
+        # v2.0: await expression
+        elif self.match(TokenType.AWAIT):
+            operand = self.parse_unary()
+            return AwaitExpr(operand)
+        
+        # v2.0: spawn expression
+        elif self.match(TokenType.SPAWN):
+            operand = self.parse_unary()
+            return SpawnExpr(operand)
+        
+        return self.parse_postfix()
+    
+    def parse_postfix(self) -> Expression:
+        """Parse postfix expressions (calls, member access, indexing)."""
+        expr = self.parse_primary()
+        
+        while True:
+            if self.match(TokenType.LPAREN):
+                # Function call
+                args = []
+                if not self.check(TokenType.RPAREN):
+                    args.append(self.parse_expression())
+                    while self.match(TokenType.COMMA):
+                        args.append(self.parse_expression())
+                self.expect(TokenType.RPAREN, "')'")
+                expr = CallExpr(expr, args)
+            
+            elif self.match(TokenType.DOT):
+                # Member access
+                member = self.expect(TokenType.IDENTIFIER, "member name").value
+                expr = MemberAccess(expr, member)
+            
+            elif self.match(TokenType.LBRACKET):
+                # Index access
+                index = self.parse_expression()
+                self.expect(TokenType.RBRACKET, "']'")
+                expr = IndexExpr(expr, index)
+            
+            else:
+                break
+        
+        return expr
     
     def parse_primary(self) -> Expression:
         """Parse primary expressions."""
@@ -627,19 +1154,23 @@ class Parser:
         elif self.check(TokenType.LBRACKET):
             return self.parse_list_literal()
         
+        # v2.0: Map literal or block
+        elif self.check(TokenType.LBRACE):
+            return self.parse_map_literal()
+        
+        # v2.0: join() expression
+        elif self.check(TokenType.JOIN):
+            return self.parse_join_expr()
+        
         # Parenthesized expression
         elif self.match(TokenType.LPAREN):
             expr = self.parse_expression()
             self.expect(TokenType.RPAREN, "')'")
             return expr
         
-        # Identifier with potential member access
+        # Identifier
         elif self.check(TokenType.IDENTIFIER):
-            expr = Identifier(self.advance().value)
-            while self.match(TokenType.DOT):
-                member = self.expect(TokenType.IDENTIFIER, "member name").value
-                expr = MemberAccess(expr, member)
-            return expr
+            return Identifier(self.advance().value)
         
         raise ParserError(f"Expected expression, got {self.current.type.name}", self.current)
     
@@ -655,6 +1186,45 @@ class Parser:
         
         self.expect(TokenType.RBRACKET, "']'")
         return ListLiteral(elements)
+    
+    def parse_map_literal(self) -> MapLiteral:
+        """Parse map literal: { key: value, ... }"""
+        self.expect(TokenType.LBRACE, "'{'")
+        self.skip_newlines()
+        
+        entries = []
+        if not self.check(TokenType.RBRACE):
+            key = self.expect(TokenType.IDENTIFIER, "key").value
+            self.expect(TokenType.COLON, "':'")
+            value = self.parse_expression()
+            entries.append((key, value))
+            
+            while self.match(TokenType.COMMA):
+                self.skip_newlines()
+                if self.check(TokenType.RBRACE):
+                    break  # Trailing comma
+                key = self.expect(TokenType.IDENTIFIER, "key").value
+                self.expect(TokenType.COLON, "':'")
+                value = self.parse_expression()
+                entries.append((key, value))
+            self.skip_newlines()
+        
+        self.expect(TokenType.RBRACE, "'}'")
+        return MapLiteral(entries)
+    
+    def parse_join_expr(self) -> JoinExpr:
+        """Parse join(task1, task2, ...) expression."""
+        self.expect(TokenType.JOIN, "'join'")
+        self.expect(TokenType.LPAREN, "'('")
+        
+        tasks = []
+        if not self.check(TokenType.RPAREN):
+            tasks.append(self.parse_expression())
+            while self.match(TokenType.COMMA):
+                tasks.append(self.parse_expression())
+        
+        self.expect(TokenType.RPAREN, "')'")
+        return JoinExpr(tasks)
 
 
 def parse(source: str) -> Program:

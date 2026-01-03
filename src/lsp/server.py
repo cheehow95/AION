@@ -138,7 +138,7 @@ class AIONLanguageServer:
     def get_completions(self, uri: str, position: Position) -> List[CompletionItem]:
         """Get completion items at position."""
         text = self.documents.get(uri, "")
-        lines = text.splitlines()
+        lines = text.splitlines() if text else [""]  # Handle empty documents
         
         if position.line >= len(lines):
             return []

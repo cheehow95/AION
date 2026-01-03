@@ -1,18 +1,46 @@
 """
-AION Interpreter
+AION Interpreter v2.0
 Executes AION AST nodes in the runtime environment.
+Supports all v2.0 language features.
 """
 
 import asyncio
-from typing import Any, Optional
+import re
+from typing import Any, Optional, Callable
 from ..parser import (
+    # Core
     ASTNode, ASTVisitor, Program,
+    # Declarations
     AgentDecl, GoalStmt, MemoryDecl, ModelDecl, ModelRef, ToolDecl, ToolRef, PolicyDecl,
     EventHandler,
+    # Reasoning
     ThinkStmt, AnalyzeStmt, ReflectStmt, DecideStmt,
+    # Control Flow v1
     IfStmt, WhenStmt, RepeatStmt,
+    # Actions
     UseStmt, RespondStmt, EmitStmt, StoreStmt, RecallStmt, AssignStmt,
-    Expression, BinaryExpr, UnaryExpr, Literal, Identifier, MemberAccess, ListLiteral
+    # Expressions v1
+    Expression, BinaryExpr, UnaryExpr, Literal, Identifier, MemberAccess, ListLiteral,
+    # v2.0: Imports/Exports
+    ImportStmt, ExportDecl,
+    # v2.0: Type System
+    TypeDef, TypeAnnotation,
+    # v2.0: Async/Await
+    AsyncEventHandler, AwaitExpr,
+    # v2.0: Pattern Matching
+    MatchStmt, CaseClause, PatternExpr,
+    # v2.0: Error Handling
+    TryStmt, RaiseStmt,
+    # v2.0: Function Definitions
+    FunctionDef, ParamDef, ReturnStmt, BreakStmt, ContinueStmt,
+    # v2.0: Loops
+    ForStmt,
+    # v2.0: Concurrency
+    ParallelBlock, SpawnExpr, JoinExpr,
+    # v2.0: Pipeline & Expressions
+    PipelineExpr, CallExpr, MapLiteral, WithExpr, IndexExpr, StringInterpolation,
+    # v2.0: Decorators
+    DecoratorExpr, DecoratedDecl
 )
 from ..runtime import (
     Environment, AgentInstance, MemoryInstance,
@@ -26,9 +54,26 @@ class InterpreterError(Exception):
     pass
 
 
+class ReturnValue(Exception):
+    """Used to propagate return values through the call stack."""
+    def __init__(self, value: Any = None):
+        self.value = value
+
+
+class BreakLoop(Exception):
+    """Used to break out of loops."""
+    pass
+
+
+class ContinueLoop(Exception):
+    """Used to continue to next iteration."""
+    pass
+
+
 class Interpreter(ASTVisitor):
     """
     Interprets AION programs by visiting AST nodes.
+    Supports all v2.0 language features.
     """
     
     def __init__(self, env: Environment = None):
@@ -39,8 +84,59 @@ class Interpreter(ASTVisitor):
         self.current_agent: Optional[AgentInstance] = None
         self.output_buffer: list[str] = []
         
+        # v2.0: Module system
+        self.modules: dict[str, Any] = {}
+        self.exports: dict[str, Any] = {}
+        
+        # v2.0: Type definitions
+        self.types: dict[str, TypeDef] = {}
+        
+        # v2.0: Function definitions
+        self.functions: dict[str, FunctionDef] = {}
+        
+        # v2.0: Decorators registry
+        self.decorators: dict[str, Callable] = self._create_builtin_decorators()
+        
         # Register built-in tools
         create_builtin_tools(self.tool_registry)
+    
+    def _create_builtin_decorators(self) -> dict[str, Callable]:
+        """Create built-in decorators."""
+        return {
+            'logged': self._decorator_logged,
+            'cached': self._decorator_cached,
+            'rate_limited': self._decorator_rate_limited,
+        }
+    
+    def _decorator_logged(self, func: Callable, args: list) -> Callable:
+        """Logging decorator."""
+        async def wrapper(*call_args, **call_kwargs):
+            print(f"[LOG] Calling {func.__name__ if hasattr(func, '__name__') else 'function'}")
+            result = await func(*call_args, **call_kwargs)
+            print(f"[LOG] Result: {result}")
+            return result
+        return wrapper
+    
+    def _decorator_cached(self, func: Callable, args: list) -> Callable:
+        """Caching decorator."""
+        cache = {}
+        async def wrapper(*call_args, **call_kwargs):
+            key = str(call_args)
+            if key not in cache:
+                cache[key] = await func(*call_args, **call_kwargs)
+            return cache[key]
+        return wrapper
+    
+    def _decorator_rate_limited(self, func: Callable, args: list) -> Callable:
+        """Rate limiting decorator."""
+        # Extract rate limit config from args
+        max_calls = 100
+        per_minute = 1
+        for arg in args:
+            if hasattr(arg, 'left') and hasattr(arg.left, 'name'):
+                if arg.left.name == 'max_calls':
+                    max_calls = arg.right.value if hasattr(arg.right, 'value') else 100
+        return func  # Simplified - actual rate limiting would track calls
     
     async def interpret(self, program: Program) -> Any:
         """Interpret a complete program."""
@@ -98,12 +194,21 @@ class Interpreter(ASTVisitor):
             agent.memories.append(member.memory_type)
         elif isinstance(member, ModelRef):
             agent.model = member.name
+        elif isinstance(member, ModelDecl):
+            # Inline model declaration with config
+            agent.model = member.name
+            await self.visit_ModelDecl(member)
         elif isinstance(member, ToolRef):
             agent.tools.append(member.name)
         elif isinstance(member, PolicyDecl):
             agent.policy.update(member.config)
         elif isinstance(member, EventHandler):
             agent.event_handlers[member.event_type] = member
+        elif isinstance(member, AsyncEventHandler):
+            agent.event_handlers[member.event_type] = member
+        elif isinstance(member, FunctionDef):
+            # Register function in agent scope
+            self.functions[member.name] = member
     
     async def visit_ModelDecl(self, node: ModelDecl) -> Any:
         """Visit model declaration."""
@@ -118,16 +223,65 @@ class Interpreter(ASTVisitor):
     
     async def visit_ToolDecl(self, node: ToolDecl) -> Any:
         """Visit tool declaration."""
-        # Tools are registered at declaration time
-        # Actual handler would be provided by the host environment
         return None
     
     async def visit_PolicyDecl(self, node: PolicyDecl) -> dict:
         """Visit policy declaration."""
-        # Apply global policies
         for key, value in node.config.items():
             self.tool_registry.set_policy(key, value)
         return node.config
+    
+    # ============ v2.0: Imports/Exports ============
+    
+    async def visit_ImportStmt(self, node: ImportStmt) -> Any:
+        """Execute import statement."""
+        # Simplified module loading
+        alias = node.alias or node.module_path.split('.')[-1]
+        self.modules[alias] = {'path': node.module_path}
+        self.env.define(alias, self.modules[alias])
+        return self.modules[alias]
+    
+    async def visit_ExportDecl(self, node: ExportDecl) -> Any:
+        """Execute export declaration."""
+        self.exports[node.target_name] = {
+            'type': node.export_type,
+            'name': node.target_name
+        }
+        return self.exports[node.target_name]
+    
+    # ============ v2.0: Type System ============
+    
+    async def visit_TypeDef(self, node: TypeDef) -> Any:
+        """Register type definition."""
+        self.types[node.name] = node
+        return node
+    
+    async def visit_TypeAnnotation(self, node: TypeAnnotation) -> Any:
+        """Process type annotation (validation)."""
+        # Type annotations are metadata, return the type info
+        return {'type': node.type_name, 'params': node.type_params}
+    
+    # ============ v2.0: Decorators ============
+    
+    async def visit_DecoratedDecl(self, node: DecoratedDecl) -> Any:
+        """Process decorated declaration."""
+        # First process the underlying declaration
+        result = await self.visit(node.declaration)
+        
+        # Apply decorators in reverse order (innermost first)
+        for decorator in reversed(node.decorators):
+            if decorator.name in self.decorators:
+                decorator_func = self.decorators[decorator.name]
+                result = decorator_func(result, decorator.args)
+        
+        return result
+    
+    # ============ v2.0: Async Event Handler ============
+    
+    async def visit_AsyncEventHandler(self, node: AsyncEventHandler) -> Any:
+        """Register async event handler."""
+        # Handlers are stored, not executed during declaration
+        return node
     
     # ============ Reasoning Statements ============
     
@@ -190,9 +344,236 @@ class Interpreter(ASTVisitor):
         
         result = None
         for _ in range(times):
-            result = await self.execute_block(node.body)
+            try:
+                result = await self.execute_block(node.body)
+            except BreakLoop:
+                break
+            except ContinueLoop:
+                continue
         
         return result
+    
+    # ============ v2.0: Pattern Matching ============
+    
+    async def visit_MatchStmt(self, node: MatchStmt) -> Any:
+        """Execute match statement."""
+        target_value = await self.evaluate(node.target)
+        
+        for case in node.cases:
+            if case.is_default:
+                return await self.execute_block(case.body)
+            
+            for pattern in case.patterns:
+                matched, bindings = await self._match_pattern(target_value, pattern)
+                
+                if matched:
+                    # Check guard condition if present
+                    if case.guard:
+                        # Create scope with bindings
+                        old_env = self.env
+                        self.env = self.env.child_scope()
+                        for name, value in bindings.items():
+                            self.env.define(name, value)
+                        
+                        guard_result = await self.evaluate(case.guard)
+                        self.env = old_env
+                        
+                        if not self._is_truthy(guard_result):
+                            continue
+                    
+                    # Execute case body with bindings
+                    old_env = self.env
+                    self.env = self.env.child_scope()
+                    
+                    for name, value in bindings.items():
+                        self.env.define(name, value)
+                    
+                    if case.binding:
+                        if isinstance(case.binding, tuple):
+                            for i, name in enumerate(case.binding):
+                                if i < len(bindings):
+                                    self.env.define(name, list(bindings.values())[i])
+                        else:
+                            self.env.define(case.binding, target_value)
+                    
+                    try:
+                        result = await self.execute_block(case.body)
+                        return result
+                    finally:
+                        self.env = old_env
+        
+        return None
+    
+    async def _match_pattern(self, value: Any, pattern: Expression) -> tuple[bool, dict]:
+        """Match a value against a pattern. Returns (matched, bindings)."""
+        bindings = {}
+        
+        if isinstance(pattern, Literal):
+            return (value == pattern.value, bindings)
+        
+        if isinstance(pattern, Identifier):
+            if pattern.name == '_':
+                return (True, {})  # Wildcard
+            # Identifier patterns bind the value
+            return (True, {pattern.name: value})
+        
+        if isinstance(pattern, PatternExpr):
+            # Regex pattern matching
+            match = re.match(pattern.regex, str(value))
+            if match:
+                for i, binding in enumerate(pattern.bindings):
+                    if i < len(match.groups()):
+                        bindings[binding] = match.group(i + 1)
+                return (True, bindings)
+            return (False, {})
+        
+        # For other patterns, evaluate and compare
+        pattern_value = await self.evaluate(pattern)
+        return (value == pattern_value, bindings)
+    
+    # ============ v2.0: Error Handling ============
+    
+    async def visit_TryStmt(self, node: TryStmt) -> Any:
+        """Execute try/catch/finally statement."""
+        try:
+            result = await self.execute_block(node.try_body)
+        except Exception as e:
+            if node.catch_body:
+                old_env = self.env
+                self.env = self.env.child_scope()
+                
+                if node.catch_param:
+                    self.env.define(node.catch_param, str(e))
+                
+                try:
+                    result = await self.execute_block(node.catch_body)
+                finally:
+                    self.env = old_env
+            else:
+                raise
+        finally:
+            if node.finally_body:
+                await self.execute_block(node.finally_body)
+        
+        return result
+    
+    async def visit_RaiseStmt(self, node: RaiseStmt) -> None:
+        """Execute raise statement."""
+        error = await self.evaluate(node.expression)
+        raise InterpreterError(str(error))
+    
+    # ============ v2.0: Loops ============
+    
+    async def visit_ForStmt(self, node: ForStmt) -> Any:
+        """Execute for each loop."""
+        iterable = await self.evaluate(node.iterable)
+        
+        result = None
+        for item in iterable:
+            old_env = self.env
+            self.env = self.env.child_scope()
+            self.env.define(node.variable, item)
+            
+            try:
+                result = await self.execute_block(node.body)
+            except BreakLoop:
+                self.env = old_env
+                break
+            except ContinueLoop:
+                pass
+            finally:
+                self.env = old_env
+        
+        return result
+    
+    async def visit_ReturnStmt(self, node: ReturnStmt) -> None:
+        """Execute return statement."""
+        value = None
+        if node.value:
+            value = await self.evaluate(node.value)
+        raise ReturnValue(value)
+    
+    async def visit_BreakStmt(self, node: BreakStmt) -> None:
+        """Execute break statement."""
+        raise BreakLoop()
+    
+    async def visit_ContinueStmt(self, node: ContinueStmt) -> None:
+        """Execute continue statement."""
+        raise ContinueLoop()
+    
+    # ============ v2.0: Concurrency ============
+    
+    async def visit_ParallelBlock(self, node: ParallelBlock) -> list:
+        """Execute parallel block - run all statements concurrently."""
+        tasks = []
+        for stmt in node.statements:
+            if isinstance(stmt, AssignStmt) and isinstance(stmt.value, SpawnExpr):
+                # Create task for spawn expression
+                task = asyncio.create_task(self.evaluate(stmt.value.expression))
+                self.env.define(stmt.name, task)
+                tasks.append(task)
+            else:
+                # Execute other statements immediately
+                await self.visit(stmt)
+        
+        return tasks
+    
+    async def visit_SpawnExpr(self, node: SpawnExpr) -> asyncio.Task:
+        """Evaluate spawn expression - create async task."""
+        return asyncio.create_task(self.evaluate(node.expression))
+    
+    async def visit_JoinExpr(self, node: JoinExpr) -> list:
+        """Evaluate join expression - wait for all tasks."""
+        tasks = []
+        for task_expr in node.tasks:
+            task = await self.evaluate(task_expr)
+            if isinstance(task, asyncio.Task):
+                tasks.append(task)
+        
+        if tasks:
+            results = await asyncio.gather(*tasks)
+            return list(results)
+        return []
+    
+    async def visit_AwaitExpr(self, node: AwaitExpr) -> Any:
+        """Evaluate await expression."""
+        value = await self.evaluate(node.expression)
+        if asyncio.iscoroutine(value) or isinstance(value, asyncio.Task):
+            return await value
+        return value
+    
+    # ============ v2.0: Function Definitions ============
+    
+    async def visit_FunctionDef(self, node: FunctionDef) -> Callable:
+        """Register function definition."""
+        self.functions[node.name] = node
+        
+        async def function_wrapper(*args):
+            return await self._call_function(node, list(args))
+        
+        self.env.define(node.name, function_wrapper)
+        return function_wrapper
+    
+    async def _call_function(self, func: FunctionDef, args: list) -> Any:
+        """Call a function with arguments."""
+        old_env = self.env
+        self.env = self.env.child_scope()
+        
+        # Bind parameters
+        for i, param in enumerate(func.params):
+            if i < len(args):
+                self.env.define(param.name, args[i])
+            elif param.default_value:
+                default = await self.evaluate(param.default_value)
+                self.env.define(param.name, default)
+        
+        try:
+            await self.execute_block(func.body)
+            return None
+        except ReturnValue as rv:
+            return rv.value
+        finally:
+            self.env = old_env
     
     # ============ Action Statements ============
     
@@ -241,7 +622,6 @@ class Interpreter(ASTVisitor):
             memory = self.env.get_memory(memory_name)
             memory.store(value)
         except Exception:
-            # Create memory if it doesn't exist
             memory = create_memory('working', memory_name)
             self.env.register_memory(memory_name, memory)
             memory.store(value)
@@ -288,6 +668,23 @@ class Interpreter(ASTVisitor):
             return await self.eval_member_access(expr)
         elif isinstance(expr, ListLiteral):
             return [await self.evaluate(e) for e in expr.elements]
+        # v2.0 expressions
+        elif isinstance(expr, CallExpr):
+            return await self.eval_call(expr)
+        elif isinstance(expr, MapLiteral):
+            return await self.eval_map_literal(expr)
+        elif isinstance(expr, IndexExpr):
+            return await self.eval_index(expr)
+        elif isinstance(expr, PipelineExpr):
+            return await self.eval_pipeline(expr)
+        elif isinstance(expr, AwaitExpr):
+            return await self.visit_AwaitExpr(expr)
+        elif isinstance(expr, SpawnExpr):
+            return await self.visit_SpawnExpr(expr)
+        elif isinstance(expr, JoinExpr):
+            return await self.visit_JoinExpr(expr)
+        elif isinstance(expr, WithExpr):
+            return await self.eval_with(expr)
         else:
             raise InterpreterError(f"Cannot evaluate: {type(expr)}")
     
@@ -346,6 +743,90 @@ class Interpreter(ASTVisitor):
             return getattr(obj, expr.member)
         
         raise InterpreterError(f"Cannot access member {expr.member}")
+    
+    async def eval_call(self, expr: CallExpr) -> Any:
+        """Evaluate function call."""
+        callee = await self.evaluate(expr.callee)
+        args = [await self.evaluate(arg) for arg in expr.args]
+        
+        if callable(callee):
+            result = callee(*args)
+            if asyncio.iscoroutine(result):
+                return await result
+            return result
+        elif isinstance(callee, FunctionDef):
+            return await self._call_function(callee, args)
+        
+        raise InterpreterError(f"Cannot call non-function: {type(callee)}")
+    
+    async def eval_map_literal(self, expr: MapLiteral) -> dict:
+        """Evaluate map literal."""
+        result = {}
+        for key, value_expr in expr.entries:
+            result[key] = await self.evaluate(value_expr)
+        return result
+    
+    async def eval_index(self, expr: IndexExpr) -> Any:
+        """Evaluate index expression."""
+        obj = await self.evaluate(expr.object)
+        index = await self.evaluate(expr.index)
+        
+        if isinstance(obj, (list, tuple, str)):
+            return obj[int(index)]
+        elif isinstance(obj, dict):
+            return obj.get(index)
+        
+        raise InterpreterError(f"Cannot index into {type(obj)}")
+    
+    async def eval_pipeline(self, expr: PipelineExpr) -> Any:
+        """Evaluate pipeline expression: value |> func1 |> func2"""
+        value = await self.evaluate(expr.initial)
+        
+        for stage in expr.stages:
+            if isinstance(stage, Identifier):
+                # Simple function call
+                func = self.env.get(stage.name)
+                if callable(func):
+                    result = func(value)
+                    if asyncio.iscoroutine(result):
+                        value = await result
+                    else:
+                        value = result
+                elif isinstance(func, FunctionDef):
+                    value = await self._call_function(func, [value])
+            elif isinstance(stage, CallExpr):
+                # Function with additional args
+                callee = await self.evaluate(stage.callee)
+                args = [value] + [await self.evaluate(arg) for arg in stage.args]
+                if callable(callee):
+                    result = callee(*args)
+                    if asyncio.iscoroutine(result):
+                        value = await result
+                    else:
+                        value = result
+            else:
+                # Evaluate stage and use as function
+                func = await self.evaluate(stage)
+                if callable(func):
+                    result = func(value)
+                    if asyncio.iscoroutine(result):
+                        value = await result
+                    else:
+                        value = result
+        
+        return value
+    
+    async def eval_with(self, expr: WithExpr) -> Any:
+        """Evaluate with expression: obj with { updates }"""
+        base = await self.evaluate(expr.base)
+        updates = await self.eval_map_literal(expr.updates)
+        
+        if isinstance(base, dict):
+            result = base.copy()
+            result.update(updates)
+            return result
+        
+        raise InterpreterError(f"Cannot use 'with' on {type(base)}")
     
     # ============ Helper Methods ============
     
