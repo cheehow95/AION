@@ -59,7 +59,22 @@
       "title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
       "summary": "Resource-management tasks in modern operating and distributed systems continue to rely primarily on hand-designed heuristics for tasks such as scheduling, caching, or active queue management. Designin...",
       "fetched": "2026-01-02T01:43:45.531092"
+    },
+    {
+      "title": "SpaceTimePilot: Generative Rendering of Dynamic Scenes Across Space and Time",
+      "summary": "We present SpaceTimePilot, a video diffusion model that disentangles space and time for controllable generative rendering. Given a monocular video, SpaceTimePilot can independently alter the camera vi...",
+      "fetched": "2026-01-03T01:38:09.712149"
+    },
+    {
+      "title": "Coordinated Humanoid Manipulation with Choice Policies",
+      "summary": "Humanoid robots hold great promise for operating in human-centric environments, yet achieving robust whole-body coordination across the head, hands, and legs remains a major challenge. We present a sy...",
+      "fetched": "2026-01-03T01:38:09.712158"
+    },
+    {
+      "title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
+      "summary": "Resource-management tasks in modern operating and distributed systems continue to rely primarily on hand-designed heuristics for tasks such as scheduling, caching, or active queue management. Designin...",
+      "fetched": "2026-01-03T01:38:09.712160"
     }
   ],
-  "last_sync": "2026-01-02T01:43:45.624230"
+  "last_sync": "2026-01-03T01:38:09.748119"
 }
