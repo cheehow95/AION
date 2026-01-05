@@ -297,42 +297,117 @@ class LearningDomain:
 
 
 class KnowledgeDomain:
-    """Unified knowledge management interface."""
+    """Knowledge management with ChromaDB vector database."""
     
     def __init__(self):
         self._kg = None
-        self._ingester = None
+        self._chroma = None
+        self._collection = None
+        self._init_storage()
     
-    def _init_kg(self):
-        if not self._kg:
-            try:
-                from src.knowledge.knowledge_graph import KnowledgeGraph
-                self._kg = KnowledgeGraph()
-            except: pass
+    def _init_storage(self):
+        """Initialize knowledge storage."""
+        # Try ChromaDB first
+        try:
+            import chromadb
+            self._chroma = chromadb.Client()
+            self._collection = self._chroma.get_or_create_collection(
+                name="aion_knowledge",
+                metadata={"hnsw:space": "cosine"}
+            )
+        except ImportError:
+            pass
+        
+        # Fallback to simple KG
+        try:
+            from src.knowledge.knowledge_graph import KnowledgeGraph
+            self._kg = KnowledgeGraph()
+        except:
+            self._kg = {"entities": {}, "relations": []}
     
-    def add_fact(self, subject: str, relation: str, obj: str):
-        """Add a fact to the knowledge base."""
-        self._init_kg()
-        if self._kg:
+    def add(self, content: str, metadata: Dict = None, doc_id: str = None) -> str:
+        """Add content to knowledge base with vector embedding."""
+        import hashlib
+        doc_id = doc_id or hashlib.md5(content.encode()).hexdigest()[:12]
+        
+        if self._collection:
+            self._collection.add(
+                documents=[content],
+                metadatas=[metadata or {}],
+                ids=[doc_id]
+            )
+        return doc_id
+    
+    def search(self, query: str, top_k: int = 5) -> List[Dict]:
+        """Semantic search over knowledge base."""
+        if self._collection:
+            results = self._collection.query(
+                query_texts=[query],
+                n_results=top_k
+            )
+            return [
+                {
+                    "id": results["ids"][0][i],
+                    "content": results["documents"][0][i],
+                    "metadata": results["metadatas"][0][i] if results["metadatas"] else {},
+                    "distance": results["distances"][0][i] if results.get("distances") else 0
+                }
+                for i in range(len(results["ids"][0]))
+            ]
+        return [{"query": query, "result": "ChromaDB not available"}]
+    
+    def add_fact(self, subject: str, relation: str, obj: str) -> bool:
+        """Add a fact (triple) to the knowledge base."""
+        # Add as document
+        fact_text = f"{subject} {relation} {obj}"
+        self.add(fact_text, {"type": "fact", "subject": subject, "relation": relation, "object": obj})
+        
+        # Also add to graph if available
+        if self._kg and hasattr(self._kg, 'add_entity'):
             self._kg.add_entity(subject, "entity")
             self._kg.add_entity(obj, "entity")
             self._kg.add_relation(subject, relation, obj)
-            return True
-        return False
+        elif isinstance(self._kg, dict):
+            self._kg["entities"][subject] = {"type": "entity"}
+            self._kg["entities"][obj] = {"type": "entity"}
+            self._kg["relations"].append((subject, relation, obj))
+        return True
     
     def query(self, query: str) -> List[Dict]:
-        """Query the knowledge base."""
-        self._init_kg()
-        if self._kg and hasattr(self._kg, 'query'):
-            return self._kg.query(query)
-        return [{"query": query, "result": "No results found"}]
+        """Query the knowledge base (semantic search)."""
+        return self.search(query)
     
     def get_entities(self) -> List[str]:
         """Get all known entities."""
-        self._init_kg()
         if self._kg and hasattr(self._kg, 'entities'):
             return list(self._kg.entities.keys())[:100]
+        elif isinstance(self._kg, dict):
+            return list(self._kg.get("entities", {}).keys())[:100]
         return []
+    
+    def get_facts_about(self, entity: str) -> List[Dict]:
+        """Get all facts about an entity."""
+        if self._collection:
+            results = self._collection.query(
+                query_texts=[entity],
+                n_results=10,
+                where={"type": "fact"}
+            )
+            if results["documents"]:
+                return [{"fact": doc} for doc in results["documents"][0]]
+        return []
+    
+    def count(self) -> int:
+        """Get total number of knowledge items."""
+        if self._collection:
+            return self._collection.count()
+        return len(self._kg.get("entities", {})) if isinstance(self._kg, dict) else 0
+    
+    def clear(self):
+        """Clear all knowledge."""
+        if self._chroma and self._collection:
+            self._chroma.delete_collection("aion_knowledge")
+            self._collection = self._chroma.get_or_create_collection("aion_knowledge")
 
 
 class ReasoningDomain:
@@ -454,31 +529,153 @@ class LanguageDomain:
 
 
 class MultimodalDomain:
-    """Unified multimodal interface."""
+    """Multimodal processing with Whisper audio and vision models."""
     
     def __init__(self):
         self._vision = None
         self._audio = None
+        self._whisper = None
+        self._clip = None
         self._init()
     
     def _init(self):
+        """Initialize multimodal processors."""
+        # Try native AION processors
         try:
             from src.multimodal import VisionProcessor, AudioProcessor
             self._vision = VisionProcessor()
             self._audio = AudioProcessor()
-        except: pass
+        except:
+            pass
+        
+        # Try Whisper for audio
+        try:
+            import whisper
+            self._whisper = whisper.load_model("base")
+        except ImportError:
+            pass
+        
+        # Try CLIP for vision
+        try:
+            from transformers import CLIPProcessor, CLIPModel
+            self._clip = {
+                "model": CLIPModel.from_pretrained("openai/clip-vit-base-patch32"),
+                "processor": CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+            }
+        except ImportError:
+            pass
     
-    def analyze_image(self, image_path: str) -> Dict:
-        """Analyze an image."""
-        if self._vision:
-            return {"path": image_path, "analysis": "Vision analysis result"}
-        return {"error": "Vision not available"}
+    def transcribe_audio(self, audio_path: str, language: str = None) -> Dict:
+        """Transcribe audio to text using Whisper."""
+        if self._whisper:
+            try:
+                result = self._whisper.transcribe(audio_path, language=language)
+                return {
+                    "text": result["text"],
+                    "language": result.get("language", "unknown"),
+                    "segments": [
+                        {"start": s["start"], "end": s["end"], "text": s["text"]}
+                        for s in result.get("segments", [])
+                    ]
+                }
+            except Exception as e:
+                return {"error": str(e)}
+        return {"text": "Whisper not available - install with: pip install openai-whisper"}
     
-    def transcribe_audio(self, audio_path: str) -> str:
-        """Transcribe audio to text."""
-        if self._audio:
-            return "Transcribed text from audio"
-        return "Audio processing not available"
+    def analyze_image(self, image_path: str, questions: List[str] = None) -> Dict:
+        """Analyze an image using CLIP."""
+        if self._clip:
+            try:
+                from PIL import Image
+                image = Image.open(image_path)
+                
+                # Default labels if no questions
+                labels = questions or ["a photo of a cat", "a photo of a dog", "a photo of a car", 
+                                       "a photo of a person", "a photo of nature", "a photo of food"]
+                
+                inputs = self._clip["processor"](
+                    text=labels,
+                    images=image,
+                    return_tensors="pt",
+                    padding=True
+                )
+                
+                outputs = self._clip["model"](**inputs)
+                probs = outputs.logits_per_image.softmax(dim=1)[0]
+                
+                results = []
+                for i, label in enumerate(labels):
+                    results.append({"label": label, "score": float(probs[i])})
+                results.sort(key=lambda x: x["score"], reverse=True)
+                
+                return {
+                    "path": image_path,
+                    "classifications": results,
+                    "top_label": results[0]["label"],
+                    "confidence": results[0]["score"]
+                }
+            except Exception as e:
+                return {"error": str(e)}
+        
+        return {"path": image_path, "analysis": "CLIP not available - install transformers"}
+    
+    def image_to_text(self, image_path: str) -> str:
+        """Generate description of an image."""
+        try:
+            from transformers import pipeline
+            captioner = pipeline("image-to-text", model="Salesforce/blip-image-captioning-base")
+            result = captioner(image_path)
+            return result[0]["generated_text"]
+        except:
+            return "Image captioning requires: pip install transformers pillow"
+    
+    def text_to_speech(self, text: str, output_path: str = "output.wav") -> str:
+        """Convert text to speech."""
+        try:
+            import pyttsx3
+            engine = pyttsx3.init()
+            engine.save_to_file(text, output_path)
+            engine.runAndWait()
+            return output_path
+        except:
+            return "TTS requires: pip install pyttsx3"
+    
+    def extract_audio_features(self, audio_path: str) -> Dict:
+        """Extract audio features (duration, sample rate, etc)."""
+        try:
+            import wave
+            with wave.open(audio_path, 'rb') as audio:
+                return {
+                    "channels": audio.getnchannels(),
+                    "sample_rate": audio.getframerate(),
+                    "duration": audio.getnframes() / audio.getframerate(),
+                    "sample_width": audio.getsampwidth()
+                }
+        except:
+            return {"error": "Could not read audio file"}
+    
+    def compare_images(self, image1_path: str, image2_path: str) -> float:
+        """Compare similarity between two images using CLIP."""
+        if self._clip:
+            try:
+                from PIL import Image
+                import torch
+                
+                img1 = Image.open(image1_path)
+                img2 = Image.open(image2_path)
+                
+                inputs1 = self._clip["processor"](images=img1, return_tensors="pt")
+                inputs2 = self._clip["processor"](images=img2, return_tensors="pt")
+                
+                with torch.no_grad():
+                    features1 = self._clip["model"].get_image_features(**inputs1)
+                    features2 = self._clip["model"].get_image_features(**inputs2)
+                
+                similarity = torch.nn.functional.cosine_similarity(features1, features2)
+                return float(similarity[0])
+            except Exception as e:
+                return 0.0
+        return 0.0
 
 
 class MathDomain:
