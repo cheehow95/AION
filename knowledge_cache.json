@@ -1,11 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Multilingual Hidden Prompt Injection Attacks on LLM-Based Academic Reviewing",
-      "summary": "Large language models (LLMs) are increasingly considered for use in high-impact workflows, including academic peer review. However, LLMs are vulnerable to document-level hidden prompt injection attack...",
-      "fetched": "2025-12-31T14:04:05.550439"
-    },
-    {
       "title": "Web World Models",
       "summary": "Language agents increasingly require persistent worlds in which they can act, remember, and learn. Existing approaches sit at two extremes: conventional web frameworks provide reliable but fixed conte...",
       "fetched": "2025-12-31T14:04:05.550439"
@@ -89,7 +84,22 @@
       "title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
       "summary": "Resource-management tasks in modern operating and distributed systems continue to rely primarily on hand-designed heuristics for tasks such as scheduling, caching, or active queue management. Designin...",
       "fetched": "2026-01-04T01:52:15.525325"
+    },
+    {
+      "title": "SpaceTimePilot: Generative Rendering of Dynamic Scenes Across Space and Time",
+      "summary": "We present SpaceTimePilot, a video diffusion model that disentangles space and time for controllable generative rendering. Given a monocular video, SpaceTimePilot can independently alter the camera vi...",
+      "fetched": "2026-01-05T01:52:17.797151"
+    },
+    {
+      "title": "Coordinated Humanoid Manipulation with Choice Policies",
+      "summary": "Humanoid robots hold great promise for operating in human-centric environments, yet achieving robust whole-body coordination across the head, hands, and legs remains a major challenge. We present a sy...",
+      "fetched": "2026-01-05T01:52:17.797161"
+    },
+    {
+      "title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
+      "summary": "Resource-management tasks in modern operating and distributed systems continue to rely primarily on hand-designed heuristics for tasks such as scheduling, caching, or active queue management. Designin...",
+      "fetched": "2026-01-05T01:52:17.797163"
     }
   ],
-  "last_sync": "2026-01-04T01:52:15.564761"
+  "last_sync": "2026-01-05T01:52:17.842158"
 }
