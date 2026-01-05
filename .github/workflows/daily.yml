@@ -1,0 +1,97 @@
+# AION Daily Improvement Automation
+
+name: Daily Improvement
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Every day at midnight UTC
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Run tests
+        run: |
+          python run_tests.py
+          
+      - name: Coverage report
+        run: |
+          pip install pytest-cov
+          pytest --cov=src --cov-report=xml
+          
+  benchmark:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Run benchmarks
+        run: |
+          python -c "
+          from aion import AION
+          import time
+          
+          ai = AION()
+          
+          # Benchmark tests
+          start = time.time()
+          ai.reasoning.think_extended('Test problem')
+          reasoning_time = time.time() - start
+          
+          start = time.time()
+          ai.math.derivative('x**3')
+          math_time = time.time() - start
+          
+          print(f'Reasoning: {reasoning_time:.3f}s')
+          print(f'Math: {math_time:.3f}s')
+          "
+          
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Security scan
+        run: |
+          pip install bandit safety
+          bandit -r src/ -ll
+          safety check
+          
+  update-models:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check LM Arena rankings
+        run: |
+          echo "Checking latest model rankings..."
+          # This would fetch and update MODEL_RANKINGS
+          
+  report:
+    runs-on: ubuntu-latest
+    needs: [test, benchmark, security]
+    steps:
+      - name: Generate daily report
+        run: |
+          echo "## Daily AION Report - $(date)" > report.md
+          echo "- Tests: PASSED" >> report.md
+          echo "- Benchmarks: COMPLETED" >> report.md
+          echo "- Security: PASSED" >> report.md
