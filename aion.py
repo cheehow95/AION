@@ -482,98 +482,259 @@ class MultimodalDomain:
 
 
 class MathDomain:
-    """Unified math interface."""
+    """Unified math interface with SymPy integration."""
     
     def __init__(self):
-        self._engine = None
+        self._sympy_available = False
+        self._symbols = {}
         try:
-            from src.domains.math_engine import MathEngine
-            self._engine = MathEngine()
-        except: pass
+            import sympy
+            self._sympy_available = True
+            # Pre-create common symbols
+            self._symbols = {
+                'x': sympy.Symbol('x'),
+                'y': sympy.Symbol('y'),
+                'z': sympy.Symbol('z'),
+                't': sympy.Symbol('t'),
+                'n': sympy.Symbol('n', integer=True),
+            }
+        except ImportError:
+            pass
     
     def calculate(self, expression: str) -> float:
         """Evaluate a mathematical expression."""
         try:
-            # Safe eval for simple math
-            allowed = {'__builtins__': {}, 'abs': abs, 'round': round, 
-                      'min': min, 'max': max, 'sum': sum, 'pow': pow}
-            import math as m
-            allowed.update({k: getattr(m, k) for k in dir(m) if not k.startswith('_')})
-            return eval(expression, allowed)
+            if self._sympy_available:
+                import sympy
+                result = sympy.sympify(expression)
+                return float(result.evalf())
+            else:
+                # Safe eval fallback
+                allowed = {'__builtins__': {}, 'abs': abs, 'round': round, 
+                          'min': min, 'max': max, 'sum': sum, 'pow': pow}
+                import math as m
+                allowed.update({k: getattr(m, k) for k in dir(m) if not k.startswith('_')})
+                return eval(expression, allowed)
         except:
             return float('nan')
     
-    def derivative(self, expr: str, var: str = 'x') -> str:
+    def derivative(self, expr: str, var: str = 'x', order: int = 1) -> str:
         """Calculate symbolic derivative."""
-        if self._engine and hasattr(self._engine, 'derivative'):
-            return self._engine.derivative(expr, var)
-        # Simple power rule
-        if f'{var}**' in expr:
-            import re
-            match = re.search(rf'{var}\*\*(\d+)', expr)
-            if match:
-                n = int(match.group(1))
-                return f"{n}*{var}**{n-1}"
-        return f"d/d{var}({expr})"
+        if self._sympy_available:
+            import sympy
+            sym_var = self._symbols.get(var, sympy.Symbol(var))
+            sym_expr = sympy.sympify(expr)
+            result = sympy.diff(sym_expr, sym_var, order)
+            return str(result)
+        # Fallback
+        return f"d^{order}/d{var}^{order}({expr})"
     
-    def integrate(self, expr: str, var: str = 'x') -> str:
+    def integrate(self, expr: str, var: str = 'x', definite: tuple = None) -> str:
         """Calculate symbolic integral."""
+        if self._sympy_available:
+            import sympy
+            sym_var = self._symbols.get(var, sympy.Symbol(var))
+            sym_expr = sympy.sympify(expr)
+            if definite:
+                result = sympy.integrate(sym_expr, (sym_var, definite[0], definite[1]))
+            else:
+                result = sympy.integrate(sym_expr, sym_var)
+            return str(result)
         return f"∫({expr})d{var}"
     
     def solve(self, equation: str, var: str = 'x') -> List:
-        """Solve an equation."""
-        # Simple linear: ax + b = 0
+        """Solve an equation for a variable."""
+        if self._sympy_available:
+            import sympy
+            sym_var = self._symbols.get(var, sympy.Symbol(var))
+            # Parse equation (handle both = and == forms)
+            if '=' in equation and '==' not in equation:
+                lhs, rhs = equation.split('=')
+                sym_eq = sympy.Eq(sympy.sympify(lhs), sympy.sympify(rhs))
+            else:
+                sym_eq = sympy.sympify(equation)
+            solutions = sympy.solve(sym_eq, sym_var)
+            return [str(s) for s in solutions]
         return [f"solution for {var}"]
+    
+    def simplify(self, expr: str) -> str:
+        """Simplify an expression."""
+        if self._sympy_available:
+            import sympy
+            return str(sympy.simplify(sympy.sympify(expr)))
+        return expr
+    
+    def expand(self, expr: str) -> str:
+        """Expand an expression."""
+        if self._sympy_available:
+            import sympy
+            return str(sympy.expand(sympy.sympify(expr)))
+        return expr
+    
+    def factor(self, expr: str) -> str:
+        """Factor an expression."""
+        if self._sympy_available:
+            import sympy
+            return str(sympy.factor(sympy.sympify(expr)))
+        return expr
+    
+    def limit(self, expr: str, var: str, point, direction: str = '+-') -> str:
+        """Calculate limit of expression."""
+        if self._sympy_available:
+            import sympy
+            sym_var = self._symbols.get(var, sympy.Symbol(var))
+            sym_expr = sympy.sympify(expr)
+            sym_point = sympy.oo if point == 'inf' else sympy.sympify(point)
+            result = sympy.limit(sym_expr, sym_var, sym_point, direction)
+            return str(result)
+        return f"lim({expr}) as {var}→{point}"
+    
+    def series(self, expr: str, var: str = 'x', point: float = 0, order: int = 6) -> str:
+        """Calculate Taylor series expansion."""
+        if self._sympy_available:
+            import sympy
+            sym_var = self._symbols.get(var, sympy.Symbol(var))
+            sym_expr = sympy.sympify(expr)
+            result = sympy.series(sym_expr, sym_var, point, order)
+            return str(result)
+        return f"Taylor({expr}, {var}={point}, n={order})"
     
     def matrix_multiply(self, a: List[List], b: List[List]) -> List[List]:
         """Multiply two matrices."""
+        if self._sympy_available:
+            import sympy
+            ma = sympy.Matrix(a)
+            mb = sympy.Matrix(b)
+            return (ma * mb).tolist()
         import numpy as np
         return (np.array(a) @ np.array(b)).tolist()
+    
+    def eigenvalues(self, matrix: List[List]) -> List:
+        """Calculate eigenvalues of a matrix."""
+        if self._sympy_available:
+            import sympy
+            m = sympy.Matrix(matrix)
+            return [str(e) for e in m.eigenvals().keys()]
+        return ["eigenvalue calculation requires SymPy"]
+    
+    def determinant(self, matrix: List[List]) -> str:
+        """Calculate determinant of a matrix."""
+        if self._sympy_available:
+            import sympy
+            m = sympy.Matrix(matrix)
+            return str(m.det())
+        return "determinant calculation requires SymPy"
+    
+    def laplace_transform(self, expr: str, t: str = 't', s: str = 's') -> str:
+        """Calculate Laplace transform."""
+        if self._sympy_available:
+            import sympy
+            sym_t = sympy.Symbol(t)
+            sym_s = sympy.Symbol(s)
+            sym_expr = sympy.sympify(expr)
+            result = sympy.laplace_transform(sym_expr, sym_t, sym_s)
+            return str(result[0])
+        return f"L{{{expr}}}"
 
 
 class NLPDomain:
-    """Natural Language Processing interface."""
+    """Natural Language Processing with transformer models."""
     
     def __init__(self):
-        pass
+        self._model = None
+        self._embeddings_cache = {}
+        try:
+            from sentence_transformers import SentenceTransformer
+            self._model = SentenceTransformer('all-MiniLM-L6-v2')
+        except ImportError:
+            pass
     
     def tokenize(self, text: str) -> List[str]:
         """Tokenize text into words."""
         import re
         return re.findall(r'\b\w+\b', text.lower())
     
+    def embed(self, text: str) -> List[float]:
+        """Get embedding vector for text."""
+        if self._model:
+            if text in self._embeddings_cache:
+                return self._embeddings_cache[text]
+            embedding = self._model.encode(text).tolist()
+            self._embeddings_cache[text] = embedding
+            return embedding
+        # Fallback: simple bag-of-words hash
+        words = self.tokenize(text)
+        return [hash(w) % 1000 / 1000 for w in words[:384]]
+    
+    def similarity(self, text1: str, text2: str) -> float:
+        """Calculate semantic similarity between two texts (0-1)."""
+        if self._model:
+            from sentence_transformers import util
+            emb1 = self._model.encode(text1)
+            emb2 = self._model.encode(text2)
+            return float(util.cos_sim(emb1, emb2)[0][0])
+        # Fallback: Jaccard similarity
+        words1 = set(self.tokenize(text1))
+        words2 = set(self.tokenize(text2))
+        if not words1 or not words2:
+            return 0.0
+        return len(words1 & words2) / len(words1 | words2)
+    
+    def find_similar(self, query: str, documents: List[str], top_k: int = 5) -> List[Dict]:
+        """Find most similar documents to query."""
+        results = []
+        for i, doc in enumerate(documents):
+            score = self.similarity(query, doc)
+            results.append({"index": i, "text": doc[:100], "score": score})
+        results.sort(key=lambda x: x["score"], reverse=True)
+        return results[:top_k]
+    
     def sentiment(self, text: str) -> Dict:
         """Analyze sentiment of text."""
-        positive = ['good', 'great', 'excellent', 'amazing', 'love', 'happy', 'best']
-        negative = ['bad', 'terrible', 'awful', 'hate', 'worst', 'sad', 'poor']
+        # Try transformers pipeline
+        try:
+            from transformers import pipeline
+            classifier = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+            result = classifier(text[:512])[0]
+            return {"label": result["label"].lower(), "score": result["score"]}
+        except:
+            pass
+        
+        # Fallback: rule-based
+        positive = ['good', 'great', 'excellent', 'amazing', 'love', 'happy', 'best', 'wonderful', 'fantastic']
+        negative = ['bad', 'terrible', 'awful', 'hate', 'worst', 'sad', 'poor', 'horrible', 'disappointing']
         
         words = self.tokenize(text)
         pos_count = sum(1 for w in words if w in positive)
         neg_count = sum(1 for w in words if w in negative)
         
         if pos_count > neg_count:
-            label = "positive"
-            score = min(1.0, 0.5 + 0.1 * (pos_count - neg_count))
+            return {"label": "positive", "score": min(1.0, 0.5 + 0.1 * (pos_count - neg_count))}
         elif neg_count > pos_count:
-            label = "negative"
-            score = max(0.0, 0.5 - 0.1 * (neg_count - pos_count))
-        else:
-            label = "neutral"
-            score = 0.5
-        
-        return {"label": label, "score": score}
+            return {"label": "negative", "score": max(0.0, 0.5 - 0.1 * (neg_count - pos_count))}
+        return {"label": "neutral", "score": 0.5}
     
-    def summarize(self, text: str, sentences: int = 3) -> str:
-        """Summarize text to key sentences."""
+    def summarize(self, text: str, max_length: int = 150) -> str:
+        """Summarize text."""
+        try:
+            from transformers import pipeline
+            summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+            result = summarizer(text[:1024], max_length=max_length, min_length=30)
+            return result[0]["summary_text"]
+        except:
+            pass
+        
+        # Fallback: extractive (first sentences)
         sents = text.replace('!', '.').replace('?', '.').split('.')
         sents = [s.strip() for s in sents if len(s.strip()) > 20]
-        return '. '.join(sents[:sentences]) + '.'
+        return '. '.join(sents[:3]) + '.'
     
-    def extract_keywords(self, text: str, top_n: int = 5) -> List[str]:
-        """Extract keywords from text."""
+    def extract_keywords(self, text: str, top_n: int = 10) -> List[str]:
+        """Extract keywords from text using TF-IDF-like approach."""
         stopwords = {'the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been',
                     'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
-                    'could', 'should', 'to', 'of', 'in', 'for', 'on', 'with', 'at'}
+                    'could', 'should', 'to', 'of', 'in', 'for', 'on', 'with', 'at',
+                    'by', 'from', 'as', 'or', 'and', 'but', 'if', 'so', 'it', 'this'}
         
         words = self.tokenize(text)
         word_freq = {}
@@ -581,19 +742,74 @@ class NLPDomain:
             if len(w) > 3 and w not in stopwords:
                 word_freq[w] = word_freq.get(w, 0) + 1
         
-        sorted_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
-        return [w for w, _ in sorted_words[:top_n]]
+        # Score by frequency and length
+        scored = [(w, f * (1 + len(w)/10)) for w, f in word_freq.items()]
+        scored.sort(key=lambda x: x[1], reverse=True)
+        return [w for w, _ in scored[:top_n]]
     
     def named_entities(self, text: str) -> List[Dict]:
         """Extract named entities from text."""
+        try:
+            from transformers import pipeline
+            ner = pipeline("ner", model="dbmdz/bert-large-cased-finetuned-conll03-english")
+            results = ner(text[:512])
+            entities = []
+            for r in results:
+                entities.append({
+                    "text": r["word"],
+                    "type": r["entity"],
+                    "score": r["score"]
+                })
+            return entities
+        except:
+            pass
+        
+        # Fallback: regex-based
         import re
         entities = []
-        
-        # Find capitalized words (potential names/orgs)
         for match in re.finditer(r'\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\b', text):
-            entities.append({"text": match.group(1), "type": "ENTITY"})
+            entities.append({"text": match.group(1), "type": "ENTITY", "score": 0.5})
+        return entities[:15]
+    
+    def classify(self, text: str, labels: List[str]) -> Dict:
+        """Zero-shot text classification."""
+        try:
+            from transformers import pipeline
+            classifier = pipeline("zero-shot-classification")
+            result = classifier(text[:512], labels)
+            return {
+                "label": result["labels"][0],
+                "score": result["scores"][0],
+                "all_labels": dict(zip(result["labels"], result["scores"]))
+            }
+        except:
+            pass
         
-        return entities[:10]
+        # Fallback: keyword matching
+        best_label = labels[0]
+        best_score = 0
+        text_lower = text.lower()
+        for label in labels:
+            if label.lower() in text_lower:
+                return {"label": label, "score": 0.8, "all_labels": {}}
+        return {"label": best_label, "score": 0.3, "all_labels": {}}
+    
+    def answer_question(self, question: str, context: str) -> Dict:
+        """Answer a question based on context."""
+        try:
+            from transformers import pipeline
+            qa = pipeline("question-answering")
+            result = qa(question=question, context=context[:1000])
+            return {
+                "answer": result["answer"],
+                "score": result["score"],
+                "start": result["start"],
+                "end": result["end"]
+            }
+        except:
+            pass
+        
+        return {"answer": "QA requires transformers library", "score": 0.0}
 
 
 class CodeDomain:
