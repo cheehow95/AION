@@ -1070,45 +1070,244 @@ class CodeDomain:
 
 
 class AgentDomain:
-    """Agent creation and management interface."""
+    """Full agent runtime with tool integration and execution."""
     
     def __init__(self):
         self._agents = {}
+        self._tools = {}
+        self._mcp_client = None
+        self._init_tools()
     
-    def create(self, name: str, goal: str, tools: List[str] = None) -> Dict:
-        """Create a new agent."""
+    def _init_tools(self):
+        """Initialize built-in tools."""
+        self._tools = {
+            "calculator": self._tool_calculator,
+            "web_search": self._tool_web_search,
+            "read_file": self._tool_read_file,
+            "write_file": self._tool_write_file,
+            "get_time": self._tool_get_time,
+        }
+        
+        # Try MCP client
+        try:
+            from src.mcp import MCPClient
+            self._mcp_client = MCPClient()
+        except:
+            pass
+    
+    def _tool_calculator(self, expression: str) -> str:
+        """Calculate mathematical expression."""
+        try:
+            import sympy
+            return str(sympy.sympify(expression).evalf())
+        except:
+            return str(eval(expression))
+    
+    def _tool_web_search(self, query: str) -> str:
+        """Web search (simulated)."""
+        return f"Search results for: {query}"
+    
+    def _tool_read_file(self, path: str) -> str:
+        """Read a file."""
+        try:
+            with open(path, 'r') as f:
+                return f.read()[:1000]
+        except Exception as e:
+            return f"Error: {e}"
+    
+    def _tool_write_file(self, path: str, content: str) -> str:
+        """Write to a file."""
+        try:
+            with open(path, 'w') as f:
+                f.write(content)
+            return f"Written to {path}"
+        except Exception as e:
+            return f"Error: {e}"
+    
+    def _tool_get_time(self) -> str:
+        """Get current time."""
+        from datetime import datetime
+        return datetime.now().isoformat()
+    
+    def create(self, name: str, goal: str, tools: List[str] = None, 
+               system_prompt: str = None) -> Dict:
+        """Create a new agent with full configuration."""
         agent = {
             "name": name,
             "goal": goal,
+            "system_prompt": system_prompt or f"You are {name}. Your goal is: {goal}",
             "tools": tools or [],
-            "memory": {"working": {}, "episodic": []},
-            "status": "created"
+            "memory": {
+                "working": {},
+                "episodic": [],
+                "context": []
+            },
+            "status": "created",
+            "history": [],
+            "iterations": 0,
+            "max_iterations": 10
         }
         self._agents[name] = agent
         return agent
     
-    def run(self, name: str, input_data: Any) -> Dict:
-        """Run an agent with input."""
+    def add_tool(self, name: str, func: callable, description: str = ""):
+        """Register a custom tool."""
+        self._tools[name] = func
+    
+    def run(self, name: str, input_data: Any, max_iterations: int = 5) -> Dict:
+        """Run an agent with full execution loop."""
         if name not in self._agents:
             return {"error": f"Agent {name} not found"}
         
         agent = self._agents[name]
+        agent["status"] = "running"
+        agent["iterations"] = 0
+        
+        # Add input to context
+        agent["memory"]["context"].append({
+            "role": "user",
+            "content": str(input_data)
+        })
+        
+        result = None
+        thoughts = []
+        tool_calls = []
+        
+        # Execution loop
+        for i in range(max_iterations):
+            agent["iterations"] += 1
+            
+            # Think step
+            thought = self._think(agent, input_data)
+            thoughts.append(thought)
+            
+            # Check if we need tools
+            tool_needed = self._needs_tool(thought, agent["tools"])
+            
+            if tool_needed:
+                tool_result = self._execute_tool(tool_needed["tool"], tool_needed["args"])
+                tool_calls.append({
+                    "tool": tool_needed["tool"],
+                    "args": tool_needed["args"],
+                    "result": tool_result
+                })
+                agent["memory"]["context"].append({
+                    "role": "tool",
+                    "tool": tool_needed["tool"],
+                    "content": tool_result
+                })
+            
+            # Check if we have a final answer
+            if self._is_complete(thought):
+                result = self._extract_answer(thought, agent["memory"]["context"])
+                break
+        
+        agent["status"] = "completed"
+        agent["history"].append({
+            "input": str(input_data),
+            "output": result,
+            "thoughts": thoughts,
+            "tool_calls": tool_calls
+        })
+        
+        # Store in episodic memory
+        agent["memory"]["episodic"].append({
+            "input": str(input_data),
+            "output": result,
+            "timestamp": self._tool_get_time()
+        })
+        
         return {
             "agent": name,
             "input": str(input_data),
-            "output": f"Agent {name} processed: {input_data}",
+            "output": result or f"Processed after {agent['iterations']} iterations",
+            "thoughts": thoughts,
+            "tool_calls": tool_calls,
+            "iterations": agent["iterations"],
             "status": "completed"
         }
+    
+    def _think(self, agent: Dict, input_data: Any) -> str:
+        """Generate a thought based on context."""
+        goal = agent["goal"]
+        context = agent["memory"]["context"]
+        
+        # Simple rule-based thinking (LLM would be here)
+        if "calculate" in str(input_data).lower():
+            return f"THINK: Need to use calculator tool. ACTION: calculator"
+        elif "search" in str(input_data).lower():
+            return f"THINK: Need to search the web. ACTION: web_search"
+        elif "file" in str(input_data).lower():
+            return f"THINK: Need to work with files. ACTION: read_file or write_file"
+        else:
+            return f"THINK: Analyzing input for goal '{goal}'. ANSWER: Processing complete."
+    
+    def _needs_tool(self, thought: str, available_tools: List[str]) -> Optional[Dict]:
+        """Check if thought requires a tool."""
+        if "ACTION:" in thought:
+            for tool in self._tools:
+                if tool in thought.lower():
+                    return {"tool": tool, "args": {}}
+        return None
+    
+    def _execute_tool(self, tool_name: str, args: Dict) -> str:
+        """Execute a tool."""
+        if tool_name in self._tools:
+            try:
+                return str(self._tools[tool_name](**args)) if args else str(self._tools[tool_name]())
+            except Exception as e:
+                return f"Tool error: {e}"
+        return f"Unknown tool: {tool_name}"
+    
+    def _is_complete(self, thought: str) -> bool:
+        """Check if processing is complete."""
+        return "ANSWER:" in thought or "complete" in thought.lower()
+    
+    def _extract_answer(self, thought: str, context: List) -> str:
+        """Extract the final answer."""
+        if "ANSWER:" in thought:
+            return thought.split("ANSWER:")[1].strip()
+        return "Processing complete"
+    
+    def chat(self, name: str, message: str) -> str:
+        """Simple chat interface for an agent."""
+        result = self.run(name, message)
+        return result.get("output", "No response")
     
     def list_agents(self) -> List[str]:
         """List all created agents."""
         return list(self._agents.keys())
     
+    def list_tools(self) -> List[str]:
+        """List available tools."""
+        return list(self._tools.keys())
+    
     def get_status(self, name: str) -> Dict:
-        """Get agent status."""
+        """Get agent status and stats."""
         if name in self._agents:
-            return {"name": name, "status": self._agents[name]["status"]}
+            agent = self._agents[name]
+            return {
+                "name": name,
+                "status": agent["status"],
+                "goal": agent["goal"],
+                "iterations": agent["iterations"],
+                "history_count": len(agent["history"]),
+                "tools": agent["tools"]
+            }
         return {"error": "Agent not found"}
+    
+    def get_history(self, name: str) -> List[Dict]:
+        """Get agent execution history."""
+        if name in self._agents:
+            return self._agents[name]["history"]
+        return []
+    
+    def delete(self, name: str) -> bool:
+        """Delete an agent."""
+        if name in self._agents:
+            del self._agents[name]
+            return True
+        return False
 
 
 class AION:
