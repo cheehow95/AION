@@ -1,0 +1,409 @@
+"""
+AION v2.5 - Knowledge Graph Agent
+=================================
+Intelligent agent for knowledge representation and reasoning.
+Demonstrates AION's formal logic and graph capabilities.
+"""
+
+import knowledge.graph as kg
+import knowledge.logic as logic
+import reasoning.inference as infer
+
+export agent KnowledgeAgent
+
+# === TYPE DEFINITIONS ===
+type Entity = {
+  id: String,
+  name: String,
+  type: String,
+  properties: Map[String, Any]
+}
+
+type Relation = {
+  source: String,
+  predicate: String,
+  target: String,
+  confidence: Number
+}
+
+type Triple = {
+  subject: String,
+  predicate: String,
+  object: String
+}
+
+type Query = {
+  subject: String | null,
+  predicate: String | null,
+  object: String | null
+}
+
+type InferenceResult = {
+  conclusion: String,
+  confidence: Number,
+  reasoning_chain: List[String],
+  premises: List[Triple]
+}
+
+# === MAIN KNOWLEDGE AGENT ===
+@logged
+agent KnowledgeAgent {
+  goal "Build, query, and reason over knowledge graphs"
+  
+  memory working :: Map[String, Any]
+  memory semantic :: VectorStore {
+    dimension = 768
+    index = "knowledge_base"
+  }
+  memory graph :: GraphStore {
+    type = "knowledge_graph"
+  }
+  
+  model Reasoner {
+    provider = "local"
+    name = "knowledge-specialist"
+    temperature = 0.1
+  }
+  
+  model Explainer {
+    provider = "openai"
+    name = "gpt-4"
+    temperature = 0.7
+  }
+  
+  # === MAIN INPUT HANDLER ===
+  async on input(query :: String):
+    think "Processing knowledge query: {query}"
+    
+    match query:
+      case pattern /^add (.+) is_a (.+)$/ as (subject, object):
+        await add_triple(subject, "is_a", object)
+        respond "Added: {subject} is_a {object}"
+      
+      case pattern /^add (.+) has (.+)$/ as (subject, property):
+        await add_triple(subject, "has_property", property)
+        respond "Added: {subject} has {property}"
+      
+      case pattern /^(.+) causes (.+)$/ as (cause, effect):
+        await add_triple(cause, "causes", effect)
+        respond "Added causal relation: {cause} → {effect}"
+      
+      case pattern /^what is (.+)\?$/ as (entity):
+        result = await query_entity(entity)
+        respond format_entity_info(result)
+      
+      case pattern /^why (.+)\?$/ as (question):
+        explanation = await explain_causally(question)
+        respond explanation
+      
+      case pattern /^infer (.+)$/ as (goal):
+        result = await run_inference(goal)
+        respond format_inference(result)
+      
+      case pattern /^path from (.+) to (.+)$/ as (start, end):
+        path = await find_path(start, end)
+        respond format_path(path)
+      
+      case "show graph" | "显示图谱":
+        respond await visualize_graph()
+      
+      case "stats" | "statistics":
+        respond await get_graph_stats()
+      
+      default:
+        # Natural language query
+        analyzed = query |> analyze |> extract_intent
+        respond await handle_nl_query(analyzed)
+    
+    store { query: query, timestamp: now() } in working
+  
+  # === KNOWLEDGE OPERATIONS ===
+  
+  async function add_triple(subj :: String, pred :: String, obj :: String):
+    think "Adding triple: ({subj}, {pred}, {obj})"
+    
+    # Check for conflicts
+    existing = await query_graph({
+      subject: subj,
+      predicate: pred,
+      object: null
+    })
+    
+    if existing.length > 0:
+      think "Found existing relation, updating confidence"
+    
+    # Store in graph memory
+    triple = Triple {
+      subject: subj,
+      predicate: pred,
+      object: obj
+    }
+    
+    store triple in graph
+    
+    # Also store in semantic memory for search
+    embedding = await embed("{subj} {pred} {obj}")
+    store { triple: triple, embedding: embedding } in semantic
+  
+  async function query_entity(name :: String) -> Entity:
+    think "Querying knowledge about: {name}"
+    
+    # Get all relations involving this entity
+    outgoing = await query_graph({ subject: name, predicate: null, object: null })
+    incoming = await query_graph({ subject: null, predicate: null, object: name })
+    
+    # Get ancestors (is_a chain)
+    ancestors = await get_transitive_closure(name, "is_a")
+    
+    return Entity {
+      id: generate_id(),
+      name: name,
+      type: ancestors[0] if ancestors.length > 0 else "unknown",
+      properties: {
+        outgoing_relations: outgoing,
+        incoming_relations: incoming,
+        ancestors: ancestors
+      }
+    }
+  
+  async function run_inference(goal :: String) -> InferenceResult:
+    think "Running inference for: {goal}"
+    
+    # Parse goal into logical form
+    target = goal |> parse_logical |> normalize
+    
+    # Forward chaining inference
+    known_facts = recall from graph
+    inference_steps = []
+    
+    for each rule in get_inference_rules():
+      match rule.type:
+        case "transitive":
+          new_facts = apply_transitivity(known_facts, rule)
+          if new_facts.length > 0:
+            inference_steps.push("Applied transitivity")
+            known_facts = known_facts.concat(new_facts)
+        
+        case "inheritance":
+          new_facts = apply_inheritance(known_facts, rule)
+          if new_facts.length > 0:
+            inference_steps.push("Applied inheritance")
+            known_facts = known_facts.concat(new_facts)
+        
+        case "modus_ponens":
+          result = apply_modus_ponens(known_facts, target)
+          if result.proved:
+            return InferenceResult {
+              conclusion: goal,
+              confidence: result.confidence,
+              reasoning_chain: inference_steps,
+              premises: result.used_premises
+            }
+    
+    # Check if goal is now provable
+    if contains_fact(known_facts, target):
+      return InferenceResult {
+        conclusion: goal,
+        confidence: 0.95,
+        reasoning_chain: inference_steps,
+        premises: filter_relevant(known_facts, target)
+      }
+    
+    return InferenceResult {
+      conclusion: "Cannot infer: {goal}",
+      confidence: 0.0,
+      reasoning_chain: inference_steps,
+      premises: []
+    }
+  
+  async function find_path(start :: String, end :: String) -> List[String]:
+    think "Finding path from {start} to {end}"
+    
+    # BFS path finding
+    visited = []
+    queue = [[start]]
+    
+    while queue.length > 0:
+      path = queue.shift()
+      node = path[path.length - 1]
+      
+      if node == end:
+        return path
+      
+      if not contains(visited, node):
+        visited.push(node)
+        
+        neighbors = await get_neighbors(node)
+        for each neighbor in neighbors:
+          new_path = path.concat([neighbor])
+          queue.push(new_path)
+    
+    return []  # No path found
+  
+  async function explain_causally(question :: String) -> String:
+    think "Building causal explanation"
+    
+    # Extract entities from question
+    entities = question |> extract_entities
+    
+    # Build causal chain
+    explanations = []
+    for each entity in entities:
+      causes = await query_graph({
+        subject: null,
+        predicate: "causes",
+        object: entity
+      })
+      
+      for each cause in causes:
+        explanations.push("{cause.subject} causes {entity}")
+    
+    if explanations.length == 0:
+      return "No causal explanation found for: {question}"
+    
+    return "Causal chain:\n" + join(explanations, "\n→ ")
+  
+  # === FORMAL LOGIC ===
+  
+  function apply_modus_ponens(facts :: List[Triple], goal :: Triple) -> Map:
+    # If P and P→Q, then Q
+    for each fact in facts:
+      if fact.predicate == "implies":
+        # Check if antecedent is known
+        antecedent = fact.subject
+        consequent = fact.object
+        
+        if contains_fact(facts, { subject: antecedent }) and consequent == goal.subject:
+          return {
+            proved: true,
+            confidence: 0.9,
+            used_premises: [fact, get_fact(facts, antecedent)]
+          }
+    
+    return { proved: false }
+  
+  function apply_transitivity(facts :: List[Triple], rule :: Map) -> List[Triple]:
+    new_facts = []
+    relation = rule.relation
+    
+    for each fact1 in facts:
+      if fact1.predicate == relation:
+        for each fact2 in facts:
+          if fact2.predicate == relation and fact1.object == fact2.subject:
+            # Found: A→B and B→C, infer A→C
+            new_triple = Triple {
+              subject: fact1.subject,
+              predicate: relation,
+              object: fact2.object
+            }
+            if not contains(facts, new_triple):
+              new_facts.push(new_triple)
+    
+    return new_facts
+  
+  # === HELPER FUNCTIONS ===
+  
+  function get_inference_rules() -> List[Map]:
+    return [
+      { type: "transitive", relation: "is_a" },
+      { type: "transitive", relation: "part_of" },
+      { type: "transitive", relation: "causes" },
+      { type: "inheritance", relation: "has_property" },
+      { type: "modus_ponens" }
+    ]
+  
+  async function get_graph_stats() -> String:
+    entities = await count_entities()
+    relations = await count_relations()
+    
+    return """
+Knowledge Graph Statistics:
+- Entities: {entities}
+- Relations: {relations}
+- Relation Types: is_a, has_property, causes, part_of, related_to
+"""
+  
+  function format_entity_info(entity :: Entity) -> String:
+    result = "Entity: {entity.name}\n"
+    result = result + "Type: {entity.type}\n"
+    result = result + "Properties:\n"
+    
+    for each rel in entity.properties.outgoing_relations:
+      result = result + "  - {rel.predicate} → {rel.object}\n"
+    
+    return result
+  
+  function format_inference(result :: InferenceResult) -> String:
+    if result.confidence > 0:
+      return """
+✓ Conclusion: {result.conclusion}
+  Confidence: {result.confidence * 100}%
+  
+  Reasoning:
+  {join(result.reasoning_chain, "\n  ")}
+  
+  Based on:
+  {format_premises(result.premises)}
+"""
+    else:
+      return "✗ Could not infer: {result.conclusion}"
+  
+  # === ERROR HANDLING ===
+  on error(err):
+    try:
+      match err.type:
+        case "graph_error":
+          think "Graph operation failed, attempting recovery"
+          await rebuild_index()
+          
+        case "inference_timeout":
+          respond "Inference took too long. Try a simpler query."
+          
+        default:
+          raise err
+    
+    catch recoveryErr:
+      respond "Knowledge operation failed: {err.message}"
+    
+    finally:
+      store { error: err } in working
+}
+
+# === SPECIALIZED LOGIC AGENT ===
+agent LogicProver {
+  goal "Prove theorems using formal logic"
+  
+  memory working
+  model LocalLogic { provider = "local" }
+  
+  on input(theorem :: String):
+    think "Attempting to prove: {theorem}"
+    
+    # Parse into logical formula
+    formula = theorem |> parse_logic |> to_cnf
+    
+    # Try resolution
+    result = resolve(formula)
+    
+    if result.proved:
+      respond "✓ Theorem proved: {theorem}\n\nProof:\n{format_proof(result.steps)}"
+    else:
+      respond "✗ Cannot prove: {theorem}"
+  
+  function resolve(formula :: List[Clause]) -> Map:
+    new_clauses = []
+    
+    while true:
+      for each (c1, c2) in pairs(formula):
+        resolvents = resolve_pair(c1, c2)
+        
+        if contains_empty_clause(resolvents):
+          return { proved: true, steps: get_proof_steps() }
+        
+        new_clauses = new_clauses.concat(resolvents)
+      
+      if is_subset(new_clauses, formula):
+        return { proved: false }
+      
+      formula = formula.concat(new_clauses)
+}

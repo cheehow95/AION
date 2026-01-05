@@ -1,0 +1,502 @@
+"""
+AION v2.5 - Swarm Intelligence Coordinator
+==========================================
+Multi-agent swarm coordination with emergent behaviors.
+Demonstrates AION's distributed intelligence capabilities.
+"""
+
+import swarm.coordination as coord
+import swarm.consensus as consensus
+import swarm.emergence as emerge
+
+export agent SwarmCoordinator
+
+# === TYPE DEFINITIONS ===
+type AgentInfo = {
+  id: String,
+  role: String,
+  capabilities: List[String],
+  status: String,
+  reputation: Number
+}
+
+type Task = {
+  id: String,
+  description: String,
+  priority: Number,
+  required_capabilities: List[String],
+  deadline: Number | null
+}
+
+type Assignment = {
+  task_id: String,
+  agent_ids: List[String],
+  strategy: String,
+  estimated_completion: Number
+}
+
+type SwarmState = {
+  agents: List[AgentInfo],
+  active_tasks: List[Task],
+  completed_tasks: Number,
+  consensus_level: Number
+}
+
+type VotingResult = {
+  proposal: String,
+  votes_for: Number,
+  votes_against: Number,
+  passed: Boolean
+}
+
+# === AGENT ROLES ===
+ROLES = {
+  coordinator: "Manages task distribution",
+  worker: "Executes assigned tasks",
+  validator: "Validates completed work",
+  scout: "Explores new problem spaces",
+  specialist: "Deep expertise in domain"
+}
+
+# === MAIN SWARM COORDINATOR ===
+@logged
+agent SwarmCoordinator {
+  goal "Coordinate a swarm of agents for distributed problem-solving"
+  
+  memory working :: Map[String, Any]
+  memory agents :: List[AgentInfo]
+  memory tasks :: List[Task]
+  memory assignments :: List[Assignment]
+  memory swarm_history :: List[SwarmState]
+  
+  model Orchestrator {
+    provider = "local"
+    name = "swarm-coordinator"
+    temperature = 0.3
+  }
+  
+  # === INITIALIZATION ===
+  on startup():
+    think "Initializing swarm coordinator"
+    
+    # Register initial agents
+    await register_core_agents()
+    
+    # Start heartbeat monitoring
+    spawn monitor_agent_health()
+    
+    respond "Swarm coordinator initialized with {agents.length} agents"
+  
+  # === MAIN INPUT HANDLER ===
+  async on input(command :: String):
+    think "Processing swarm command: {command}"
+    
+    match command:
+      case pattern /^spawn (\d+) workers?$/ as (count):
+        await spawn_workers(parseInt(count))
+        respond "Spawned {count} worker agents"
+      
+      case pattern /^assign (.+)$/ as (task_desc):
+        assignment = await assign_task(task_desc)
+        respond format_assignment(assignment)
+      
+      case pattern /^vote on (.+)$/ as (proposal):
+        result = await run_consensus_vote(proposal)
+        respond format_vote_result(result)
+      
+      case "status":
+        respond await get_swarm_status()
+      
+      case "optimize":
+        await optimize_swarm()
+        respond "Swarm optimization complete"
+      
+      case "emergence check":
+        behaviors = await detect_emergent_behaviors()
+        respond format_emergence(behaviors)
+      
+      case pattern /^broadcast (.+)$/ as (message):
+        await broadcast_to_swarm(message)
+        respond "Message broadcast to {agents.length} agents"
+      
+      default:
+        # Distribute task across swarm
+        result = await distributed_solve(command)
+        respond result
+  
+  # === AGENT MANAGEMENT ===
+  
+  async function register_core_agents():
+    core_agents = [
+      AgentInfo { id: "coord-1", role: "coordinator", capabilities: ["planning", "delegation"], status: "active", reputation: 1.0 },
+      AgentInfo { id: "val-1", role: "validator", capabilities: ["verification", "testing"], status: "active", reputation: 1.0 },
+      AgentInfo { id: "scout-1", role: "scout", capabilities: ["exploration", "discovery"], status: "active", reputation: 1.0 }
+    ]
+    
+    for each agent in core_agents:
+      await register_agent(agent)
+  
+  async function register_agent(agent :: AgentInfo):
+    think "Registering agent: {agent.id}"
+    
+    # Check for capability conflicts
+    existing = agents.filter(a => a.id == agent.id)
+    if existing.length > 0:
+      raise "Agent {agent.id} already registered"
+    
+    store agent in agents
+    emit agent_registered(agent)
+  
+  async function spawn_workers(count :: Number):
+    think "Spawning {count} worker agents"
+    
+    parallel:
+      for each i in range(count):
+        worker = AgentInfo {
+          id: "worker-{generate_id()}",
+          role: "worker",
+          capabilities: ["execution", "computation"],
+          status: "active",
+          reputation: 0.5
+        }
+        spawn register_agent(worker)
+    
+    await join_all()
+  
+  # === TASK DISTRIBUTION ===
+  
+  async function assign_task(description :: String) -> Assignment:
+    think "Analyzing task for assignment: {description}"
+    
+    # Create task
+    task = Task {
+      id: generate_id(),
+      description: description,
+      priority: analyze_priority(description),
+      required_capabilities: extract_capabilities(description),
+      deadline: null
+    }
+    
+    store task in tasks
+    
+    # Find suitable agents
+    suitable = await find_capable_agents(task.required_capabilities)
+    
+    if suitable.length == 0:
+      raise "No agents available with required capabilities"
+    
+    # Select best agents based on reputation and load
+    selected = suitable
+      |> sort_by(a => a.reputation, "desc")
+      |> take(min(3, suitable.length))
+    
+    # Create assignment
+    assignment = Assignment {
+      task_id: task.id,
+      agent_ids: selected.map(a => a.id),
+      strategy: determine_strategy(task, selected),
+      estimated_completion: estimate_completion(task, selected)
+    }
+    
+    store assignment in assignments
+    
+    # Notify assigned agents
+    for each agent_id in assignment.agent_ids:
+      emit task_assigned(agent_id, task)
+    
+    return assignment
+  
+  function find_capable_agents(required :: List[String]) -> List[AgentInfo]:
+    return agents.filter(agent =>
+      agent.status == "active" and
+      required.every(cap => contains(agent.capabilities, cap))
+    )
+  
+  function determine_strategy(task :: Task, agents :: List[AgentInfo]) -> String:
+    if agents.length == 1:
+      return "solo"
+    else if task.description |> contains("parallel"):
+      return "parallel"
+    else if task.priority > 0.8:
+      return "priority_pipeline"
+    else:
+      return "collaborative"
+  
+  # === DISTRIBUTED PROBLEM SOLVING ===
+  
+  async function distributed_solve(problem :: String) -> String:
+    think "Distributing problem across swarm"
+    
+    # Decompose problem
+    subproblems = problem 
+      |> analyze 
+      |> decompose_problem
+    
+    # Assign to available workers
+    workers = agents.filter(a => a.role == "worker" and a.status == "active")
+    
+    if workers.length == 0:
+      return await solve_locally(problem)
+    
+    # Distribute subproblems
+    results = []
+    parallel:
+      for each (subproblem, index) in enumerate(subproblems):
+        worker = workers[index % workers.length]
+        result = spawn delegate_to_agent(worker.id, subproblem)
+        results.push(result)
+    
+    # Wait for all results
+    solutions = await join(results)
+    
+    # Synthesize final answer
+    final = solutions
+      |> merge_solutions
+      |> validate_consistency
+      |> format_result
+    
+    # Update agent reputations
+    await update_reputations(solutions)
+    
+    return final
+  
+  async function delegate_to_agent(agent_id :: String, task :: String) -> Map:
+    think "Delegating to {agent_id}: {task}"
+    
+    emit task_delegated(agent_id, task)
+    
+    # Wait for result (simulated)
+    result = await wait_for_result(agent_id, task)
+    
+    return {
+      agent_id: agent_id,
+      task: task,
+      result: result,
+      success: result != null
+    }
+  
+  # === CONSENSUS MECHANISM ===
+  
+  async function run_consensus_vote(proposal :: String) -> VotingResult:
+    think "Running consensus vote: {proposal}"
+    
+    votes_for = 0
+    votes_against = 0
+    
+    # Collect votes from all active agents
+    for each agent in agents.filter(a => a.status == "active"):
+      vote = await request_vote(agent.id, proposal)
+      
+      if vote.approve:
+        votes_for = votes_for + agent.reputation
+      else:
+        votes_against = votes_against + agent.reputation
+    
+    total_votes = votes_for + votes_against
+    threshold = 0.6  # 60% weighted majority
+    
+    passed = (votes_for / total_votes) >= threshold if total_votes > 0 else false
+    
+    result = VotingResult {
+      proposal: proposal,
+      votes_for: votes_for,
+      votes_against: votes_against,
+      passed: passed
+    }
+    
+    if passed:
+      emit consensus_reached(proposal)
+    
+    return result
+  
+  async function request_vote(agent_id :: String, proposal :: String) -> Map:
+    emit vote_requested(agent_id, proposal)
+    
+    # Simulate agent decision
+    # In reality, this would wait for agent response
+    approve = random() > 0.3
+    
+    return {
+      agent_id: agent_id,
+      approve: approve,
+      reason: approve ? "Proposal aligns with goals" : "Concerns about implementation"
+    }
+  
+  # === EMERGENT BEHAVIOR DETECTION ===
+  
+  async function detect_emergent_behaviors() -> List[Map]:
+    think "Analyzing swarm for emergent behaviors"
+    
+    behaviors = []
+    
+    # Check for spontaneous clustering
+    clusters = analyze_agent_clusters(agents)
+    if clusters.length > 1:
+      behaviors.push({
+        type: "clustering",
+        description: "Agents have formed {clusters.length} natural groups",
+        significance: 0.7
+      })
+    
+    # Check for specialization emergence
+    specializations = analyze_specialization_patterns(swarm_history)
+    if specializations.length > 0:
+      behaviors.push({
+        type: "specialization",
+        description: "Agents developing specialized roles beyond initial assignment",
+        patterns: specializations,
+        significance: 0.8
+      })
+    
+    # Check for communication patterns
+    comm_patterns = analyze_communication_topology()
+    if comm_patterns.hub_agents.length > 0:
+      behaviors.push({
+        type: "hierarchy_emergence",
+        description: "Natural hierarchy emerging with hub agents",
+        hubs: comm_patterns.hub_agents,
+        significance: 0.9
+      })
+    
+    # Check for collective intelligence indicators
+    collective_perf = compare_collective_vs_individual()
+    if collective_perf.ratio > 1.5:
+      behaviors.push({
+        type: "collective_intelligence",
+        description: "Swarm performing {collective_perf.ratio}x better than sum of individuals",
+        significance: 1.0
+      })
+    
+    return behaviors
+  
+  # === SWARM OPTIMIZATION ===
+  
+  async function optimize_swarm():
+    think "Optimizing swarm configuration"
+    
+    # Analyze current performance
+    metrics = await collect_swarm_metrics()
+    
+    # Identify bottlenecks
+    bottlenecks = identify_bottlenecks(metrics)
+    
+    for each bottleneck in bottlenecks:
+      match bottleneck.type:
+        case "overloaded_agent":
+          await redistribute_load(bottleneck.agent_id)
+        
+        case "capability_gap":
+          await spawn_specialist(bottleneck.missing_capability)
+        
+        case "communication_congestion":
+          await optimize_topology()
+        
+        case "low_reputation_cluster":
+          await retrain_agents(bottleneck.agent_ids)
+    
+    # Update reputation based on recent performance
+    await recalculate_reputations()
+    
+    store await get_swarm_state() in swarm_history
+  
+  # === STATUS AND MONITORING ===
+  
+  async function get_swarm_status() -> String:
+    state = await get_swarm_state()
+    
+    return """
+🐝 Swarm Status Report
+
+Agents: {state.agents.length}
+  - Active: {state.agents.filter(a => a.status == "active").length}
+  - Idle: {state.agents.filter(a => a.status == "idle").length}
+  
+Roles:
+{format_role_distribution(state.agents)}
+
+Tasks:
+  - Active: {state.active_tasks.length}
+  - Completed: {state.completed_tasks}
+  
+Consensus Level: {state.consensus_level * 100}%
+
+Top Performers:
+{format_top_performers(state.agents)}
+"""
+  
+  async function get_swarm_state() -> SwarmState:
+    return SwarmState {
+      agents: agents,
+      active_tasks: tasks.filter(t => not is_completed(t)),
+      completed_tasks: tasks.filter(t => is_completed(t)).length,
+      consensus_level: calculate_consensus_level()
+    }
+  
+  function format_role_distribution(agents :: List[AgentInfo]) -> String:
+    result = ""
+    for each role in keys(ROLES):
+      count = agents.filter(a => a.role == role).length
+      result = result + "  - {role}: {count}\n"
+    return result
+  
+  function format_top_performers(agents :: List[AgentInfo]) -> String:
+    top = agents
+      |> sort_by(a => a.reputation, "desc")
+      |> take(3)
+    
+    result = ""
+    for each (agent, index) in enumerate(top):
+      result = result + "  {index + 1}. {agent.id} (rep: {agent.reputation})\n"
+    return result
+  
+  # === BROADCAST ===
+  
+  async function broadcast_to_swarm(message :: String):
+    think "Broadcasting message to swarm"
+    
+    for each agent in agents:
+      emit message_broadcast(agent.id, message)
+  
+  # === ERROR HANDLING ===
+  on error(err):
+    think "Handling swarm error: {err.message}"
+    
+    match err.type:
+      case "agent_failure":
+        # Mark agent as inactive
+        failed_agent = agents.find(a => a.id == err.agent_id)
+        if failed_agent:
+          failed_agent.status = "failed"
+          await reassign_tasks(failed_agent.id)
+        
+      case "consensus_failure":
+        respond "Consensus could not be reached"
+        
+      case "deadlock":
+        await break_deadlock()
+        
+      default:
+        raise err
+}
+
+# === WORKER AGENT TEMPLATE ===
+agent SwarmWorker {
+  goal "Execute assigned tasks reliably"
+  
+  memory working
+  model LocalWorker { provider = "local" }
+  
+  on task_assigned(task):
+    think "Received task: {task.description}"
+    
+    try:
+      result = await execute_task(task)
+      emit task_completed(task.id, result)
+    catch err:
+      emit task_failed(task.id, err)
+  
+  async function execute_task(task :: Task) -> Map:
+    # Generic task execution
+    result = await process(task.description)
+    return { task_id: task.id, result: result, success: true }
+}

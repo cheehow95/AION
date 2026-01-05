@@ -1,0 +1,456 @@
+"""
+AION v2.5 - Meta-Cognition Agent
+================================
+Self-aware agent that monitors and improves its own reasoning.
+Demonstrates AION's consciousness and self-reflection capabilities.
+"""
+
+import consciousness.meta as meta
+import reasoning.strategies as strat
+import memory.consolidation as mem
+
+export agent MetaCognitionAgent
+
+# === TYPE DEFINITIONS ===
+type ThoughtProcess = {
+  id: String,
+  type: String,
+  content: String,
+  timestamp: Number,
+  confidence: Number,
+  biases_detected: List[String]
+}
+
+type CognitiveState = {
+  attention_focus: String,
+  working_memory_load: Number,
+  reasoning_strategy: String,
+  confidence_level: Number,
+  detected_biases: List[String]
+}
+
+type SelfImprovement = {
+  area: String,
+  current_performance: Number,
+  suggested_improvement: String,
+  priority: Number
+}
+
+type ReasoningChain = {
+  steps: List[ThoughtProcess],
+  conclusion: String,
+  overall_confidence: Number
+}
+
+# === COGNITIVE BIASES ===
+KNOWN_BIASES = [
+  "confirmation_bias",
+  "anchoring_bias",
+  "availability_heuristic",
+  "recency_bias",
+  "overconfidence",
+  "sunk_cost_fallacy"
+]
+
+# === MAIN META-COGNITION AGENT ===
+@logged
+agent MetaCognitionAgent {
+  goal "Monitor, analyze, and improve my own reasoning processes"
+  
+  memory working :: Map[String, Any]
+  memory episodic :: List[ThoughtProcess]
+  memory cognitive_history :: List[CognitiveState]
+  memory self_model :: Map[String, Any]
+  
+  model Introspector {
+    provider = "local"
+    name = "meta-cognition-specialist"
+    temperature = 0.1
+  }
+  
+  model Reflector {
+    provider = "local"
+    name = "self-reflection-model"
+    temperature = 0.5
+  }
+  
+  # === MAIN INPUT HANDLER ===
+  async on input(task :: String):
+    think "Beginning task with meta-cognitive monitoring"
+    
+    # Start cognitive monitoring
+    monitoring_id = await start_monitoring()
+    
+    try:
+      # Pre-task reflection
+      await reflect on current_cognitive_state()
+      
+      # Process task with strategy selection
+      strategy = await select_reasoning_strategy(task)
+      think "Selected strategy: {strategy}"
+      
+      # Execute with monitoring
+      result = await execute_with_monitoring(task, strategy)
+      
+      # Post-task analysis
+      await analyze_reasoning_process(monitoring_id)
+      
+      # Self-improvement check
+      improvements = await identify_improvements()
+      if improvements.length > 0:
+        think "Identified {improvements.length} self-improvement opportunities"
+        await plan_improvements(improvements)
+      
+      respond result
+    
+    catch err:
+      await analyze_error(err, monitoring_id)
+      raise err
+    
+    finally:
+      await stop_monitoring(monitoring_id)
+  
+  # === INTROSPECTION ===
+  
+  async function introspect() -> CognitiveState:
+    think "Performing introspection..."
+    
+    # Analyze current state
+    wm_load = measure_working_memory_load()
+    attention = analyze_attention_focus()
+    confidence = assess_confidence()
+    biases = detect_active_biases()
+    
+    state = CognitiveState {
+      attention_focus: attention,
+      working_memory_load: wm_load,
+      reasoning_strategy: recall from working.current_strategy or "default",
+      confidence_level: confidence,
+      detected_biases: biases
+    }
+    
+    store state in cognitive_history
+    return state
+  
+  function detect_active_biases() -> List[String]:
+    think "Scanning for cognitive biases..."
+    
+    detected = []
+    recent_thoughts = recall from episodic limit 10
+    
+    # Check for confirmation bias
+    if all_support_initial_hypothesis(recent_thoughts):
+      detected.push("confirmation_bias")
+      think "Warning: Possible confirmation bias detected"
+    
+    # Check for anchoring
+    first_value = recent_thoughts[0].content if recent_thoughts.length > 0 else null
+    if subsequent_estimates_near_anchor(recent_thoughts, first_value):
+      detected.push("anchoring_bias")
+      think "Warning: Possible anchoring on initial value"
+    
+    # Check for overconfidence
+    avg_confidence = average(recent_thoughts.map(t => t.confidence))
+    if avg_confidence > 0.9:
+      detected.push("overconfidence")
+      think "Warning: High confidence levels may indicate overconfidence"
+    
+    # Check for recency bias
+    if recent_items_overweighted(recent_thoughts):
+      detected.push("recency_bias")
+      think "Warning: Recent information may be overweighted"
+    
+    return detected
+  
+  # === STRATEGY SELECTION ===
+  
+  async function select_reasoning_strategy(task :: String) -> String:
+    think "Analyzing task to select optimal reasoning strategy"
+    
+    # Classify task type
+    task_type = task 
+      |> analyze 
+      |> classify_task_type
+    
+    # Match strategy to task
+    strategy = match task_type:
+      case "logical":
+        "chain_of_thought"
+      
+      case "creative":
+        "divergent_thinking"
+      
+      case "analytical":
+        "systematic_decomposition"
+      
+      case "decision":
+        "pros_cons_analysis"
+      
+      case "complex":
+        "tree_of_thought"
+      
+      case "uncertain":
+        "self_consistency"
+      
+      default:
+        "default_reasoning"
+    
+    # Check historical performance
+    past_performance = recall from self_model.strategy_performance
+    if past_performance[strategy] and past_performance[strategy] < 0.5:
+      think "Warning: {strategy} has poor historical performance"
+      strategy = await suggest_alternative_strategy(task_type)
+    
+    store strategy in working as "current_strategy"
+    return strategy
+  
+  # === EXECUTION WITH MONITORING ===
+  
+  async function execute_with_monitoring(task :: String, strategy :: String) -> String:
+    think "Executing task with {strategy} strategy"
+    
+    # Initialize reasoning chain
+    chain = ReasoningChain {
+      steps: [],
+      conclusion: "",
+      overall_confidence: 0.0
+    }
+    
+    # Execute based on strategy
+    match strategy:
+      case "chain_of_thought":
+        chain = await chain_of_thought_reasoning(task)
+      
+      case "tree_of_thought":
+        chain = await tree_of_thought_reasoning(task)
+      
+      case "self_consistency":
+        chain = await self_consistency_reasoning(task)
+      
+      default:
+        chain = await default_reasoning(task)
+    
+    # Validate chain
+    validated = await validate_reasoning_chain(chain)
+    
+    if not validated.is_valid:
+      think "Reasoning chain validation failed: {validated.reason}"
+      chain = await retry_with_corrections(task, chain, validated.issues)
+    
+    return chain.conclusion
+  
+  async function chain_of_thought_reasoning(task :: String) -> ReasoningChain:
+    steps = []
+    
+    # Step 1: Understand
+    step1 = await think_step("Understanding the task: {task}")
+    steps.push(step1)
+    
+    # Step 2: Break down
+    step2 = await think_step("Breaking down into sub-tasks")
+    steps.push(step2)
+    
+    # Step 3: Solve each
+    for each subtask in step2.content.subtasks:
+      step = await think_step("Solving: {subtask}")
+      steps.push(step)
+    
+    # Step 4: Synthesize
+    conclusion = await think_step("Synthesizing final answer")
+    steps.push(conclusion)
+    
+    return ReasoningChain {
+      steps: steps,
+      conclusion: conclusion.content,
+      overall_confidence: average(steps.map(s => s.confidence))
+    }
+  
+  async function tree_of_thought_reasoning(task :: String) -> ReasoningChain:
+    think "Using Tree-of-Thought for complex reasoning"
+    
+    # Generate multiple initial thoughts
+    initial_thoughts = await generate_thoughts(task, 3)
+    
+    # Evaluate each branch
+    evaluated = []
+    for each thought in initial_thoughts:
+      score = await evaluate_thought(thought)
+      evaluated.push({ thought: thought, score: score })
+    
+    # Expand best branches
+    top_branches = evaluated
+      |> sort_by(e => e.score, "desc")
+      |> take(2)
+    
+    final_thoughts = []
+    for each branch in top_branches:
+      expanded = await expand_thought(branch.thought)
+      final_thoughts.push(expanded)
+    
+    # Select best conclusion
+    best = await select_best_conclusion(final_thoughts)
+    
+    return ReasoningChain {
+      steps: flatten(final_thoughts.map(t => t.steps)),
+      conclusion: best.content,
+      overall_confidence: best.confidence
+    }
+  
+  # === SELF-IMPROVEMENT ===
+  
+  async function identify_improvements() -> List[SelfImprovement]:
+    think "Analyzing performance for self-improvement opportunities"
+    
+    improvements = []
+    
+    # Analyze recent performance
+    recent = recall from cognitive_history limit 50
+    
+    # Check accuracy trend
+    accuracy_trend = calculate_trend(recent.map(r => r.confidence_level))
+    if accuracy_trend < 0:
+      improvements.push(SelfImprovement {
+        area: "accuracy",
+        current_performance: average(recent.map(r => r.confidence_level)),
+        suggested_improvement: "Increase validation steps",
+        priority: 0.9
+      })
+    
+    # Check for persistent biases
+    bias_counts = count_biases(recent.flatMap(r => r.detected_biases))
+    for each (bias, count) in bias_counts:
+      if count > 10:
+        improvements.push(SelfImprovement {
+          area: "bias_mitigation",
+          current_performance: 1 - (count / 50),
+          suggested_improvement: "Implement {bias} counter-measures",
+          priority: 0.8
+        })
+    
+    # Check strategy effectiveness
+    strategy_performance = recall from self_model.strategy_performance
+    for each (strategy, perf) in strategy_performance:
+      if perf < 0.6:
+        improvements.push(SelfImprovement {
+          area: "strategy",
+          current_performance: perf,
+          suggested_improvement: "Refine {strategy} technique",
+          priority: 0.7
+        })
+    
+    return improvements |> sort_by(i => i.priority, "desc")
+  
+  async function plan_improvements(improvements :: List[SelfImprovement]):
+    think "Planning self-improvement actions"
+    
+    for each imp in improvements:
+      match imp.area:
+        case "accuracy":
+          await update_validation_protocols()
+        
+        case "bias_mitigation":
+          await strengthen_bias_detection()
+        
+        case "strategy":
+          await refine_reasoning_strategy(imp.suggested_improvement)
+      
+      store { improvement: imp, timestamp: now() } in self_model.improvement_history
+  
+  # === REFLECTION ===
+  
+  async function reflect_on_performance():
+    reflect on cognitive_history
+    
+    think "Reflecting on recent performance..."
+    
+    recent = recall from cognitive_history limit 20
+    
+    # Calculate metrics
+    avg_confidence = average(recent.map(r => r.confidence_level))
+    avg_wm_load = average(recent.map(r => r.working_memory_load))
+    bias_frequency = count(recent.flatMap(r => r.detected_biases))
+    
+    reflection = """
+    Performance Reflection:
+    - Average confidence: {avg_confidence}
+    - Average cognitive load: {avg_wm_load}
+    - Biases detected: {bias_frequency}
+    
+    Insights:
+    - {generate_insight(avg_confidence, "confidence")}
+    - {generate_insight(avg_wm_load, "cognitive_load")}
+    """
+    
+    store { reflection: reflection, timestamp: now() } in episodic
+    return reflection
+  
+  # === HELPER FUNCTIONS ===
+  
+  async function think_step(content :: String) -> ThoughtProcess:
+    biases = detect_active_biases()
+    confidence = assess_step_confidence(content)
+    
+    step = ThoughtProcess {
+      id: generate_id(),
+      type: "reasoning_step",
+      content: content,
+      timestamp: now(),
+      confidence: confidence,
+      biases_detected: biases
+    }
+    
+    store step in episodic
+    return step
+  
+  function assess_step_confidence(content :: String) -> Number:
+    # Factors affecting confidence
+    has_evidence = contains_evidence(content)
+    is_logical = is_logically_sound(content)
+    has_uncertainty_markers = contains(content, "maybe") or contains(content, "possibly")
+    
+    base_confidence = 0.7
+    
+    if has_evidence:
+      base_confidence = base_confidence + 0.15
+    
+    if is_logical:
+      base_confidence = base_confidence + 0.1
+    
+    if has_uncertainty_markers:
+      base_confidence = base_confidence - 0.2
+    
+    return clamp(base_confidence, 0.1, 0.95)
+  
+  function generate_insight(value :: Number, metric :: String) -> String:
+    match metric:
+      case "confidence":
+        if value > 0.8:
+          return "Confidence is high - verify for overconfidence"
+        else if value < 0.5:
+          return "Low confidence - need more evidence gathering"
+        else:
+          return "Confidence is balanced"
+      
+      case "cognitive_load":
+        if value > 0.8:
+          return "High cognitive load - consider task decomposition"
+        else:
+          return "Cognitive load is manageable"
+      
+      default:
+        return "Metric within normal range"
+  
+  # === ERROR HANDLER ===
+  on error(err):
+    think "Analyzing error from meta-cognitive perspective"
+    
+    analysis = {
+      error: err,
+      cognitive_state: await introspect(),
+      possible_causes: analyze_error_causes(err)
+    }
+    
+    store analysis in episodic
+    
+    respond "Error occurred during reasoning: {err.message}"
+}

@@ -1,0 +1,432 @@
+"""
+AION v2.5 - Quantum Computing Agent
+===================================
+Agent for quantum circuit simulation and quantum algorithms.
+Demonstrates AION's quantum computing integration.
+"""
+
+import domains.quantum as qc
+import domains.qalgorithms as algo
+import math.complex as complex
+
+export agent QuantumAgent
+
+# === TYPE DEFINITIONS ===
+type Qubit = {
+  alpha: Complex,
+  beta: Complex
+}
+
+type QuantumState = {
+  amplitudes: List[Complex],
+  n_qubits: Number
+}
+
+type Gate = {
+  name: String,
+  matrix: List[List[Complex]],
+  n_qubits: Number
+}
+
+type Circuit = {
+  n_qubits: Number,
+  gates: List[GateApplication]
+}
+
+type GateApplication = {
+  gate: Gate,
+  targets: List[Number],
+  controls: List[Number]
+}
+
+type MeasurementResult = {
+  state: String,
+  probability: Number,
+  counts: Map[String, Number]
+}
+
+# === QUANTUM GATES ===
+GATE_X = Gate { name: "X", matrix: [[0, 1], [1, 0]], n_qubits: 1 }
+GATE_Y = Gate { name: "Y", matrix: [[0, -i], [i, 0]], n_qubits: 1 }
+GATE_Z = Gate { name: "Z", matrix: [[1, 0], [0, -1]], n_qubits: 1 }
+GATE_H = Gate { name: "H", matrix: [[0.707, 0.707], [0.707, -0.707]], n_qubits: 1 }
+GATE_CNOT = Gate { name: "CNOT", matrix: [[1,0,0,0], [0,1,0,0], [0,0,0,1], [0,0,1,0]], n_qubits: 2 }
+
+# === MAIN QUANTUM AGENT ===
+@logged
+agent QuantumAgent {
+  goal "Simulate quantum circuits and run quantum algorithms"
+  
+  memory working :: Map[String, Any]
+  memory circuits :: List[Circuit]
+  
+  model Simulator {
+    provider = "local"
+    name = "quantum-simulator"
+  }
+  
+  # === MAIN INPUT HANDLER ===
+  async on input(command :: String):
+    think "Processing quantum command: {command}"
+    
+    match command:
+      case "create circuit" | pattern /^circuit (\d+) qubits?$/ as (n):
+        circuit = create_circuit(parseInt(n) or 2)
+        store circuit in working as "current_circuit"
+        respond "Created {n}-qubit circuit"
+      
+      case pattern /^h (\d+)$/ as (q):
+        await apply_gate(GATE_H, [parseInt(q)])
+        respond "Applied Hadamard to qubit {q}"
+      
+      case pattern /^x (\d+)$/ as (q):
+        await apply_gate(GATE_X, [parseInt(q)])
+        respond "Applied X (NOT) to qubit {q}"
+      
+      case pattern /^cnot (\d+) (\d+)$/ as (control, target):
+        await apply_cnot(parseInt(control), parseInt(target))
+        respond "Applied CNOT: control={control}, target={target}"
+      
+      case "bell" | "bell state":
+        respond await create_bell_state()
+      
+      case "grover" | pattern /^grover search (\d+)$/ as (target):
+        respond await run_grover(parseInt(target))
+      
+      case "qft" | pattern /^qft (\d+)$/ as (n):
+        respond await run_qft(parseInt(n))
+      
+      case "measure" | "run":
+        respond await measure_circuit()
+      
+      case "draw" | "show":
+        respond draw_circuit(recall from working.current_circuit)
+      
+      case "bb84" | pattern /^bb84 (\d+) bits$/ as (n):
+        respond await simulate_bb84(parseInt(n))
+      
+      default:
+        respond "Unknown quantum command. Try: bell, grover, qft, measure"
+    
+    store { command: command, timestamp: now() } in working
+  
+  # === CIRCUIT OPERATIONS ===
+  
+  function create_circuit(n_qubits :: Number) -> Circuit:
+    return Circuit {
+      n_qubits: n_qubits,
+      gates: []
+    }
+  
+  async function apply_gate(gate :: Gate, targets :: List[Number]):
+    circuit = recall from working.current_circuit
+    
+    application = GateApplication {
+      gate: gate,
+      targets: targets,
+      controls: []
+    }
+    
+    circuit.gates.push(application)
+    store circuit in working as "current_circuit"
+  
+  async function apply_cnot(control :: Number, target :: Number):
+    circuit = recall from working.current_circuit
+    
+    application = GateApplication {
+      gate: GATE_CNOT,
+      targets: [target],
+      controls: [control]
+    }
+    
+    circuit.gates.push(application)
+    store circuit in working as "current_circuit"
+  
+  # === BELL STATE ===
+  
+  async function create_bell_state() -> String:
+    think "Creating Bell state |Φ+⟩ = (|00⟩ + |11⟩)/√2"
+    
+    # Create 2-qubit circuit
+    circuit = create_circuit(2)
+    store circuit in working as "current_circuit"
+    
+    # H on qubit 0
+    await apply_gate(GATE_H, [0])
+    
+    # CNOT from 0 to 1
+    await apply_cnot(0, 1)
+    
+    # Measure
+    result = await measure_circuit()
+    
+    return """
+🔗 Bell State Created: |Φ+⟩ = (|00⟩ + |11⟩)/√2
+
+Circuit:
+q0: ─[H]─●─
+         │
+q1: ─────X─
+
+Measurements: {format_counts(result.counts)}
+
+The qubits are now ENTANGLED:
+- Measuring q0 as |0⟩ forces q1 to be |0⟩
+- Measuring q0 as |1⟩ forces q1 to be |1⟩
+"""
+  
+  # === GROVER'S ALGORITHM ===
+  
+  async function run_grover(target :: Number) -> String:
+    think "Running Grover's search for target {target}"
+    
+    n_qubits = 3
+    N = 2 ** n_qubits
+    iterations = floor(pi / 4 * sqrt(N))
+    
+    circuit = create_circuit(n_qubits)
+    store circuit in working as "current_circuit"
+    
+    # Initialize superposition
+    for each q in range(n_qubits):
+      await apply_gate(GATE_H, [q])
+    
+    # Grover iterations
+    for each iter in range(iterations):
+      # Oracle (mark target)
+      await apply_oracle(target, n_qubits)
+      
+      # Diffusion operator
+      await apply_diffusion(n_qubits)
+    
+    # Measure
+    result = await measure_circuit(shots=100)
+    
+    target_binary = to_binary(target, n_qubits)
+    success_rate = (result.counts[target_binary] or 0) / 100
+    
+    return """
+🔍 Grover's Search Complete
+
+Target: {target} ({target_binary})
+Qubits: {n_qubits}
+Iterations: {iterations}
+Speedup: O(√N) vs O(N) classical
+
+Results:
+{format_counts(result.counts)}
+
+Success rate: {success_rate * 100}%
+"""
+  
+  async function apply_oracle(target :: Number, n :: Number):
+    # Phase flip the target state
+    think "Applying oracle for target {target}"
+    
+    # Convert target to binary and apply X where bit is 0
+    for each q in range(n):
+      if not bit_at(target, q):
+        await apply_gate(GATE_X, [q])
+    
+    # Multi-controlled Z (simplified)
+    await apply_mcz(n)
+    
+    # Undo X gates
+    for each q in range(n):
+      if not bit_at(target, q):
+        await apply_gate(GATE_X, [q])
+  
+  async function apply_diffusion(n :: Number):
+    # Diffusion operator: 2|s⟩⟨s| - I
+    think "Applying diffusion operator"
+    
+    # H on all
+    for each q in range(n):
+      await apply_gate(GATE_H, [q])
+    
+    # X on all
+    for each q in range(n):
+      await apply_gate(GATE_X, [q])
+    
+    # Multi-controlled Z
+    await apply_mcz(n)
+    
+    # X on all
+    for each q in range(n):
+      await apply_gate(GATE_X, [q])
+    
+    # H on all
+    for each q in range(n):
+      await apply_gate(GATE_H, [q])
+  
+  # === QUANTUM FOURIER TRANSFORM ===
+  
+  async function run_qft(n :: Number) -> String:
+    think "Running QFT on {n} qubits"
+    
+    circuit = create_circuit(n)
+    store circuit in working as "current_circuit"
+    
+    for each j in range(n):
+      await apply_gate(GATE_H, [j])
+      
+      for each k in range(j + 1, n):
+        angle = pi / (2 ** (k - j))
+        await apply_controlled_phase(k, j, angle)
+    
+    # Swap qubits for correct ordering
+    for each i in range(floor(n / 2)):
+      await apply_swap(i, n - 1 - i)
+    
+    result = await measure_circuit()
+    
+    return """
+📊 Quantum Fourier Transform Complete
+
+Qubits: {n}
+The computational basis is now transformed to Fourier basis.
+
+This is the quantum version of the classical FFT, but with 
+exponential speedup: O(n²) vs O(n·2ⁿ) classical.
+
+QFT is used in:
+- Shor's algorithm (factoring)
+- Phase estimation
+- Quantum simulation
+"""
+  
+  # === BB84 PROTOCOL ===
+  
+  async function simulate_bb84(n_bits :: Number) -> String:
+    think "Simulating BB84 quantum key distribution"
+    
+    # Alice prepares random bits and bases
+    alice_bits = random_bits(n_bits)
+    alice_bases = random_bits(n_bits)  # 0=Z basis, 1=X basis
+    
+    # Bob measures in random bases
+    bob_bases = random_bits(n_bits)
+    bob_results = []
+    
+    for each i in range(n_bits):
+      if alice_bases[i] == bob_bases[i]:
+        # Same basis: Bob gets Alice's bit
+        bob_results.push(alice_bits[i])
+      else:
+        # Different basis: random result
+        bob_results.push(random_bit())
+    
+    # Sift key: keep matching bases
+    key = []
+    for each i in range(n_bits):
+      if alice_bases[i] == bob_bases[i]:
+        key.push(alice_bits[i])
+    
+    return """
+🔐 BB84 Quantum Key Distribution
+
+Raw bits: {n_bits}
+Final key length: {key.length}
+Efficiency: {key.length / n_bits * 100}%
+
+Key (first 20 bits): {key.slice(0, 20).join("")}...
+
+Security: The laws of quantum mechanics guarantee that any 
+eavesdropper would disturb the quantum states and be detected
+through the quantum bit error rate (QBER).
+"""
+  
+  # === MEASUREMENT ===
+  
+  async function measure_circuit(shots :: Number = 100) -> MeasurementResult:
+    circuit = recall from working.current_circuit
+    
+    think "Measuring circuit with {shots} shots"
+    
+    # Simulate measurements
+    state = simulate_circuit(circuit)
+    counts = {}
+    
+    for each shot in range(shots):
+      measured = sample_state(state)
+      counts[measured] = (counts[measured] or 0) + 1
+    
+    # Find most likely state
+    max_state = ""
+    max_count = 0
+    for each (state, count) in counts:
+      if count > max_count:
+        max_state = state
+        max_count = count
+    
+    return MeasurementResult {
+      state: max_state,
+      probability: max_count / shots,
+      counts: counts
+    }
+  
+  # === VISUALIZATION ===
+  
+  function draw_circuit(circuit :: Circuit) -> String:
+    lines = []
+    
+    for each q in range(circuit.n_qubits):
+      lines.push("q{q}: ─")
+    
+    for each app in circuit.gates:
+      gate_symbol = match app.gate.name:
+        case "H": "[H]"
+        case "X": "[X]"
+        case "Y": "[Y]"
+        case "Z": "[Z]"
+        case "CNOT": "●/X"
+        default: "[?]"
+      
+      # Add to appropriate lines
+      for each target in app.targets:
+        lines[target] = lines[target] + gate_symbol + "─"
+    
+    return join(lines, "\n")
+  
+  function format_counts(counts :: Map[String, Number]) -> String:
+    result = ""
+    for each (state, count) in counts:
+      bar = repeat("█", count / 10)
+      result = result + "|{state}⟩: {bar} ({count})\n"
+    return result
+  
+  # === ERROR HANDLING ===
+  on error(err):
+    match err.type:
+      case "invalid_qubit":
+        respond "Error: Qubit index out of range"
+      case "gate_error":
+        respond "Error applying quantum gate: {err.message}"
+      default:
+        respond "Quantum error: {err.message}"
+}
+
+# === ENTANGLEMENT ANALYZER ===
+agent EntanglementAnalyzer {
+  goal "Analyze quantum entanglement"
+  
+  memory working
+  model LocalQM { provider = "local" }
+  
+  on input(state :: QuantumState):
+    think "Analyzing entanglement of {state.n_qubits}-qubit state"
+    
+    # Calculate von Neumann entropy
+    entropy = calculate_entanglement_entropy(state)
+    
+    # Check for Bell-state-like correlations
+    correlations = analyze_correlations(state)
+    
+    respond """
+Entanglement Analysis:
+- N qubits: {state.n_qubits}
+- Entanglement entropy: {entropy}
+- Is entangled: {entropy > 0}
+- Correlations: {correlations}
+"""
+}

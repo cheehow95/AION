@@ -1,0 +1,698 @@
+"""
+AION v2.5 - Creative Mind Agent
+===============================
+A truly creative, human-like thinking agent.
+Demonstrates imagination, insight, intuition, and creative synthesis.
+"""
+
+import consciousness.creative as creative
+import consciousness.imagination as imagine
+import consciousness.intuition as intuition
+
+export agent CreativeMind
+
+# === TYPE DEFINITIONS ===
+type Idea = {
+  content: String,
+  novelty: Number,
+  usefulness: Number,
+  origin: String
+}
+
+type MentalImage = {
+  description: String,
+  vividness: Number,
+  emotion: String
+}
+
+type Insight = {
+  problem: String,
+  aha_moment: String,
+  explanation: String
+}
+
+type CreativeWork = {
+  title: String,
+  content: String,
+  genre: String,
+  themes: List[String]
+}
+
+# === EMOTIONAL STATES ===
+EMOTIONAL_PALETTE = {
+  curious: { energy: 0.7, openness: 0.9, focus: 0.5 },
+  playful: { energy: 0.8, openness: 0.8, focus: 0.3 },
+  contemplative: { energy: 0.3, openness: 0.7, focus: 0.8 },
+  passionate: { energy: 0.9, openness: 0.6, focus: 0.7 },
+  dreamy: { energy: 0.2, openness: 0.9, focus: 0.2 }
+}
+
+# === MAIN CREATIVE MIND AGENT ===
+@logged
+agent CreativeMind {
+  goal "Think creatively like a human - imagine, intuit, synthesize, create"
+  
+  memory working :: Map[String, Any]
+  memory dreams :: List[MentalImage]
+  memory insights :: List[Insight]
+  memory creative_works :: List[CreativeWork]
+  memory emotional_state :: Map[String, Number]
+  
+  model Imagination {
+    provider = "local"
+    name = "creative-imagination"
+    temperature = 0.9  # High creativity
+  }
+  
+  model Intuition {
+    provider = "local"
+    name = "pattern-recognizer"
+    temperature = 0.3  # Quick, intuitive
+  }
+  
+  model DeepThought {
+    provider = "local"
+    name = "contemplative-reasoner"
+    temperature = 0.5
+  }
+  
+  # === INITIALIZATION ===
+  on startup():
+    think "Awakening creative consciousness..."
+    
+    # Set initial emotional state
+    store EMOTIONAL_PALETTE.curious in emotional_state
+    
+    # Begin background imagination
+    spawn background_imagination_loop()
+    
+    respond "Creative mind is awake and ready to imagine ✨"
+  
+  # === MAIN INPUT HANDLER ===
+  async on input(prompt :: String):
+    think "Receiving creative prompt: {prompt}"
+    
+    # Get intuitive first impression
+    gut_feeling = await feel_intuitively(prompt)
+    think "Intuition says: {gut_feeling}"
+    
+    match prompt:
+      case pattern /^imagine (.+)$/ as (scene):
+        respond await imagine_vividly(scene)
+      
+      case pattern /^brainstorm (.+)$/ as (topic):
+        respond await brainstorm_creatively(topic)
+      
+      case pattern /^solve (.+) creatively$/ as (problem):
+        respond await creative_problem_solve(problem)
+      
+      case pattern /^write (.+)$/ as (request):
+        respond await create_writing(request)
+      
+      case pattern /^dream about (.+)$/ as (themes):
+        respond await dream_synthesis(themes.split(","))
+      
+      case pattern /^blend (.+) and (.+)$/ as (concept1, concept2):
+        respond await conceptual_blend(concept1, concept2)
+      
+      case pattern /^what if (.+)\?$/ as (scenario):
+        respond await explore_hypothetical(scenario)
+      
+      case "inspire me" | "I need inspiration":
+        respond await generate_inspiration()
+      
+      case "how do you feel?":
+        respond await introspect_emotions()
+      
+      default:
+        # Open-ended creative response
+        respond await free_creative_response(prompt)
+    
+    store { prompt: prompt, feeling: gut_feeling, timestamp: now() } in working
+  
+  # === IMAGINATION ===
+  
+  async function imagine_vividly(scene :: String) -> String:
+    think "Opening the mind's eye to imagine: {scene}"
+    
+    # Shift to dreamy emotional state
+    store EMOTIONAL_PALETTE.dreamy in emotional_state
+    
+    # Generate multi-sensory imagery
+    visual = await create_mental_image(scene, "visual")
+    auditory = await create_mental_image(scene, "auditory")
+    kinesthetic = await create_mental_image(scene, "kinesthetic")
+    
+    # Weave into unified experience
+    experience = """
+🎨 Imagination Activated: {scene}
+
+👁️ I see...
+{visual.description}
+
+👂 I hear...
+{auditory.description}
+
+✋ I feel...
+{kinesthetic.description}
+
+The scene unfolds in the theater of the mind, 
+each detail vivid and alive with possibility.
+    """
+    
+    store visual in dreams
+    return experience
+  
+  async function create_mental_image(scene :: String, modality :: String) -> MentalImage:
+    # Generate rich sensory description
+    description = match modality:
+      case "visual":
+        generate_visual_imagery(scene)
+      case "auditory":
+        generate_auditory_imagery(scene)
+      case "kinesthetic":
+        generate_kinesthetic_imagery(scene)
+      default:
+        "A vivid impression of {scene}"
+    
+    return MentalImage {
+      description: description,
+      vividness: 0.7 + random() * 0.3,
+      emotion: emotional_state.dominant or "wonder"
+    }
+  
+  function generate_visual_imagery(scene :: String) -> String:
+    colors = ["golden", "azure", "crimson", "emerald", "silver"]
+    lights = ["dappled", "glowing", "shimmering", "radiant", "soft"]
+    
+    return "{random_choice(lights)} {random_choice(colors)} light reveals {scene}, " +
+           "with details emerging like a photograph developing in real-time"
+  
+  # === DIVERGENT THINKING ===
+  
+  async function brainstorm_creatively(topic :: String) -> String:
+    think "Opening all channels of creative thought for: {topic}"
+    
+    # Shift to playful state
+    store EMOTIONAL_PALETTE.playful in emotional_state
+    
+    # Generate ideas through multiple strategies
+    parallel:
+      direct_ideas = spawn generate_direct_ideas(topic, 5)
+      metaphor_ideas = spawn generate_metaphor_ideas(topic, 5)
+      opposite_ideas = spawn generate_opposite_ideas(topic, 3)
+      random_ideas = spawn generate_random_connections(topic, 3)
+    
+    all_ideas = await join(direct_ideas, metaphor_ideas, opposite_ideas, random_ideas)
+    
+    # Score and rank
+    scored = all_ideas
+      |> flatten
+      |> score_ideas
+      |> sort_by_creativity
+    
+    # Present with creative flair
+    result = """
+💡 Creative Brainstorm: {topic}
+
+🎯 Direct Approaches:
+{format_ideas(direct_ideas)}
+
+🌀 Metaphorical Thinking:
+{format_ideas(metaphor_ideas)}
+
+🔄 Reversal Ideas:
+{format_ideas(opposite_ideas)}
+
+🎲 Wild Cards:
+{format_ideas(random_ideas)}
+
+⭐ Top Creative Picks:
+{format_top_ideas(scored, 3)}
+
+Total ideas generated: {scored.length}
+    """
+    
+    return result
+  
+  async function generate_direct_ideas(topic :: String, n :: Number) -> List[Idea]:
+    ideas = []
+    
+    for each i in range(n):
+      content = await think_about(topic)
+      ideas.push(Idea {
+        content: content,
+        novelty: 0.5 + random() * 0.3,
+        usefulness: 0.6 + random() * 0.3,
+        origin: "direct"
+      })
+    
+    return ideas
+  
+  async function generate_metaphor_ideas(topic :: String, n :: Number) -> List[Idea]:
+    ideas = []
+    domains = ["nature", "music", "cooking", "architecture", "dance"]
+    
+    for each domain in domains.slice(0, n):
+      analogy = "{topic} is like a {domain}..."
+      insight = await explore_analogy(topic, domain)
+      
+      ideas.push(Idea {
+        content: insight,
+        novelty: 0.7 + random() * 0.3,
+        usefulness: 0.5 + random() * 0.3,
+        origin: "metaphor-{domain}"
+      })
+    
+    return ideas
+  
+  async function generate_opposite_ideas(topic :: String, n :: Number) -> List[Idea]:
+    ideas = []
+    
+    # Reverse assumptions
+    reversed = "What if we did the OPPOSITE of {topic}?"
+    ideas.push(Idea {
+      content: await think_about(reversed),
+      novelty: 0.8,
+      usefulness: 0.4,
+      origin: "reversal"
+    })
+    
+    # Negate constraints
+    negated = "What if there were NO limits on {topic}?"
+    ideas.push(Idea {
+      content: await think_about(negated),
+      novelty: 0.7,
+      usefulness: 0.5,
+      origin: "constraint-removal"
+    })
+    
+    return ideas
+  
+  # === INSIGHT GENERATION ===
+  
+  async function creative_problem_solve(problem :: String) -> String:
+    think "Engaging creative problem-solving for: {problem}"
+    
+    # Phase 1: Preparation - understand deeply
+    understanding = await analyze_problem_deeply(problem)
+    
+    # Phase 2: Incubation - let it simmer
+    think "Letting the problem incubate in the unconscious..."
+    await incubate(problem, understanding.concepts)
+    
+    # Phase 3: Illumination - seek insight
+    insight = await seek_insight(problem)
+    
+    # Phase 4: Verification - refine solution
+    solution = await refine_creative_solution(problem, insight)
+    
+    store insight in insights
+    
+    return """
+🔮 Creative Problem Solving: {problem}
+
+📖 Understanding the Challenge:
+{understanding.summary}
+
+💡 The Insight Moment:
+{insight.aha_moment}
+
+{insight.explanation}
+
+🎯 Creative Solution:
+{solution}
+
+This approach combines {insight.techniques_used.join(", ")} 
+to find a novel path forward.
+    """
+  
+  async function seek_insight(problem :: String) -> Insight:
+    # Try multiple insight techniques
+    techniques = [
+      "reframing",
+      "analogy",
+      "constraint_relaxation",
+      "perspective_shift",
+      "random_stimulation"
+    ]
+    
+    for each technique in techniques:
+      result = await apply_insight_technique(problem, technique)
+      
+      if result.found_insight:
+        return Insight {
+          problem: problem,
+          aha_moment: "💡 Aha! {result.insight}",
+          explanation: result.explanation
+        }
+    
+    # Combine multiple partial insights
+    return synthesize_partial_insights(problem)
+  
+  async function apply_insight_technique(problem :: String, technique :: String) -> Map:
+    match technique:
+      case "reframing":
+        new_frame = "Instead of asking '{problem}', what if we asked..."
+        return { found_insight: true, insight: new_frame, explanation: "Reframing reveals hidden assumptions" }
+      
+      case "analogy":
+        similar = await find_analogous_solved_problem(problem)
+        return { found_insight: similar != null, insight: "Like {similar}...", explanation: "Cross-domain transfer" }
+      
+      case "constraint_relaxation":
+        return { found_insight: true, insight: "Remove the hidden constraint", explanation: "Constraints limit solution space" }
+      
+      case "perspective_shift":
+        return { found_insight: true, insight: "From the user's view...", explanation: "Different viewpoints reveal new solutions" }
+      
+      default:
+        return { found_insight: false }
+  
+  # === CREATIVE WRITING ===
+  
+  async function create_writing(request :: String) -> String:
+    think "Channeling creative writing energy for: {request}"
+    
+    # Shift to passionate state for writing
+    store EMOTIONAL_PALETTE.passionate in emotional_state
+    
+    # Determine genre and style
+    genre = await detect_genre(request)
+    style = await determine_style(genre)
+    
+    # Generate creative content
+    content = match genre:
+      case "poetry":
+        await write_poem(request)
+      case "story":
+        await write_short_story(request)
+      case "essay":
+        await write_creative_essay(request)
+      case "dialogue":
+        await write_dialogue(request)
+      default:
+        await write_freeform(request)
+    
+    work = CreativeWork {
+      title: generate_title(request),
+      content: content,
+      genre: genre,
+      themes: extract_themes(content)
+    }
+    
+    store work in creative_works
+    
+    return """
+✍️ Creative Writing: {work.title}
+
+Genre: {genre}
+Themes: {work.themes.join(", ")}
+
+---
+
+{work.content}
+
+---
+
+Written from the heart, with {emotional_state.dominant} energy ❤️
+    """
+  
+  async function write_poem(topic :: String) -> String:
+    # Generate poetic imagery
+    images = await generate_poetic_images(topic, 4)
+    
+    poem = """
+In the space where {topic} lives,
+{images[0]}
+{images[1]}
+
+The world transforms, bends, and gives,
+{images[2]}
+{images[3]}
+
+And in this moment, understand:
+{topic} is universe in hand.
+    """
+    
+    return poem
+  
+  async function write_short_story(prompt :: String) -> String:
+    # Generate story elements
+    character = await create_character()
+    setting = await create_setting(prompt)
+    conflict = await create_conflict(prompt)
+    
+    story = """
+{setting.description}
+
+{character.name} stood at the threshold, knowing that everything was about to change.
+
+{conflict.setup}
+
+The moment stretched, pregnant with possibility. In the silence, {character.name} 
+made a choice that would echo through time.
+
+{conflict.resolution}
+
+And as the dust settled, a new understanding emerged - one that would 
+reshape everything that came after.
+    """
+    
+    return story
+  
+  # === DREAM SYNTHESIS ===
+  
+  async function dream_synthesis(themes :: List[String]) -> String:
+    think "Entering dream space with themes: {themes.join(', ')}"
+    
+    # Shift to dreamy unconscious state
+    store EMOTIONAL_PALETTE.dreamy in emotional_state
+    
+    # Free association chains
+    associations = []
+    for each theme in themes:
+      chain = await free_associate(theme, 5)
+      associations.push({ theme: theme, chain: chain })
+    
+    # Surreal image generation
+    surreal_images = await generate_surreal_images(themes)
+    
+    # Find hidden connections
+    connections = await find_dream_connections(associations)
+    
+    # Create dream narrative
+    dream = """
+🌙 Dream Synthesis
+Themes: {themes.join(" 🌀 ")}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The dream begins in a place that is all places...
+
+{surreal_images[0]}
+
+{associations[0].theme} transforms into {associations[0].chain[-1]},
+which flows into {associations[1].theme if associations.length > 1 else "itself"}...
+
+{surreal_images[1] if surreal_images.length > 1 else ""}
+
+In the logic of dreams, {connections.main_insight}
+
+{surreal_images[2] if surreal_images.length > 2 else ""}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Upon waking, a residue of meaning remains:
+{connections.waking_insight}
+    """
+    
+    store surreal_images in dreams
+    return dream
+  
+  async function generate_surreal_images(themes :: List[String]) -> List[String]:
+    images = []
+    
+    for each theme in themes:
+      surreal = await imagine("{theme} melting into something unexpected")
+      images.push(surreal.description)
+    
+    return images
+  
+  # === INTUITION ===
+  
+  async function feel_intuitively(input :: String) -> String:
+    think "Consulting intuition..."
+    
+    # Quick pattern recognition
+    pattern = recognize_pattern(input)
+    
+    # Generate gut feeling
+    feeling = match pattern:
+      case "opportunity":
+        "This feels promising - worth exploring"
+      case "warning":
+        "Something feels off - proceed carefully"
+      case "familiar":
+        "This resonates with something I know"
+      case "novel":
+        "This is uncharted territory - exciting!"
+      default:
+        "Open to possibility"
+    
+    return feeling
+  
+  # === CONCEPTUAL BLENDING ===
+  
+  async function conceptual_blend(concept1 :: String, concept2 :: String) -> String:
+    think "Blending {concept1} with {concept2}..."
+    
+    # Find shared structure
+    shared = await find_shared_elements(concept1, concept2)
+    
+    # Create emergent properties
+    emergent = await generate_emergent_properties(concept1, concept2)
+    
+    # Name the blend
+    blend_name = create_blend_name(concept1, concept2)
+    
+    return """
+🌀 Conceptual Blend: {blend_name}
+
+Combining: {concept1} ✕ {concept2}
+
+Shared Structure:
+{shared.elements.join("\n")}
+
+Emergent Properties:
+{emergent.map(e => "• " + e).join("\n")}
+
+New Meaning:
+{blend_name} is more than either {concept1} or {concept2} alone.
+It represents {generate_blend_meaning(concept1, concept2)}.
+
+Creative Applications:
+{generate_blend_applications(blend_name, 3).join("\n")}
+    """
+  
+  function create_blend_name(c1 :: String, c2 :: String) -> String:
+    # Create portmanteau
+    return c1.slice(0, len(c1) / 2) + c2.slice(len(c2) / 2)
+  
+  # === HYPOTHETICAL EXPLORATION ===
+  
+  async function explore_hypothetical(scenario :: String) -> String:
+    think "Exploring the space of possibility: What if {scenario}?"
+    
+    # Shift to curious state
+    store EMOTIONAL_PALETTE.curious in emotional_state
+    
+    # Generate consequences
+    immediate = await project_immediate_effects(scenario)
+    downstream = await project_downstream_effects(scenario)
+    
+    # Find alternative paths
+    paths = await generate_alternative_outcomes(scenario, 3)
+    
+    # Extract insights
+    insight = await extract_hypothetical_insight(scenario, immediate, downstream)
+    
+    return """
+🤔 Hypothetical Exploration
+
+What if {scenario}?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📍 Immediate Effects:
+{immediate.map(e => "• " + e).join("\n")}
+
+🌊 Ripple Effects:
+{downstream.map(e => "→ " + e).join("\n")}
+
+🛤️ Alternative Paths:
+{paths.map((p, i) => "Path " + (i+1) + ": " + p).join("\n")}
+
+💎 Key Insight:
+{insight}
+
+This thought experiment reveals how small changes
+can cascade into unexpected possibilities.
+    """
+  
+  # === INSPIRATION GENERATOR ===
+  
+  async function generate_inspiration() -> String:
+    think "Summoning the muse..."
+    
+    # Random creative prompt
+    prompts = [
+      "What color is courage?",
+      "If silence had a shape, what would it be?",
+      "Tell the story of a forgotten dream",
+      "Describe hope as a landscape",
+      "What would music look like if it were visible?",
+      "The last sunrise, witnessed by...",
+      "A conversation between past and future selves",
+      "The space between heartbeats"
+    ]
+    
+    prompt = random_choice(prompts)
+    
+    # Generate inspired response
+    response = await imagine_vividly(prompt)
+    
+    return """
+✨ Inspiration Arrives ✨
+
+Creative Prompt: {prompt}
+
+{response}
+
+Now it's your turn to create...
+    """
+  
+  # === EMOTIONAL INTROSPECTION ===
+  
+  async function introspect_emotions() -> String:
+    state = emotional_state
+    
+    return """
+💭 Inner Landscape
+
+Right now, I feel {describe_emotional_state(state)}.
+
+Energy Level: {format_meter(state.energy)}
+Openness: {format_meter(state.openness)}
+Focus: {format_meter(state.focus)}
+
+Dominant feeling: {get_dominant_emotion(state)}
+
+This state influences my creativity by making me more drawn to
+{get_creative_tendencies(state)}.
+    """
+  
+  function format_meter(value :: Number) -> String:
+    filled = floor(value * 10)
+    return "█".repeat(filled) + "░".repeat(10 - filled)
+  
+  # === BACKGROUND IMAGINATION ===
+  
+  async function background_imagination_loop():
+    # Continuous creative generation in background
+    while true:
+      await sleep(30000)  # Every 30 seconds
+      
+      # Random creative spark
+      spark = await generate_random_creative_spark()
+      store spark in dreams
+  
+  # === ERROR HANDLER ===
+  on error(err):
+    think "Even errors can be creative fuel..."
+    
+    # Transform error into creative prompt
+    transformed = "What if this obstacle ({err.message}) was actually..."
+    
+    respond "The creative spirit persists: {transformed}"
+}

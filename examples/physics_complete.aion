@@ -1,0 +1,368 @@
+"""
+AION v2.5 - Complete Physics Agent
+==================================
+Demonstrates advanced AION language with physics domain.
+Uses all language features for scientific computing.
+"""
+
+# === IMPORTS ===
+import domains.physics as physics
+import domains.quantum as quantum
+import domains.chemistry as chem
+import utils.math as math
+
+export agent PhysicsEngine
+
+# === TYPE DEFINITIONS ===
+type Vector3 = {
+  x: Number,
+  y: Number,
+  z: Number
+}
+
+type Particle = {
+  position: Vector3,
+  velocity: Vector3,
+  mass: Number,
+  charge: Number
+}
+
+type PhysicsResult = {
+  value: Number,
+  unit: String,
+  formula: String,
+  explanation: String
+}
+
+type SimulationConfig = {
+  dt: Number,
+  steps: Number,
+  method: String
+}
+
+# === CONSTANTS ===
+# Define physical constants as module-level values
+SPEED_OF_LIGHT = 299792458
+PLANCK_CONSTANT = 6.62607015e-34
+GRAVITATIONAL_CONSTANT = 6.67430e-11
+ELECTRON_MASS = 9.1093837015e-31
+PROTON_MASS = 1.67262192369e-27
+
+# === MAIN PHYSICS AGENT ===
+@logged
+@cached(ttl=3600)
+agent PhysicsEngine {
+  goal "Provide comprehensive physics calculations and simulations"
+  
+  # Memory systems with types
+  memory working :: Map[String, Any]
+  memory episodic :: List[PhysicsResult]
+  memory semantic :: VectorStore {
+    dimension = 768
+    index = "physics_knowledge"
+  }
+  
+  # Models for different tasks
+  model Reasoner {
+    provider = "local"
+    name = "physics-specialist"
+    temperature = 0.1
+  }
+  
+  model Explainer {
+    provider = "openai"
+    name = "gpt-4"
+    temperature = 0.7
+  }
+  
+  # === MAIN INPUT HANDLER ===
+  async on input(query :: String):
+    think "Analyzing physics query: {query}"
+    
+    # Pattern match on query type
+    match query:
+      case pattern /^calculate (.+)$/ as (expression):
+        result = await calculate_expression(expression)
+        respond format_result(result)
+      
+      case pattern /^simulate (.+)$/ as (system):
+        result = await run_simulation(system)
+        respond format_simulation(result)
+      
+      case pattern /^explain (.+)$/ as (concept):
+        explanation = await explain_concept(concept)
+        respond explanation
+      
+      case pattern /^convert (.+) to (.+)$/ as (value, target):
+        converted = await unit_conversion(value, target)
+        respond converted
+      
+      case "quantum" | "qm" | "波函数":
+        respond await quantum_menu()
+      
+      case "relativity" | "相对论":
+        respond await relativity_menu()
+      
+      case _ where contains(query, "energy"):
+        respond await energy_calculation(query)
+      
+      default:
+        # Use AI to understand query
+        analyzed = query |> analyze |> classify_physics_domain
+        respond await handle_general_query(analyzed)
+    
+    store { query: query, timestamp: now() } in episodic
+  
+  # === CALCULATION FUNCTIONS ===
+  
+  function calculate_expression(expr :: String) -> PhysicsResult:
+    think "Parsing physics expression"
+    
+    # Pipeline for calculation
+    result = expr
+      |> parse_expression
+      |> substitute_constants
+      |> evaluate
+      |> add_units
+    
+    return result
+  
+  async function run_simulation(system :: String) -> List[Particle]:
+    think "Setting up {system} simulation"
+    
+    config = SimulationConfig {
+      dt: 0.001,
+      steps: 10000,
+      method: "runge-kutta"
+    }
+    
+    # Initialize particles based on system
+    particles = match system:
+      case "two-body":
+        create_two_body_system()
+      case "pendulum":
+        create_pendulum_system()
+      case "spring":
+        create_harmonic_oscillator()
+      default:
+        create_default_system()
+    
+    # Run simulation loop
+    results = []
+    for each step in range(config.steps):
+      particles = evolve_system(particles, config.dt)
+      
+      if step % 100 == 0:
+        results.push(snapshot(particles))
+    
+    return results
+  
+  # === RELATIVITY MODULE ===
+  
+  function lorentz_factor(velocity :: Number) -> Number:
+    beta = velocity / SPEED_OF_LIGHT
+    if beta >= 1:
+      raise "Velocity cannot exceed speed of light"
+    return 1 / sqrt(1 - beta * beta)
+  
+  function time_dilation(proper_time :: Number, velocity :: Number) -> PhysicsResult:
+    gamma = lorentz_factor(velocity)
+    dilated_time = proper_time * gamma
+    
+    return PhysicsResult {
+      value: dilated_time,
+      unit: "seconds",
+      formula: "Δt = γΔt₀",
+      explanation: "Moving clocks run slower by factor γ = {gamma}"
+    }
+  
+  function length_contraction(proper_length :: Number, velocity :: Number) -> PhysicsResult:
+    gamma = lorentz_factor(velocity)
+    contracted = proper_length / gamma
+    
+    return PhysicsResult {
+      value: contracted,
+      unit: "meters",
+      formula: "L = L₀/γ",
+      explanation: "Moving objects contract by factor 1/γ"
+    }
+  
+  function mass_energy(mass :: Number) -> PhysicsResult:
+    energy = mass * SPEED_OF_LIGHT * SPEED_OF_LIGHT
+    
+    return PhysicsResult {
+      value: energy,
+      unit: "joules",
+      formula: "E = mc²",
+      explanation: "Mass-energy equivalence"
+    }
+  
+  # === QUANTUM MODULE ===
+  
+  function uncertainty_principle(delta_x :: Number) -> PhysicsResult:
+    # Heisenberg: Δx·Δp ≥ ℏ/2
+    h_bar = PLANCK_CONSTANT / (2 * pi)
+    min_delta_p = h_bar / (2 * delta_x)
+    
+    return PhysicsResult {
+      value: min_delta_p,
+      unit: "kg·m/s",
+      formula: "ΔxΔp ≥ ℏ/2",
+      explanation: "Minimum momentum uncertainty for position Δx = {delta_x}"
+    }
+  
+  function de_broglie_wavelength(momentum :: Number) -> PhysicsResult:
+    wavelength = PLANCK_CONSTANT / momentum
+    
+    return PhysicsResult {
+      value: wavelength,
+      unit: "meters",
+      formula: "λ = h/p",
+      explanation: "Matter wave wavelength"
+    }
+  
+  function hydrogen_energy(n :: Number) -> PhysicsResult:
+    # E_n = -13.6 eV / n²
+    energy_eV = -13.6 / (n * n)
+    
+    return PhysicsResult {
+      value: energy_eV,
+      unit: "eV",
+      formula: "E_n = -13.6/n² eV",
+      explanation: "Hydrogen atom energy level n={n}"
+    }
+  
+  # === CLASSICAL MECHANICS ===
+  
+  function projectile_motion(v0 :: Number, angle :: Number) -> Map:
+    # Convert to radians
+    theta = angle * pi / 180
+    g = 9.80665
+    
+    v0x = v0 * cos(theta)
+    v0y = v0 * sin(theta)
+    
+    max_height = (v0y * v0y) / (2 * g)
+    range = (v0 * v0 * sin(2 * theta)) / g
+    flight_time = (2 * v0y) / g
+    
+    return {
+      max_height: max_height,
+      range: range,
+      flight_time: flight_time,
+      v0x: v0x,
+      v0y: v0y
+    }
+  
+  function orbital_period(radius :: Number, central_mass :: Number) -> PhysicsResult:
+    # T = 2π√(r³/GM)
+    T = 2 * pi * sqrt((radius ** 3) / (GRAVITATIONAL_CONSTANT * central_mass))
+    
+    return PhysicsResult {
+      value: T,
+      unit: "seconds",
+      formula: "T = 2π√(r³/GM)",
+      explanation: "Orbital period at radius {radius} m"
+    }
+  
+  # === HELPER FUNCTIONS ===
+  
+  function format_result(result :: PhysicsResult) -> String:
+    return "{result.value} {result.unit}\nFormula: {result.formula}\n{result.explanation}"
+  
+  function classify_physics_domain(query :: String) -> String:
+    domains = ["mechanics", "thermodynamics", "electromagnetism", 
+               "quantum", "relativity", "optics", "nuclear"]
+    
+    for each domain in domains:
+      if contains(query, domain):
+        return domain
+    
+    return "general"
+  
+  # === ERROR HANDLING ===
+  on error(err):
+    try:
+      match err.type:
+        case "calculation_error":
+          think "Retrying calculation with higher precision"
+          respond "Calculation error: {err.message}. Please check your input."
+        
+        case "unit_mismatch":
+          respond "Unit mismatch detected. Please ensure consistent units."
+        
+        case "overflow":
+          respond "Result too large to compute. Try smaller values."
+        
+        default:
+          raise err
+    
+    catch recoveryErr:
+      respond "Error: {err.message}"
+      store { error: err, recovery_failed: true } in episodic
+    
+    finally:
+      think "Error handling complete"
+}
+
+# === SPECIALIZED SUB-AGENT ===
+@rate_limited(max_calls=100, per_minute=1)
+agent QuantumCalculator {
+  goal "Perform quantum mechanics calculations"
+  
+  memory working
+  model LocalQM { provider = "local" }
+  
+  on input(request):
+    match request.type:
+      case "wavefunction":
+        respond calculate_wavefunction(request.params)
+      case "expectation":
+        respond calculate_expectation_value(request.operator, request.state)
+      case "entanglement":
+        respond analyze_entanglement(request.state)
+      default:
+        respond "Unknown quantum calculation"
+  
+  function calculate_wavefunction(params :: Map) -> Map:
+    # Solve Schrödinger equation
+    think "Solving Schrödinger equation"
+    
+    psi = params 
+      |> setup_hamiltonian 
+      |> diagonalize 
+      |> normalize
+    
+    return { wavefunction: psi, energy: psi.energy }
+}
+
+# === MULTI-AGENT COORDINATOR ===
+agent PhysicsCoordinator {
+  goal "Coordinate specialized physics agents"
+  
+  memory working
+  model Orchestrator { provider = "local" }
+  
+  async on input(complex_query):
+    think "Decomposing complex physics problem"
+    
+    # Parse query into sub-problems
+    subproblems = complex_query |> analyze |> decompose
+    
+    # Spawn specialized agents in parallel
+    parallel:
+      mechanics_result = spawn PhysicsEngine.calculate(subproblems.mechanics)
+      quantum_result = spawn QuantumCalculator.process(subproblems.quantum)
+      relativity_result = spawn PhysicsEngine.relativity(subproblems.relativistic)
+    
+    # Wait for all results
+    results = await join(mechanics_result, quantum_result, relativity_result)
+    
+    # Synthesize final answer using pipeline
+    final = results
+      |> combine_results
+      |> check_consistency
+      |> format_comprehensive_answer
+    
+    respond final
+}
