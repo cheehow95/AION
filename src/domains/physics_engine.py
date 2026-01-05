@@ -686,6 +686,250 @@ class PhysicsEngine:
 
 
 # =============================================================================
+# ADVANCED DYNAMICS
+# =============================================================================
+
+@dataclass
+class RigidBody:
+    """
+    Rigid body dynamics.
+    """
+    mass: float = 1.0
+    inertia: float = 1.0  # Moment of inertia (simplified as scalar)
+    position: Vector3 = field(default_factory=Vector3)
+    velocity: Vector3 = field(default_factory=Vector3)
+    angle: float = 0.0  # Rotation angle (radians)
+    angular_velocity: float = 0.0
+    
+    def kinetic_energy(self) -> float:
+        """Total kinetic energy: KE = ½mv² + ½Iω²"""
+        linear = 0.5 * self.mass * self.velocity.dot(self.velocity)
+        rotational = 0.5 * self.inertia * self.angular_velocity ** 2
+        return linear + rotational
+    
+    def angular_momentum(self) -> float:
+        """Angular momentum: L = Iω"""
+        return self.inertia * self.angular_velocity
+    
+    def apply_torque(self, torque: float, dt: float):
+        """Apply torque: τ = Iα"""
+        alpha = torque / self.inertia
+        self.angular_velocity += alpha * dt
+        self.angle += self.angular_velocity * dt
+    
+    @staticmethod
+    def moment_of_inertia_sphere(mass: float, radius: float) -> float:
+        """Solid sphere: I = (2/5)mr²"""
+        return 0.4 * mass * radius ** 2
+    
+    @staticmethod
+    def moment_of_inertia_cylinder(mass: float, radius: float) -> float:
+        """Solid cylinder about axis: I = (1/2)mr²"""
+        return 0.5 * mass * radius ** 2
+    
+    @staticmethod
+    def moment_of_inertia_rod(mass: float, length: float) -> float:
+        """Rod about center: I = (1/12)ml²"""
+        return mass * length ** 2 / 12
+
+
+class Gyroscope:
+    """
+    Gyroscope precession physics.
+    """
+    
+    def __init__(self, inertia: float, spin_rate: float, mass: float, pivot_distance: float):
+        self.I = inertia
+        self.omega_s = spin_rate
+        self.m = mass
+        self.r = pivot_distance
+        self.g = Constants.g
+    
+    @property
+    def angular_momentum(self) -> float:
+        """L = Iω"""
+        return self.I * self.omega_s
+    
+    @property
+    def precession_rate(self) -> float:
+        """
+        Precession angular velocity.
+        Ω_p = τ/L = mgr/(Iω)
+        """
+        return self.m * self.g * self.r / (self.I * self.omega_s)
+    
+    @property
+    def precession_period(self) -> float:
+        """Period of precession: T = 2π/Ω_p"""
+        return 2 * math.pi / self.precession_rate
+
+
+class FluidDynamics:
+    """
+    Basic fluid dynamics calculations.
+    """
+    
+    @staticmethod
+    def bernoulli_pressure(rho: float, v1: float, P1: float, h1: float,
+                           v2: float, h2: float) -> float:
+        """
+        Bernoulli equation: P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂
+        
+        Returns P₂.
+        """
+        g = Constants.g
+        return P1 + 0.5 * rho * (v1**2 - v2**2) + rho * g * (h1 - h2)
+    
+    @staticmethod
+    def continuity_velocity(A1: float, v1: float, A2: float) -> float:
+        """
+        Continuity equation: A₁v₁ = A₂v₂
+        
+        Returns v₂.
+        """
+        return A1 * v1 / A2
+    
+    @staticmethod
+    def reynolds_number(rho: float, v: float, L: float, mu: float) -> float:
+        """
+        Reynolds number: Re = ρvL/μ
+        
+        Re < 2300: laminar
+        Re > 4000: turbulent
+        """
+        return rho * v * L / mu
+    
+    @staticmethod
+    def stokes_drag(mu: float, r: float, v: float) -> float:
+        """
+        Stokes drag for sphere: F = 6πμrv
+        
+        Valid for low Reynolds number (creeping flow).
+        """
+        return 6 * math.pi * mu * r * v
+    
+    @staticmethod
+    def terminal_velocity_sphere(rho_obj: float, rho_fluid: float, 
+                                  r: float, mu: float) -> float:
+        """
+        Terminal velocity of sphere in viscous fluid.
+        
+        v_t = (2r²g(ρ_obj - ρ_fluid))/(9μ)
+        """
+        g = Constants.g
+        return (2 * r**2 * g * (rho_obj - rho_fluid)) / (9 * mu)
+    
+    @staticmethod
+    def buoyancy_force(rho_fluid: float, V: float) -> float:
+        """
+        Buoyancy force: F_b = ρ_fluid × V × g
+        """
+        return rho_fluid * V * Constants.g
+
+
+class DampedOscillator:
+    """
+    Damped harmonic oscillator.
+    
+    m(d²x/dt²) + b(dx/dt) + kx = 0
+    """
+    
+    def __init__(self, mass: float = 1.0, spring_constant: float = 1.0, 
+                 damping: float = 0.1):
+        self.m = mass
+        self.k = spring_constant
+        self.b = damping
+    
+    @property
+    def natural_frequency(self) -> float:
+        """ω₀ = √(k/m)"""
+        return math.sqrt(self.k / self.m)
+    
+    @property
+    def damping_ratio(self) -> float:
+        """ζ = b / (2√(mk))"""
+        return self.b / (2 * math.sqrt(self.m * self.k))
+    
+    @property
+    def damped_frequency(self) -> float:
+        """ω_d = ω₀√(1 - ζ²) for underdamped"""
+        zeta = self.damping_ratio
+        if zeta >= 1:
+            return 0.0
+        return self.natural_frequency * math.sqrt(1 - zeta**2)
+    
+    @property
+    def regime(self) -> str:
+        """Determine damping regime."""
+        zeta = self.damping_ratio
+        if zeta < 1:
+            return "underdamped"
+        elif zeta == 1:
+            return "critically_damped"
+        else:
+            return "overdamped"
+    
+    @property
+    def quality_factor(self) -> float:
+        """Q factor = 1/(2ζ)"""
+        zeta = self.damping_ratio
+        if zeta == 0:
+            return float('inf')
+        return 1 / (2 * zeta)
+    
+    def simulate(self, x0: float, v0: float = 0, dt: float = 0.01, 
+                 n_steps: int = 1000) -> List[Tuple[float, float]]:
+        """Simulate motion."""
+        x, v = x0, v0
+        trajectory = [(0, x)]
+        
+        for i in range(n_steps):
+            a = (-self.k * x - self.b * v) / self.m
+            v += a * dt
+            x += v * dt
+            trajectory.append(((i+1) * dt, x))
+        
+        return trajectory
+
+
+class CoupledOscillators:
+    """
+    Two coupled harmonic oscillators (normal modes).
+    """
+    
+    def __init__(self, m1: float = 1.0, m2: float = 1.0,
+                 k1: float = 1.0, k2: float = 1.0, k_coupling: float = 0.5):
+        self.m1 = m1
+        self.m2 = m2
+        self.k1 = k1
+        self.k2 = k2
+        self.k_c = k_coupling
+    
+    def normal_mode_frequencies(self) -> Tuple[float, float]:
+        """
+        Calculate normal mode frequencies for equal masses.
+        
+        ω₁ = √(k/m)  (symmetric mode)
+        ω₂ = √((k + 2k_c)/m)  (antisymmetric mode)
+        """
+        if self.m1 != self.m2:
+            # Complex calculation for unequal masses
+            return (0, 0)
+        
+        m = self.m1
+        k = self.k1
+        omega1 = math.sqrt(k / m)
+        omega2 = math.sqrt((k + 2 * self.k_c) / m)
+        
+        return (omega1, omega2)
+    
+    def beat_frequency(self) -> float:
+        """Beat frequency = |ω₂ - ω₁|/(2π)"""
+        w1, w2 = self.normal_mode_frequencies()
+        return abs(w2 - w1) / (2 * math.pi)
+
+
+# =============================================================================
 # DEMO
 # =============================================================================
 

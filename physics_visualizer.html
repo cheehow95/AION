@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION Physics Visualizer | Relativity, Black Holes, Dimensions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #050510;
+            --bg-panel: rgba(10, 10, 30, 0.95);
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-orange: #f97316;
+            --text-primary: #e0e0f0;
+            --text-dim: #6b7280;
+            --border: rgba(100, 150, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .app {
+            display: grid;
+            grid-template-rows: 60px 1fr;
+            height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 4px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-btn.active {
+            color: var(--accent-blue);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Main content */
+        main {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+        }
+
+        .viewer {
+            position: relative;
+            background: radial-gradient(ellipse at center, #0a0a20 0%, var(--bg-dark) 100%);
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .info-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            max-width: 400px;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--accent-blue);
+        }
+
+        .info-text {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-blue);
+        }
+
+        /* Control Panel */
+        .panel {
+            background: var(--bg-panel);
+            border-left: 1px solid var(--border);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+
+        .control-group {
+            margin-bottom: 14px;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .value-display {
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-top: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-top: 4px;
+        }
+
+        /* Scene specific */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <header>
+            <div class="logo">
+                <span>🌌</span>
+                AION Physics
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="switchScene('blackhole')">🕳️ Black Hole</button>
+                <button class="nav-btn" onclick="switchScene('wormhole')">🌀 Wormhole</button>
+                <button class="nav-btn" onclick="switchScene('tesseract')">📦 4D Space</button>
+                <button class="nav-btn" onclick="switchScene('relativity')">⚡ Relativity</button>
+                <button class="nav-btn" onclick="switchScene('optics')">🔦 Optics</button>
+            </nav>
+        </header>
+
+        <main>
+            <div class="viewer">
+                <canvas id="canvas"></canvas>
+
+                <div class="info-overlay" id="info-blackhole">
+                    <div class="info-title">Schwarzschild Black Hole</div>
+                    <div class="info-text">
+                        Event horizon radius: <span class="formula">r_s = 2GM/c²</span><br>
+                        Time dilation: <span class="formula">dτ/dt = √(1 - r_s/r)</span><br>
+                        <br>
+                        Watch particles orbit and fall into the black hole.
+                        The grid shows spacetime curvature.
+                    </div>
+                </div>
+
+                <div class="info-overlay hidden" id="info-wormhole">
+                    <div class="info-title">Morris-Thorne Wormhole</div>
+                    <div class="info-text">
+                        Shape function: <span class="formula">b(r) = r₀²/r</span><br>
+                        Requires <span style="color: var(--accent-pink)">exotic matter</span>
+                        (negative energy density) to remain open.
+                    </div>
+                </div>
+
+                <div class="info-overlay hidden" id="info-tesseract">
+                    <div class="info-title">4D Hypercube (Tesseract)</div>
+                    <div class="info-text">
+                        16 vertices, 32 edges, 24 faces, 8 cells<br>
+                        Schläfli symbol: <span class="formula">{4,3,3}</span><br>
+                        <br>
+                        This is a 3D projection of a 4D object rotating in 4D space.
+                    </div>
+                </div>
+
+                <div class="info-overlay hidden" id="info-relativity">
+                    <div class="info-title">Special Relativity</div>
+                    <div class="info-text">
+                        Lorentz factor: <span class="formula">γ = 1/√(1-v²/c²)</span><br>
+                        Time dilation: moving clocks run slow<br>
+                        Length contraction: moving objects shrink
+                    </div>
+                </div>
+
+                <div class="info-overlay hidden" id="info-optics">
+                    <div class="info-title">Wave Optics</div>
+                    <div class="info-text">
+                        Snell's Law: <span class="formula">n₁sinθ₁ = n₂sinθ₂</span><br>
+                        Interference: <span class="formula">d·sinθ = mλ</span><br>
+                        <br>
+                        Watch light waves interfere and diffract.
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <!-- Black Hole Controls -->
+                <div id="controls-blackhole">
+                    <div class="section">
+                        <div class="section-title">Black Hole Properties</div>
+                        <div class="control-group">
+                            <label>Mass (Solar Masses)</label>
+                            <input type="range" id="bh-mass" min="1" max="100" value="10">
+                            <div class="value-display"><span id="bh-mass-val">10</span> M☉</div>
+                        </div>
+                        <div class="control-group">
+                            <label>Spin Parameter</label>
+                            <input type="range" id="bh-spin" min="0" max="99" value="0">
+                            <div class="value-display">a* = <span id="bh-spin-val">0.00</span></div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Black Hole Stats</div>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-label">Event Horizon</div>
+                                <div class="stat-value" id="stat-rs">29.5 km</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Photon Sphere</div>
+                                <div class="stat-value" id="stat-rph">44.3 km</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">ISCO</div>
+                                <div class="stat-value" id="stat-isco">88.6 km</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Hawking Temp</div>
+                                <div class="stat-value" id="stat-temp">6.2e-9 K</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="launchParticle()">🚀 Launch Particle</button>
+                </div>
+
+                <!-- Wormhole Controls -->
+                <div id="controls-wormhole" class="hidden">
+                    <div class="section">
+                        <div class="section-title">Wormhole Properties</div>
+                        <div class="control-group">
+                            <label>Throat Radius (km)</label>
+                            <input type="range" id="wh-throat" min="1" max="100" value="10">
+                            <div class="value-display"><span id="wh-throat-val">10</span> km</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Exotic Matter Required</div>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-label">Energy Density</div>
+                                <div class="stat-value" id="stat-exotic">-1.2e32 J/m³</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Exotic Mass</div>
+                                <div class="stat-value" id="stat-exmass">-6.7e30 kg</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="traverseWormhole()">🌀 Traverse</button>
+                </div>
+
+                <!-- Tesseract Controls -->
+                <div id="controls-tesseract" class="hidden">
+                    <div class="section">
+                        <div class="section-title">4D Rotation</div>
+                        <div class="control-group">
+                            <label>XW Rotation</label>
+                            <input type="range" id="rot-xw" min="0" max="628" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label>YW Rotation</label>
+                            <input type="range" id="rot-yw" min="0" max="628" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label>ZW Rotation</label>
+                            <input type="range" id="rot-zw" min="0" max="628" value="0">
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">4D Polytopes</div>
+                        <select id="polytope-select" onchange="changePolytope()">
+                            <option value="tesseract">Tesseract (8-cell)</option>
+                            <option value="16cell">16-cell</option>
+                            <option value="24cell">24-cell</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Relativity Controls -->
+                <div id="controls-relativity" class="hidden">
+                    <div class="section">
+                        <div class="section-title">Velocity</div>
+                        <div class="control-group">
+                            <label>Speed (fraction of c)</label>
+                            <input type="range" id="rel-velocity" min="0" max="99" value="50">
+                            <div class="value-display">v = <span id="rel-v-val">0.50</span>c</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Relativistic Effects</div>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-label">γ Factor</div>
+                                <div class="stat-value" id="stat-gamma">1.15</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Time Dilation</div>
+                                <div class="stat-value" id="stat-timedil">87%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Length Contraction</div>
+                                <div class="stat-value" id="stat-length">87%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Relativistic Mass</div>
+                                <div class="stat-value" id="stat-relmass">115%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optics Controls -->
+                <div id="controls-optics" class="hidden">
+                    <div class="section">
+                        <div class="section-title">Wave Properties</div>
+                        <div class="control-group">
+                            <label>Wavelength (nm)</label>
+                            <input type="range" id="opt-wavelength" min="380" max="700" value="550">
+                            <div class="value-display"><span id="opt-wl-val">550</span> nm</div>
+                        </div>
+                        <div class="control-group">
+                            <label>Slit Separation (mm)</label>
+                            <input type="range" id="opt-slit" min="1" max="20" value="5">
+                            <div class="value-display"><span id="opt-slit-val">0.5</span> mm</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Demonstration</div>
+                        <select id="optics-demo" onchange="changeOpticsDemo()">
+                            <option value="interference">Double-Slit Interference</option>
+                            <option value="refraction">Refraction</option>
+                            <option value="lens">Lens Imaging</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // === GLOBAL STATE ===
+        let scene, camera, renderer;
+        let currentScene = 'blackhole';
+        let animationId;
+        let objects = {};
+
+        // === PHYSICS ===
+        const c = 299792458;
+        const G = 6.67430e-11;
+        const M_sun = 1.989e30;
+
+        function schwarzschildRadius(M) { return 2 * G * M / (c * c); }
+        function lorentzFactor(v) { return 1 / Math.sqrt(1 - (v / c) * (v / c)); }
+
+        // === THREE.JS SETUP ===
+        function init() {
+            const canvas = document.getElementById('canvas');
+            scene = new THREE.Scene();
+
+            camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            camera.position.set(0, 5, 15);
+            camera.lookAt(0, 0, 0);
+
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Lighting
+            scene.add(new THREE.AmbientLight(0x404060, 0.5));
+            const light = new THREE.PointLight(0xffffff, 1, 100);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+
+            // Controls
+            let isDragging = false, prevMouse = { x: 0, y: 0 };
+            canvas.addEventListener('mousedown', () => isDragging = true);
+            canvas.addEventListener('mouseup', () => isDragging = false);
+            canvas.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    const dx = e.movementX * 0.01;
+                    const dy = e.movementY * 0.01;
+                    scene.rotation.y += dx;
+                    scene.rotation.x += dy;
+                }
+            });
+            canvas.addEventListener('wheel', e => {
+                camera.position.z += e.deltaY * 0.02;
+                camera.position.z = Math.max(5, Math.min(50, camera.position.z));
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            });
+
+            setupEventListeners();
+            createBlackHoleScene();
+            animate();
+        }
+
+        function animate() {
+            animationId = requestAnimationFrame(animate);
+
+            if (currentScene === 'blackhole') updateBlackHoleScene();
+            else if (currentScene === 'tesseract') updateTesseractScene();
+            else if (currentScene === 'optics') updateOpticsScene();
+
+            renderer.render(scene, camera);
+        }
+
+        // === SCENE SWITCHING ===
+        function switchScene(sceneName) {
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.info-overlay').forEach(el => el.classList.add('hidden'));
+            document.getElementById('info-' + sceneName)?.classList.remove('hidden');
+
+            document.querySelectorAll('.panel > div[id^="controls"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('controls-' + sceneName)?.classList.remove('hidden');
+
+            clearScene();
+            currentScene = sceneName;
+
+            switch (sceneName) {
+                case 'blackhole': createBlackHoleScene(); break;
+                case 'wormhole': createWormholeScene(); break;
+                case 'tesseract': createTesseractScene(); break;
+                case 'relativity': createRelativityScene(); break;
+                case 'optics': createOpticsScene(); break;
+            }
+        }
+
+        function clearScene() {
+            while (scene.children.length > 0) scene.remove(scene.children[0]);
+            scene.add(new THREE.AmbientLight(0x404060, 0.5));
+            objects = {};
+        }
+
+        // === BLACK HOLE SCENE ===
+        function createBlackHoleScene() {
+            scene.background = new THREE.Color(0x000005);
+
+            // Event horizon
+            const bhGeo = new THREE.SphereGeometry(1, 32, 32);
+            const bhMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+            objects.blackhole = new THREE.Mesh(bhGeo, bhMat);
+            scene.add(objects.blackhole);
+
+            // Accretion disk
+            const diskGeo = new THREE.RingGeometry(1.5, 4, 64);
+            const diskMat = new THREE.MeshBasicMaterial({
+                color: 0xff6600,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.7
+            });
+            objects.disk = new THREE.Mesh(diskGeo, diskMat);
+            objects.disk.rotation.x = Math.PI / 2 * 0.8;
+            scene.add(objects.disk);
+
+            // Grid for spacetime curvature
+            const gridHelper = new THREE.GridHelper(20, 20, 0x00aaff, 0x003366);
+            gridHelper.position.y = -2;
+            scene.add(gridHelper);
+
+            // Photon sphere (wireframe)
+            const phGeo = new THREE.SphereGeometry(1.5, 16, 16);
+            const phMat = new THREE.MeshBasicMaterial({
+                color: 0x00ffff,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+            objects.photonSphere = new THREE.Mesh(phGeo, phMat);
+            scene.add(objects.photonSphere);
+
+            // Particles
+            objects.particles = [];
+
+            updateBlackHoleStats();
+        }
+
+        function updateBlackHoleScene() {
+            if (objects.disk) objects.disk.rotation.z += 0.005;
+
+            // Update particles
+            if (objects.particles) {
+                objects.particles.forEach((p, i) => {
+                    p.userData.theta += p.userData.omega;
+                    p.userData.r -= 0.01;
+                    if (p.userData.r < 1.1) {
+                        scene.remove(p);
+                        objects.particles.splice(i, 1);
+                    } else {
+                        p.position.x = p.userData.r * Math.cos(p.userData.theta);
+                        p.position.z = p.userData.r * Math.sin(p.userData.theta);
+                    }
+                });
+            }
+        }
+
+        function updateBlackHoleStats() {
+            const mass = parseFloat(document.getElementById('bh-mass').value);
+            const M = mass * M_sun;
+            const rs = schwarzschildRadius(M);
+
+            document.getElementById('stat-rs').textContent = (rs / 1000).toFixed(1) + ' km';
+            document.getElementById('stat-rph').textContent = (1.5 * rs / 1000).toFixed(1) + ' km';
+            document.getElementById('stat-isco').textContent = (3 * rs / 1000).toFixed(1) + ' km';
+
+            const T = 1.054571817e-34 * Math.pow(c, 3) / (8 * Math.PI * G * M * 1.380649e-23);
+            document.getElementById('stat-temp').textContent = T.toExponential(1) + ' K';
+        }
+
+        function launchParticle() {
+            const geo = new THREE.SphereGeometry(0.1, 8, 8);
+            const mat = new THREE.MeshBasicMaterial({ color: 0x00ff88 });
+            const particle = new THREE.Mesh(geo, mat);
+
+            particle.userData = {
+                r: 4 + Math.random() * 2,
+                theta: Math.random() * Math.PI * 2,
+                omega: 0.02 + Math.random() * 0.03
+            };
+
+            particle.position.y = (Math.random() - 0.5) * 0.5;
+            scene.add(particle);
+            objects.particles.push(particle);
+        }
+
+        // === WORMHOLE SCENE ===
+        function createWormholeScene() {
+            scene.background = new THREE.Color(0x050510);
+
+            // Create embedding diagram shape
+            const points = [];
+            for (let r = 1; r <= 5; r += 0.1) {
+                const z = Math.acosh(r);
+                points.push(new THREE.Vector2(r, z));
+            }
+
+            const geo = new THREE.LatheGeometry(points, 32);
+            const mat = new THREE.MeshPhongMaterial({
+                color: 0x8855ff,
+                side: THREE.DoubleSide,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.6
+            });
+
+            objects.wormholeUpper = new THREE.Mesh(geo, mat);
+            scene.add(objects.wormholeUpper);
+
+            // Lower sheet
+            const geo2 = geo.clone();
+            const mat2 = mat.clone();
+            objects.wormholeLower = new THREE.Mesh(geo2, mat2);
+            objects.wormholeLower.rotation.x = Math.PI;
+            scene.add(objects.wormholeLower);
+
+            // Throat
+            const throatGeo = new THREE.TorusGeometry(1, 0.1, 16, 32);
+            const throatMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+            objects.throat = new THREE.Mesh(throatGeo, throatMat);
+            objects.throat.rotation.x = Math.PI / 2;
+            scene.add(objects.throat);
+
+            const light = new THREE.PointLight(0x8855ff, 1, 50);
+            light.position.set(5, 5, 5);
+            scene.add(light);
+        }
+
+        function traverseWormhole() {
+            // Animate camera through
+            const start = camera.position.clone();
+            let t = 0;
+
+            function animateTraverse() {
+                t += 0.02;
+                if (t > 1) return;
+
+                camera.position.z = 15 - 30 * t;
+                camera.lookAt(0, 0, 0);
+
+                requestAnimationFrame(animateTraverse);
+            }
+            animateTraverse();
+        }
+
+        // === TESSERACT SCENE ===
+        function createTesseractScene() {
+            scene.background = new THREE.Color(0x000510);
+
+            objects.tesseract = new THREE.Group();
+
+            // Generate 4D vertices
+            const vertices4D = [];
+            for (let w = -1; w <= 1; w += 2) {
+                for (let x = -1; x <= 1; x += 2) {
+                    for (let y = -1; y <= 1; y += 2) {
+                        for (let z = -1; z <= 1; z += 2) {
+                            vertices4D.push([w, x, y, z]);
+                        }
+                    }
+                }
+            }
+
+            objects.vertices4D = vertices4D;
+            objects.tesseractEdges = [];
+
+            // Find edges (vertices differing in one coordinate)
+            for (let i = 0; i < 16; i++) {
+                for (let j = i + 1; j < 16; j++) {
+                    let diffs = 0;
+                    for (let k = 0; k < 4; k++) {
+                        if (vertices4D[i][k] !== vertices4D[j][k]) diffs++;
+                    }
+                    if (diffs === 1) {
+                        objects.tesseractEdges.push([i, j]);
+                    }
+                }
+            }
+
+            updateTesseractProjection();
+            scene.add(objects.tesseract);
+        }
+
+        function updateTesseractProjection() {
+            if (!objects.tesseract) return;
+
+            // Clear existing
+            while (objects.tesseract.children.length) {
+                objects.tesseract.remove(objects.tesseract.children[0]);
+            }
+
+            // Get rotation angles
+            const xw = parseFloat(document.getElementById('rot-xw')?.value || 0) / 100;
+            const yw = parseFloat(document.getElementById('rot-yw')?.value || 0) / 100;
+            const zw = parseFloat(document.getElementById('rot-zw')?.value || 0) / 100;
+
+            // Project vertices
+            const projected = objects.vertices4D.map(v => {
+                let [w, x, y, z] = v;
+
+                // XW rotation
+                let cos = Math.cos(xw), sin = Math.sin(xw);
+                let x2 = x * cos - w * sin;
+                let w2 = x * sin + w * cos;
+                x = x2; w = w2;
+
+                // YW rotation
+                cos = Math.cos(yw); sin = Math.sin(yw);
+                let y2 = y * cos - w * sin;
+                w2 = y * sin + w * cos;
+                y = y2; w = w2;
+
+                // ZW rotation
+                cos = Math.cos(zw); sin = Math.sin(zw);
+                let z2 = z * cos - w * sin;
+                w2 = z * sin + w * cos;
+                z = z2; w = w2;
+
+                // Perspective projection
+                const d = 3;
+                const factor = d / (d - w);
+
+                return new THREE.Vector3(x * factor * 3, y * factor * 3, z * factor * 3);
+            });
+
+            // Draw vertices
+            projected.forEach((p, i) => {
+                const geo = new THREE.SphereGeometry(0.15, 8, 8);
+                const mat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+                const sphere = new THREE.Mesh(geo, mat);
+                sphere.position.copy(p);
+                objects.tesseract.add(sphere);
+            });
+
+            // Draw edges
+            const edgeMat = new THREE.LineBasicMaterial({ color: 0x8855ff });
+            objects.tesseractEdges.forEach(([i, j]) => {
+                const geo = new THREE.BufferGeometry().setFromPoints([projected[i], projected[j]]);
+                objects.tesseract.add(new THREE.Line(geo, edgeMat));
+            });
+        }
+
+        function updateTesseractScene() {
+            if (objects.tesseract) {
+                objects.tesseract.rotation.y += 0.002;
+            }
+        }
+
+        // === RELATIVITY SCENE ===
+        function createRelativityScene() {
+            scene.background = new THREE.Color(0x050508);
+
+            // Stationary reference frame
+            const gridGeo = new THREE.PlaneGeometry(20, 20, 20, 20);
+            const gridMat = new THREE.MeshBasicMaterial({
+                color: 0x003366,
+                wireframe: true
+            });
+            objects.grid = new THREE.Mesh(gridGeo, gridMat);
+            objects.grid.rotation.x = -Math.PI / 2;
+            objects.grid.position.y = -2;
+            scene.add(objects.grid);
+
+            // Moving object (train car)
+            const trainGeo = new THREE.BoxGeometry(4, 1, 1);
+            const trainMat = new THREE.MeshPhongMaterial({ color: 0xff6600 });
+            objects.train = new THREE.Mesh(trainGeo, trainMat);
+            objects.train.position.y = 0;
+            scene.add(objects.train);
+
+            // Clocks
+            const clockGeo = new THREE.CircleGeometry(0.3, 16);
+            const clockMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+
+            objects.clockStationary = new THREE.Mesh(clockGeo, clockMat);
+            objects.clockStationary.position.set(-5, 2, 0);
+            scene.add(objects.clockStationary);
+
+            objects.clockMoving = new THREE.Mesh(clockGeo.clone(), clockMat.clone());
+            objects.clockMoving.position.set(0, 1, 0);
+            scene.add(objects.clockMoving);
+
+            updateRelativityStats();
+        }
+
+        function updateRelativityStats() {
+            const v = parseFloat(document.getElementById('rel-velocity')?.value || 50) / 100;
+            const gamma = 1 / Math.sqrt(1 - v * v);
+
+            document.getElementById('stat-gamma').textContent = gamma.toFixed(2);
+            document.getElementById('stat-timedil').textContent = (100 / gamma).toFixed(0) + '%';
+            document.getElementById('stat-length').textContent = (100 / gamma).toFixed(0) + '%';
+            document.getElementById('stat-relmass').textContent = (gamma * 100).toFixed(0) + '%';
+
+            // Update train length
+            if (objects.train) {
+                objects.train.scale.x = 1 / gamma;
+            }
+        }
+
+        // === OPTICS SCENE ===
+        function createOpticsScene() {
+            scene.background = new THREE.Color(0x000005);
+
+            // Screen
+            const screenGeo = new THREE.PlaneGeometry(10, 6);
+            const screenMat = new THREE.MeshBasicMaterial({ color: 0x111122 });
+            objects.screen = new THREE.Mesh(screenGeo, screenMat);
+            objects.screen.position.z = -5;
+            scene.add(objects.screen);
+
+            // Interference pattern
+            updateInterferencePattern();
+
+            // Light source
+            const lightGeo = new THREE.SphereGeometry(0.3, 16, 16);
+            const lightMat = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+            objects.lightSource = new THREE.Mesh(lightGeo, lightMat);
+            objects.lightSource.position.z = 5;
+            scene.add(objects.lightSource);
+
+            // Slits
+            const slitGeo = new THREE.BoxGeometry(0.1, 2, 0.1);
+            const slitMat = new THREE.MeshBasicMaterial({ color: 0x444466 });
+
+            const slit1 = new THREE.Mesh(slitGeo, slitMat);
+            slit1.position.set(-0.25, 0, 0);
+            scene.add(slit1);
+
+            const slit2 = new THREE.Mesh(slitGeo, slitMat);
+            slit2.position.set(0.25, 0, 0);
+            scene.add(slit2);
+        }
+
+        function updateInterferencePattern() {
+            // Remove old pattern
+            if (objects.pattern) scene.remove(objects.pattern);
+
+            const wl = parseFloat(document.getElementById('opt-wavelength')?.value || 550);
+            const d = parseFloat(document.getElementById('opt-slit')?.value || 5) * 0.1;
+
+            // Create pattern as multiple lines
+            objects.pattern = new THREE.Group();
+
+            for (let x = -4; x <= 4; x += 0.05) {
+                const theta = Math.atan(x / 5);
+                const pathDiff = d * Math.sin(theta);
+                const phase = (pathDiff / (wl * 1e-9)) * 2 * Math.PI;
+                const intensity = Math.pow(Math.cos(phase / 2), 2);
+
+                const geo = new THREE.BoxGeometry(0.04, intensity * 2 + 0.1, 0.01);
+                const color = new THREE.Color().setHSL(wl < 500 ? 0.7 : wl < 580 ? 0.2 : 0, 1, intensity * 0.5);
+                const mat = new THREE.MeshBasicMaterial({ color });
+                const bar = new THREE.Mesh(geo, mat);
+                bar.position.set(x, 0, -4.9);
+                objects.pattern.add(bar);
+            }
+
+            scene.add(objects.pattern);
+        }
+
+        function updateOpticsScene() {
+            if (objects.lightSource) {
+                objects.lightSource.rotation.y += 0.02;
+            }
+        }
+
+        // === EVENT LISTENERS ===
+        function setupEventListeners() {
+            document.getElementById('bh-mass').addEventListener('input', e => {
+                document.getElementById('bh-mass-val').textContent = e.target.value;
+                updateBlackHoleStats();
+            });
+
+            document.getElementById('bh-spin').addEventListener('input', e => {
+                document.getElementById('bh-spin-val').textContent = (e.target.value / 100).toFixed(2);
+            });
+
+            document.getElementById('rel-velocity')?.addEventListener('input', e => {
+                document.getElementById('rel-v-val').textContent = (e.target.value / 100).toFixed(2);
+                updateRelativityStats();
+            });
+
+            document.getElementById('opt-wavelength')?.addEventListener('input', e => {
+                document.getElementById('opt-wl-val').textContent = e.target.value;
+                updateInterferencePattern();
+            });
+
+            document.getElementById('opt-slit')?.addEventListener('input', e => {
+                document.getElementById('opt-slit-val').textContent = (e.target.value * 0.1).toFixed(1);
+                updateInterferencePattern();
+            });
+
+            ['rot-xw', 'rot-yw', 'rot-zw'].forEach(id => {
+                document.getElementById(id)?.addEventListener('input', updateTesseractProjection);
+            });
+        }
+
+        function changePolytope() {
+            // Rebuild tesseract scene with different polytope
+            createTesseractScene();
+        }
+
+        function changeOpticsDemo() {
+            createOpticsScene();
+        }
+
+        // Initialize
+        init();
+    </script>
+</body>
+
+</html>
