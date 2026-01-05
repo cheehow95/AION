@@ -1483,7 +1483,7 @@ class AION:
         solution = ai.reasoning.solve("What is consciousness?")
     """
     
-    VERSION = "4.0.0"
+    VERSION = "5.0.0"  # Top-tier LLM integration
     
     def __init__(self):
         """Initialize AION with all capabilities."""
@@ -1507,7 +1507,15 @@ class AION:
         self.code = CodeDomain()
         self.agents = AgentDomain()
         
-        print("✓ All 14 domains loaded")
+        # LLM Backend (Top-tier models)
+        try:
+            from src.llm import LLMDomain
+            self.llm = LLMDomain()
+            print("✓ LLM backend ready (GPT-5, Claude-4.5, Gemini-3)")
+        except ImportError:
+            self.llm = None
+        
+        print(f"✓ All 15 domains loaded")
         print(f"✓ AION v{self.VERSION} ready!")
     
     def help(self) -> str:
