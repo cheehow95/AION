@@ -3,21 +3,6 @@
     {
       "title": "Web World Models",
       "summary": "Language agents increasingly require persistent worlds in which they can act, remember, and learn. Existing approaches sit at two extremes: conventional web frameworks provide reliable but fixed conte...",
-      "fetched": "2025-12-31T14:04:05.550439"
-    },
-    {
-      "title": "Nested Browser-Use Learning for Agentic Information Seeking",
-      "summary": "Information-seeking (IS) agents have achieved strong performance across a range of wide and deep search tasks, yet their tool use remains largely restricted to API-level snippet retrieval and URL-base...",
-      "fetched": "2025-12-31T14:04:05.550439"
-    },
-    {
-      "title": "Multilingual Hidden Prompt Injection Attacks on LLM-Based Academic Reviewing",
-      "summary": "Large language models (LLMs) are increasingly considered for use in high-impact workflows, including academic peer review. However, LLMs are vulnerable to document-level hidden prompt injection attack...",
-      "fetched": "2025-12-31T06:27:34.283396"
-    },
-    {
-      "title": "Web World Models",
-      "summary": "Language agents increasingly require persistent worlds in which they can act, remember, and learn. Existing approaches sit at two extremes: conventional web frameworks provide reliable but fixed conte...",
       "fetched": "2025-12-31T06:27:34.283403"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search",
       "summary": "Resource-management tasks in modern operating and distributed systems continue to rely primarily on hand-designed heuristics for tasks such as scheduling, caching, or active queue management. Designin...",
       "fetched": "2026-01-05T01:52:17.797163"
+    },
+    {
+      "title": "Geometry of Reason: Spectral Signatures of Valid Mathematical Reasoning",
+      "summary": "We present a training-free method for detecting valid mathematical reasoning in large language models through spectral analysis of attention patterns. By treating attention matrices as adjacency matri...",
+      "fetched": "2026-01-06T01:43:50.052853"
+    },
+    {
+      "title": "FedHypeVAE: Federated Learning with Hypernetwork Generated Conditional VAEs for Differentially Private Embedding Sharing",
+      "summary": "Federated data sharing promises utility without centralizing raw data, yet existing embedding-level generators struggle under non-IID client heterogeneity and provide limited formal protection against...",
+      "fetched": "2026-01-06T01:43:50.052863"
+    },
+    {
+      "title": "LLM Agents for Combinatorial Efficient Frontiers: Investment Portfolio Optimization",
+      "summary": "Investment portfolio optimization is a task conducted in all major financial institutions. The Cardinality Constrained Mean-Variance Portfolio Optimization (CCPO) problem formulation is ubiquitous for...",
+      "fetched": "2026-01-06T01:43:50.052865"
     }
   ],
-  "last_sync": "2026-01-05T01:52:17.842158"
+  "last_sync": "2026-01-06T01:43:50.174739"
 }
