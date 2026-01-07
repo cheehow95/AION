@@ -148,12 +148,18 @@ class SelfDevelopmentEngine:
         try:
             # Run our test suite
             import subprocess
+            import os
+            env = os.environ.copy()
+            env['PYTHONIOENCODING'] = 'utf-8'
             result = subprocess.run(
-                [sys.executable, 'run_tests.py'],
+                [sys.executable, 'scripts/run_tests.py'],
                 capture_output=True,
                 text=True,
                 cwd=str(self.root),
-                timeout=60
+                timeout=60,
+                env=env,
+                encoding='utf-8',
+                errors='replace'
             )
             
             if result.returncode == 0:

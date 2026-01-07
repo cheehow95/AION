@@ -27,7 +27,7 @@ jobs:
         run: pip install -q requests
           
       - name: 🔄 Run Self-Development Cycle
-        run: python self_develop.py
+        run: python scripts/self_develop.py
         
       - name: 🧠 Run Consciousness Sync
         run: python src/consciousness/sync_state.py
