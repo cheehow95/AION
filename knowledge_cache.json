@@ -1,4 +1,20 @@
 {
-  "discoveries": [],
-  "last_sync": "2026-01-08T01:43:48.582069"
+  "discoveries": [
+    {
+      "title": "Embedding Autonomous Agents in Resource-Constrained Robotic Platforms",
+      "summary": "Many embedded devices operate under resource constraints and in dynamic environments, requiring local decision-making capabilities. Enabling devices to make independent decisions in such environments ...",
+      "fetched": "2026-01-09T01:44:17.783746"
+    },
+    {
+      "title": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
+      "summary": "Multi-agent Large Language Model (LLM) systems have emerged as powerful architectures for complex task decomposition and collaborative problem-solving. However, their long-term behavioral stability re...",
+      "fetched": "2026-01-09T01:44:17.783756"
+    },
+    {
+      "title": "Clinical Data Goes MEDS? Let's OWL make sense of it",
+      "summary": "The application of machine learning on healthcare data is often hindered by the lack of standardized and semantically explicit representation, leading to limited interoperability and reproducibility a...",
+      "fetched": "2026-01-09T01:44:17.783758"
+    }
+  ],
+  "last_sync": "2026-01-09T01:44:17.888257"
 }
