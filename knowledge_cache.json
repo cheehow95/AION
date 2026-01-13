@@ -44,7 +44,22 @@
       "title": "Robust Reasoning as a Symmetry-Protected Topological Phase",
       "summary": "Large language models suffer from \"hallucinations\"-logical inconsistencies induced by semantic noise. We propose that current architectures operate in a \"Metric Phase,\" where causal order is vulnerabl...",
       "fetched": "2026-01-12T01:49:03.912353"
+    },
+    {
+      "title": "AdaFuse: Adaptive Ensemble Decoding with Test-Time Scaling for LLMs",
+      "summary": "Large language models (LLMs) exhibit complementary strengths arising from differences in pretraining data, model architectures, and decoding behaviors. Inference-time ensembling provides a practical w...",
+      "fetched": "2026-01-13T01:40:43.383846"
+    },
+    {
+      "title": "The Molecular Structure of Thought: Mapping the Topology of Long Chain-of-Thought Reasoning",
+      "summary": "Large language models (LLMs) often fail to learn effective long chain-of-thought (Long CoT) reasoning from human or non-Long-CoT LLMs imitation. To understand this, we propose that effective and learn...",
+      "fetched": "2026-01-13T01:40:43.383856"
+    },
+    {
+      "title": "Open-Vocabulary 3D Instruction Ambiguity Detection",
+      "summary": "In safety-critical domains, linguistic ambiguity can have severe consequences; a vague command like \"Pass me the vial\" in a surgical setting could lead to catastrophic errors. Yet, most embodied AI re...",
+      "fetched": "2026-01-13T01:40:43.383858"
     }
   ],
-  "last_sync": "2026-01-12T01:49:03.954279"
+  "last_sync": "2026-01-13T01:40:43.427461"
 }
