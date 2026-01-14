@@ -59,7 +59,22 @@
       "title": "Open-Vocabulary 3D Instruction Ambiguity Detection",
       "summary": "In safety-critical domains, linguistic ambiguity can have severe consequences; a vague command like \"Pass me the vial\" in a surgical setting could lead to catastrophic errors. Yet, most embodied AI re...",
       "fetched": "2026-01-13T01:40:43.383858"
+    },
+    {
+      "title": "MHLA: Restoring Expressivity of Linear Attention via Token-Level Multi-Head",
+      "summary": "While the Transformer architecture dominates many fields, its quadratic self-attention complexity hinders its use in large-scale applications. Linear attention offers an efficient alternative, but its...",
+      "fetched": "2026-01-14T01:47:52.868066"
+    },
+    {
+      "title": "Failure-Aware RL: Reliable Offline-to-Online Reinforcement Learning with Self-Recovery for Real-World Manipulation",
+      "summary": "Post-training algorithms based on deep reinforcement learning can push the limits of robotic models for specific objectives, such as generalizability, accuracy, and robustness. However, Intervention-r...",
+      "fetched": "2026-01-14T01:47:52.868079"
+    },
+    {
+      "title": "Kinship Data Benchmark for Multi-hop Reasoning",
+      "summary": "Large language models (LLMs) are increasingly evaluated on their ability to perform multi-hop reasoning, i.e., to combine multiple pieces of information into a coherent inference. We introduce Kinship...",
+      "fetched": "2026-01-14T01:47:52.868081"
     }
   ],
-  "last_sync": "2026-01-13T01:40:43.427461"
+  "last_sync": "2026-01-14T01:47:52.942541"
 }
