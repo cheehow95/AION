@@ -74,7 +74,22 @@
       "title": "Kinship Data Benchmark for Multi-hop Reasoning",
       "summary": "Large language models (LLMs) are increasingly evaluated on their ability to perform multi-hop reasoning, i.e., to combine multiple pieces of information into a coherent inference. We introduce Kinship...",
       "fetched": "2026-01-14T01:47:52.868081"
+    },
+    {
+      "title": "Modeling LLM Agent Reviewer Dynamics in Elo-Ranked Review System",
+      "summary": "In this work, we explore the Large Language Model (LLM) agent reviewer dynamics in an Elo-ranked review system using real-world conference paper submissions. Multiple LLM agent reviewers with differen...",
+      "fetched": "2026-01-15T01:43:00.007949"
+    },
+    {
+      "title": "Motion Attribution for Video Generation",
+      "summary": "Despite the rapid progress of video generation models, the role of data in influencing motion is poorly understood. We present Motive (MOTIon attribution for Video gEneration), a motion-centric, gradi...",
+      "fetched": "2026-01-15T01:43:00.007961"
+    },
+    {
+      "title": "MemRec: Collaborative Memory-Augmented Agentic Recommender System",
+      "summary": "The evolution of recommender systems has shifted preference storage from rating matrices and dense embeddings to semantic memory in the agentic era. Yet existing agents rely on isolated memory, overlo...",
+      "fetched": "2026-01-15T01:43:00.007963"
     }
   ],
-  "last_sync": "2026-01-14T01:47:52.942541"
+  "last_sync": "2026-01-15T01:43:00.066881"
 }
