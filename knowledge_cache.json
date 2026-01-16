@@ -1,11 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Embedding Autonomous Agents in Resource-Constrained Robotic Platforms",
-      "summary": "Many embedded devices operate under resource constraints and in dynamic environments, requiring local decision-making capabilities. Enabling devices to make independent decisions in such environments ...",
-      "fetched": "2026-01-09T01:44:17.783746"
-    },
-    {
       "title": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
       "summary": "Multi-agent Large Language Model (LLM) systems have emerged as powerful architectures for complex task decomposition and collaborative problem-solving. However, their long-term behavioral stability re...",
       "fetched": "2026-01-09T01:44:17.783756"
@@ -89,7 +84,22 @@
       "title": "MemRec: Collaborative Memory-Augmented Agentic Recommender System",
       "summary": "The evolution of recommender systems has shifted preference storage from rating matrices and dense embeddings to semantic memory in the agentic era. Yet existing agents rely on isolated memory, overlo...",
       "fetched": "2026-01-15T01:43:00.007963"
+    },
+    {
+      "title": "Fast-ThinkAct: Efficient Vision-Language-Action Reasoning via Verbalizable Latent Planning",
+      "summary": "Vision-Language-Action (VLA) tasks require reasoning over complex visual scenes and executing adaptive actions in dynamic environments. While recent studies on reasoning VLAs show that explicit chain-...",
+      "fetched": "2026-01-16T01:44:53.270361"
+    },
+    {
+      "title": "Value-Aware Numerical Representations for Transformer Language Models",
+      "summary": "Transformer-based language models often achieve strong results on mathematical reasoning benchmarks while remaining fragile on basic numerical understanding and arithmetic operations. A central limita...",
+      "fetched": "2026-01-16T01:44:53.270372"
+    },
+    {
+      "title": "ShortCoder: Knowledge-Augmented Syntax Optimization for Token-Efficient Code Generation",
+      "summary": "Code generation tasks aim to automate the conversion of user requirements into executable code, significantly reducing manual development efforts and enhancing software productivity. The emergence of ...",
+      "fetched": "2026-01-16T01:44:53.270374"
     }
   ],
-  "last_sync": "2026-01-15T01:43:00.066881"
+  "last_sync": "2026-01-16T01:44:53.307484"
 }
