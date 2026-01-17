@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
-      "summary": "Multi-agent Large Language Model (LLM) systems have emerged as powerful architectures for complex task decomposition and collaborative problem-solving. However, their long-term behavioral stability re...",
-      "fetched": "2026-01-09T01:44:17.783756"
-    },
-    {
-      "title": "Clinical Data Goes MEDS? Let's OWL make sense of it",
-      "summary": "The application of machine learning on healthcare data is often hindered by the lack of standardized and semantically explicit representation, leading to limited interoperability and reproducibility a...",
-      "fetched": "2026-01-09T01:44:17.783758"
-    },
-    {
-      "title": "GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization",
-      "summary": "As language models become increasingly capable, users expect them to provide not only accurate responses but also behaviors aligned with diverse human preferences across a variety of scenarios. To ach...",
-      "fetched": "2026-01-11T01:52:04.461245"
-    },
-    {
       "title": "RoboVIP: Multi-View Video Generation with Visual Identity Prompting Augments Robot Manipulation",
       "summary": "The diversity, quantity, and quality of manipulation data are critical for training effective robot policies. However, due to hardware and physical setup constraints, collecting large-scale real-world...",
       "fetched": "2026-01-11T01:52:04.461256"
@@ -99,7 +84,22 @@
       "title": "ShortCoder: Knowledge-Augmented Syntax Optimization for Token-Efficient Code Generation",
       "summary": "Code generation tasks aim to automate the conversion of user requirements into executable code, significantly reducing manual development efforts and enhancing software productivity. The emergence of ...",
       "fetched": "2026-01-16T01:44:53.270374"
+    },
+    {
+      "title": "MatchTIR: Fine-Grained Supervision for Tool-Integrated Reasoning via Bipartite Matching",
+      "summary": "Tool-Integrated Reasoning (TIR) empowers large language models (LLMs) to tackle complex tasks by interleaving reasoning steps with external tool interactions. However, existing reinforcement learning ...",
+      "fetched": "2026-01-17T01:39:43.091668"
+    },
+    {
+      "title": "Grounding Agent Memory in Contextual Intent",
+      "summary": "Deploying large language models in long-horizon, goal-oriented interactions remains challenging because similar entities and facts recur under different latent goals and constraints, causing memory sy...",
+      "fetched": "2026-01-17T01:39:43.091679"
+    },
+    {
+      "title": "LIBERTy: A Causal Framework for Benchmarking Concept-Based Explanations of LLMs with Structural Counterfactuals",
+      "summary": "Concept-based explanations quantify how high-level concepts (e.g., gender or experience) influence model behavior, which is crucial for decision-makers in high-stakes domains. Recent work evaluates th...",
+      "fetched": "2026-01-17T01:39:43.091682"
     }
   ],
-  "last_sync": "2026-01-16T01:44:53.307484"
+  "last_sync": "2026-01-17T01:39:43.195742"
 }
