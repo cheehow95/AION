@@ -3,21 +3,6 @@
     {
       "title": "RoboVIP: Multi-View Video Generation with Visual Identity Prompting Augments Robot Manipulation",
       "summary": "The diversity, quantity, and quality of manipulation data are critical for training effective robot policies. However, due to hardware and physical setup constraints, collecting large-scale real-world...",
-      "fetched": "2026-01-11T01:52:04.461256"
-    },
-    {
-      "title": "Robust Reasoning as a Symmetry-Protected Topological Phase",
-      "summary": "Large language models suffer from \"hallucinations\"-logical inconsistencies induced by semantic noise. We propose that current architectures operate in a \"Metric Phase,\" where causal order is vulnerabl...",
-      "fetched": "2026-01-11T01:52:04.461259"
-    },
-    {
-      "title": "GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization",
-      "summary": "As language models become increasingly capable, users expect them to provide not only accurate responses but also behaviors aligned with diverse human preferences across a variety of scenarios. To ach...",
-      "fetched": "2026-01-12T01:49:03.912340"
-    },
-    {
-      "title": "RoboVIP: Multi-View Video Generation with Visual Identity Prompting Augments Robot Manipulation",
-      "summary": "The diversity, quantity, and quality of manipulation data are critical for training effective robot policies. However, due to hardware and physical setup constraints, collecting large-scale real-world...",
       "fetched": "2026-01-12T01:49:03.912351"
     },
     {
@@ -99,7 +84,22 @@
       "title": "LIBERTy: A Causal Framework for Benchmarking Concept-Based Explanations of LLMs with Structural Counterfactuals",
       "summary": "Concept-based explanations quantify how high-level concepts (e.g., gender or experience) influence model behavior, which is crucial for decision-makers in high-stakes domains. Recent work evaluates th...",
       "fetched": "2026-01-17T01:39:43.091682"
+    },
+    {
+      "title": "MatchTIR: Fine-Grained Supervision for Tool-Integrated Reasoning via Bipartite Matching",
+      "summary": "Tool-Integrated Reasoning (TIR) empowers large language models (LLMs) to tackle complex tasks by interleaving reasoning steps with external tool interactions. However, existing reinforcement learning ...",
+      "fetched": "2026-01-18T01:51:10.381215"
+    },
+    {
+      "title": "Grounding Agent Memory in Contextual Intent",
+      "summary": "Deploying large language models in long-horizon, goal-oriented interactions remains challenging because similar entities and facts recur under different latent goals and constraints, causing memory sy...",
+      "fetched": "2026-01-18T01:51:10.381225"
+    },
+    {
+      "title": "LIBERTy: A Causal Framework for Benchmarking Concept-Based Explanations of LLMs with Structural Counterfactuals",
+      "summary": "Concept-based explanations quantify how high-level concepts (e.g., gender or experience) influence model behavior, which is crucial for decision-makers in high-stakes domains. Recent work evaluates th...",
+      "fetched": "2026-01-18T01:51:10.381227"
     }
   ],
-  "last_sync": "2026-01-17T01:39:43.195742"
+  "last_sync": "2026-01-18T01:51:10.438282"
 }
