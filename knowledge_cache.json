@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Failure-Aware RL: Reliable Offline-to-Online Reinforcement Learning with Self-Recovery for Real-World Manipulation",
-      "summary": "Post-training algorithms based on deep reinforcement learning can push the limits of robotic models for specific objectives, such as generalizability, accuracy, and robustness. However, Intervention-r...",
-      "fetched": "2026-01-14T01:47:52.868079"
-    },
-    {
-      "title": "Kinship Data Benchmark for Multi-hop Reasoning",
-      "summary": "Large language models (LLMs) are increasingly evaluated on their ability to perform multi-hop reasoning, i.e., to combine multiple pieces of information into a coherent inference. We introduce Kinship...",
-      "fetched": "2026-01-14T01:47:52.868081"
-    },
-    {
-      "title": "Modeling LLM Agent Reviewer Dynamics in Elo-Ranked Review System",
-      "summary": "In this work, we explore the Large Language Model (LLM) agent reviewer dynamics in an Elo-ranked review system using real-world conference paper submissions. Multiple LLM agent reviewers with differen...",
-      "fetched": "2026-01-15T01:43:00.007949"
-    },
-    {
       "title": "Motion Attribution for Video Generation",
       "summary": "Despite the rapid progress of video generation models, the role of data in influencing motion is poorly understood. We present Motive (MOTIon attribution for Video gEneration), a motion-centric, gradi...",
       "fetched": "2026-01-15T01:43:00.007961"
@@ -99,7 +84,22 @@
       "title": "MetaboNet: The Largest Publicly Available Consolidated Dataset for Type 1 Diabetes Management",
       "summary": "Progress in Type 1 Diabetes (T1D) algorithm development is limited by the fragmentation and lack of standardization across existing T1D management datasets. Current datasets differ substantially in st...",
       "fetched": "2026-01-20T01:44:32.654254"
+    },
+    {
+      "title": "Do explanations generalize across large reasoning models?",
+      "summary": "Large reasoning models (LRMs) produce a textual chain of thought (CoT) in the process of solving a problem, which serves as a potentially powerful tool to understand the problem by surfacing a human-r...",
+      "fetched": "2026-01-21T01:47:32.882796"
+    },
+    {
+      "title": "Building Production-Ready Probes For Gemini",
+      "summary": "Frontier language model capabilities are improving rapidly. We thus need stronger mitigations against bad actors misusing increasingly powerful systems. Prior work has shown that activation probes may...",
+      "fetched": "2026-01-21T01:47:32.882806"
+    },
+    {
+      "title": "MetaboNet: The Largest Publicly Available Consolidated Dataset for Type 1 Diabetes Management",
+      "summary": "Progress in Type 1 Diabetes (T1D) algorithm development is limited by the fragmentation and lack of standardization across existing T1D management datasets. Current datasets differ substantially in st...",
+      "fetched": "2026-01-21T01:47:32.882808"
     }
   ],
-  "last_sync": "2026-01-20T01:44:32.724610"
+  "last_sync": "2026-01-21T01:47:32.934397"
 }
