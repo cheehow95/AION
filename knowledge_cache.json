@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Motion Attribution for Video Generation",
-      "summary": "Despite the rapid progress of video generation models, the role of data in influencing motion is poorly understood. We present Motive (MOTIon attribution for Video gEneration), a motion-centric, gradi...",
-      "fetched": "2026-01-15T01:43:00.007961"
-    },
-    {
-      "title": "MemRec: Collaborative Memory-Augmented Agentic Recommender System",
-      "summary": "The evolution of recommender systems has shifted preference storage from rating matrices and dense embeddings to semantic memory in the agentic era. Yet existing agents rely on isolated memory, overlo...",
-      "fetched": "2026-01-15T01:43:00.007963"
-    },
-    {
-      "title": "Fast-ThinkAct: Efficient Vision-Language-Action Reasoning via Verbalizable Latent Planning",
-      "summary": "Vision-Language-Action (VLA) tasks require reasoning over complex visual scenes and executing adaptive actions in dynamic environments. While recent studies on reasoning VLAs show that explicit chain-...",
-      "fetched": "2026-01-16T01:44:53.270361"
-    },
-    {
       "title": "Value-Aware Numerical Representations for Transformer Language Models",
       "summary": "Transformer-based language models often achieve strong results on mathematical reasoning benchmarks while remaining fragile on basic numerical understanding and arithmetic operations. A central limita...",
       "fetched": "2026-01-16T01:44:53.270372"
@@ -99,7 +84,22 @@
       "title": "MetaboNet: The Largest Publicly Available Consolidated Dataset for Type 1 Diabetes Management",
       "summary": "Progress in Type 1 Diabetes (T1D) algorithm development is limited by the fragmentation and lack of standardization across existing T1D management datasets. Current datasets differ substantially in st...",
       "fetched": "2026-01-21T01:47:32.882808"
+    },
+    {
+      "title": "VideoMaMa: Mask-Guided Video Matting via Generative Prior",
+      "summary": "Generalizing video matting models to real-world videos remains a significant challenge due to the scarcity of labeled data. To address this, we present Video Mask-to-Matte Model (VideoMaMa) that conve...",
+      "fetched": "2026-01-22T01:47:35.925625"
+    },
+    {
+      "title": "APEX-Agents",
+      "summary": "We introduce the AI Productivity Index for Agents (APEX-Agents), a benchmark for assessing whether AI agents can execute long-horizon, cross-application tasks created by investment banking analysts, m...",
+      "fetched": "2026-01-22T01:47:35.925637"
+    },
+    {
+      "title": "Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration",
+      "summary": "The Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) will produce unprecedented volumes of heterogeneous astronomical data (images, catalogs, and alerts) that challenge traditional a...",
+      "fetched": "2026-01-22T01:47:35.925639"
     }
   ],
-  "last_sync": "2026-01-21T01:47:32.934397"
+  "last_sync": "2026-01-22T01:47:35.963233"
 }
