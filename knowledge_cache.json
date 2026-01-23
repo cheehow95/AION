@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Value-Aware Numerical Representations for Transformer Language Models",
-      "summary": "Transformer-based language models often achieve strong results on mathematical reasoning benchmarks while remaining fragile on basic numerical understanding and arithmetic operations. A central limita...",
-      "fetched": "2026-01-16T01:44:53.270372"
-    },
-    {
-      "title": "ShortCoder: Knowledge-Augmented Syntax Optimization for Token-Efficient Code Generation",
-      "summary": "Code generation tasks aim to automate the conversion of user requirements into executable code, significantly reducing manual development efforts and enhancing software productivity. The emergence of ...",
-      "fetched": "2026-01-16T01:44:53.270374"
-    },
-    {
-      "title": "MatchTIR: Fine-Grained Supervision for Tool-Integrated Reasoning via Bipartite Matching",
-      "summary": "Tool-Integrated Reasoning (TIR) empowers large language models (LLMs) to tackle complex tasks by interleaving reasoning steps with external tool interactions. However, existing reinforcement learning ...",
-      "fetched": "2026-01-17T01:39:43.091668"
-    },
-    {
       "title": "Grounding Agent Memory in Contextual Intent",
       "summary": "Deploying large language models in long-horizon, goal-oriented interactions remains challenging because similar entities and facts recur under different latent goals and constraints, causing memory sy...",
       "fetched": "2026-01-17T01:39:43.091679"
@@ -99,7 +84,22 @@
       "title": "Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration",
       "summary": "The Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) will produce unprecedented volumes of heterogeneous astronomical data (images, catalogs, and alerts) that challenge traditional a...",
       "fetched": "2026-01-22T01:47:35.925639"
+    },
+    {
+      "title": "Iterative Refinement Improves Compositional Image Generation",
+      "summary": "Text-to-image (T2I) models have achieved remarkable progress, yet they continue to struggle with complex prompts that require simultaneously handling multiple objects, relations, and attributes. Exist...",
+      "fetched": "2026-01-23T01:44:24.393459"
+    },
+    {
+      "title": "Rethinking Video Generation Model for the Embodied World",
+      "summary": "Video generation models have significantly advanced embodied intelligence, unlocking new possibilities for generating diverse robot data that capture perception, reasoning, and action in the physical ...",
+      "fetched": "2026-01-23T01:44:24.393469"
+    },
+    {
+      "title": "MolecularIQ: Characterizing Chemical Reasoning Capabilities Through Symbolic Verification on Molecular Graphs",
+      "summary": "A molecule's properties are fundamentally determined by its composition and structure encoded in its molecular graph. Thus, reasoning about molecular properties requires the ability to parse and under...",
+      "fetched": "2026-01-23T01:44:24.393471"
     }
   ],
-  "last_sync": "2026-01-22T01:47:35.963233"
+  "last_sync": "2026-01-23T01:44:24.481489"
 }
