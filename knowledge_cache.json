@@ -3,21 +3,6 @@
     {
       "title": "Grounding Agent Memory in Contextual Intent",
       "summary": "Deploying large language models in long-horizon, goal-oriented interactions remains challenging because similar entities and facts recur under different latent goals and constraints, causing memory sy...",
-      "fetched": "2026-01-17T01:39:43.091679"
-    },
-    {
-      "title": "LIBERTy: A Causal Framework for Benchmarking Concept-Based Explanations of LLMs with Structural Counterfactuals",
-      "summary": "Concept-based explanations quantify how high-level concepts (e.g., gender or experience) influence model behavior, which is crucial for decision-makers in high-stakes domains. Recent work evaluates th...",
-      "fetched": "2026-01-17T01:39:43.091682"
-    },
-    {
-      "title": "MatchTIR: Fine-Grained Supervision for Tool-Integrated Reasoning via Bipartite Matching",
-      "summary": "Tool-Integrated Reasoning (TIR) empowers large language models (LLMs) to tackle complex tasks by interleaving reasoning steps with external tool interactions. However, existing reinforcement learning ...",
-      "fetched": "2026-01-18T01:51:10.381215"
-    },
-    {
-      "title": "Grounding Agent Memory in Contextual Intent",
-      "summary": "Deploying large language models in long-horizon, goal-oriented interactions remains challenging because similar entities and facts recur under different latent goals and constraints, causing memory sy...",
       "fetched": "2026-01-18T01:51:10.381225"
     },
     {
@@ -99,7 +84,22 @@
       "title": "MolecularIQ: Characterizing Chemical Reasoning Capabilities Through Symbolic Verification on Molecular Graphs",
       "summary": "A molecule's properties are fundamentally determined by its composition and structure encoded in its molecular graph. Thus, reasoning about molecular properties requires the ability to parse and under...",
       "fetched": "2026-01-23T01:44:24.393471"
+    },
+    {
+      "title": "Why Can't I Open My Drawer? Mitigating Object-Driven Shortcuts in Zero-Shot Compositional Action Recognition",
+      "summary": "We study Compositional Video Understanding (CVU), where models must recognize verbs and objects and compose them to generalize to unseen combinations. We find that existing Zero-Shot Compositional Act...",
+      "fetched": "2026-01-24T01:41:38.703179"
+    },
+    {
+      "title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
+      "summary": "Discrete video VAEs underpin modern text-to-video generation and video understanding systems, yet existing tokenizers typically learn visual codebooks at a single scale with limited vocabularies and s...",
+      "fetched": "2026-01-24T01:41:38.703185"
+    },
+    {
+      "title": "LLM-in-Sandbox Elicits General Agentic Intelligence",
+      "summary": "We introduce LLM-in-Sandbox, enabling LLMs to explore within a code sandbox (i.e., a virtual computer), to elicit general intelligence in non-code domains. We first demonstrate that strong LLMs, witho...",
+      "fetched": "2026-01-24T01:41:38.703187"
     }
   ],
-  "last_sync": "2026-01-23T01:44:24.481489"
+  "last_sync": "2026-01-24T01:41:38.741780"
 }
