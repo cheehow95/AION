@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Grounding Agent Memory in Contextual Intent",
-      "summary": "Deploying large language models in long-horizon, goal-oriented interactions remains challenging because similar entities and facts recur under different latent goals and constraints, causing memory sy...",
-      "fetched": "2026-01-19T01:49:38.946282"
-    },
-    {
-      "title": "LIBERTy: A Causal Framework for Benchmarking Concept-Based Explanations of LLMs with Structural Counterfactuals",
-      "summary": "Concept-based explanations quantify how high-level concepts (e.g., gender or experience) influence model behavior, which is crucial for decision-makers in high-stakes domains. Recent work evaluates th...",
-      "fetched": "2026-01-19T01:49:38.946284"
-    },
-    {
-      "title": "Do explanations generalize across large reasoning models?",
-      "summary": "Large reasoning models (LRMs) produce a textual chain of thought (CoT) in the process of solving a problem, which serves as a potentially powerful tool to understand the problem by surfacing a human-r...",
-      "fetched": "2026-01-20T01:44:32.654239"
-    },
-    {
       "title": "Building Production-Ready Probes For Gemini",
       "summary": "Frontier language model capabilities are improving rapidly. We thus need stronger mitigations against bad actors misusing increasingly powerful systems. Prior work has shown that activation probes may...",
       "fetched": "2026-01-20T01:44:32.654251"
@@ -99,7 +84,22 @@
       "title": "LLM-in-Sandbox Elicits General Agentic Intelligence",
       "summary": "We introduce LLM-in-Sandbox, enabling LLMs to explore within a code sandbox (i.e., a virtual computer), to elicit general intelligence in non-code domains. We first demonstrate that strong LLMs, witho...",
       "fetched": "2026-01-25T01:54:05.650328"
+    },
+    {
+      "title": "Why Can't I Open My Drawer? Mitigating Object-Driven Shortcuts in Zero-Shot Compositional Action Recognition",
+      "summary": "We study Compositional Video Understanding (CVU), where models must recognize verbs and objects and compose them to generalize to unseen combinations. We find that existing Zero-Shot Compositional Act...",
+      "fetched": "2026-01-26T01:53:23.013156"
+    },
+    {
+      "title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
+      "summary": "Discrete video VAEs underpin modern text-to-video generation and video understanding systems, yet existing tokenizers typically learn visual codebooks at a single scale with limited vocabularies and s...",
+      "fetched": "2026-01-26T01:53:23.013168"
+    },
+    {
+      "title": "LLM-in-Sandbox Elicits General Agentic Intelligence",
+      "summary": "We introduce LLM-in-Sandbox, enabling LLMs to explore within a code sandbox (i.e., a virtual computer), to elicit general intelligence in non-code domains. We first demonstrate that strong LLMs, witho...",
+      "fetched": "2026-01-26T01:53:23.013170"
     }
   ],
-  "last_sync": "2026-01-25T01:54:05.717982"
+  "last_sync": "2026-01-26T01:53:23.050813"
 }
