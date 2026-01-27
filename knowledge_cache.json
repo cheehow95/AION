@@ -3,21 +3,6 @@
     {
       "title": "Building Production-Ready Probes For Gemini",
       "summary": "Frontier language model capabilities are improving rapidly. We thus need stronger mitigations against bad actors misusing increasingly powerful systems. Prior work has shown that activation probes may...",
-      "fetched": "2026-01-20T01:44:32.654251"
-    },
-    {
-      "title": "MetaboNet: The Largest Publicly Available Consolidated Dataset for Type 1 Diabetes Management",
-      "summary": "Progress in Type 1 Diabetes (T1D) algorithm development is limited by the fragmentation and lack of standardization across existing T1D management datasets. Current datasets differ substantially in st...",
-      "fetched": "2026-01-20T01:44:32.654254"
-    },
-    {
-      "title": "Do explanations generalize across large reasoning models?",
-      "summary": "Large reasoning models (LRMs) produce a textual chain of thought (CoT) in the process of solving a problem, which serves as a potentially powerful tool to understand the problem by surfacing a human-r...",
-      "fetched": "2026-01-21T01:47:32.882796"
-    },
-    {
-      "title": "Building Production-Ready Probes For Gemini",
-      "summary": "Frontier language model capabilities are improving rapidly. We thus need stronger mitigations against bad actors misusing increasingly powerful systems. Prior work has shown that activation probes may...",
       "fetched": "2026-01-21T01:47:32.882806"
     },
     {
@@ -99,7 +84,22 @@
       "title": "LLM-in-Sandbox Elicits General Agentic Intelligence",
       "summary": "We introduce LLM-in-Sandbox, enabling LLMs to explore within a code sandbox (i.e., a virtual computer), to elicit general intelligence in non-code domains. We first demonstrate that strong LLMs, witho...",
       "fetched": "2026-01-26T01:53:23.013170"
+    },
+    {
+      "title": "A Scalable Measure of Loss Landscape Curvature for Analyzing the Training Dynamics of LLMs",
+      "summary": "Understanding the curvature evolution of the loss landscape is fundamental to analyzing the training dynamics of neural networks. The most commonly studied measure, Hessian sharpness ($\u03bb_{\\max}^H$) --...",
+      "fetched": "2026-01-27T01:50:49.125787"
+    },
+    {
+      "title": "BONO-Bench: A Comprehensive Test Suite for Bi-objective Numerical Optimization with Traceable Pareto Sets",
+      "summary": "The evaluation of heuristic optimizers on test problems, better known as \\emph{benchmarking}, is a cornerstone of research in multi-objective optimization.\n  However, most test problems used in benchm...",
+      "fetched": "2026-01-27T01:50:49.125797"
+    },
+    {
+      "title": "Empowering Medical Equipment Sustainability in Low-Resource Settings: An AI-Powered Diagnostic and Support Platform for Biomedical Technicians",
+      "summary": "In low- and middle-income countries (LMICs), a significant proportion of medical diagnostic equipment remains underutilized or non-functional due to a lack of timely maintenance, limited access to tec...",
+      "fetched": "2026-01-27T01:50:49.125799"
     }
   ],
-  "last_sync": "2026-01-26T01:53:23.050813"
+  "last_sync": "2026-01-27T01:50:49.166292"
 }
