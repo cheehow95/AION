@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Building Production-Ready Probes For Gemini",
-      "summary": "Frontier language model capabilities are improving rapidly. We thus need stronger mitigations against bad actors misusing increasingly powerful systems. Prior work has shown that activation probes may...",
-      "fetched": "2026-01-21T01:47:32.882806"
-    },
-    {
-      "title": "MetaboNet: The Largest Publicly Available Consolidated Dataset for Type 1 Diabetes Management",
-      "summary": "Progress in Type 1 Diabetes (T1D) algorithm development is limited by the fragmentation and lack of standardization across existing T1D management datasets. Current datasets differ substantially in st...",
-      "fetched": "2026-01-21T01:47:32.882808"
-    },
-    {
-      "title": "VideoMaMa: Mask-Guided Video Matting via Generative Prior",
-      "summary": "Generalizing video matting models to real-world videos remains a significant challenge due to the scarcity of labeled data. To address this, we present Video Mask-to-Matte Model (VideoMaMa) that conve...",
-      "fetched": "2026-01-22T01:47:35.925625"
-    },
-    {
       "title": "APEX-Agents",
       "summary": "We introduce the AI Productivity Index for Agents (APEX-Agents), a benchmark for assessing whether AI agents can execute long-horizon, cross-application tasks created by investment banking analysts, m...",
       "fetched": "2026-01-22T01:47:35.925637"
@@ -99,7 +84,22 @@
       "title": "Empowering Medical Equipment Sustainability in Low-Resource Settings: An AI-Powered Diagnostic and Support Platform for Biomedical Technicians",
       "summary": "In low- and middle-income countries (LMICs), a significant proportion of medical diagnostic equipment remains underutilized or non-functional due to a lack of timely maintenance, limited access to tec...",
       "fetched": "2026-01-27T01:50:49.125799"
+    },
+    {
+      "title": "ctELM: Decoding and Manipulating Embeddings of Clinical Trials with Embedding Language Models",
+      "summary": "Text embeddings have become an essential part of a variety of language applications. However, methods for interpreting, exploring and reversing embedding spaces are limited, reducing transparency and ...",
+      "fetched": "2026-01-28T01:47:06.391312"
+    },
+    {
+      "title": "Reuse your FLOPs: Scaling RL on Hard Problems by Conditioning on Very Off-Policy Prefixes",
+      "summary": "Typical reinforcement learning (RL) methods for LLM reasoning waste compute on hard problems, where correct on-policy traces are rare, policy gradients vanish, and learning stalls. To bootstrap more e...",
+      "fetched": "2026-01-28T01:47:06.391323"
+    },
+    {
+      "title": "Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets",
+      "summary": "We present a large-scale comparative study of 242 Latin and Cyrillic-script languages using subword-based methodologies. By constructing 'glottosets' from Wikipedia lexicons, we introduce a framework ...",
+      "fetched": "2026-01-28T01:47:06.391325"
     }
   ],
-  "last_sync": "2026-01-27T01:50:49.166292"
+  "last_sync": "2026-01-28T01:47:06.430982"
 }
