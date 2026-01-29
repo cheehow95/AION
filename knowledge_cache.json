@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "APEX-Agents",
-      "summary": "We introduce the AI Productivity Index for Agents (APEX-Agents), a benchmark for assessing whether AI agents can execute long-horizon, cross-application tasks created by investment banking analysts, m...",
-      "fetched": "2026-01-22T01:47:35.925637"
-    },
-    {
-      "title": "Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration",
-      "summary": "The Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) will produce unprecedented volumes of heterogeneous astronomical data (images, catalogs, and alerts) that challenge traditional a...",
-      "fetched": "2026-01-22T01:47:35.925639"
-    },
-    {
-      "title": "Iterative Refinement Improves Compositional Image Generation",
-      "summary": "Text-to-image (T2I) models have achieved remarkable progress, yet they continue to struggle with complex prompts that require simultaneously handling multiple objects, relations, and attributes. Exist...",
-      "fetched": "2026-01-23T01:44:24.393459"
-    },
-    {
       "title": "Rethinking Video Generation Model for the Embodied World",
       "summary": "Video generation models have significantly advanced embodied intelligence, unlocking new possibilities for generating diverse robot data that capture perception, reasoning, and action in the physical ...",
       "fetched": "2026-01-23T01:44:24.393469"
@@ -99,7 +84,22 @@
       "title": "Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets",
       "summary": "We present a large-scale comparative study of 242 Latin and Cyrillic-script languages using subword-based methodologies. By constructing 'glottosets' from Wikipedia lexicons, we introduce a framework ...",
       "fetched": "2026-01-28T01:47:06.391325"
+    },
+    {
+      "title": "M-SGWR: Multiscale Similarity and Geographically Weighted Regression",
+      "summary": "The first law of geography is a cornerstone of spatial analysis, emphasizing that nearby and related locations tend to be more similar, however, defining what constitutes \"near\" and \"related\" remains ...",
+      "fetched": "2026-01-29T01:59:46.704400"
+    },
+    {
+      "title": "AI Cap-and-Trade: Efficiency Incentives for Accessibility and Sustainability",
+      "summary": "The race for artificial intelligence (AI) dominance often prioritizes scale over efficiency. Hyper-scaling is the common industry approach: larger models, more data, and as many computational resource...",
+      "fetched": "2026-01-29T01:59:46.704412"
+    },
+    {
+      "title": "HARMONI: Multimodal Personalization of Multi-User Human-Robot Interactions with LLMs",
+      "summary": "Existing human-robot interaction systems often lack mechanisms for sustained personalization and dynamic adaptation in multi-user environments, limiting their effectiveness in real-world deployments. ...",
+      "fetched": "2026-01-29T01:59:46.704415"
     }
   ],
-  "last_sync": "2026-01-28T01:47:06.430982"
+  "last_sync": "2026-01-29T01:59:46.741312"
 }
