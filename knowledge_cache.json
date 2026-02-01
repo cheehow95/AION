@@ -3,21 +3,6 @@
     {
       "title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
       "summary": "Discrete video VAEs underpin modern text-to-video generation and video understanding systems, yet existing tokenizers typically learn visual codebooks at a single scale with limited vocabularies and s...",
-      "fetched": "2026-01-25T01:54:05.650324"
-    },
-    {
-      "title": "LLM-in-Sandbox Elicits General Agentic Intelligence",
-      "summary": "We introduce LLM-in-Sandbox, enabling LLMs to explore within a code sandbox (i.e., a virtual computer), to elicit general intelligence in non-code domains. We first demonstrate that strong LLMs, witho...",
-      "fetched": "2026-01-25T01:54:05.650328"
-    },
-    {
-      "title": "Why Can't I Open My Drawer? Mitigating Object-Driven Shortcuts in Zero-Shot Compositional Action Recognition",
-      "summary": "We study Compositional Video Understanding (CVU), where models must recognize verbs and objects and compose them to generalize to unseen combinations. We find that existing Zero-Shot Compositional Act...",
-      "fetched": "2026-01-26T01:53:23.013156"
-    },
-    {
-      "title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
-      "summary": "Discrete video VAEs underpin modern text-to-video generation and video understanding systems, yet existing tokenizers typically learn visual codebooks at a single scale with limited vocabularies and s...",
       "fetched": "2026-01-26T01:53:23.013168"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Exploring Reasoning Reward Model for Agents",
       "summary": "Agentic Reinforcement Learning (Agentic RL) has achieved notable success in enabling agents to perform complex reasoning and tool use. However, most methods still relies on sparse outcome-based reward...",
       "fetched": "2026-01-31T01:55:55.599243"
+    },
+    {
+      "title": "RedSage: A Cybersecurity Generalist LLM",
+      "summary": "Cybersecurity operations demand assistant LLMs that support diverse workflows without exposing sensitive data. Existing solutions either rely on proprietary APIs with privacy risks or on open models l...",
+      "fetched": "2026-02-01T02:23:48.035529"
+    },
+    {
+      "title": "Hybrid Linear Attention Done Right: Efficient Distillation and Effective Architectures for Extremely Long Contexts",
+      "summary": "Hybrid Transformer architectures, which combine softmax attention blocks and recurrent neural networks (RNNs), have shown a desirable performance-throughput tradeoff for long-context modeling, but the...",
+      "fetched": "2026-02-01T02:23:48.035536"
+    },
+    {
+      "title": "Exploring Reasoning Reward Model for Agents",
+      "summary": "Agentic Reinforcement Learning (Agentic RL) has achieved notable success in enabling agents to perform complex reasoning and tool use. However, most methods still relies on sparse outcome-based reward...",
+      "fetched": "2026-02-01T02:23:48.035538"
     }
   ],
-  "last_sync": "2026-01-31T01:55:55.637308"
+  "last_sync": "2026-02-01T02:23:48.095932"
 }
