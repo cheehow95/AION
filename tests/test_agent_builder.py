@@ -3,7 +3,7 @@
 import pytest
 import json
 import sys
-sys.path.insert(0, 'd:/Time/aion')
+sys.path.insert(0, '.')
 
 from src.builder.agent_builder import AgentBuilder, AgentTemplate
 

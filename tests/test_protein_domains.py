@@ -11,7 +11,7 @@ import pytest
 import asyncio
 import sys
 import numpy as np
-sys.path.insert(0, 'd:/Time/aion')
+sys.path.insert(0, '.')
 
 # ============================================================================
 # Tests for protein_folding.py

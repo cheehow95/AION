@@ -3,7 +3,7 @@
 import pytest
 import asyncio
 import sys
-sys.path.insert(0, 'd:/Time/aion')
+sys.path.insert(0, '.')
 
 from src.runtime.streaming import (
     StreamChunk, StreamingResponse, StreamingAgent,

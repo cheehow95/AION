@@ -2,7 +2,7 @@
 
 import pytest
 import sys
-sys.path.insert(0, 'd:/Time/aion')
+sys.path.insert(0, '.')
 
 from src.lexer import Lexer, Token, TokenType, tokenize, LexerError
 

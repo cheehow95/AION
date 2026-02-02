@@ -5,7 +5,7 @@ import os
 import tempfile
 import shutil
 import sys
-sys.path.insert(0, 'd:/Time/aion')
+sys.path.insert(0, '.')
 
 from src.runtime.persistent_store import (
     PersistentVectorStore, VectorDocument, get_vector_store

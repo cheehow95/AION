@@ -3,7 +3,7 @@
 import pytest
 import asyncio
 import sys
-sys.path.insert(0, 'd:/Time/aion')
+sys.path.insert(0, '.')
 
 from src.multimodal.vision import (
     VisionInput, VisionAnalysis, VisionProcessor, ImageFormat, DetectedObject
