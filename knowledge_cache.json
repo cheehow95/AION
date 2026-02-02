@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "PyraTok: Language-Aligned Pyramidal Tokenizer for Video Understanding and Generation",
-      "summary": "Discrete video VAEs underpin modern text-to-video generation and video understanding systems, yet existing tokenizers typically learn visual codebooks at a single scale with limited vocabularies and s...",
-      "fetched": "2026-01-26T01:53:23.013168"
-    },
-    {
-      "title": "LLM-in-Sandbox Elicits General Agentic Intelligence",
-      "summary": "We introduce LLM-in-Sandbox, enabling LLMs to explore within a code sandbox (i.e., a virtual computer), to elicit general intelligence in non-code domains. We first demonstrate that strong LLMs, witho...",
-      "fetched": "2026-01-26T01:53:23.013170"
-    },
-    {
-      "title": "A Scalable Measure of Loss Landscape Curvature for Analyzing the Training Dynamics of LLMs",
-      "summary": "Understanding the curvature evolution of the loss landscape is fundamental to analyzing the training dynamics of neural networks. The most commonly studied measure, Hessian sharpness ($\u03bb_{\\max}^H$) --...",
-      "fetched": "2026-01-27T01:50:49.125787"
-    },
-    {
       "title": "BONO-Bench: A Comprehensive Test Suite for Bi-objective Numerical Optimization with Traceable Pareto Sets",
       "summary": "The evaluation of heuristic optimizers on test problems, better known as \\emph{benchmarking}, is a cornerstone of research in multi-objective optimization.\n  However, most test problems used in benchm...",
       "fetched": "2026-01-27T01:50:49.125797"
@@ -99,7 +84,22 @@
       "title": "Exploring Reasoning Reward Model for Agents",
       "summary": "Agentic Reinforcement Learning (Agentic RL) has achieved notable success in enabling agents to perform complex reasoning and tool use. However, most methods still relies on sparse outcome-based reward...",
       "fetched": "2026-02-01T02:23:48.035538"
+    },
+    {
+      "title": "WiFiPenTester: Advancing Wireless Ethical Hacking with Governed GenAI",
+      "summary": "Wireless ethical hacking relies heavily on skilled practitioners manually interpreting reconnaissance results and executing complex, time-sensitive sequences of commands to identify vulnerable targets...",
+      "fetched": "2026-02-02T02:07:58.318332"
+    },
+    {
+      "title": "From Similarity to Vulnerability: Key Collision Attack on LLM Semantic Caching",
+      "summary": "Semantic caching has emerged as a pivotal technique for scaling LLM applications, widely adopted by major providers including AWS and Microsoft. By utilizing semantic embedding vectors as cache keys, ...",
+      "fetched": "2026-02-02T02:07:58.318343"
+    },
+    {
+      "title": "Chain-of-thought obfuscation learned from output supervision can generalise to unseen tasks",
+      "summary": "Chain-of-thought (CoT) reasoning provides a significant performance uplift to LLMs by enabling planning, exploration, and deliberation of their actions. CoT is also a powerful tool for monitoring the ...",
+      "fetched": "2026-02-02T02:07:58.318346"
     }
   ],
-  "last_sync": "2026-02-01T02:23:48.095932"
+  "last_sync": "2026-02-02T02:07:58.359508"
 }
