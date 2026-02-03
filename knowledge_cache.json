@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "BONO-Bench: A Comprehensive Test Suite for Bi-objective Numerical Optimization with Traceable Pareto Sets",
-      "summary": "The evaluation of heuristic optimizers on test problems, better known as \\emph{benchmarking}, is a cornerstone of research in multi-objective optimization.\n  However, most test problems used in benchm...",
-      "fetched": "2026-01-27T01:50:49.125797"
-    },
-    {
-      "title": "Empowering Medical Equipment Sustainability in Low-Resource Settings: An AI-Powered Diagnostic and Support Platform for Biomedical Technicians",
-      "summary": "In low- and middle-income countries (LMICs), a significant proportion of medical diagnostic equipment remains underutilized or non-functional due to a lack of timely maintenance, limited access to tec...",
-      "fetched": "2026-01-27T01:50:49.125799"
-    },
-    {
-      "title": "ctELM: Decoding and Manipulating Embeddings of Clinical Trials with Embedding Language Models",
-      "summary": "Text embeddings have become an essential part of a variety of language applications. However, methods for interpreting, exploring and reversing embedding spaces are limited, reducing transparency and ...",
-      "fetched": "2026-01-28T01:47:06.391312"
-    },
-    {
       "title": "Reuse your FLOPs: Scaling RL on Hard Problems by Conditioning on Very Off-Policy Prefixes",
       "summary": "Typical reinforcement learning (RL) methods for LLM reasoning waste compute on hard problems, where correct on-policy traces are rare, policy gradients vanish, and learning stalls. To bootstrap more e...",
       "fetched": "2026-01-28T01:47:06.391323"
@@ -99,7 +84,22 @@
       "title": "Chain-of-thought obfuscation learned from output supervision can generalise to unseen tasks",
       "summary": "Chain-of-thought (CoT) reasoning provides a significant performance uplift to LLMs by enabling planning, exploration, and deliberation of their actions. CoT is also a powerful tool for monitoring the ...",
       "fetched": "2026-02-02T02:07:58.318346"
+    },
+    {
+      "title": "How RLHF Amplifies Sycophancy",
+      "summary": "Large language models often exhibit increased sycophantic behavior after preference-based post-training, showing a stronger tendency to affirm a user's stated or implied belief even when this conflict...",
+      "fetched": "2026-02-03T02:06:21.311132"
+    },
+    {
+      "title": "Error Taxonomy-Guided Prompt Optimization",
+      "summary": "Automatic Prompt Optimization (APO) is a powerful approach for extracting performance from large language models without modifying their weights. Many existing methods rely on trial-and-error, testing...",
+      "fetched": "2026-02-03T02:06:21.311142"
+    },
+    {
+      "title": "DeALOG: Decentralized Multi-Agents Log-Mediated Reasoning Framework",
+      "summary": "Complex question answering across text, tables and images requires integrating diverse information sources. A framework supporting specialized processing with coordination and interpretability is need...",
+      "fetched": "2026-02-03T02:06:21.311144"
     }
   ],
-  "last_sync": "2026-02-02T02:07:58.359508"
+  "last_sync": "2026-02-03T02:06:21.398161"
 }
