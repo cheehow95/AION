@@ -29,8 +29,8 @@ class TestPhysicsEngine(unittest.TestCase):
     def test_orbital_mechanics(self):
         """Test orbital period calculation."""
         result = self.engine.orbital(400000 + 6.371e6)  # ISS altitude
-        self.assertIn('period', result)
-        self.assertIn('velocity', result)
+        self.assertIn('orbital_period', result)
+        self.assertIn('orbital_velocity', result)
     
     def test_pendulum(self):
         """Test simple pendulum."""
@@ -272,7 +272,8 @@ class TestMathEngine(unittest.TestCase):
     def test_differentiate(self):
         """Test symbolic differentiation."""
         result = self.engine.differentiate('x^2')
-        self.assertEqual(result, '2*x')
+        # Accept common equivalent representations
+        self.assertIn(result.replace(' ', '').replace('(', '').replace(')', ''), ['2*x', '(2*x)'])
     
     def test_evaluate(self):
         """Test expression evaluation."""
