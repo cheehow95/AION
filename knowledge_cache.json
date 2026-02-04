@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Reuse your FLOPs: Scaling RL on Hard Problems by Conditioning on Very Off-Policy Prefixes",
-      "summary": "Typical reinforcement learning (RL) methods for LLM reasoning waste compute on hard problems, where correct on-policy traces are rare, policy gradients vanish, and learning stalls. To bootstrap more e...",
-      "fetched": "2026-01-28T01:47:06.391323"
-    },
-    {
-      "title": "Subword-Based Comparative Linguistics across 242 Languages Using Wikipedia Glottosets",
-      "summary": "We present a large-scale comparative study of 242 Latin and Cyrillic-script languages using subword-based methodologies. By constructing 'glottosets' from Wikipedia lexicons, we introduce a framework ...",
-      "fetched": "2026-01-28T01:47:06.391325"
-    },
-    {
-      "title": "M-SGWR: Multiscale Similarity and Geographically Weighted Regression",
-      "summary": "The first law of geography is a cornerstone of spatial analysis, emphasizing that nearby and related locations tend to be more similar, however, defining what constitutes \"near\" and \"related\" remains ...",
-      "fetched": "2026-01-29T01:59:46.704400"
-    },
-    {
       "title": "AI Cap-and-Trade: Efficiency Incentives for Accessibility and Sustainability",
       "summary": "The race for artificial intelligence (AI) dominance often prioritizes scale over efficiency. Hyper-scaling is the common industry approach: larger models, more data, and as many computational resource...",
       "fetched": "2026-01-29T01:59:46.704412"
@@ -99,7 +84,22 @@
       "title": "DeALOG: Decentralized Multi-Agents Log-Mediated Reasoning Framework",
       "summary": "Complex question answering across text, tables and images requires integrating diverse information sources. A framework supporting specialized processing with coordination and interpretability is need...",
       "fetched": "2026-02-03T02:06:21.311144"
+    },
+    {
+      "title": "DeepDFA: Injecting Temporal Logic in Deep Learning for Sequential Subsymbolic Applications",
+      "summary": "Integrating logical knowledge into deep neural network training is still a hard challenge, especially for sequential or temporally extended domains involving subsymbolic observations. To address this ...",
+      "fetched": "2026-02-04T02:01:20.766572"
+    },
+    {
+      "title": "Self-Verification Dilemma: Experience-Driven Suppression of Overused Checking in LLM Reasoning",
+      "summary": "Large Reasoning Models (LRMs) achieve strong performance by generating long reasoning traces with reflection. Through a large-scale empirical analysis, we find that a substantial fraction of reflectiv...",
+      "fetched": "2026-02-04T02:01:20.766587"
+    },
+    {
+      "title": "When Routing Collapses: On the Degenerate Convergence of LLM Routers",
+      "summary": "LLM routing aims to achieve a favorable quality--cost trade-off by dynamically assigning easy queries to smaller models and harder queries to stronger ones. However, across both unimodal and multimoda...",
+      "fetched": "2026-02-04T02:01:20.766592"
     }
   ],
-  "last_sync": "2026-02-03T02:06:21.398161"
+  "last_sync": "2026-02-04T02:01:20.808109"
 }
