@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "AI Cap-and-Trade: Efficiency Incentives for Accessibility and Sustainability",
-      "summary": "The race for artificial intelligence (AI) dominance often prioritizes scale over efficiency. Hyper-scaling is the common industry approach: larger models, more data, and as many computational resource...",
-      "fetched": "2026-01-29T01:59:46.704412"
-    },
-    {
-      "title": "HARMONI: Multimodal Personalization of Multi-User Human-Robot Interactions with LLMs",
-      "summary": "Existing human-robot interaction systems often lack mechanisms for sustained personalization and dynamic adaptation in multi-user environments, limiting their effectiveness in real-world deployments. ...",
-      "fetched": "2026-01-29T01:59:46.704415"
-    },
-    {
-      "title": "Zero-Shot Statistical Downscaling via Diffusion Posterior Sampling",
-      "summary": "Conventional supervised climate downscaling struggles to generalize to Global Climate Models (GCMs) due to the lack of paired training data and inherent domain gaps relative to reanalysis. Meanwhile, ...",
-      "fetched": "2026-01-30T02:00:30.618654"
-    },
-    {
       "title": "EWSJF: An Adaptive Scheduler with Hybrid Partitioning for Mixed-Workload LLM Inference",
       "summary": "Serving Large Language Models (LLMs) under mixed workloads--short, latency-sensitive interactive queries alongside long, throughput-oriented batch requests--poses a fundamental scheduling challenge. S...",
       "fetched": "2026-01-30T02:00:30.618664"
@@ -99,7 +84,22 @@
       "title": "When Routing Collapses: On the Degenerate Convergence of LLM Routers",
       "summary": "LLM routing aims to achieve a favorable quality--cost trade-off by dynamically assigning easy queries to smaller models and harder queries to stronger ones. However, across both unimodal and multimoda...",
       "fetched": "2026-02-04T02:01:20.766592"
+    },
+    {
+      "title": "DRMOT: A Dataset and Framework for RGBD Referring Multi-Object Tracking",
+      "summary": "Referring Multi-Object Tracking (RMOT) aims to track specific targets based on language descriptions and is vital for interactive AI systems such as robotics and autonomous driving. However, existing ...",
+      "fetched": "2026-02-05T02:02:33.813420"
+    },
+    {
+      "title": "Audio ControlNet for Fine-Grained Audio Generation and Editing",
+      "summary": "We study the fine-grained text-to-audio (T2A) generation task. While recent models can synthesize high-quality audio from text descriptions, they often lack precise control over attributes such as lou...",
+      "fetched": "2026-02-05T02:02:33.813432"
+    },
+    {
+      "title": "Let Experts Feel Uncertainty: A Multi-Expert Label Distribution Approach to Probabilistic Time Series Forecasting",
+      "summary": "Time series forecasting in real-world applications requires both high predictive accuracy and interpretable uncertainty quantification. Traditional point prediction methods often fail to capture the i...",
+      "fetched": "2026-02-05T02:02:33.813435"
     }
   ],
-  "last_sync": "2026-02-04T02:01:20.808109"
+  "last_sync": "2026-02-05T02:02:33.859386"
 }
