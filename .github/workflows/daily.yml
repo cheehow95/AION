@@ -24,7 +24,7 @@ jobs:
           
       - name: Run tests
         run: |
-          python scripts/run_tests.py
+          python scripts/run_tests.py 2>&1 || (echo "::error::Tests failed!" && exit 1)
           
       - name: Coverage report
         run: |
