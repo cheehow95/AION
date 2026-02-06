@@ -3,21 +3,6 @@
     {
       "title": "Hybrid Linear Attention Done Right: Efficient Distillation and Effective Architectures for Extremely Long Contexts",
       "summary": "Hybrid Transformer architectures, which combine softmax attention blocks and recurrent neural networks (RNNs), have shown a desirable performance-throughput tradeoff for long-context modeling, but the...",
-      "fetched": "2026-01-31T01:55:55.599241"
-    },
-    {
-      "title": "Exploring Reasoning Reward Model for Agents",
-      "summary": "Agentic Reinforcement Learning (Agentic RL) has achieved notable success in enabling agents to perform complex reasoning and tool use. However, most methods still relies on sparse outcome-based reward...",
-      "fetched": "2026-01-31T01:55:55.599243"
-    },
-    {
-      "title": "RedSage: A Cybersecurity Generalist LLM",
-      "summary": "Cybersecurity operations demand assistant LLMs that support diverse workflows without exposing sensitive data. Existing solutions either rely on proprietary APIs with privacy risks or on open models l...",
-      "fetched": "2026-02-01T02:23:48.035529"
-    },
-    {
-      "title": "Hybrid Linear Attention Done Right: Efficient Distillation and Effective Architectures for Extremely Long Contexts",
-      "summary": "Hybrid Transformer architectures, which combine softmax attention blocks and recurrent neural networks (RNNs), have shown a desirable performance-throughput tradeoff for long-context modeling, but the...",
       "fetched": "2026-02-01T02:23:48.035536"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Rethinking the Trust Region in LLM Reinforcement Learning",
       "summary": "Reinforcement learning (RL) has become a cornerstone for fine-tuning Large Language Models (LLMs), with Proximal Policy Optimization (PPO) serving as the de facto standard algorithm. Despite its ubiqu...",
       "fetched": "2026-02-05T05:21:30.584634"
+    },
+    {
+      "title": "DLM-Scope: Mechanistic Interpretability of Diffusion Language Models via Sparse Autoencoders",
+      "summary": "Sparse autoencoders (SAEs) have become a standard tool for mechanistic interpretability in autoregressive large language models (LLMs), enabling researchers to extract sparse, human-interpretable feat...",
+      "fetched": "2026-02-06T02:02:29.837060"
+    },
+    {
+      "title": "BABE: Biology Arena BEnchmark",
+      "summary": "The rapid evolution of large language models (LLMs) has expanded their capabilities from basic dialogue to advanced scientific reasoning. However, existing benchmarks in biology often fail to assess a...",
+      "fetched": "2026-02-06T02:02:29.837071"
+    },
+    {
+      "title": "DARWIN: Dynamic Agentically Rewriting Self-Improving Network",
+      "summary": "DARWIN is an evolutionary GPT model, utilizing a genetic-algorithm like optimization structure with several independent GPT agents being trained individually using unique training code. Each iteration...",
+      "fetched": "2026-02-06T02:02:29.837073"
     }
   ],
-  "last_sync": "2026-02-05T05:21:30.635487"
+  "last_sync": "2026-02-06T02:02:29.874511"
 }
