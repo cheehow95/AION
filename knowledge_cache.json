@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "From Similarity to Vulnerability: Key Collision Attack on LLM Semantic Caching",
-      "summary": "Semantic caching has emerged as a pivotal technique for scaling LLM applications, widely adopted by major providers including AWS and Microsoft. By utilizing semantic embedding vectors as cache keys, ...",
-      "fetched": "2026-02-02T02:07:58.318343"
-    },
-    {
-      "title": "Chain-of-thought obfuscation learned from output supervision can generalise to unseen tasks",
-      "summary": "Chain-of-thought (CoT) reasoning provides a significant performance uplift to LLMs by enabling planning, exploration, and deliberation of their actions. CoT is also a powerful tool for monitoring the ...",
-      "fetched": "2026-02-02T02:07:58.318346"
-    },
-    {
-      "title": "How RLHF Amplifies Sycophancy",
-      "summary": "Large language models often exhibit increased sycophantic behavior after preference-based post-training, showing a stronger tendency to affirm a user's stated or implied belief even when this conflict...",
-      "fetched": "2026-02-03T02:06:21.311132"
-    },
-    {
       "title": "Error Taxonomy-Guided Prompt Optimization",
       "summary": "Automatic Prompt Optimization (APO) is a powerful approach for extracting performance from large language models without modifying their weights. Many existing methods rely on trial-and-error, testing...",
       "fetched": "2026-02-03T02:06:21.311142"
@@ -99,7 +84,22 @@
       "title": "CommCP: Efficient Multi-Agent Coordination via LLM-Based Communication with Conformal Prediction",
       "summary": "To complete assignments provided by humans in natural language, robots must interpret commands, generate and answer relevant questions for scene understanding, and manipulate target objects. Real-worl...",
       "fetched": "2026-02-08T02:31:16.493550"
+    },
+    {
+      "title": "Rethinking Latency Denial-of-Service: Attacking the LLM Serving Framework, Not the Model",
+      "summary": "Large Language Models face an emerging and critical threat known as latency attacks. Because LLM inference is inherently expensive, even modest slowdowns can translate into substantial operating costs...",
+      "fetched": "2026-02-10T02:26:22.645008"
+    },
+    {
+      "title": "Direct Soft-Policy Sampling via Langevin Dynamics",
+      "summary": "Soft policies in reinforcement learning define policies as Boltzmann distributions over state-action value functions, providing a principled mechanism for balancing exploration and exploitation. Howev...",
+      "fetched": "2026-02-10T02:26:22.645019"
+    },
+    {
+      "title": "Orchestrating Attention: Bringing Harmony to the 'Chaos' of Neurodivergent Learning States",
+      "summary": "Adaptive learning systems optimize content delivery based on performance metrics but ignore the dynamic attention fluctuations that characterize neurodivergent learners. We present AttentionGuard, a f...",
+      "fetched": "2026-02-10T02:26:22.645021"
     }
   ],
-  "last_sync": "2026-02-09T02:09:42.184500"
+  "last_sync": "2026-02-10T02:26:22.719884"
 }
