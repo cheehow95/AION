@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Error Taxonomy-Guided Prompt Optimization",
-      "summary": "Automatic Prompt Optimization (APO) is a powerful approach for extracting performance from large language models without modifying their weights. Many existing methods rely on trial-and-error, testing...",
-      "fetched": "2026-02-03T02:06:21.311142"
-    },
-    {
-      "title": "DeALOG: Decentralized Multi-Agents Log-Mediated Reasoning Framework",
-      "summary": "Complex question answering across text, tables and images requires integrating diverse information sources. A framework supporting specialized processing with coordination and interpretability is need...",
-      "fetched": "2026-02-03T02:06:21.311144"
-    },
-    {
-      "title": "DeepDFA: Injecting Temporal Logic in Deep Learning for Sequential Subsymbolic Applications",
-      "summary": "Integrating logical knowledge into deep neural network training is still a hard challenge, especially for sequential or temporally extended domains involving subsymbolic observations. To address this ...",
-      "fetched": "2026-02-04T02:01:20.766572"
-    },
-    {
       "title": "Self-Verification Dilemma: Experience-Driven Suppression of Overused Checking in LLM Reasoning",
       "summary": "Large Reasoning Models (LRMs) achieve strong performance by generating long reasoning traces with reflection. Through a large-scale empirical analysis, we find that a substantial fraction of reflectiv...",
       "fetched": "2026-02-04T02:01:20.766587"
@@ -99,7 +84,22 @@
       "title": "Orchestrating Attention: Bringing Harmony to the 'Chaos' of Neurodivergent Learning States",
       "summary": "Adaptive learning systems optimize content delivery based on performance metrics but ignore the dynamic attention fluctuations that characterize neurodivergent learners. We present AttentionGuard, a f...",
       "fetched": "2026-02-10T02:26:22.645021"
+    },
+    {
+      "title": "Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment",
+      "summary": "The long-standing vision of general-purpose robots hinges on their ability to understand and act upon natural language instructions. Vision-Language-Action (VLA) models have made remarkable progress t...",
+      "fetched": "2026-02-14T02:00:26.924803"
+    },
+    {
+      "title": "UniT: Unified Multimodal Chain-of-Thought Test-time Scaling",
+      "summary": "Unified models can handle both multimodal understanding and generation within a single architecture, yet they typically operate in a single pass without iteratively refining their outputs. Many multim...",
+      "fetched": "2026-02-14T02:00:26.924813"
+    },
+    {
+      "title": "AttentionRetriever: Attention Layers are Secretly Long Document Retrievers",
+      "summary": "Retrieval augmented generation (RAG) has been widely adopted to help Large Language Models (LLMs) to process tasks involving long documents. However, existing retrieval models are not designed for lon...",
+      "fetched": "2026-02-14T02:00:26.924815"
     }
   ],
-  "last_sync": "2026-02-13T02:12:01.776619"
+  "last_sync": "2026-02-14T02:00:26.966695"
 }
