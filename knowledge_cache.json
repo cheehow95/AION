@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Self-Verification Dilemma: Experience-Driven Suppression of Overused Checking in LLM Reasoning",
-      "summary": "Large Reasoning Models (LRMs) achieve strong performance by generating long reasoning traces with reflection. Through a large-scale empirical analysis, we find that a substantial fraction of reflectiv...",
-      "fetched": "2026-02-04T02:01:20.766587"
-    },
-    {
-      "title": "When Routing Collapses: On the Degenerate Convergence of LLM Routers",
-      "summary": "LLM routing aims to achieve a favorable quality--cost trade-off by dynamically assigning easy queries to smaller models and harder queries to stronger ones. However, across both unimodal and multimoda...",
-      "fetched": "2026-02-04T02:01:20.766592"
-    },
-    {
-      "title": "DRMOT: A Dataset and Framework for RGBD Referring Multi-Object Tracking",
-      "summary": "Referring Multi-Object Tracking (RMOT) aims to track specific targets based on language descriptions and is vital for interactive AI systems such as robotics and autonomous driving. However, existing ...",
-      "fetched": "2026-02-05T02:02:33.813420"
-    },
-    {
       "title": "Audio ControlNet for Fine-Grained Audio Generation and Editing",
       "summary": "We study the fine-grained text-to-audio (T2A) generation task. While recent models can synthesize high-quality audio from text descriptions, they often lack precise control over attributes such as lou...",
       "fetched": "2026-02-05T02:02:33.813432"
@@ -99,7 +84,22 @@
       "title": "AttentionRetriever: Attention Layers are Secretly Long Document Retrievers",
       "summary": "Retrieval augmented generation (RAG) has been widely adopted to help Large Language Models (LLMs) to process tasks involving long documents. However, existing retrieval models are not designed for lon...",
       "fetched": "2026-02-14T02:00:26.924815"
+    },
+    {
+      "title": "Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment",
+      "summary": "The long-standing vision of general-purpose robots hinges on their ability to understand and act upon natural language instructions. Vision-Language-Action (VLA) models have made remarkable progress t...",
+      "fetched": "2026-02-15T02:11:22.158881"
+    },
+    {
+      "title": "UniT: Unified Multimodal Chain-of-Thought Test-time Scaling",
+      "summary": "Unified models can handle both multimodal understanding and generation within a single architecture, yet they typically operate in a single pass without iteratively refining their outputs. Many multim...",
+      "fetched": "2026-02-15T02:11:22.158895"
+    },
+    {
+      "title": "AttentionRetriever: Attention Layers are Secretly Long Document Retrievers",
+      "summary": "Retrieval augmented generation (RAG) has been widely adopted to help Large Language Models (LLMs) to process tasks involving long documents. However, existing retrieval models are not designed for lon...",
+      "fetched": "2026-02-15T02:11:22.158899"
     }
   ],
-  "last_sync": "2026-02-14T02:00:26.966695"
+  "last_sync": "2026-02-15T02:11:22.204019"
 }
