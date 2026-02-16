@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Audio ControlNet for Fine-Grained Audio Generation and Editing",
-      "summary": "We study the fine-grained text-to-audio (T2A) generation task. While recent models can synthesize high-quality audio from text descriptions, they often lack precise control over attributes such as lou...",
-      "fetched": "2026-02-05T02:02:33.813432"
-    },
-    {
-      "title": "Let Experts Feel Uncertainty: A Multi-Expert Label Distribution Approach to Probabilistic Time Series Forecasting",
-      "summary": "Time series forecasting in real-world applications requires both high predictive accuracy and interpretable uncertainty quantification. Traditional point prediction methods often fail to capture the i...",
-      "fetched": "2026-02-05T02:02:33.813435"
-    },
-    {
-      "title": "Protein Autoregressive Modeling via Multiscale Structure Generation",
-      "summary": "We present protein autoregressive modeling (PAR), the first multi-scale autoregressive framework for protein backbone generation via coarse-to-fine next-scale prediction. Using the hierarchical nature...",
-      "fetched": "2026-02-05T05:21:30.584620"
-    },
-    {
       "title": "Contrastive Continual Learning for Model Adaptability in Internet of Things",
       "summary": "Internet of Things (IoT) deployments operate in nonstationary, dynamic environments where factors such as sensor drift, evolving user behavior, and heterogeneous user privacy requirements can affect a...",
       "fetched": "2026-02-05T05:21:30.584632"
@@ -99,7 +84,22 @@
       "title": "AttentionRetriever: Attention Layers are Secretly Long Document Retrievers",
       "summary": "Retrieval augmented generation (RAG) has been widely adopted to help Large Language Models (LLMs) to process tasks involving long documents. However, existing retrieval models are not designed for lon...",
       "fetched": "2026-02-15T02:11:22.158899"
+    },
+    {
+      "title": "Semantic Chunking and the Entropy of Natural Language",
+      "summary": "The entropy rate of printed English is famously estimated to be about one bit per character, a benchmark that modern large language models (LLMs) have only recently approached. This entropy rate impli...",
+      "fetched": "2026-02-16T02:07:20.975572"
+    },
+    {
+      "title": "CoPE-VideoLM: Codec Primitives For Efficient Video Language Models",
+      "summary": "Video Language Models (VideoLMs) empower AI systems to understand temporal dynamics in videos. To fit to the maximum context window constraint, current methods use keyframe sampling which can miss bot...",
+      "fetched": "2026-02-16T02:07:20.975583"
+    },
+    {
+      "title": "Optimal Take-off under Fuzzy Clearances",
+      "summary": "This paper presents a hybrid obstacle avoidance architecture that integrates Optimal Control under clearance with a Fuzzy Rule Based System (FRBS) to enable adaptive constraint handling for unmanned a...",
+      "fetched": "2026-02-16T02:07:20.975585"
     }
   ],
-  "last_sync": "2026-02-15T02:11:22.204019"
+  "last_sync": "2026-02-16T02:07:21.018461"
 }
