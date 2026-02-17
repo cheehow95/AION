@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Contrastive Continual Learning for Model Adaptability in Internet of Things",
-      "summary": "Internet of Things (IoT) deployments operate in nonstationary, dynamic environments where factors such as sensor drift, evolving user behavior, and heterogeneous user privacy requirements can affect a...",
-      "fetched": "2026-02-05T05:21:30.584632"
-    },
-    {
-      "title": "Rethinking the Trust Region in LLM Reinforcement Learning",
-      "summary": "Reinforcement learning (RL) has become a cornerstone for fine-tuning Large Language Models (LLMs), with Proximal Policy Optimization (PPO) serving as the de facto standard algorithm. Despite its ubiqu...",
-      "fetched": "2026-02-05T05:21:30.584634"
-    },
-    {
-      "title": "DLM-Scope: Mechanistic Interpretability of Diffusion Language Models via Sparse Autoencoders",
-      "summary": "Sparse autoencoders (SAEs) have become a standard tool for mechanistic interpretability in autoregressive large language models (LLMs), enabling researchers to extract sparse, human-interpretable feat...",
-      "fetched": "2026-02-06T02:02:29.837060"
-    },
-    {
       "title": "BABE: Biology Arena BEnchmark",
       "summary": "The rapid evolution of large language models (LLMs) has expanded their capabilities from basic dialogue to advanced scientific reasoning. However, existing benchmarks in biology often fail to assess a...",
       "fetched": "2026-02-06T02:02:29.837071"
@@ -99,7 +84,22 @@
       "title": "Optimal Take-off under Fuzzy Clearances",
       "summary": "This paper presents a hybrid obstacle avoidance architecture that integrates Optimal Control under clearance with a Fuzzy Rule Based System (FRBS) to enable adaptive constraint handling for unmanned a...",
       "fetched": "2026-02-16T02:07:20.975585"
+    },
+    {
+      "title": "Knowing When Not to Answer: Abstention-Aware Scientific Reasoning",
+      "summary": "Large language models are increasingly used to answer and verify scientific claims, yet existing evaluations typically assume that a model must always produce a definitive answer. In scientific settin...",
+      "fetched": "2026-02-17T02:04:40.117766"
+    },
+    {
+      "title": "GPT-5 vs Other LLMs in Long Short-Context Performance",
+      "summary": "With the significant expansion of the context window in Large Language Models (LLMs), these models are theoretically capable of processing millions of tokens in a single pass. However, research indica...",
+      "fetched": "2026-02-17T02:04:40.117776"
+    },
+    {
+      "title": "UniWeTok: An Unified Binary Tokenizer with Codebook Size $\\mathit{2^{128}}$ for Unified Multimodal Large Language Model",
+      "summary": "Unified Multimodal Large Language Models (MLLMs) require a visual representation that simultaneously supports high-fidelity reconstruction, complex semantic extraction, and generative suitability. How...",
+      "fetched": "2026-02-17T02:04:40.117778"
     }
   ],
-  "last_sync": "2026-02-16T02:07:21.018461"
+  "last_sync": "2026-02-17T02:04:40.176435"
 }
