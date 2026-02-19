@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "BABE: Biology Arena BEnchmark",
-      "summary": "The rapid evolution of large language models (LLMs) has expanded their capabilities from basic dialogue to advanced scientific reasoning. However, existing benchmarks in biology often fail to assess a...",
-      "fetched": "2026-02-06T02:02:29.837071"
-    },
-    {
-      "title": "DARWIN: Dynamic Agentically Rewriting Self-Improving Network",
-      "summary": "DARWIN is an evolutionary GPT model, utilizing a genetic-algorithm like optimization structure with several independent GPT agents being trained individually using unique training code. Each iteration...",
-      "fetched": "2026-02-06T02:02:29.837073"
-    },
-    {
-      "title": "Shared LoRA Subspaces for almost Strict Continual Learning",
-      "summary": "Adapting large pretrained models to new tasks efficiently and continually is crucial for real-world deployment but remains challenging due to catastrophic forgetting and the high cost of retraining. W...",
-      "fetched": "2026-02-08T02:31:16.493532"
-    },
-    {
       "title": "DyTopo: Dynamic Topology Routing for Multi-Agent Reasoning via Semantic Matching",
       "summary": "Multi-agent systems built from prompted large language models can improve multi-round reasoning, yet most existing pipelines rely on fixed, trajectory-wide communication patterns that are poorly match...",
       "fetched": "2026-02-08T02:31:16.493547"
@@ -99,7 +84,22 @@
       "title": "UniWeTok: An Unified Binary Tokenizer with Codebook Size $\\mathit{2^{128}}$ for Unified Multimodal Large Language Model",
       "summary": "Unified Multimodal Large Language Models (MLLMs) require a visual representation that simultaneously supports high-fidelity reconstruction, complex semantic extraction, and generative suitability. How...",
       "fetched": "2026-02-17T02:04:40.117778"
+    },
+    {
+      "title": "Policy Compiler for Secure Agentic Systems",
+      "summary": "LLM-based agents are increasingly being deployed in contexts requiring complex authorization policies: customer service protocols, approval workflows, data access restrictions, and regulatory complian...",
+      "fetched": "2026-02-19T02:07:10.340502"
+    },
+    {
+      "title": "Measuring Mid-2025 LLM-Assistance on Novice Performance in Biology",
+      "summary": "Large language models (LLMs) perform strongly on biological benchmarks, raising concerns that they may help novice actors acquire dual-use laboratory skills. Yet, whether this translates to improved h...",
+      "fetched": "2026-02-19T02:07:10.340512"
+    },
+    {
+      "title": "Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents",
+      "summary": "LLMs are increasingly being used for complex problems which are not necessarily resolved in a single response, but require interacting with an environment to acquire information. In these scenarios, L...",
+      "fetched": "2026-02-19T02:07:10.340514"
     }
   ],
-  "last_sync": "2026-02-18T02:08:19.517925"
+  "last_sync": "2026-02-19T02:07:10.401216"
 }
