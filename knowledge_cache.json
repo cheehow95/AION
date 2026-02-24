@@ -3,21 +3,6 @@
     {
       "title": "UniT: Unified Multimodal Chain-of-Thought Test-time Scaling",
       "summary": "Unified models can handle both multimodal understanding and generation within a single architecture, yet they typically operate in a single pass without iteratively refining their outputs. Many multim...",
-      "fetched": "2026-02-14T02:00:26.924813"
-    },
-    {
-      "title": "AttentionRetriever: Attention Layers are Secretly Long Document Retrievers",
-      "summary": "Retrieval augmented generation (RAG) has been widely adopted to help Large Language Models (LLMs) to process tasks involving long documents. However, existing retrieval models are not designed for lon...",
-      "fetched": "2026-02-14T02:00:26.924815"
-    },
-    {
-      "title": "Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment",
-      "summary": "The long-standing vision of general-purpose robots hinges on their ability to understand and act upon natural language instructions. Vision-Language-Action (VLA) models have made remarkable progress t...",
-      "fetched": "2026-02-15T02:11:22.158881"
-    },
-    {
-      "title": "UniT: Unified Multimodal Chain-of-Thought Test-time Scaling",
-      "summary": "Unified models can handle both multimodal understanding and generation within a single architecture, yet they typically operate in a single pass without iteratively refining their outputs. Many multim...",
       "fetched": "2026-02-15T02:11:22.158895"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Learning to Tune Pure Pursuit in Autonomous Racing: Joint Lookahead and Steering-Gain Control with PPO",
       "summary": "Pure Pursuit (PP) is widely used in autonomous racing for real-time path tracking due to its efficiency and geometric clarity, yet performance is highly sensitive to how key parameters-lookahead dista...",
       "fetched": "2026-02-23T02:07:47.031350"
+    },
+    {
+      "title": "Smooth Gate Functions for Soft Advantage Policy Optimization",
+      "summary": "Group Relative Policy Optimization (GRPO) has significantly advanced the training of large language models and enhanced their reasoning capabilities, while it remains susceptible to instability due to...",
+      "fetched": "2026-02-24T02:04:46.994879"
+    },
+    {
+      "title": "Soft Sequence Policy Optimization: Bridging GMPO and SAPO",
+      "summary": "A significant portion of recent research on Large Language Model (LLM) alignment focuses on developing new policy optimization methods based on Group Relative Policy Optimization (GRPO). Two prominent...",
+      "fetched": "2026-02-24T02:04:46.994890"
+    },
+    {
+      "title": "City Editing: Hierarchical Agentic Execution for Dependency-Aware Urban Geospatial Modification",
+      "summary": "As cities evolve over time, challenges such as traffic congestion and functional imbalance increasingly necessitate urban renewal through efficient modification of existing plans, rather than complete...",
+      "fetched": "2026-02-24T02:04:46.994894"
     }
   ],
-  "last_sync": "2026-02-23T02:07:47.109951"
+  "last_sync": "2026-02-24T02:04:47.059424"
 }
