@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "UniT: Unified Multimodal Chain-of-Thought Test-time Scaling",
-      "summary": "Unified models can handle both multimodal understanding and generation within a single architecture, yet they typically operate in a single pass without iteratively refining their outputs. Many multim...",
-      "fetched": "2026-02-15T02:11:22.158895"
-    },
-    {
-      "title": "AttentionRetriever: Attention Layers are Secretly Long Document Retrievers",
-      "summary": "Retrieval augmented generation (RAG) has been widely adopted to help Large Language Models (LLMs) to process tasks involving long documents. However, existing retrieval models are not designed for lon...",
-      "fetched": "2026-02-15T02:11:22.158899"
-    },
-    {
-      "title": "Semantic Chunking and the Entropy of Natural Language",
-      "summary": "The entropy rate of printed English is famously estimated to be about one bit per character, a benchmark that modern large language models (LLMs) have only recently approached. This entropy rate impli...",
-      "fetched": "2026-02-16T02:07:20.975572"
-    },
-    {
       "title": "CoPE-VideoLM: Codec Primitives For Efficient Video Language Models",
       "summary": "Video Language Models (VideoLMs) empower AI systems to understand temporal dynamics in videos. To fit to the maximum context window constraint, current methods use keyframe sampling which can miss bot...",
       "fetched": "2026-02-16T02:07:20.975583"
@@ -99,7 +84,22 @@
       "title": "City Editing: Hierarchical Agentic Execution for Dependency-Aware Urban Geospatial Modification",
       "summary": "As cities evolve over time, challenges such as traffic congestion and functional imbalance increasingly necessitate urban renewal through efficient modification of existing plans, rather than complete...",
       "fetched": "2026-02-24T02:04:46.994894"
+    },
+    {
+      "title": "Localized Dynamics-Aware Domain Adaption for Off-Dynamics Offline Reinforcement Learning",
+      "summary": "Off-dynamics offline reinforcement learning (RL) aims to learn a policy for a target domain using limited target data and abundant source data collected under different transition dynamics. Existing m...",
+      "fetched": "2026-02-25T02:06:39.271367"
+    },
+    {
+      "title": "The Initial Exploration Problem in Knowledge Graph Exploration",
+      "summary": "Knowledge Graphs (KGs) enable the integration and representation of complex information across domains, but their semantic richness and structural complexity create substantial barriers for lay users ...",
+      "fetched": "2026-02-25T02:06:39.271379"
+    },
+    {
+      "title": "Motivation is Something You Need",
+      "summary": "This work introduces a novel training paradigm that draws from affective neuroscience. Inspired by the interplay of emotions and cognition in the human brain and more specifically the SEEKING motivati...",
+      "fetched": "2026-02-25T02:06:39.271381"
     }
   ],
-  "last_sync": "2026-02-24T02:04:47.059424"
+  "last_sync": "2026-02-25T02:06:39.309729"
 }
