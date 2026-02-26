@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "CoPE-VideoLM: Codec Primitives For Efficient Video Language Models",
-      "summary": "Video Language Models (VideoLMs) empower AI systems to understand temporal dynamics in videos. To fit to the maximum context window constraint, current methods use keyframe sampling which can miss bot...",
-      "fetched": "2026-02-16T02:07:20.975583"
-    },
-    {
-      "title": "Optimal Take-off under Fuzzy Clearances",
-      "summary": "This paper presents a hybrid obstacle avoidance architecture that integrates Optimal Control under clearance with a Fuzzy Rule Based System (FRBS) to enable adaptive constraint handling for unmanned a...",
-      "fetched": "2026-02-16T02:07:20.975585"
-    },
-    {
-      "title": "Knowing When Not to Answer: Abstention-Aware Scientific Reasoning",
-      "summary": "Large language models are increasingly used to answer and verify scientific claims, yet existing evaluations typically assume that a model must always produce a definitive answer. In scientific settin...",
-      "fetched": "2026-02-17T02:04:40.117766"
-    },
-    {
       "title": "GPT-5 vs Other LLMs in Long Short-Context Performance",
       "summary": "With the significant expansion of the context window in Large Language Models (LLMs), these models are theoretically capable of processing millions of tokens in a single pass. However, research indica...",
       "fetched": "2026-02-17T02:04:40.117776"
@@ -99,7 +84,22 @@
       "title": "Motivation is Something You Need",
       "summary": "This work introduces a novel training paradigm that draws from affective neuroscience. Inspired by the interplay of emotions and cognition in the human brain and more specifically the SEEKING motivati...",
       "fetched": "2026-02-25T02:06:39.271381"
+    },
+    {
+      "title": "TG-ASR: Translation-Guided Learning with Parallel Gated Cross Attention for Low-Resource Automatic Speech Recognition",
+      "summary": "Low-resource automatic speech recognition (ASR) continues to pose significant challenges, primarily due to the limited availability of transcribed data for numerous languages. While a wealth of spoken...",
+      "fetched": "2026-02-26T02:02:12.729542"
+    },
+    {
+      "title": "RGB-Event HyperGraph Prompt for Kilometer Marker Recognition based on Pre-trained Foundation Models",
+      "summary": "Metro trains often operate in highly complex environments, characterized by illumination variations, high-speed motion, and adverse weather conditions. These factors pose significant challenges for vi...",
+      "fetched": "2026-02-26T02:02:12.729553"
+    },
+    {
+      "title": "Enhancing LLM-Based Test Generation by Eliminating Covered Code",
+      "summary": "Automated test generation is essential for software quality assurance, with coverage rate serving as a key metric to ensure thorough testing. Recent advancements in Large Language Models (LLMs) have s...",
+      "fetched": "2026-02-26T02:02:12.729556"
     }
   ],
-  "last_sync": "2026-02-25T02:06:39.309729"
+  "last_sync": "2026-02-26T02:02:12.768608"
 }
