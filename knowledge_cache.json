@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Measuring Mid-2025 LLM-Assistance on Novice Performance in Biology",
-      "summary": "Large language models (LLMs) perform strongly on biological benchmarks, raising concerns that they may help novice actors acquire dual-use laboratory skills. Yet, whether this translates to improved h...",
-      "fetched": "2026-02-19T02:07:10.340512"
-    },
-    {
-      "title": "Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents",
-      "summary": "LLMs are increasingly being used for complex problems which are not necessarily resolved in a single response, but require interacting with an environment to acquire information. In these scenarios, L...",
-      "fetched": "2026-02-19T02:07:10.340514"
-    },
-    {
-      "title": "Sink-Aware Pruning for Diffusion Language Models",
-      "summary": "Diffusion Language Models (DLMs) incur high inference cost due to iterative denoising, motivating efficient pruning. Existing pruning heuristics largely inherited from autoregressive (AR) LLMs, typica...",
-      "fetched": "2026-02-22T02:07:06.983815"
-    },
-    {
       "title": "CLEF HIPE-2026: Evaluating Accurate and Efficient Person-Place Relation Extraction from Multilingual Historical Texts",
       "summary": "HIPE-2026 is a CLEF evaluation lab dedicated to person-place relation extraction from noisy, multilingual historical texts. Building on the HIPE-2020 and HIPE-2022 campaigns, it extends the series tow...",
       "fetched": "2026-02-22T02:07:06.983826"
@@ -99,7 +84,22 @@
       "title": "Mitigating Legibility Tax with Decoupled Prover-Verifier Games",
       "summary": "As large language models become increasingly capable, it is critical that their outputs can be easily checked by less capable systems. Prover-verifier games can be used to improve checkability of mode...",
       "fetched": "2026-02-27T02:01:24.294256"
+    },
+    {
+      "title": "Model Agreement via Anchoring",
+      "summary": "Numerous lines of aim to control $\\textit{model disagreement}$ -- the extent to which two machine learning models disagree in their predictions. We adopt a simple and standard notion of model disagree...",
+      "fetched": "2026-02-28T01:51:34.103384"
+    },
+    {
+      "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
+      "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry ...",
+      "fetched": "2026-02-28T01:51:34.103392"
+    },
+    {
+      "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
+      "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
+      "fetched": "2026-02-28T01:51:34.103394"
     }
   ],
-  "last_sync": "2026-02-27T02:01:24.422532"
+  "last_sync": "2026-02-28T01:51:34.176741"
 }
