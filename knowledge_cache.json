@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "CLEF HIPE-2026: Evaluating Accurate and Efficient Person-Place Relation Extraction from Multilingual Historical Texts",
-      "summary": "HIPE-2026 is a CLEF evaluation lab dedicated to person-place relation extraction from noisy, multilingual historical texts. Building on the HIPE-2020 and HIPE-2022 campaigns, it extends the series tow...",
-      "fetched": "2026-02-22T02:07:06.983826"
-    },
-    {
-      "title": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
-      "summary": "Reward modeling is a core component of modern alignment pipelines including RLHF and RLAIF, underpinning policy optimization methods including PPO and TRPO. However, training reliable reward models re...",
-      "fetched": "2026-02-22T02:07:06.983828"
-    },
-    {
-      "title": "Unifying approach to uniform expressivity of graph neural networks",
-      "summary": "The expressive power of Graph Neural Networks (GNNs) is often analysed via correspondence to the Weisfeiler-Leman (WL) algorithm and fragments of first-order logic. Standard GNNs are limited to perfor...",
-      "fetched": "2026-02-23T02:07:47.031338"
-    },
-    {
       "title": "Leakage and Second-Order Dynamics Improve Hippocampal RNN Replay",
       "summary": "Biological neural networks (like the hippocampus) can internally generate \"replay\" resembling stimulus-driven activity. Recent computational models of replay use noisy recurrent neural networks (RNNs)...",
       "fetched": "2026-02-23T02:07:47.031348"
@@ -99,7 +84,22 @@
       "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
       "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
       "fetched": "2026-02-28T01:51:34.103394"
+    },
+    {
+      "title": "Model Agreement via Anchoring",
+      "summary": "Numerous lines of aim to control $\\textit{model disagreement}$ -- the extent to which two machine learning models disagree in their predictions. We adopt a simple and standard notion of model disagree...",
+      "fetched": "2026-03-01T02:13:33.750974"
+    },
+    {
+      "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
+      "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry ...",
+      "fetched": "2026-03-01T02:13:33.750984"
+    },
+    {
+      "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
+      "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
+      "fetched": "2026-03-01T02:13:33.750987"
     }
   ],
-  "last_sync": "2026-02-28T01:51:34.176741"
+  "last_sync": "2026-03-01T02:13:33.792555"
 }
