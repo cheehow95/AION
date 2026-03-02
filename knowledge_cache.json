@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Leakage and Second-Order Dynamics Improve Hippocampal RNN Replay",
-      "summary": "Biological neural networks (like the hippocampus) can internally generate \"replay\" resembling stimulus-driven activity. Recent computational models of replay use noisy recurrent neural networks (RNNs)...",
-      "fetched": "2026-02-23T02:07:47.031348"
-    },
-    {
-      "title": "Learning to Tune Pure Pursuit in Autonomous Racing: Joint Lookahead and Steering-Gain Control with PPO",
-      "summary": "Pure Pursuit (PP) is widely used in autonomous racing for real-time path tracking due to its efficiency and geometric clarity, yet performance is highly sensitive to how key parameters-lookahead dista...",
-      "fetched": "2026-02-23T02:07:47.031350"
-    },
-    {
-      "title": "Smooth Gate Functions for Soft Advantage Policy Optimization",
-      "summary": "Group Relative Policy Optimization (GRPO) has significantly advanced the training of large language models and enhanced their reasoning capabilities, while it remains susceptible to instability due to...",
-      "fetched": "2026-02-24T02:04:46.994879"
-    },
-    {
       "title": "Soft Sequence Policy Optimization: Bridging GMPO and SAPO",
       "summary": "A significant portion of recent research on Large Language Model (LLM) alignment focuses on developing new policy optimization methods based on Group Relative Policy Optimization (GRPO). Two prominent...",
       "fetched": "2026-02-24T02:04:46.994890"
@@ -99,7 +84,22 @@
       "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
       "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
       "fetched": "2026-03-01T02:13:33.750987"
+    },
+    {
+      "title": "Model Agreement via Anchoring",
+      "summary": "Numerous lines of aim to control $\\textit{model disagreement}$ -- the extent to which two machine learning models disagree in their predictions. We adopt a simple and standard notion of model disagree...",
+      "fetched": "2026-03-02T02:04:50.359618"
+    },
+    {
+      "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
+      "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry ...",
+      "fetched": "2026-03-02T02:04:50.359629"
+    },
+    {
+      "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
+      "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
+      "fetched": "2026-03-02T02:04:50.359631"
     }
   ],
-  "last_sync": "2026-03-01T02:13:33.792555"
+  "last_sync": "2026-03-02T02:04:50.436904"
 }
