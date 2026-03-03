@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Soft Sequence Policy Optimization: Bridging GMPO and SAPO",
-      "summary": "A significant portion of recent research on Large Language Model (LLM) alignment focuses on developing new policy optimization methods based on Group Relative Policy Optimization (GRPO). Two prominent...",
-      "fetched": "2026-02-24T02:04:46.994890"
-    },
-    {
-      "title": "City Editing: Hierarchical Agentic Execution for Dependency-Aware Urban Geospatial Modification",
-      "summary": "As cities evolve over time, challenges such as traffic congestion and functional imbalance increasingly necessitate urban renewal through efficient modification of existing plans, rather than complete...",
-      "fetched": "2026-02-24T02:04:46.994894"
-    },
-    {
-      "title": "Localized Dynamics-Aware Domain Adaption for Off-Dynamics Offline Reinforcement Learning",
-      "summary": "Off-dynamics offline reinforcement learning (RL) aims to learn a policy for a target domain using limited target data and abundant source data collected under different transition dynamics. Existing m...",
-      "fetched": "2026-02-25T02:06:39.271367"
-    },
-    {
       "title": "The Initial Exploration Problem in Knowledge Graph Exploration",
       "summary": "Knowledge Graphs (KGs) enable the integration and representation of complex information across domains, but their semantic richness and structural complexity create substantial barriers for lay users ...",
       "fetched": "2026-02-25T02:06:39.271379"
@@ -99,7 +84,22 @@
       "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
       "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
       "fetched": "2026-03-02T02:04:50.359631"
+    },
+    {
+      "title": "Curvature-Weighted Capacity Allocation: A Minimum Description Length Framework for Layer-Adaptive Large Language Model Optimization",
+      "summary": "Layer-wise capacity in large language models is highly non-uniform: some layers contribute disproportionately to loss reduction while others are near-redundant. Existing methods for exploiting this no...",
+      "fetched": "2026-03-03T02:06:17.108978"
+    },
+    {
+      "title": "CHIMERA: Compact Synthetic Data for Generalizable LLM Reasoning",
+      "summary": "Large Language Models (LLMs) have recently exhibited remarkable reasoning capabilities, largely enabled by supervised fine-tuning (SFT)- and reinforcement learning (RL)-based post-training on high-qua...",
+      "fetched": "2026-03-03T02:06:17.108989"
+    },
+    {
+      "title": "Knowledge without Wisdom: Measuring Misalignment between LLMs and Intended Impact",
+      "summary": "LLMs increasingly excel on AI benchmarks, but doing so does not guarantee validity for downstream tasks. This study evaluates the performance of leading foundation models (FMs, i.e., generative pre-tr...",
+      "fetched": "2026-03-03T02:06:17.108992"
     }
   ],
-  "last_sync": "2026-03-02T02:04:50.436904"
+  "last_sync": "2026-03-03T02:06:17.169386"
 }
