@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "The Initial Exploration Problem in Knowledge Graph Exploration",
-      "summary": "Knowledge Graphs (KGs) enable the integration and representation of complex information across domains, but their semantic richness and structural complexity create substantial barriers for lay users ...",
-      "fetched": "2026-02-25T02:06:39.271379"
-    },
-    {
-      "title": "Motivation is Something You Need",
-      "summary": "This work introduces a novel training paradigm that draws from affective neuroscience. Inspired by the interplay of emotions and cognition in the human brain and more specifically the SEEKING motivati...",
-      "fetched": "2026-02-25T02:06:39.271381"
-    },
-    {
-      "title": "TG-ASR: Translation-Guided Learning with Parallel Gated Cross Attention for Low-Resource Automatic Speech Recognition",
-      "summary": "Low-resource automatic speech recognition (ASR) continues to pose significant challenges, primarily due to the limited availability of transcribed data for numerous languages. While a wealth of spoken...",
-      "fetched": "2026-02-26T02:02:12.729542"
-    },
-    {
       "title": "RGB-Event HyperGraph Prompt for Kilometer Marker Recognition based on Pre-trained Foundation Models",
       "summary": "Metro trains often operate in highly complex environments, characterized by illumination variations, high-speed motion, and adverse weather conditions. These factors pose significant challenges for vi...",
       "fetched": "2026-02-26T02:02:12.729553"
@@ -99,7 +84,22 @@
       "title": "Knowledge without Wisdom: Measuring Misalignment between LLMs and Intended Impact",
       "summary": "LLMs increasingly excel on AI benchmarks, but doing so does not guarantee validity for downstream tasks. This study evaluates the performance of leading foundation models (FMs, i.e., generative pre-tr...",
       "fetched": "2026-03-03T02:06:17.108992"
+    },
+    {
+      "title": "Tool Verification for Test-Time Reinforcement Learning",
+      "summary": "Test-time reinforcement learning (TTRL) has emerged as a promising paradigm for self-evolving large reasoning models (LRMs), enabling online adaptation on unlabeled test inputs via self-induced reward...",
+      "fetched": "2026-03-04T02:00:04.538401"
+    },
+    {
+      "title": "Adaptive Confidence Regularization for Multimodal Failure Detection",
+      "summary": "The deployment of multimodal models in high-stakes domains, such as self-driving vehicles and medical diagnostics, demands not only strong predictive performance but also reliable mechanisms for detec...",
+      "fetched": "2026-03-04T02:00:04.538411"
+    },
+    {
+      "title": "Conformal Policy Control",
+      "summary": "An agent must try new behaviors to explore and improve. In high-stakes environments, an agent that violates safety constraints may cause harm and must be taken offline, curtailing any future interacti...",
+      "fetched": "2026-03-04T02:00:04.538414"
     }
   ],
-  "last_sync": "2026-03-03T02:06:17.169386"
+  "last_sync": "2026-03-04T02:00:04.602258"
 }
