@@ -3,21 +3,6 @@
     {
       "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
       "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry ...",
-      "fetched": "2026-03-01T02:13:33.750984"
-    },
-    {
-      "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
-      "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
-      "fetched": "2026-03-01T02:13:33.750987"
-    },
-    {
-      "title": "Model Agreement via Anchoring",
-      "summary": "Numerous lines of aim to control $\\textit{model disagreement}$ -- the extent to which two machine learning models disagree in their predictions. We adopt a simple and standard notion of model disagree...",
-      "fetched": "2026-03-02T02:04:50.359618"
-    },
-    {
-      "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
-      "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry ...",
       "fetched": "2026-03-02T02:04:50.359629"
     },
     {
@@ -99,7 +84,22 @@
       "title": "The Spike, the Sparse and the Sink: Anatomy of Massive Activations and Attention Sinks",
       "summary": "We study two recurring phenomena in Transformer language models: massive activations, in which a small number of tokens exhibit extreme outliers in a few channels, and attention sinks, in which certai...",
       "fetched": "2026-03-08T02:04:58.376769"
+    },
+    {
+      "title": "Artificial Intelligence for Detecting Fetal Orofacial Clefts and Advancing Medical Education",
+      "summary": "Orofacial clefts are among the most common congenital craniofacial abnormalities, yet accurate prenatal detection remains challenging due to the scarcity of experienced specialists and the relative ra...",
+      "fetched": "2026-03-09T02:06:13.118878"
+    },
+    {
+      "title": "COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics",
+      "summary": "Activation steering methods enable inference-time control of large language model (LLM) behavior without retraining, but current approaches face a fundamental trade-off: sample-efficient methods subop...",
+      "fetched": "2026-03-09T02:06:13.118886"
+    },
+    {
+      "title": "NOBLE: Accelerating Transformers with Nonlinear Low-Rank Branches",
+      "summary": "We introduce NOBLE (Nonlinear lOw-rank Branch for Linear Enhancement), an architectural augmentation that adds nonlinear low-rank branches to transformer linear layers. Unlike LoRA and other parameter...",
+      "fetched": "2026-03-09T02:06:13.118888"
     }
   ],
-  "last_sync": "2026-03-08T02:04:58.450255"
+  "last_sync": "2026-03-09T02:06:13.176865"
 }
