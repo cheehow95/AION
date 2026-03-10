@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
-      "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry ...",
-      "fetched": "2026-03-02T02:04:50.359629"
-    },
-    {
-      "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
-      "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by ali...",
-      "fetched": "2026-03-02T02:04:50.359631"
-    },
-    {
-      "title": "Curvature-Weighted Capacity Allocation: A Minimum Description Length Framework for Layer-Adaptive Large Language Model Optimization",
-      "summary": "Layer-wise capacity in large language models is highly non-uniform: some layers contribute disproportionately to loss reduction while others are near-redundant. Existing methods for exploiting this no...",
-      "fetched": "2026-03-03T02:06:17.108978"
-    },
-    {
       "title": "CHIMERA: Compact Synthetic Data for Generalizable LLM Reasoning",
       "summary": "Large Language Models (LLMs) have recently exhibited remarkable reasoning capabilities, largely enabled by supervised fine-tuning (SFT)- and reinforcement learning (RL)-based post-training on high-qua...",
       "fetched": "2026-03-03T02:06:17.108989"
@@ -99,7 +84,22 @@
       "title": "NOBLE: Accelerating Transformers with Nonlinear Low-Rank Branches",
       "summary": "We introduce NOBLE (Nonlinear lOw-rank Branch for Linear Enhancement), an architectural augmentation that adds nonlinear low-rank branches to transformer linear layers. Unlike LoRA and other parameter...",
       "fetched": "2026-03-09T02:06:13.118888"
+    },
+    {
+      "title": "AQuA: Toward Strategic Response Generation for Ambiguous Visual Questions",
+      "summary": "Visual Question Answering (VQA) is a core task for evaluating the capabilities of Vision-Language Models (VLMs). Existing VQA benchmarks primarily feature clear and unambiguous image-question pairs, w...",
+      "fetched": "2026-03-10T01:58:31.225910"
+    },
+    {
+      "title": "Sparsity and Out-of-Distribution Generalization",
+      "summary": "Explaining out-of-distribution generalization has been a central problem in epistemology since Goodman's \"grue\" puzzle in 1946. Today it's a central problem in machine learning, including AI alignment...",
+      "fetched": "2026-03-10T01:58:31.225921"
+    },
+    {
+      "title": "SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions",
+      "summary": "Retrieval-Augmented Generation (RAG) systems are increasingly evolving into agentic architectures where large language models autonomously coordinate multi-step reasoning, dynamic memory management, a...",
+      "fetched": "2026-03-10T01:58:31.225924"
     }
   ],
-  "last_sync": "2026-03-09T02:06:13.176865"
+  "last_sync": "2026-03-10T01:58:31.271007"
 }
