@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Adaptive Confidence Regularization for Multimodal Failure Detection",
-      "summary": "The deployment of multimodal models in high-stakes domains, such as self-driving vehicles and medical diagnostics, demands not only strong predictive performance but also reliable mechanisms for detec...",
-      "fetched": "2026-03-04T02:00:04.538411"
-    },
-    {
-      "title": "Conformal Policy Control",
-      "summary": "An agent must try new behaviors to explore and improve. In high-stakes environments, an agent that violates safety constraints may cause harm and must be taken offline, curtailing any future interacti...",
-      "fetched": "2026-03-04T02:00:04.538414"
-    },
-    {
-      "title": "How to Peel with a Knife: Aligning Fine-Grained Manipulation with Human Preference",
-      "summary": "Many essential manipulation tasks - such as food preparation, surgery, and craftsmanship - remain intractable for autonomous robots. These tasks are characterized not only by contact-rich, force-sensi...",
-      "fetched": "2026-03-05T02:03:16.756160"
-    },
-    {
       "title": "Tether: Autonomous Functional Play with Correspondence-Driven Trajectory Warping",
       "summary": "The ability to conduct and learn from interaction and experience is a central challenge in robotics, offering a scalable alternative to labor-intensive human demonstrations. However, realizing such \"p...",
       "fetched": "2026-03-05T02:03:16.756171"
@@ -99,7 +84,22 @@
       "title": "MM-tau-p$^2$: Persona-Adaptive Prompting for Robust Multi-Modal Agent Evaluation in Dual-Control Settings",
       "summary": "Current evaluation frameworks and benchmarks for LLM powered agents focus on text chat driven agents, these frameworks do not expose the persona of user to the agent, thus operating in a user agnostic...",
       "fetched": "2026-03-11T01:58:24.283309"
+    },
+    {
+      "title": "COMIC: Agentic Sketch Comedy Generation",
+      "summary": "We propose a fully automated AI system that produces short comedic videos similar to sketch shows such as Saturday Night Live. Starting with character references, the system employs a population of ag...",
+      "fetched": "2026-03-12T02:04:45.961016"
+    },
+    {
+      "title": "LiTo: Surface Light Field Tokenization",
+      "summary": "We propose a 3D latent representation that jointly models object geometry and view-dependent appearance. Most prior works focus on either reconstructing 3D geometry or predicting view-independent diff...",
+      "fetched": "2026-03-12T02:04:45.961026"
+    },
+    {
+      "title": "Neural Field Thermal Tomography: A Differentiable Physics Framework for Non-Destructive Evaluation",
+      "summary": "We propose Neural Field Thermal Tomography (NeFTY), a differentiable physics framework for the quantitative 3D reconstruction of material properties from transient surface temperature measurements. Wh...",
+      "fetched": "2026-03-12T02:04:45.961028"
     }
   ],
-  "last_sync": "2026-03-11T01:58:24.343494"
+  "last_sync": "2026-03-12T02:04:46.035362"
 }
