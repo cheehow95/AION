@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Tether: Autonomous Functional Play with Correspondence-Driven Trajectory Warping",
-      "summary": "The ability to conduct and learn from interaction and experience is a central challenge in robotics, offering a scalable alternative to labor-intensive human demonstrations. However, realizing such \"p...",
-      "fetched": "2026-03-05T02:03:16.756171"
-    },
-    {
-      "title": "Inherited Goal Drift: Contextual Pressure Can Undermine Agentic Goals",
-      "summary": "The accelerating adoption of language models (LMs) as agents for deployment in long-context tasks motivates a thorough understanding of goal drift: agents' tendency to deviate from an original objecti...",
-      "fetched": "2026-03-05T02:03:16.756172"
-    },
-    {
-      "title": "RoboPocket: Improve Robot Policies Instantly with Your Phone",
-      "summary": "Scaling imitation learning is fundamentally constrained by the efficiency of data collection. While handheld interfaces have emerged as a scalable solution for in-the-wild data acquisition, they predo...",
-      "fetched": "2026-03-07T01:55:33.485545"
-    },
-    {
       "title": "POET-X: Memory-efficient LLM Training by Scaling Orthogonal Transformation",
       "summary": "Efficient and stable training of large language models (LLMs) remains a core challenge in modern machine learning systems. To address this challenge, Reparameterized Orthogonal Equivalence Training (P...",
       "fetched": "2026-03-07T01:55:33.485550"
@@ -99,7 +84,22 @@
       "title": "Neural Field Thermal Tomography: A Differentiable Physics Framework for Non-Destructive Evaluation",
       "summary": "We propose Neural Field Thermal Tomography (NeFTY), a differentiable physics framework for the quantitative 3D reconstruction of material properties from transient surface temperature measurements. Wh...",
       "fetched": "2026-03-12T02:04:45.961028"
+    },
+    {
+      "title": "The Latent Color Subspace: Emergent Order in High-Dimensional Chaos",
+      "summary": "Text-to-image generation models have advanced rapidly, yet achieving fine-grained control over generated images remains difficult, largely due to limited understanding of how semantic information is e...",
+      "fetched": "2026-03-13T02:02:25.215196"
+    },
+    {
+      "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
+      "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
+      "fetched": "2026-03-13T02:02:25.215207"
+    },
+    {
+      "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
+      "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
+      "fetched": "2026-03-13T02:02:25.215209"
     }
   ],
-  "last_sync": "2026-03-12T02:04:46.035362"
+  "last_sync": "2026-03-13T02:02:25.347851"
 }
