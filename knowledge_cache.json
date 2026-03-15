@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "POET-X: Memory-efficient LLM Training by Scaling Orthogonal Transformation",
-      "summary": "Efficient and stable training of large language models (LLMs) remains a core challenge in modern machine learning systems. To address this challenge, Reparameterized Orthogonal Equivalence Training (P...",
-      "fetched": "2026-03-08T02:04:58.376767"
-    },
-    {
-      "title": "The Spike, the Sparse and the Sink: Anatomy of Massive Activations and Attention Sinks",
-      "summary": "We study two recurring phenomena in Transformer language models: massive activations, in which a small number of tokens exhibit extreme outliers in a few channels, and attention sinks, in which certai...",
-      "fetched": "2026-03-08T02:04:58.376769"
-    },
-    {
-      "title": "Artificial Intelligence for Detecting Fetal Orofacial Clefts and Advancing Medical Education",
-      "summary": "Orofacial clefts are among the most common congenital craniofacial abnormalities, yet accurate prenatal detection remains challenging due to the scarcity of experienced specialists and the relative ra...",
-      "fetched": "2026-03-09T02:06:13.118878"
-    },
-    {
       "title": "COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics",
       "summary": "Activation steering methods enable inference-time control of large language model (LLM) behavior without retraining, but current approaches face a fundamental trade-off: sample-efficient methods subop...",
       "fetched": "2026-03-09T02:06:13.118886"
@@ -99,7 +84,22 @@
       "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
       "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
       "fetched": "2026-03-14T01:59:54.464389"
+    },
+    {
+      "title": "The Latent Color Subspace: Emergent Order in High-Dimensional Chaos",
+      "summary": "Text-to-image generation models have advanced rapidly, yet achieving fine-grained control over generated images remains difficult, largely due to limited understanding of how semantic information is e...",
+      "fetched": "2026-03-15T02:25:05.528839"
+    },
+    {
+      "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
+      "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
+      "fetched": "2026-03-15T02:25:05.528849"
+    },
+    {
+      "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
+      "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
+      "fetched": "2026-03-15T02:25:05.528851"
     }
   ],
-  "last_sync": "2026-03-14T01:59:54.522250"
+  "last_sync": "2026-03-15T02:25:05.649998"
 }
