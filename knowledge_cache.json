@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics",
-      "summary": "Activation steering methods enable inference-time control of large language model (LLM) behavior without retraining, but current approaches face a fundamental trade-off: sample-efficient methods subop...",
-      "fetched": "2026-03-09T02:06:13.118886"
-    },
-    {
-      "title": "NOBLE: Accelerating Transformers with Nonlinear Low-Rank Branches",
-      "summary": "We introduce NOBLE (Nonlinear lOw-rank Branch for Linear Enhancement), an architectural augmentation that adds nonlinear low-rank branches to transformer linear layers. Unlike LoRA and other parameter...",
-      "fetched": "2026-03-09T02:06:13.118888"
-    },
-    {
-      "title": "AQuA: Toward Strategic Response Generation for Ambiguous Visual Questions",
-      "summary": "Visual Question Answering (VQA) is a core task for evaluating the capabilities of Vision-Language Models (VLMs). Existing VQA benchmarks primarily feature clear and unambiguous image-question pairs, w...",
-      "fetched": "2026-03-10T01:58:31.225910"
-    },
-    {
       "title": "Sparsity and Out-of-Distribution Generalization",
       "summary": "Explaining out-of-distribution generalization has been a central problem in epistemology since Goodman's \"grue\" puzzle in 1946. Today it's a central problem in machine learning, including AI alignment...",
       "fetched": "2026-03-10T01:58:31.225921"
@@ -99,7 +84,22 @@
       "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
       "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
       "fetched": "2026-03-15T02:25:05.528851"
+    },
+    {
+      "title": "ESG-Bench: Benchmarking Long-Context ESG Reports for Hallucination Mitigation",
+      "summary": "As corporate responsibility increasingly incorporates environmental, social, and governance (ESG) criteria, ESG reporting is becoming a legal requirement in many regions and a key channel for document...",
+      "fetched": "2026-03-16T02:25:57.076448"
+    },
+    {
+      "title": "When Right Meets Wrong: Bilateral Context Conditioning with Reward-Confidence Correction for GRPO",
+      "summary": "Group Relative Policy Optimization (GRPO) has emerged as an effective method for training reasoning models. While it computes advantages based on group mean, GRPO treats each output as an independent ...",
+      "fetched": "2026-03-16T02:25:57.076455"
+    },
+    {
+      "title": "Steve-Evolving: Open-World Embodied Self-Evolution via Fine-Grained Diagnosis and Dual-Track Knowledge Distillation",
+      "summary": "Open-world embodied agents must solve long-horizon tasks where the main bottleneck is not single-step planning quality but how interaction experience is organized and evolved. To this end, we present ...",
+      "fetched": "2026-03-16T02:25:57.076458"
     }
   ],
-  "last_sync": "2026-03-15T02:25:05.649998"
+  "last_sync": "2026-03-16T02:25:57.113311"
 }
