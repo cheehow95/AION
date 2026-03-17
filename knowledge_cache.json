@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Sparsity and Out-of-Distribution Generalization",
-      "summary": "Explaining out-of-distribution generalization has been a central problem in epistemology since Goodman's \"grue\" puzzle in 1946. Today it's a central problem in machine learning, including AI alignment...",
-      "fetched": "2026-03-10T01:58:31.225921"
-    },
-    {
-      "title": "SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions",
-      "summary": "Retrieval-Augmented Generation (RAG) systems are increasingly evolving into agentic architectures where large language models autonomously coordinate multi-step reasoning, dynamic memory management, a...",
-      "fetched": "2026-03-10T01:58:31.225924"
-    },
-    {
-      "title": "When to Lock Attention: Training-Free KV Control in Video Diffusion",
-      "summary": "Maintaining background consistency while enhancing foreground quality remains a core challenge in video editing. Injecting full-image information often leads to background artifacts, whereas rigid bac...",
-      "fetched": "2026-03-11T01:58:24.283291"
-    },
-    {
       "title": "MiniAppBench: Evaluating the Shift from Text to Interactive HTML Responses in LLM-Powered Assistants",
       "summary": "With the rapid advancement of Large Language Models (LLMs) in code generation, human-AI interaction is evolving from static text responses to dynamic, interactive HTML-based applications, which we ter...",
       "fetched": "2026-03-11T01:58:24.283307"
@@ -99,7 +84,22 @@
       "title": "Steve-Evolving: Open-World Embodied Self-Evolution via Fine-Grained Diagnosis and Dual-Track Knowledge Distillation",
       "summary": "Open-world embodied agents must solve long-horizon tasks where the main bottleneck is not single-step planning quality but how interaction experience is organized and evolved. To this end, we present ...",
       "fetched": "2026-03-16T02:25:57.076458"
+    },
+    {
+      "title": "Diffusion Reinforcement Learning via Centered Reward Distillation",
+      "summary": "Diffusion and flow models achieve State-Of-The-Art (SOTA) generative performance, yet many practically important behaviors such as fine-grained prompt fidelity, compositional correctness, and text ren...",
+      "fetched": "2026-03-17T02:05:09.065609"
+    },
+    {
+      "title": "The Institutional Scaling Law: Non-Monotonic Fitness, Capability-Trust Divergence, and Symbiogenetic Scaling in Generative AI",
+      "summary": "Classical scaling laws model AI performance as monotonically improving with model size. We challenge this assumption by deriving the Institutional Scaling Law, showing that institutional fitness -- jo...",
+      "fetched": "2026-03-17T02:05:09.065620"
+    },
+    {
+      "title": "Towards Agentic Honeynet Configuration",
+      "summary": "Honeypots are deception systems that emulate vulnerable services to collect threat intelligence. While deploying many honeypots increases the opportunity to observe attacker behaviour, in practise net...",
+      "fetched": "2026-03-17T02:05:09.065623"
     }
   ],
-  "last_sync": "2026-03-16T02:25:57.113311"
+  "last_sync": "2026-03-17T02:05:09.123936"
 }
