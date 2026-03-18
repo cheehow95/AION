@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "MiniAppBench: Evaluating the Shift from Text to Interactive HTML Responses in LLM-Powered Assistants",
-      "summary": "With the rapid advancement of Large Language Models (LLMs) in code generation, human-AI interaction is evolving from static text responses to dynamic, interactive HTML-based applications, which we ter...",
-      "fetched": "2026-03-11T01:58:24.283307"
-    },
-    {
-      "title": "MM-tau-p$^2$: Persona-Adaptive Prompting for Robust Multi-Modal Agent Evaluation in Dual-Control Settings",
-      "summary": "Current evaluation frameworks and benchmarks for LLM powered agents focus on text chat driven agents, these frameworks do not expose the persona of user to the agent, thus operating in a user agnostic...",
-      "fetched": "2026-03-11T01:58:24.283309"
-    },
-    {
-      "title": "COMIC: Agentic Sketch Comedy Generation",
-      "summary": "We propose a fully automated AI system that produces short comedic videos similar to sketch shows such as Saturday Night Live. Starting with character references, the system employs a population of ag...",
-      "fetched": "2026-03-12T02:04:45.961016"
-    },
-    {
       "title": "LiTo: Surface Light Field Tokenization",
       "summary": "We propose a 3D latent representation that jointly models object geometry and view-dependent appearance. Most prior works focus on either reconstructing 3D geometry or predicting view-independent diff...",
       "fetched": "2026-03-12T02:04:45.961026"
@@ -99,7 +84,22 @@
       "title": "Towards Agentic Honeynet Configuration",
       "summary": "Honeypots are deception systems that emulate vulnerable services to collect threat intelligence. While deploying many honeypots increases the opportunity to observe attacker behaviour, in practise net...",
       "fetched": "2026-03-17T02:05:09.065623"
+    },
+    {
+      "title": "Demystifing Video Reasoning",
+      "summary": "Recent advances in video generation have revealed an unexpected phenomenon: diffusion-based video models exhibit non-trivial reasoning capabilities. Prior work attributes this to a Chain-of-Frames (Co...",
+      "fetched": "2026-03-18T02:09:00.124421"
+    },
+    {
+      "title": "MessyKitchens: Contact-rich object-level 3D scene reconstruction",
+      "summary": "Monocular 3D scene reconstruction has recently seen significant progress. Powered by the modern neural architectures and large-scale data, recent methods achieve high performance in depth estimation f...",
+      "fetched": "2026-03-18T02:09:00.124433"
+    },
+    {
+      "title": "ManiTwin: Scaling Data-Generation-Ready Digital Object Dataset to 100K",
+      "summary": "Learning in simulation provides a useful foundation for scaling robotic manipulation capabilities. However, this paradigm often suffers from a lack of data-generation-ready digital assets, in both sca...",
+      "fetched": "2026-03-18T02:09:00.124435"
     }
   ],
-  "last_sync": "2026-03-17T02:05:09.123936"
+  "last_sync": "2026-03-18T02:09:00.185797"
 }
