@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "LiTo: Surface Light Field Tokenization",
-      "summary": "We propose a 3D latent representation that jointly models object geometry and view-dependent appearance. Most prior works focus on either reconstructing 3D geometry or predicting view-independent diff...",
-      "fetched": "2026-03-12T02:04:45.961026"
-    },
-    {
-      "title": "Neural Field Thermal Tomography: A Differentiable Physics Framework for Non-Destructive Evaluation",
-      "summary": "We propose Neural Field Thermal Tomography (NeFTY), a differentiable physics framework for the quantitative 3D reconstruction of material properties from transient surface temperature measurements. Wh...",
-      "fetched": "2026-03-12T02:04:45.961028"
-    },
-    {
-      "title": "The Latent Color Subspace: Emergent Order in High-Dimensional Chaos",
-      "summary": "Text-to-image generation models have advanced rapidly, yet achieving fine-grained control over generated images remains difficult, largely due to limited understanding of how semantic information is e...",
-      "fetched": "2026-03-13T02:02:25.215196"
-    },
-    {
       "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
       "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
       "fetched": "2026-03-13T02:02:25.215207"
@@ -99,7 +84,22 @@
       "title": "ManiTwin: Scaling Data-Generation-Ready Digital Object Dataset to 100K",
       "summary": "Learning in simulation provides a useful foundation for scaling robotic manipulation capabilities. However, this paradigm often suffers from a lack of data-generation-ready digital assets, in both sca...",
       "fetched": "2026-03-18T02:09:00.124435"
+    },
+    {
+      "title": "KineVLA: Towards Kinematics-Aware Vision-Language-Action Models with Bi-Level Action Decomposition",
+      "summary": "In this paper, we introduce a novel kinematics-rich vision-language-action (VLA) task, in which language commands densely encode diverse kinematic attributes (such as direction, trajectory, orientatio...",
+      "fetched": "2026-03-19T02:10:00.121008"
+    },
+    {
+      "title": "Detecting the Machine: A Comprehensive Benchmark of AI-Generated Text Detectors Across Architectures, Domains, and Adversarial Conditions",
+      "summary": "The rapid proliferation of large language models (LLMs) has created an urgent need for robust and generalizable detectors of machine-generated text. Existing benchmarks typically evaluate a single det...",
+      "fetched": "2026-03-19T02:10:00.121016"
+    },
+    {
+      "title": "QuantFL: Sustainable Federated Learning for Edge IoT via Pre-Trained Model Quantisation",
+      "summary": "Federated Learning (FL) enables privacy-preserving intelligence on Internet of Things (IoT) devices but incurs a significant carbon footprint due to the high energy cost of frequent uplink transmissio...",
+      "fetched": "2026-03-19T02:10:00.121018"
     }
   ],
-  "last_sync": "2026-03-18T02:09:00.185797"
+  "last_sync": "2026-03-19T02:10:00.165938"
 }
