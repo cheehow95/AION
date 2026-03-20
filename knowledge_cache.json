@@ -3,21 +3,6 @@
     {
       "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
       "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
-      "fetched": "2026-03-13T02:02:25.215207"
-    },
-    {
-      "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
-      "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
-      "fetched": "2026-03-13T02:02:25.215209"
-    },
-    {
-      "title": "The Latent Color Subspace: Emergent Order in High-Dimensional Chaos",
-      "summary": "Text-to-image generation models have advanced rapidly, yet achieving fine-grained control over generated images remains difficult, largely due to limited understanding of how semantic information is e...",
-      "fetched": "2026-03-14T01:59:54.464376"
-    },
-    {
-      "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
-      "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
       "fetched": "2026-03-14T01:59:54.464387"
     },
     {
@@ -99,7 +84,22 @@
       "title": "QuantFL: Sustainable Federated Learning for Edge IoT via Pre-Trained Model Quantisation",
       "summary": "Federated Learning (FL) enables privacy-preserving intelligence on Internet of Things (IoT) devices but incurs a significant carbon footprint due to the high energy cost of frequent uplink transmissio...",
       "fetched": "2026-03-19T02:10:00.121018"
+    },
+    {
+      "title": "MultihopSpatial: Multi-hop Compositional Spatial Reasoning Benchmark for Vision-Language Model",
+      "summary": "Spatial reasoning is foundational for Vision-Language Models (VLMs), particularly when deployed as Vision-Language-Action (VLA) agents in physical environments. However, existing benchmarks predominan...",
+      "fetched": "2026-03-20T02:03:56.448372"
+    },
+    {
+      "title": "Reasoning over mathematical objects: on-policy reward modeling and test time aggregation",
+      "summary": "The ability to precisely derive mathematical objects is a core requirement for downstream STEM applications, including mathematics, physics, and chemistry, where reasoning must culminate in formally s...",
+      "fetched": "2026-03-20T02:03:56.448378"
+    },
+    {
+      "title": "Geography According to ChatGPT -- How Generative AI Represents and Reasons about Geography",
+      "summary": "Understanding how AI will represent and reason about geography should be a key concern for all of us, as the broader public increasingly interacts with spaces and places through these systems. Similar...",
+      "fetched": "2026-03-20T02:03:56.448380"
     }
   ],
-  "last_sync": "2026-03-19T02:10:00.165938"
+  "last_sync": "2026-03-20T02:03:56.509486"
 }
