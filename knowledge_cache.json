@@ -3,21 +3,6 @@
     {
       "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
       "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
-      "fetched": "2026-03-14T01:59:54.464387"
-    },
-    {
-      "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
-      "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
-      "fetched": "2026-03-14T01:59:54.464389"
-    },
-    {
-      "title": "The Latent Color Subspace: Emergent Order in High-Dimensional Chaos",
-      "summary": "Text-to-image generation models have advanced rapidly, yet achieving fine-grained control over generated images remains difficult, largely due to limited understanding of how semantic information is e...",
-      "fetched": "2026-03-15T02:25:05.528839"
-    },
-    {
-      "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
-      "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
       "fetched": "2026-03-15T02:25:05.528849"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Geography According to ChatGPT -- How Generative AI Represents and Reasons about Geography",
       "summary": "Understanding how AI will represent and reason about geography should be a key concern for all of us, as the broader public increasingly interacts with spaces and places through these systems. Similar...",
       "fetched": "2026-03-20T02:03:56.448380"
+    },
+    {
+      "title": "NavTrust: Benchmarking Trustworthiness for Embodied Navigation",
+      "summary": "There are two major categories of embodied navigation: Vision-Language Navigation (VLN), where agents navigate by following natural language instructions; and Object-Goal Navigation (OGN), where agent...",
+      "fetched": "2026-03-21T01:58:00.827735"
+    },
+    {
+      "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
+      "summary": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals com...",
+      "fetched": "2026-03-21T01:58:00.827755"
+    },
+    {
+      "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
+      "summary": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available h...",
+      "fetched": "2026-03-21T01:58:00.827759"
     }
   ],
-  "last_sync": "2026-03-20T02:03:56.509486"
+  "last_sync": "2026-03-21T01:58:00.874731"
 }
