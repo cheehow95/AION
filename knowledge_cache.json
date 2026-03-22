@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning",
-      "summary": "Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism. To address this challenge, we introd...",
-      "fetched": "2026-03-15T02:25:05.528849"
-    },
-    {
-      "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
-      "summary": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/q...",
-      "fetched": "2026-03-15T02:25:05.528851"
-    },
-    {
-      "title": "ESG-Bench: Benchmarking Long-Context ESG Reports for Hallucination Mitigation",
-      "summary": "As corporate responsibility increasingly incorporates environmental, social, and governance (ESG) criteria, ESG reporting is becoming a legal requirement in many regions and a key channel for document...",
-      "fetched": "2026-03-16T02:25:57.076448"
-    },
-    {
       "title": "When Right Meets Wrong: Bilateral Context Conditioning with Reward-Confidence Correction for GRPO",
       "summary": "Group Relative Policy Optimization (GRPO) has emerged as an effective method for training reasoning models. While it computes advantages based on group mean, GRPO treats each output as an independent ...",
       "fetched": "2026-03-16T02:25:57.076455"
@@ -99,7 +84,22 @@
       "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
       "summary": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available h...",
       "fetched": "2026-03-21T01:58:00.827759"
+    },
+    {
+      "title": "NavTrust: Benchmarking Trustworthiness for Embodied Navigation",
+      "summary": "There are two major categories of embodied navigation: Vision-Language Navigation (VLN), where agents navigate by following natural language instructions; and Object-Goal Navigation (OGN), where agent...",
+      "fetched": "2026-03-22T02:10:41.957161"
+    },
+    {
+      "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
+      "summary": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals com...",
+      "fetched": "2026-03-22T02:10:41.957175"
+    },
+    {
+      "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
+      "summary": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available h...",
+      "fetched": "2026-03-22T02:10:41.957179"
     }
   ],
-  "last_sync": "2026-03-21T01:58:00.874731"
+  "last_sync": "2026-03-22T02:10:42.001782"
 }
