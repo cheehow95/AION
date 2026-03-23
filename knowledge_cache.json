@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "When Right Meets Wrong: Bilateral Context Conditioning with Reward-Confidence Correction for GRPO",
-      "summary": "Group Relative Policy Optimization (GRPO) has emerged as an effective method for training reasoning models. While it computes advantages based on group mean, GRPO treats each output as an independent ...",
-      "fetched": "2026-03-16T02:25:57.076455"
-    },
-    {
-      "title": "Steve-Evolving: Open-World Embodied Self-Evolution via Fine-Grained Diagnosis and Dual-Track Knowledge Distillation",
-      "summary": "Open-world embodied agents must solve long-horizon tasks where the main bottleneck is not single-step planning quality but how interaction experience is organized and evolved. To this end, we present ...",
-      "fetched": "2026-03-16T02:25:57.076458"
-    },
-    {
-      "title": "Diffusion Reinforcement Learning via Centered Reward Distillation",
-      "summary": "Diffusion and flow models achieve State-Of-The-Art (SOTA) generative performance, yet many practically important behaviors such as fine-grained prompt fidelity, compositional correctness, and text ren...",
-      "fetched": "2026-03-17T02:05:09.065609"
-    },
-    {
       "title": "The Institutional Scaling Law: Non-Monotonic Fitness, Capability-Trust Divergence, and Symbiogenetic Scaling in Generative AI",
       "summary": "Classical scaling laws model AI performance as monotonically improving with model size. We challenge this assumption by deriving the Institutional Scaling Law, showing that institutional fitness -- jo...",
       "fetched": "2026-03-17T02:05:09.065620"
@@ -99,7 +84,22 @@
       "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
       "summary": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available h...",
       "fetched": "2026-03-22T02:10:41.957179"
+    },
+    {
+      "title": "Experience is the Best Teacher: Motivating Effective Exploration in Reinforcement Learning for LLMs",
+      "summary": "Reinforcement Learning (RL) with rubric-based rewards has recently shown remarkable progress in enhancing general reasoning capabilities of Large Language Models (LLMs), yet still suffers from ineffec...",
+      "fetched": "2026-03-23T02:11:14.254573"
+    },
+    {
+      "title": "LoASR-Bench: Evaluating Large Speech Language Models on Low-Resource Automatic Speech Recognition Across Language Families",
+      "summary": "Large language models (LLMs) have driven substantial advances in speech language models (SpeechLMs), yielding strong performance in automatic speech recognition (ASR) under high-resource conditions. H...",
+      "fetched": "2026-03-23T02:11:14.254580"
+    },
+    {
+      "title": "CoverageBench: Evaluating Information Coverage across Tasks and Domains",
+      "summary": "We wish to measure the information coverage of an ad hoc retrieval algorithm, that is, how much of the range of available relevant information is covered by the search results. Information coverage is...",
+      "fetched": "2026-03-23T02:11:14.254582"
     }
   ],
-  "last_sync": "2026-03-22T02:10:42.001782"
+  "last_sync": "2026-03-23T02:11:14.317370"
 }
