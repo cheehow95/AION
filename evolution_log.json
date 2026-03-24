@@ -3,7 +3,7 @@
   "metrics": {
     "codebase": {
       "total_files": 267,
-      "total_lines": 86215,
+      "total_lines": 86219,
       "python_files": 238,
       "aion_files": 17,
       "test_files": 23,
@@ -208,9 +208,9 @@
       "errors": [
         "Traceback (most recent call last):\n  File \"/home/runner/work/AION/AION/scripts/run_tests.py\", line 481, in <module>\n    test_protein_domains()\n  File \"/home/runner/work/AION/AION/scripts/run_tests.py\", line 399, in test_protein_domains\n    from src.domains.protein_folding import (\n  File \"/home/runner/work/AION/AION/./src/domains/protein_folding.py\", line 9, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n"
       ],
-      "duration_ms": 427.5320599999901,
+      "duration_ms": 434.4240660000054,
       "status": "failed"
     }
   },
-  "last_updated": "2026-03-23T02:11:13.966891"
+  "last_updated": "2026-03-24T02:03:26.845895"
 }

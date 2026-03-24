@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "The Institutional Scaling Law: Non-Monotonic Fitness, Capability-Trust Divergence, and Symbiogenetic Scaling in Generative AI",
-      "summary": "Classical scaling laws model AI performance as monotonically improving with model size. We challenge this assumption by deriving the Institutional Scaling Law, showing that institutional fitness -- jo...",
-      "fetched": "2026-03-17T02:05:09.065620"
-    },
-    {
-      "title": "Towards Agentic Honeynet Configuration",
-      "summary": "Honeypots are deception systems that emulate vulnerable services to collect threat intelligence. While deploying many honeypots increases the opportunity to observe attacker behaviour, in practise net...",
-      "fetched": "2026-03-17T02:05:09.065623"
-    },
-    {
-      "title": "Demystifing Video Reasoning",
-      "summary": "Recent advances in video generation have revealed an unexpected phenomenon: diffusion-based video models exhibit non-trivial reasoning capabilities. Prior work attributes this to a Chain-of-Frames (Co...",
-      "fetched": "2026-03-18T02:09:00.124421"
-    },
-    {
       "title": "MessyKitchens: Contact-rich object-level 3D scene reconstruction",
       "summary": "Monocular 3D scene reconstruction has recently seen significant progress. Powered by the modern neural architectures and large-scale data, recent methods achieve high performance in depth estimation f...",
       "fetched": "2026-03-18T02:09:00.124433"
@@ -99,7 +84,22 @@
       "title": "CoverageBench: Evaluating Information Coverage across Tasks and Domains",
       "summary": "We wish to measure the information coverage of an ad hoc retrieval algorithm, that is, how much of the range of available relevant information is covered by the search results. Information coverage is...",
       "fetched": "2026-03-23T02:11:14.254582"
+    },
+    {
+      "title": "DMMRL: Disentangled Multi-Modal Representation Learning via Variational Autoencoders for Molecular Property Prediction",
+      "summary": "Molecular property prediction constitutes a cornerstone of drug discovery and materials science, necessitating models capable of disentangling complex structure-property relationships across diverse m...",
+      "fetched": "2026-03-24T02:03:27.136483"
+    },
+    {
+      "title": "Learning Progressive Adaptation for Multi-Modal Tracking",
+      "summary": "Due to the limited availability of paired multi-modal data, multi-modal trackers are typically built by adopting pre-trained RGB models with parameter-efficient fine-tuning modules. However, these fin...",
+      "fetched": "2026-03-24T02:03:27.136491"
+    },
+    {
+      "title": "Mixture of Chapters: Scaling Learnt Memory in Transformers",
+      "summary": "Transformers lack an explicit architectural mechanism for storing and organizing knowledge acquired during training. We introduce learnable sparse memory banks: a set of latent tokens, randomly initia...",
+      "fetched": "2026-03-24T02:03:27.136493"
     }
   ],
-  "last_sync": "2026-03-23T02:11:14.317370"
+  "last_sync": "2026-03-24T02:03:27.240820"
 }
