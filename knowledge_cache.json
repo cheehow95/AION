@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Detecting the Machine: A Comprehensive Benchmark of AI-Generated Text Detectors Across Architectures, Domains, and Adversarial Conditions",
-      "summary": "The rapid proliferation of large language models (LLMs) has created an urgent need for robust and generalizable detectors of machine-generated text. Existing benchmarks typically evaluate a single det...",
-      "fetched": "2026-03-19T02:10:00.121016"
-    },
-    {
-      "title": "QuantFL: Sustainable Federated Learning for Edge IoT via Pre-Trained Model Quantisation",
-      "summary": "Federated Learning (FL) enables privacy-preserving intelligence on Internet of Things (IoT) devices but incurs a significant carbon footprint due to the high energy cost of frequent uplink transmissio...",
-      "fetched": "2026-03-19T02:10:00.121018"
-    },
-    {
-      "title": "MultihopSpatial: Multi-hop Compositional Spatial Reasoning Benchmark for Vision-Language Model",
-      "summary": "Spatial reasoning is foundational for Vision-Language Models (VLMs), particularly when deployed as Vision-Language-Action (VLA) agents in physical environments. However, existing benchmarks predominan...",
-      "fetched": "2026-03-20T02:03:56.448372"
-    },
-    {
       "title": "Reasoning over mathematical objects: on-policy reward modeling and test time aggregation",
       "summary": "The ability to precisely derive mathematical objects is a core requirement for downstream STEM applications, including mathematics, physics, and chemistry, where reasoning must culminate in formally s...",
       "fetched": "2026-03-20T02:03:56.448378"
@@ -99,7 +84,22 @@
       "title": "Describe-Then-Act: Proactive Agent Steering via Distilled Language-Action World Models",
       "summary": "Deploying safety-critical agents requires anticipating the consequences of actions before they are executed. While world models offer a paradigm for this proactive foresight, current approaches relyin...",
       "fetched": "2026-03-25T02:09:01.350943"
+    },
+    {
+      "title": "The Stochastic Gap: A Markovian Framework for Pre-Deployment Reliability and Oversight-Cost Auditing in Agentic Artificial Intelligence",
+      "summary": "Agentic artificial intelligence (AI) in organizations is a sequential decision problem constrained by reliability and oversight cost. When deterministic workflows are replaced by stochastic policies o...",
+      "fetched": "2026-03-26T02:22:36.172476"
+    },
+    {
+      "title": "Retrieval Improvements Do Not Guarantee Better Answers: A Study of RAG for AI Policy QA",
+      "summary": "Retrieval-augmented generation (RAG) systems are increasingly used to analyze complex policy documents, but achieving sufficient reliability for expert usage remains challenging in domains characteriz...",
+      "fetched": "2026-03-26T02:22:36.172486"
+    },
+    {
+      "title": "EndoVGGT: GNN-Enhanced Depth Estimation for Surgical 3D Reconstruction",
+      "summary": "Accurate 3D reconstruction of deformable soft tissues is essential for surgical robotic perception. However, low-texture surfaces, specular highlights, and instrument occlusions often fragment geometr...",
+      "fetched": "2026-03-26T02:22:36.172489"
     }
   ],
-  "last_sync": "2026-03-25T02:09:01.388717"
+  "last_sync": "2026-03-26T02:22:36.208594"
 }
