@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Reasoning over mathematical objects: on-policy reward modeling and test time aggregation",
-      "summary": "The ability to precisely derive mathematical objects is a core requirement for downstream STEM applications, including mathematics, physics, and chemistry, where reasoning must culminate in formally s...",
-      "fetched": "2026-03-20T02:03:56.448378"
-    },
-    {
-      "title": "Geography According to ChatGPT -- How Generative AI Represents and Reasons about Geography",
-      "summary": "Understanding how AI will represent and reason about geography should be a key concern for all of us, as the broader public increasingly interacts with spaces and places through these systems. Similar...",
-      "fetched": "2026-03-20T02:03:56.448380"
-    },
-    {
-      "title": "NavTrust: Benchmarking Trustworthiness for Embodied Navigation",
-      "summary": "There are two major categories of embodied navigation: Vision-Language Navigation (VLN), where agents navigate by following natural language instructions; and Object-Goal Navigation (OGN), where agent...",
-      "fetched": "2026-03-21T01:58:00.827735"
-    },
-    {
       "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
       "summary": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals com...",
       "fetched": "2026-03-21T01:58:00.827755"
@@ -99,7 +84,22 @@
       "title": "EndoVGGT: GNN-Enhanced Depth Estimation for Surgical 3D Reconstruction",
       "summary": "Accurate 3D reconstruction of deformable soft tissues is essential for surgical robotic perception. However, low-texture surfaces, specular highlights, and instrument occlusions often fragment geometr...",
       "fetched": "2026-03-26T02:22:36.172489"
+    },
+    {
+      "title": "NERO-Net: A Neuroevolutionary Approach for the Design of Adversarially Robust CNNs",
+      "summary": "Neuroevolution automates the complex task of neural network design but often ignores the inherent adversarial fragility of evolved models which is a barrier to adoption in safety-critical scenarios. W...",
+      "fetched": "2026-03-27T02:23:42.954134"
+    },
+    {
+      "title": "Challenges in Hyperspectral Imaging for Autonomous Driving: The HSI-Drive Case",
+      "summary": "The use of hyperspectral imaging (HSI) in autonomous driving (AD), while promising, faces many challenges related to the specifics and requirements of this application domain. On the one hand, non-con...",
+      "fetched": "2026-03-27T02:23:42.954144"
+    },
+    {
+      "title": "Lightweight GenAI for Network Traffic Synthesis: Fidelity, Augmentation, and Classification",
+      "summary": "Accurate Network Traffic Classification (NTC) is increasingly constrained by limited labeled data and strict privacy requirements. While Network Traffic Generation (NTG) provides an effective means to...",
+      "fetched": "2026-03-27T02:23:42.954146"
     }
   ],
-  "last_sync": "2026-03-26T02:22:36.208594"
+  "last_sync": "2026-03-27T02:23:43.075230"
 }
