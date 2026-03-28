@@ -3,21 +3,6 @@
     {
       "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
       "summary": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals com...",
-      "fetched": "2026-03-21T01:58:00.827755"
-    },
-    {
-      "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
-      "summary": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available h...",
-      "fetched": "2026-03-21T01:58:00.827759"
-    },
-    {
-      "title": "NavTrust: Benchmarking Trustworthiness for Embodied Navigation",
-      "summary": "There are two major categories of embodied navigation: Vision-Language Navigation (VLN), where agents navigate by following natural language instructions; and Object-Goal Navigation (OGN), where agent...",
-      "fetched": "2026-03-22T02:10:41.957161"
-    },
-    {
-      "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
-      "summary": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals com...",
       "fetched": "2026-03-22T02:10:41.957175"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Lightweight GenAI for Network Traffic Synthesis: Fidelity, Augmentation, and Classification",
       "summary": "Accurate Network Traffic Classification (NTC) is increasingly constrained by limited labeled data and strict privacy requirements. While Network Traffic Generation (NTG) provides an effective means to...",
       "fetched": "2026-03-27T02:23:42.954146"
+    },
+    {
+      "title": "Vega: Learning to Drive with Natural Language Instructions",
+      "summary": "Vision-language-action models have reshaped autonomous driving to incorporate languages into the decision-making process. However, most existing pipelines only utilize the language modality for scene ...",
+      "fetched": "2026-03-28T02:07:07.966366"
+    },
+    {
+      "title": "Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving",
+      "summary": "Human driving behavior is inherently personal, which is shaped by long-term habits and influenced by short-term intentions. Individuals differ in how they accelerate, brake, merge, yield, and overtake...",
+      "fetched": "2026-03-28T02:07:07.966376"
+    },
+    {
+      "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
+      "summary": "The knowledge base in a retrieval-augmented generation (RAG) system is typically assembled once and never revised, even though the facts a query requires are often fragmented across documents and buri...",
+      "fetched": "2026-03-28T02:07:07.966378"
     }
   ],
-  "last_sync": "2026-03-27T02:23:43.075230"
+  "last_sync": "2026-03-28T02:07:08.002366"
 }
