@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
-      "summary": "Real-world financial decision-making is a challenging problem that requires reasoning over heterogeneous signals, including company fundamentals derived from regulatory filings and trading signals com...",
-      "fetched": "2026-03-22T02:10:41.957175"
-    },
-    {
-      "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
-      "summary": "We present F2LLM-v2, a new family of general-purpose, multilingual embedding models in 8 distinct sizes ranging from 80M to 14B. Trained on a newly curated composite of 60 million publicly available h...",
-      "fetched": "2026-03-22T02:10:41.957179"
-    },
-    {
-      "title": "Experience is the Best Teacher: Motivating Effective Exploration in Reinforcement Learning for LLMs",
-      "summary": "Reinforcement Learning (RL) with rubric-based rewards has recently shown remarkable progress in enhancing general reasoning capabilities of Large Language Models (LLMs), yet still suffers from ineffec...",
-      "fetched": "2026-03-23T02:11:14.254573"
-    },
-    {
       "title": "LoASR-Bench: Evaluating Large Speech Language Models on Low-Resource Automatic Speech Recognition Across Language Families",
       "summary": "Large language models (LLMs) have driven substantial advances in speech language models (SpeechLMs), yielding strong performance in automatic speech recognition (ASR) under high-resource conditions. H...",
       "fetched": "2026-03-23T02:11:14.254580"
@@ -99,7 +84,22 @@
       "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
       "summary": "The knowledge base in a retrieval-augmented generation (RAG) system is typically assembled once and never revised, even though the facts a query requires are often fragmented across documents and buri...",
       "fetched": "2026-03-28T02:07:07.966378"
+    },
+    {
+      "title": "ProgressVLA: Progress-Guided Diffusion Policy for Vision-Language Robotic Manipulation",
+      "summary": "Most existing vision-language-action (VLA) models for robotic manipulation lack progress awareness, typically relying on hand-crafted heuristics for task termination. This limitation is particularly s...",
+      "fetched": "2026-03-31T02:24:03.125399"
+    },
+    {
+      "title": "EvA: An Evidence-First Audio Understanding Paradigm for LALMs",
+      "summary": "Large Audio Language Models (LALMs) still struggle in complex acoustic scenes because they often fail to preserve task-relevant acoustic evidence before reasoning begins. We call this failure the evid...",
+      "fetched": "2026-03-31T02:24:03.125406"
+    },
+    {
+      "title": "ContraMap: Contrastive Uncertainty Mapping for Robot Environment Representation",
+      "summary": "Reliable robot perception requires not only predicting scene structure, but also identifying where predictions should be treated as unreliable due to sparse or missing observations. We present ContraM...",
+      "fetched": "2026-03-31T02:24:03.125408"
     }
   ],
-  "last_sync": "2026-03-30T02:29:24.500892"
+  "last_sync": "2026-03-31T02:24:03.206049"
 }
