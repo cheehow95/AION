@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "LoASR-Bench: Evaluating Large Speech Language Models on Low-Resource Automatic Speech Recognition Across Language Families",
-      "summary": "Large language models (LLMs) have driven substantial advances in speech language models (SpeechLMs), yielding strong performance in automatic speech recognition (ASR) under high-resource conditions. H...",
-      "fetched": "2026-03-23T02:11:14.254580"
-    },
-    {
-      "title": "CoverageBench: Evaluating Information Coverage across Tasks and Domains",
-      "summary": "We wish to measure the information coverage of an ad hoc retrieval algorithm, that is, how much of the range of available relevant information is covered by the search results. Information coverage is...",
-      "fetched": "2026-03-23T02:11:14.254582"
-    },
-    {
-      "title": "DMMRL: Disentangled Multi-Modal Representation Learning via Variational Autoencoders for Molecular Property Prediction",
-      "summary": "Molecular property prediction constitutes a cornerstone of drug discovery and materials science, necessitating models capable of disentangling complex structure-property relationships across diverse m...",
-      "fetched": "2026-03-24T02:03:27.136483"
-    },
-    {
       "title": "Learning Progressive Adaptation for Multi-Modal Tracking",
       "summary": "Due to the limited availability of paired multi-modal data, multi-modal trackers are typically built by adopting pre-trained RGB models with parameter-efficient fine-tuning modules. However, these fin...",
       "fetched": "2026-03-24T02:03:27.136491"
@@ -99,7 +84,22 @@
       "title": "ContraMap: Contrastive Uncertainty Mapping for Robot Environment Representation",
       "summary": "Reliable robot perception requires not only predicting scene structure, but also identifying where predictions should be treated as unreliable due to sparse or missing observations. We present ContraM...",
       "fetched": "2026-03-31T02:24:03.125408"
+    },
+    {
+      "title": "Automatic Identification of Parallelizable Loops Using Transformer-Based Source Code Representations",
+      "summary": "Automatic parallelization remains a challenging problem in software engineering, particularly in identifying code regions where loops can be safely executed in parallel on modern multi-core architectu...",
+      "fetched": "2026-04-01T02:34:16.479360"
+    },
+    {
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
+      "summary": "Chain-of-Thought (CoT) monitoring, in which automated systems monitor the CoT of an LLM, is a promising approach for effectively overseeing AI systems. However, the extent to which a model's CoT helps...",
+      "fetched": "2026-04-01T02:34:16.479367"
+    },
+    {
+      "title": "Tucker Attention: A generalization of approximate attention mechanisms",
+      "summary": "The pursuit of reducing the memory footprint of the self-attention mechanism in multi-headed self attention (MHA) spawned a rich portfolio of methods, e.g., group-query attention (GQA) and multi-head ...",
+      "fetched": "2026-04-01T02:34:16.479370"
     }
   ],
-  "last_sync": "2026-03-31T02:24:03.206049"
+  "last_sync": "2026-04-01T02:34:16.520339"
 }
