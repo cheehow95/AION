@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Robust Safety Monitoring of Language Models via Activation Watermarking",
-      "summary": "Large language models (LLMs) can be misused to reveal sensitive information, such as weapon-making instructions or writing malware. LLM providers rely on $\\emph{monitoring}$ to detect and flag unsafe ...",
-      "fetched": "2026-03-25T02:09:01.350941"
-    },
-    {
-      "title": "Describe-Then-Act: Proactive Agent Steering via Distilled Language-Action World Models",
-      "summary": "Deploying safety-critical agents requires anticipating the consequences of actions before they are executed. While world models offer a paradigm for this proactive foresight, current approaches relyin...",
-      "fetched": "2026-03-25T02:09:01.350943"
-    },
-    {
-      "title": "The Stochastic Gap: A Markovian Framework for Pre-Deployment Reliability and Oversight-Cost Auditing in Agentic Artificial Intelligence",
-      "summary": "Agentic artificial intelligence (AI) in organizations is a sequential decision problem constrained by reliability and oversight cost. When deterministic workflows are replaced by stochastic policies o...",
-      "fetched": "2026-03-26T02:22:36.172476"
-    },
-    {
       "title": "Retrieval Improvements Do Not Guarantee Better Answers: A Study of RAG for AI Policy QA",
       "summary": "Retrieval-augmented generation (RAG) systems are increasingly used to analyze complex policy documents, but achieving sufficient reliability for expert usage remains challenging in domains characteriz...",
       "fetched": "2026-03-26T02:22:36.172486"
@@ -99,7 +84,22 @@
       "title": "Grounded Token Initialization for New Vocabulary in LMs for Generative Recommendation",
       "summary": "Language models (LMs) are increasingly extended with new learnable vocabulary tokens for domain-specific tasks, such as Semantic-ID tokens in generative recommendation. The standard practice initializ...",
       "fetched": "2026-04-03T02:21:50.138792"
+    },
+    {
+      "title": "ActionParty: Multi-Subject Action Binding in Generative Video Games",
+      "summary": "Recent advances in video diffusion have enabled the development of \"world models\" capable of simulating interactive environments. However, these models are largely restricted to single-agent settings,...",
+      "fetched": "2026-04-04T02:07:00.668690"
+    },
+    {
+      "title": "Steerable Visual Representations",
+      "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
+      "fetched": "2026-04-04T02:07:00.668698"
+    },
+    {
+      "title": "Grounded Token Initialization for New Vocabulary in LMs for Generative Recommendation",
+      "summary": "Language models (LMs) are increasingly extended with new learnable vocabulary tokens for domain-specific tasks, such as Semantic-ID tokens in generative recommendation. The standard practice initializ...",
+      "fetched": "2026-04-04T02:07:00.668700"
     }
   ],
-  "last_sync": "2026-04-03T02:21:50.232416"
+  "last_sync": "2026-04-04T02:07:00.713608"
 }
