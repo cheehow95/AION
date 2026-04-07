@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving",
-      "summary": "Human driving behavior is inherently personal, which is shaped by long-term habits and influenced by short-term intentions. Individuals differ in how they accelerate, brake, merge, yield, and overtake...",
-      "fetched": "2026-03-28T02:07:07.966376"
-    },
-    {
-      "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
-      "summary": "The knowledge base in a retrieval-augmented generation (RAG) system is typically assembled once and never revised, even though the facts a query requires are often fragmented across documents and buri...",
-      "fetched": "2026-03-28T02:07:07.966378"
-    },
-    {
-      "title": "ProgressVLA: Progress-Guided Diffusion Policy for Vision-Language Robotic Manipulation",
-      "summary": "Most existing vision-language-action (VLA) models for robotic manipulation lack progress awareness, typically relying on hand-crafted heuristics for task termination. This limitation is particularly s...",
-      "fetched": "2026-03-31T02:24:03.125399"
-    },
-    {
       "title": "EvA: An Evidence-First Audio Understanding Paradigm for LALMs",
       "summary": "Large Audio Language Models (LALMs) still struggle in complex acoustic scenes because they often fail to preserve task-relevant acoustic evidence before reasoning begins. We call this failure the evid...",
       "fetched": "2026-03-31T02:24:03.125406"
@@ -99,7 +84,22 @@
       "title": "Coupled Control, Structured Memory, and Verifiable Action in Agentic AI (SCRAT -- Stochastic Control with Retrieval and Auditable Trajectories): A Comparative Perspective from Squirrel Locomotion and Scatter-Hoarding",
       "summary": "Agentic AI is increasingly judged not by fluent output alone but by whether it can act, remember, and verify under partial observability, delay, and strategic observation. Existing research often stud...",
       "fetched": "2026-04-06T02:30:06.050076"
+    },
+    {
+      "title": "Schema-Aware Planning and Hybrid Knowledge Toolset for Reliable Knowledge Graph Triple Verification",
+      "summary": "Knowledge Graphs (KGs) serve as a critical foundation for AI systems, yet their automated construction inevitably introduces noise, compromising data trustworthiness. Existing triple verification meth...",
+      "fetched": "2026-04-07T02:24:54.375630"
+    },
+    {
+      "title": "Comparative reversal learning reveals rigid adaptation in LLMs under non-stationary uncertainty",
+      "summary": "Non-stationary environments require agents to revise previously learned action values when contingencies change. We treat large language models (LLMs) as sequential decision policies in a two-option p...",
+      "fetched": "2026-04-07T02:24:54.375639"
+    },
+    {
+      "title": "CoALFake: Collaborative Active Learning with Human-LLM Co-Annotation for Cross-Domain Fake News Detection",
+      "summary": "The proliferation of fake news across diverse domains highlights critical limitations in current detection systems, which often exhibit narrow domain specificity and poor generalization. Existing cros...",
+      "fetched": "2026-04-07T02:24:54.375642"
     }
   ],
-  "last_sync": "2026-04-06T02:30:06.088069"
+  "last_sync": "2026-04-07T02:24:54.413911"
 }
