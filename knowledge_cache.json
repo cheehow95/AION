@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "EvA: An Evidence-First Audio Understanding Paradigm for LALMs",
-      "summary": "Large Audio Language Models (LALMs) still struggle in complex acoustic scenes because they often fail to preserve task-relevant acoustic evidence before reasoning begins. We call this failure the evid...",
-      "fetched": "2026-03-31T02:24:03.125406"
-    },
-    {
-      "title": "ContraMap: Contrastive Uncertainty Mapping for Robot Environment Representation",
-      "summary": "Reliable robot perception requires not only predicting scene structure, but also identifying where predictions should be treated as unreliable due to sparse or missing observations. We present ContraM...",
-      "fetched": "2026-03-31T02:24:03.125408"
-    },
-    {
-      "title": "Automatic Identification of Parallelizable Loops Using Transformer-Based Source Code Representations",
-      "summary": "Automatic parallelization remains a challenging problem in software engineering, particularly in identifying code regions where loops can be safely executed in parallel on modern multi-core architectu...",
-      "fetched": "2026-04-01T02:34:16.479360"
-    },
-    {
       "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
       "summary": "Chain-of-Thought (CoT) monitoring, in which automated systems monitor the CoT of an LLM, is a promising approach for effectively overseeing AI systems. However, the extent to which a model's CoT helps...",
       "fetched": "2026-04-01T02:34:16.479367"
@@ -99,7 +84,22 @@
       "title": "CoALFake: Collaborative Active Learning with Human-LLM Co-Annotation for Cross-Domain Fake News Detection",
       "summary": "The proliferation of fake news across diverse domains highlights critical limitations in current detection systems, which often exhibit narrow domain specificity and poor generalization. Existing cros...",
       "fetched": "2026-04-07T02:24:54.375642"
+    },
+    {
+      "title": "In-Place Test-Time Training",
+      "summary": "The static ``train then deploy\" paradigm fundamentally limits Large Language Models (LLMs) from dynamically adapting their weights in response to continuous streams of new information inherent in real...",
+      "fetched": "2026-04-08T02:25:58.621567"
+    },
+    {
+      "title": "DiffHDR: Re-Exposing LDR Videos with Video Diffusion Models",
+      "summary": "Most digital videos are stored in 8-bit low dynamic range (LDR) formats, where much of the original high dynamic range (HDR) scene radiance is lost due to saturation and quantization. This loss of hig...",
+      "fetched": "2026-04-08T02:25:58.621572"
+    },
+    {
+      "title": "MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and Adaptive Control",
+      "summary": "MLLMs have been successfully applied to multimodal embedding tasks, yet their generative reasoning capabilities remain underutilized. Directly incorporating chain-of-thought reasoning into embedding l...",
+      "fetched": "2026-04-08T02:25:58.621573"
     }
   ],
-  "last_sync": "2026-04-07T02:24:54.413911"
+  "last_sync": "2026-04-08T02:25:58.660729"
 }
