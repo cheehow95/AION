@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
-      "summary": "Chain-of-Thought (CoT) monitoring, in which automated systems monitor the CoT of an LLM, is a promising approach for effectively overseeing AI systems. However, the extent to which a model's CoT helps...",
-      "fetched": "2026-04-01T02:34:16.479367"
-    },
-    {
-      "title": "Tucker Attention: A generalization of approximate attention mechanisms",
-      "summary": "The pursuit of reducing the memory footprint of the self-attention mechanism in multi-headed self attention (MHA) spawned a rich portfolio of methods, e.g., group-query attention (GQA) and multi-head ...",
-      "fetched": "2026-04-01T02:34:16.479370"
-    },
-    {
-      "title": "ActionParty: Multi-Subject Action Binding in Generative Video Games",
-      "summary": "Recent advances in video diffusion have enabled the development of \"world models\" capable of simulating interactive environments. However, these models are largely restricted to single-agent settings,...",
-      "fetched": "2026-04-03T02:21:50.138773"
-    },
-    {
       "title": "Steerable Visual Representations",
       "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
       "fetched": "2026-04-03T02:21:50.138789"
@@ -99,7 +84,22 @@
       "title": "MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and Adaptive Control",
       "summary": "MLLMs have been successfully applied to multimodal embedding tasks, yet their generative reasoning capabilities remain underutilized. Directly incorporating chain-of-thought reasoning into embedding l...",
       "fetched": "2026-04-08T02:25:58.621573"
+    },
+    {
+      "title": "Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education",
+      "summary": "In gender-restrictive and surveilled contexts, where access to formal education may be restricted for women, pursuing education involves safety and privacy risks. When women are excluded from schools ...",
+      "fetched": "2026-04-09T02:12:19.271257"
+    },
+    {
+      "title": "$k$-server-bench: Automating Potential Discovery for the $k$-Server Conjecture",
+      "summary": "We introduce a code-based challenge for automated, open-ended mathematical discovery based on the $k$-server conjecture, a central open problem in competitive analysis. The task is to discover a poten...",
+      "fetched": "2026-04-09T02:12:19.271264"
+    },
+    {
+      "title": "How Much LLM Does a Self-Revising Agent Actually Need?",
+      "summary": "Recent LLM-based agents often place world modeling, planning, and reflection inside a single language model loop. This can produce capable behavior, but it makes a basic scientific question difficult ...",
+      "fetched": "2026-04-09T02:12:19.271266"
     }
   ],
-  "last_sync": "2026-04-08T02:25:58.660729"
+  "last_sync": "2026-04-09T02:12:19.304933"
 }
