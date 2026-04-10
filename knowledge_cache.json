@@ -3,21 +3,6 @@
     {
       "title": "Steerable Visual Representations",
       "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
-      "fetched": "2026-04-03T02:21:50.138789"
-    },
-    {
-      "title": "Grounded Token Initialization for New Vocabulary in LMs for Generative Recommendation",
-      "summary": "Language models (LMs) are increasingly extended with new learnable vocabulary tokens for domain-specific tasks, such as Semantic-ID tokens in generative recommendation. The standard practice initializ...",
-      "fetched": "2026-04-03T02:21:50.138792"
-    },
-    {
-      "title": "ActionParty: Multi-Subject Action Binding in Generative Video Games",
-      "summary": "Recent advances in video diffusion have enabled the development of \"world models\" capable of simulating interactive environments. However, these models are largely restricted to single-agent settings,...",
-      "fetched": "2026-04-04T02:07:00.668690"
-    },
-    {
-      "title": "Steerable Visual Representations",
-      "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
       "fetched": "2026-04-04T02:07:00.668698"
     },
     {
@@ -99,7 +84,22 @@
       "title": "How Much LLM Does a Self-Revising Agent Actually Need?",
       "summary": "Recent LLM-based agents often place world modeling, planning, and reflection inside a single language model loop. This can produce capable behavior, but it makes a basic scientific question difficult ...",
       "fetched": "2026-04-09T02:12:19.271266"
+    },
+    {
+      "title": "Lost in the Hype: Revealing and Dissecting the Performance Degradation of Medical Multimodal Large Language Models in Image Classification",
+      "summary": "The rise of multimodal large language models (MLLMs) has sparked an unprecedented wave of applications in the field of medical imaging analysis. However, as one of the earliest and most fundamental ta...",
+      "fetched": "2026-04-10T02:31:56.352343"
+    },
+    {
+      "title": "ProMedical: Hierarchical Fine-Grained Criteria Modeling for Medical LLM Alignment via Explicit Injection",
+      "summary": "Aligning Large Language Models (LLMs) with high-stakes medical standards remains a significant challenge, primarily due to the dissonance between coarse-grained preference signals and the complex, mul...",
+      "fetched": "2026-04-10T02:31:56.352350"
+    },
+    {
+      "title": "Multi-Modal Learning meets Genetic Programming: Analyzing Alignment in Latent Space Optimization",
+      "summary": "Symbolic regression (SR) aims to discover mathematical expressions from data, a task traditionally tackled using Genetic Programming (GP) through combinatorial search over symbolic structures. Latent ...",
+      "fetched": "2026-04-10T02:31:56.352352"
     }
   ],
-  "last_sync": "2026-04-09T02:12:19.304933"
+  "last_sync": "2026-04-10T02:31:56.391291"
 }
