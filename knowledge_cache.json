@@ -3,21 +3,6 @@
     {
       "title": "Steerable Visual Representations",
       "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
-      "fetched": "2026-04-04T02:07:00.668698"
-    },
-    {
-      "title": "Grounded Token Initialization for New Vocabulary in LMs for Generative Recommendation",
-      "summary": "Language models (LMs) are increasingly extended with new learnable vocabulary tokens for domain-specific tasks, such as Semantic-ID tokens in generative recommendation. The standard practice initializ...",
-      "fetched": "2026-04-04T02:07:00.668700"
-    },
-    {
-      "title": "ActionParty: Multi-Subject Action Binding in Generative Video Games",
-      "summary": "Recent advances in video diffusion have enabled the development of \"world models\" capable of simulating interactive environments. However, these models are largely restricted to single-agent settings,...",
-      "fetched": "2026-04-05T02:28:29.019980"
-    },
-    {
-      "title": "Steerable Visual Representations",
-      "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
       "fetched": "2026-04-05T02:28:29.019987"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Multi-Modal Learning meets Genetic Programming: Analyzing Alignment in Latent Space Optimization",
       "summary": "Symbolic regression (SR) aims to discover mathematical expressions from data, a task traditionally tackled using Genetic Programming (GP) through combinatorial search over symbolic structures. Latent ...",
       "fetched": "2026-04-10T02:31:56.352352"
+    },
+    {
+      "title": "Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models",
+      "summary": "The advent of agentic multimodal models has empowered systems to actively interact with external environments. However, current agents suffer from a profound meta-cognitive deficit: they struggle to a...",
+      "fetched": "2026-04-12T02:33:35.772887"
+    },
+    {
+      "title": "SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds",
+      "summary": "Robotic manipulation with deformable objects represents a data-intensive regime in embodied learning, where shape, contact, and topology co-evolve in ways that far exceed the variability of rigids. Al...",
+      "fetched": "2026-04-12T02:33:35.772896"
+    },
+    {
+      "title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
+      "summary": "Multimodal Mixture-of-Experts (MoE) models have achieved remarkable performance on vision-language tasks. However, we identify a puzzling phenomenon termed Seeing but Not Thinking: models accurately p...",
+      "fetched": "2026-04-12T02:33:35.772899"
     }
   ],
-  "last_sync": "2026-04-11T02:10:52.201215"
+  "last_sync": "2026-04-12T02:33:35.807700"
 }
