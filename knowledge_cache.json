@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Steerable Visual Representations",
-      "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. Ho...",
-      "fetched": "2026-04-05T02:28:29.019987"
-    },
-    {
-      "title": "Grounded Token Initialization for New Vocabulary in LMs for Generative Recommendation",
-      "summary": "Language models (LMs) are increasingly extended with new learnable vocabulary tokens for domain-specific tasks, such as Semantic-ID tokens in generative recommendation. The standard practice initializ...",
-      "fetched": "2026-04-05T02:28:29.019989"
-    },
-    {
-      "title": "Enhancing Robustness of Federated Learning via Server Learning",
-      "summary": "This paper explores the use of server learning for enhancing the robustness of federated learning against malicious attacks even when clients' training data are not independent and identically distrib...",
-      "fetched": "2026-04-06T02:30:06.050063"
-    },
-    {
       "title": "PR3DICTR: A modular AI framework for medical 3D image-based detection and outcome prediction",
       "summary": "Three-dimensional medical image data and computer-aided decision making, particularly using deep learning, are becoming increasingly important in the medical field. To aid in these developments we int...",
       "fetched": "2026-04-06T02:30:06.050072"
@@ -99,7 +84,22 @@
       "title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
       "summary": "Multimodal Mixture-of-Experts (MoE) models have achieved remarkable performance on vision-language tasks. However, we identify a puzzling phenomenon termed Seeing but Not Thinking: models accurately p...",
       "fetched": "2026-04-12T02:33:35.772899"
+    },
+    {
+      "title": "E3-TIR: Enhanced Experience Exploitation for Tool-Integrated Reasoning",
+      "summary": "While Large Language Models (LLMs) have demonstrated significant potential in Tool-Integrated Reasoning (TIR), existing training paradigms face significant limitations: Zero-RL suffers from inefficien...",
+      "fetched": "2026-04-13T02:38:22.703937"
+    },
+    {
+      "title": "SafeAdapt: Provably Safe Policy Updates in Deep Reinforcement Learning",
+      "summary": "Safety guarantees are a prerequisite to the deployment of reinforcement learning (RL) agents in safety-critical tasks. Often, deployment environments exhibit non-stationary dynamics or are subject to ...",
+      "fetched": "2026-04-13T02:38:22.703947"
+    },
+    {
+      "title": "ECHO: Efficient Chest X-ray Report Generation with One-step Block Diffusion",
+      "summary": "Chest X-ray report generation (CXR-RG) has the potential to substantially alleviate radiologists' workload. However, conventional autoregressive vision--language models (VLMs) suffer from high inferen...",
+      "fetched": "2026-04-13T02:38:22.703949"
     }
   ],
-  "last_sync": "2026-04-12T02:33:35.807700"
+  "last_sync": "2026-04-13T02:38:22.782952"
 }
