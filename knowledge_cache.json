@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "PR3DICTR: A modular AI framework for medical 3D image-based detection and outcome prediction",
-      "summary": "Three-dimensional medical image data and computer-aided decision making, particularly using deep learning, are becoming increasingly important in the medical field. To aid in these developments we int...",
-      "fetched": "2026-04-06T02:30:06.050072"
-    },
-    {
-      "title": "Coupled Control, Structured Memory, and Verifiable Action in Agentic AI (SCRAT -- Stochastic Control with Retrieval and Auditable Trajectories): A Comparative Perspective from Squirrel Locomotion and Scatter-Hoarding",
-      "summary": "Agentic AI is increasingly judged not by fluent output alone but by whether it can act, remember, and verify under partial observability, delay, and strategic observation. Existing research often stud...",
-      "fetched": "2026-04-06T02:30:06.050076"
-    },
-    {
-      "title": "Schema-Aware Planning and Hybrid Knowledge Toolset for Reliable Knowledge Graph Triple Verification",
-      "summary": "Knowledge Graphs (KGs) serve as a critical foundation for AI systems, yet their automated construction inevitably introduces noise, compromising data trustworthiness. Existing triple verification meth...",
-      "fetched": "2026-04-07T02:24:54.375630"
-    },
-    {
       "title": "Comparative reversal learning reveals rigid adaptation in LLMs under non-stationary uncertainty",
       "summary": "Non-stationary environments require agents to revise previously learned action values when contingencies change. We treat large language models (LLMs) as sequential decision policies in a two-option p...",
       "fetched": "2026-04-07T02:24:54.375639"
@@ -99,7 +84,22 @@
       "title": "ECHO: Efficient Chest X-ray Report Generation with One-step Block Diffusion",
       "summary": "Chest X-ray report generation (CXR-RG) has the potential to substantially alleviate radiologists' workload. However, conventional autoregressive vision--language models (VLMs) suffer from high inferen...",
       "fetched": "2026-04-13T02:38:22.703949"
+    },
+    {
+      "title": "LLMs Should Incorporate Explicit Mechanisms for Human Empathy",
+      "summary": "This paper argues that Large Language Models (LLMs) should incorporate explicit mechanisms for human empathy. As LLMs become increasingly deployed in high-stakes human-centered settings, their success...",
+      "fetched": "2026-04-14T02:31:56.357662"
+    },
+    {
+      "title": "Failure Ontology: A Lifelong Learning Framework for Blind Spot Detection and Resilience Design",
+      "summary": "Personalized learning systems are almost universally designed around a single objective: help people acquire knowledge and skills more efficiently. We argue this framing misses the more consequential ...",
+      "fetched": "2026-04-14T02:31:56.357671"
+    },
+    {
+      "title": "Agent^2 RL-Bench: Can LLM Agents Engineer Agentic RL Post-Training?",
+      "summary": "We introduce Agent^2 RL-Bench, a benchmark for evaluating agentic RL post-training -- whether LLM agents can autonomously design, implement, and run complete RL pipelines that improve foundation model...",
+      "fetched": "2026-04-14T02:31:56.357673"
     }
   ],
-  "last_sync": "2026-04-13T02:38:22.782952"
+  "last_sync": "2026-04-14T02:31:56.416927"
 }
