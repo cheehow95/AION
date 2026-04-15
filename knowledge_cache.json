@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Comparative reversal learning reveals rigid adaptation in LLMs under non-stationary uncertainty",
-      "summary": "Non-stationary environments require agents to revise previously learned action values when contingencies change. We treat large language models (LLMs) as sequential decision policies in a two-option p...",
-      "fetched": "2026-04-07T02:24:54.375639"
-    },
-    {
-      "title": "CoALFake: Collaborative Active Learning with Human-LLM Co-Annotation for Cross-Domain Fake News Detection",
-      "summary": "The proliferation of fake news across diverse domains highlights critical limitations in current detection systems, which often exhibit narrow domain specificity and poor generalization. Existing cros...",
-      "fetched": "2026-04-07T02:24:54.375642"
-    },
-    {
-      "title": "In-Place Test-Time Training",
-      "summary": "The static ``train then deploy\" paradigm fundamentally limits Large Language Models (LLMs) from dynamically adapting their weights in response to continuous streams of new information inherent in real...",
-      "fetched": "2026-04-08T02:25:58.621567"
-    },
-    {
       "title": "DiffHDR: Re-Exposing LDR Videos with Video Diffusion Models",
       "summary": "Most digital videos are stored in 8-bit low dynamic range (LDR) formats, where much of the original high dynamic range (HDR) scene radiance is lost due to saturation and quantization. This loss of hig...",
       "fetched": "2026-04-08T02:25:58.621572"
@@ -99,7 +84,22 @@
       "title": "Agent^2 RL-Bench: Can LLM Agents Engineer Agentic RL Post-Training?",
       "summary": "We introduce Agent^2 RL-Bench, a benchmark for evaluating agentic RL post-training -- whether LLM agents can autonomously design, implement, and run complete RL pipelines that improve foundation model...",
       "fetched": "2026-04-14T02:31:56.357673"
+    },
+    {
+      "title": "Detecting and refurbishing ground truth errors during training of deep learning-based echocardiography segmentation models",
+      "summary": "Deep learning-based medical image segmentation typically relies on ground truth (GT) labels obtained through manual annotation, but these can be prone to random errors or systematic biases. This study...",
+      "fetched": "2026-04-15T02:30:25.406935"
+    },
+    {
+      "title": "Loop Corrections to the Training and Generalization Errors of Random Feature Models",
+      "summary": "We investigate random feature models in which neural networks sampled from a prescribed initialization ensemble are frozen and used as random features, with only the readout weights optimized. Adoptin...",
+      "fetched": "2026-04-15T02:30:25.406948"
+    },
+    {
+      "title": "RePAIR: Interactive Machine Unlearning through Prompt-Aware Model Repair",
+      "summary": "Large language models (LLMs) inherently absorb harmful knowledge, misinformation, and personal data during pretraining on large-scale web corpora, with no native mechanism for selective removal. While...",
+      "fetched": "2026-04-15T02:30:25.406951"
     }
   ],
-  "last_sync": "2026-04-14T02:31:56.416927"
+  "last_sync": "2026-04-15T02:30:25.461021"
 }
