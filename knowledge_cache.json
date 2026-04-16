@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "DiffHDR: Re-Exposing LDR Videos with Video Diffusion Models",
-      "summary": "Most digital videos are stored in 8-bit low dynamic range (LDR) formats, where much of the original high dynamic range (HDR) scene radiance is lost due to saturation and quantization. This loss of hig...",
-      "fetched": "2026-04-08T02:25:58.621572"
-    },
-    {
-      "title": "MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and Adaptive Control",
-      "summary": "MLLMs have been successfully applied to multimodal embedding tasks, yet their generative reasoning capabilities remain underutilized. Directly incorporating chain-of-thought reasoning into embedding l...",
-      "fetched": "2026-04-08T02:25:58.621573"
-    },
-    {
-      "title": "Designing Safe and Accountable GenAI as a Learning Companion with Women Banned from Formal Education",
-      "summary": "In gender-restrictive and surveilled contexts, where access to formal education may be restricted for women, pursuing education involves safety and privacy risks. When women are excluded from schools ...",
-      "fetched": "2026-04-09T02:12:19.271257"
-    },
-    {
       "title": "$k$-server-bench: Automating Potential Discovery for the $k$-Server Conjecture",
       "summary": "We introduce a code-based challenge for automated, open-ended mathematical discovery based on the $k$-server conjecture, a central open problem in competitive analysis. The task is to discover a poten...",
       "fetched": "2026-04-09T02:12:19.271264"
@@ -99,7 +84,22 @@
       "title": "RePAIR: Interactive Machine Unlearning through Prompt-Aware Model Repair",
       "summary": "Large language models (LLMs) inherently absorb harmful knowledge, misinformation, and personal data during pretraining on large-scale web corpora, with no native mechanism for selective removal. While...",
       "fetched": "2026-04-15T02:30:25.406951"
+    },
+    {
+      "title": "First-See-Then-Design: A Multi-Stakeholder View for Optimal Performance-Fairness Trade-Offs",
+      "summary": "Fairness in algorithmic decision-making is often defined in the predictive space, where predictive performance - used as a proxy for decision-maker (DM) utility - is traded off against prediction-base...",
+      "fetched": "2026-04-16T02:37:01.580650"
+    },
+    {
+      "title": "Large Language Models to Enhance Business Process Modeling: Past, Present, and Future Trends",
+      "summary": "Recent advances in Generative Artificial Intelligence, particularly Large Language Models (LLMs), have stimulated growing interest in automating or assisting Business Process Modeling tasks using natu...",
+      "fetched": "2026-04-16T02:37:01.580659"
+    },
+    {
+      "title": "Hierarchical Reinforcement Learning with Runtime Safety Shielding for Power Grid Operation",
+      "summary": "Reinforcement learning has shown promise for automating power-grid operation tasks such as topology control and congestion management. However, its deployment in real-world power systems remains limit...",
+      "fetched": "2026-04-16T02:37:01.580661"
     }
   ],
-  "last_sync": "2026-04-15T02:30:25.461021"
+  "last_sync": "2026-04-16T02:37:01.712083"
 }
