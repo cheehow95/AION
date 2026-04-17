@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "$k$-server-bench: Automating Potential Discovery for the $k$-Server Conjecture",
-      "summary": "We introduce a code-based challenge for automated, open-ended mathematical discovery based on the $k$-server conjecture, a central open problem in competitive analysis. The task is to discover a poten...",
-      "fetched": "2026-04-09T02:12:19.271264"
-    },
-    {
-      "title": "How Much LLM Does a Self-Revising Agent Actually Need?",
-      "summary": "Recent LLM-based agents often place world modeling, planning, and reflection inside a single language model loop. This can produce capable behavior, but it makes a basic scientific question difficult ...",
-      "fetched": "2026-04-09T02:12:19.271266"
-    },
-    {
-      "title": "Lost in the Hype: Revealing and Dissecting the Performance Degradation of Medical Multimodal Large Language Models in Image Classification",
-      "summary": "The rise of multimodal large language models (MLLMs) has sparked an unprecedented wave of applications in the field of medical imaging analysis. However, as one of the earliest and most fundamental ta...",
-      "fetched": "2026-04-10T02:31:56.352343"
-    },
-    {
       "title": "ProMedical: Hierarchical Fine-Grained Criteria Modeling for Medical LLM Alignment via Explicit Injection",
       "summary": "Aligning Large Language Models (LLMs) with high-stakes medical standards remains a significant challenge, primarily due to the dissonance between coarse-grained preference signals and the complex, mul...",
       "fetched": "2026-04-10T02:31:56.352350"
@@ -99,7 +84,22 @@
       "title": "Hierarchical Reinforcement Learning with Runtime Safety Shielding for Power Grid Operation",
       "summary": "Reinforcement learning has shown promise for automating power-grid operation tasks such as topology control and congestion management. However, its deployment in real-world power systems remains limit...",
       "fetched": "2026-04-16T02:37:01.580661"
+    },
+    {
+      "title": "MambaSL: Exploring Single-Layer Mamba for Time Series Classification",
+      "summary": "Despite recent advances in state space models (SSMs) such as Mamba across various sequence domains, research on their standalone capacity for time series classification (TSC) has remained limited. We ...",
+      "fetched": "2026-04-17T02:33:09.369598"
+    },
+    {
+      "title": "Class Unlearning via Depth-Aware Removal of Forget-Specific Directions",
+      "summary": "Machine unlearning aims to remove targeted knowledge from a trained model without the cost of retraining from scratch. In class unlearning, however, reducing accuracy on forget classes does not necess...",
+      "fetched": "2026-04-17T02:33:09.369607"
+    },
+    {
+      "title": "Compressing Sequences in the Latent Embedding Space: $K$-Token Merging for Large Language Models",
+      "summary": "Large Language Models (LLMs) incur significant computational and memory costs when processing long prompts, as full self-attention scales quadratically with input length. Token compression aims to add...",
+      "fetched": "2026-04-17T02:33:09.369610"
     }
   ],
-  "last_sync": "2026-04-16T02:37:01.712083"
+  "last_sync": "2026-04-17T02:33:09.406135"
 }
