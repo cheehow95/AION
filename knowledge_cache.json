@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds",
-      "summary": "Robotic manipulation with deformable objects represents a data-intensive regime in embodied learning, where shape, contact, and topology co-evolve in ways that far exceed the variability of rigids. Al...",
-      "fetched": "2026-04-12T02:33:35.772896"
-    },
-    {
-      "title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
-      "summary": "Multimodal Mixture-of-Experts (MoE) models have achieved remarkable performance on vision-language tasks. However, we identify a puzzling phenomenon termed Seeing but Not Thinking: models accurately p...",
-      "fetched": "2026-04-12T02:33:35.772899"
-    },
-    {
-      "title": "E3-TIR: Enhanced Experience Exploitation for Tool-Integrated Reasoning",
-      "summary": "While Large Language Models (LLMs) have demonstrated significant potential in Tool-Integrated Reasoning (TIR), existing training paradigms face significant limitations: Zero-RL suffers from inefficien...",
-      "fetched": "2026-04-13T02:38:22.703937"
-    },
-    {
       "title": "SafeAdapt: Provably Safe Policy Updates in Deep Reinforcement Learning",
       "summary": "Safety guarantees are a prerequisite to the deployment of reinforcement learning (RL) agents in safety-critical tasks. Often, deployment environments exhibit non-stationary dynamics or are subject to ...",
       "fetched": "2026-04-13T02:38:22.703947"
@@ -99,7 +84,22 @@
       "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
       "summary": "LLM-as-judge frameworks are increasingly used for automatic NLG evaluation, yet their per-instance reliability remains poorly understood. We present a two-pronged diagnostic toolkit applied to SummEva...",
       "fetched": "2026-04-18T02:24:14.483317"
+    },
+    {
+      "title": "MM-WebAgent: A Hierarchical Multimodal Web Agent for Webpage Generation",
+      "summary": "The rapid progress of Artificial Intelligence Generated Content (AIGC) tools enables images, videos, and visualizations to be created on demand for webpage design, offering a flexible and increasingly...",
+      "fetched": "2026-04-19T02:38:20.464056"
+    },
+    {
+      "title": "Generalization in LLM Problem Solving: The Case of the Shortest Path",
+      "summary": "Whether language models can systematically generalize remains actively debated. Yet empirical performance is jointly shaped by multiple factors such as training data, training paradigms, and inference...",
+      "fetched": "2026-04-19T02:38:20.464062"
+    },
+    {
+      "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
+      "summary": "LLM-as-judge frameworks are increasingly used for automatic NLG evaluation, yet their per-instance reliability remains poorly understood. We present a two-pronged diagnostic toolkit applied to SummEva...",
+      "fetched": "2026-04-19T02:38:20.464064"
     }
   ],
-  "last_sync": "2026-04-18T02:24:14.519257"
+  "last_sync": "2026-04-19T02:38:20.501168"
 }
