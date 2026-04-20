@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "SafeAdapt: Provably Safe Policy Updates in Deep Reinforcement Learning",
-      "summary": "Safety guarantees are a prerequisite to the deployment of reinforcement learning (RL) agents in safety-critical tasks. Often, deployment environments exhibit non-stationary dynamics or are subject to ...",
-      "fetched": "2026-04-13T02:38:22.703947"
-    },
-    {
-      "title": "ECHO: Efficient Chest X-ray Report Generation with One-step Block Diffusion",
-      "summary": "Chest X-ray report generation (CXR-RG) has the potential to substantially alleviate radiologists' workload. However, conventional autoregressive vision--language models (VLMs) suffer from high inferen...",
-      "fetched": "2026-04-13T02:38:22.703949"
-    },
-    {
-      "title": "LLMs Should Incorporate Explicit Mechanisms for Human Empathy",
-      "summary": "This paper argues that Large Language Models (LLMs) should incorporate explicit mechanisms for human empathy. As LLMs become increasingly deployed in high-stakes human-centered settings, their success...",
-      "fetched": "2026-04-14T02:31:56.357662"
-    },
-    {
       "title": "Failure Ontology: A Lifelong Learning Framework for Blind Spot Detection and Resilience Design",
       "summary": "Personalized learning systems are almost universally designed around a single objective: help people acquire knowledge and skills more efficiently. We argue this framing misses the more consequential ...",
       "fetched": "2026-04-14T02:31:56.357671"
@@ -99,7 +84,22 @@
       "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
       "summary": "LLM-as-judge frameworks are increasingly used for automatic NLG evaluation, yet their per-instance reliability remains poorly understood. We present a two-pronged diagnostic toolkit applied to SummEva...",
       "fetched": "2026-04-19T02:38:20.464064"
+    },
+    {
+      "title": "\"Taking Stock at FAccT\": Using Participatory Design to Co-Create a Vision for the Fairness, Accountability and Transparency Community",
+      "summary": "As a relatively new forum, ACM FAccT has become a key space for activists and scholars to critically examine emerging AI and ML technologies. It brings together academics, civil society members, and g...",
+      "fetched": "2026-04-20T02:39:13.071507"
+    },
+    {
+      "title": "Beyond Surface Statistics: Robust Conformal Prediction for LLMs via Internal Representations",
+      "summary": "Large language models are increasingly deployed in settings where reliability matters, yet output-level uncertainty signals such as token probabilities, entropy, and self-consistency can become brittl...",
+      "fetched": "2026-04-20T02:39:13.071518"
+    },
+    {
+      "title": "AIFIND: Artifact-Aware Interpreting Fine-Grained Alignment for Incremental Face Forgery Detection",
+      "summary": "As forgery types continue to emerge consistently, Incremental Face Forgery Detection (IFFD) has become a crucial paradigm. However, existing methods typically rely on data replay or coarse binary supe...",
+      "fetched": "2026-04-20T02:39:13.071520"
     }
   ],
-  "last_sync": "2026-04-19T02:38:20.501168"
+  "last_sync": "2026-04-20T02:39:13.109238"
 }
