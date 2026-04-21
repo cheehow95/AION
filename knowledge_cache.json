@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Failure Ontology: A Lifelong Learning Framework for Blind Spot Detection and Resilience Design",
-      "summary": "Personalized learning systems are almost universally designed around a single objective: help people acquire knowledge and skills more efficiently. We argue this framing misses the more consequential ...",
-      "fetched": "2026-04-14T02:31:56.357671"
-    },
-    {
-      "title": "Agent^2 RL-Bench: Can LLM Agents Engineer Agentic RL Post-Training?",
-      "summary": "We introduce Agent^2 RL-Bench, a benchmark for evaluating agentic RL post-training -- whether LLM agents can autonomously design, implement, and run complete RL pipelines that improve foundation model...",
-      "fetched": "2026-04-14T02:31:56.357673"
-    },
-    {
-      "title": "Detecting and refurbishing ground truth errors during training of deep learning-based echocardiography segmentation models",
-      "summary": "Deep learning-based medical image segmentation typically relies on ground truth (GT) labels obtained through manual annotation, but these can be prone to random errors or systematic biases. This study...",
-      "fetched": "2026-04-15T02:30:25.406935"
-    },
-    {
       "title": "Loop Corrections to the Training and Generalization Errors of Random Feature Models",
       "summary": "We investigate random feature models in which neural networks sampled from a prescribed initialization ensemble are frozen and used as random features, with only the readout weights optimized. Adoptin...",
       "fetched": "2026-04-15T02:30:25.406948"
@@ -99,7 +84,22 @@
       "title": "AIFIND: Artifact-Aware Interpreting Fine-Grained Alignment for Incremental Face Forgery Detection",
       "summary": "As forgery types continue to emerge consistently, Incremental Face Forgery Detection (IFFD) has become a crucial paradigm. However, existing methods typically rely on data replay or coarse binary supe...",
       "fetched": "2026-04-20T02:39:13.071520"
+    },
+    {
+      "title": "Understanding Human Actions through the Lens of Executable Models",
+      "summary": "Human-centred systems require an understanding of human actions in the physical world. Temporally extended sequences of actions are intentional and structured, yet existing methods for recognising wha...",
+      "fetched": "2026-04-21T02:34:04.781042"
+    },
+    {
+      "title": "ExAI5G: A Logic-Based Explainable AI Framework for Intrusion Detection in 5G Networks",
+      "summary": "Intrusion detection systems (IDSs) for 5G networks must handle complex, high-volume traffic. Although opaque \"black-box\" models can achieve high accuracy, their lack of transparency hinders trust and ...",
+      "fetched": "2026-04-21T02:34:04.781049"
+    },
+    {
+      "title": "The Topological Dual of a Dataset: A Logic-to-Topology Encoding for AlphaGeometry-Style Data",
+      "summary": "AlphaGeometry represents a milestone in neuro-symbolic reasoning, yet its architecture faces a log-linear scaling bottleneck within its symbolic deduction engine that limits its efficiency as problem ...",
+      "fetched": "2026-04-21T02:34:04.781052"
     }
   ],
-  "last_sync": "2026-04-20T02:39:13.109238"
+  "last_sync": "2026-04-21T02:34:04.824362"
 }
