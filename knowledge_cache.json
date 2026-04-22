@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Loop Corrections to the Training and Generalization Errors of Random Feature Models",
-      "summary": "We investigate random feature models in which neural networks sampled from a prescribed initialization ensemble are frozen and used as random features, with only the readout weights optimized. Adoptin...",
-      "fetched": "2026-04-15T02:30:25.406948"
-    },
-    {
-      "title": "RePAIR: Interactive Machine Unlearning through Prompt-Aware Model Repair",
-      "summary": "Large language models (LLMs) inherently absorb harmful knowledge, misinformation, and personal data during pretraining on large-scale web corpora, with no native mechanism for selective removal. While...",
-      "fetched": "2026-04-15T02:30:25.406951"
-    },
-    {
-      "title": "First-See-Then-Design: A Multi-Stakeholder View for Optimal Performance-Fairness Trade-Offs",
-      "summary": "Fairness in algorithmic decision-making is often defined in the predictive space, where predictive performance - used as a proxy for decision-maker (DM) utility - is traded off against prediction-base...",
-      "fetched": "2026-04-16T02:37:01.580650"
-    },
-    {
       "title": "Large Language Models to Enhance Business Process Modeling: Past, Present, and Future Trends",
       "summary": "Recent advances in Generative Artificial Intelligence, particularly Large Language Models (LLMs), have stimulated growing interest in automating or assisting Business Process Modeling tasks using natu...",
       "fetched": "2026-04-16T02:37:01.580659"
@@ -99,7 +84,22 @@
       "title": "The Topological Dual of a Dataset: A Logic-to-Topology Encoding for AlphaGeometry-Style Data",
       "summary": "AlphaGeometry represents a milestone in neuro-symbolic reasoning, yet its architecture faces a log-linear scaling bottleneck within its symbolic deduction engine that limits its efficiency as problem ...",
       "fetched": "2026-04-21T02:34:04.781052"
+    },
+    {
+      "title": "EVPO: Explained Variance Policy Optimization for Adaptive Critic Utilization in LLM Post-Training",
+      "summary": "Reinforcement learning (RL) for LLM post-training faces a fundamental design choice: whether to use a learned critic as a baseline for policy optimization. Classical theory favors critic-based methods...",
+      "fetched": "2026-04-22T02:32:27.150228"
+    },
+    {
+      "title": "Fairness Audits of Institutional Risk Models in Deployed ML Pipelines",
+      "summary": "Fairness audits of institutional risk models are critical for understanding how deployed machine learning pipelines allocate resources. Drawing on multi-year collaboration with Centennial College, whe...",
+      "fetched": "2026-04-22T02:32:27.150239"
+    },
+    {
+      "title": "A neural operator framework for data-driven discovery of stability and receptivity in physical systems",
+      "summary": "Understanding how complex systems respond to perturbations, such as whether they will remain stable or what their most sensitive patterns are, is a fundamental challenge across science and engineering...",
+      "fetched": "2026-04-22T02:32:27.150241"
     }
   ],
-  "last_sync": "2026-04-21T02:34:04.824362"
+  "last_sync": "2026-04-22T02:32:27.224386"
 }
