@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Large Language Models to Enhance Business Process Modeling: Past, Present, and Future Trends",
-      "summary": "Recent advances in Generative Artificial Intelligence, particularly Large Language Models (LLMs), have stimulated growing interest in automating or assisting Business Process Modeling tasks using natu...",
-      "fetched": "2026-04-16T02:37:01.580659"
-    },
-    {
-      "title": "Hierarchical Reinforcement Learning with Runtime Safety Shielding for Power Grid Operation",
-      "summary": "Reinforcement learning has shown promise for automating power-grid operation tasks such as topology control and congestion management. However, its deployment in real-world power systems remains limit...",
-      "fetched": "2026-04-16T02:37:01.580661"
-    },
-    {
-      "title": "MambaSL: Exploring Single-Layer Mamba for Time Series Classification",
-      "summary": "Despite recent advances in state space models (SSMs) such as Mamba across various sequence domains, research on their standalone capacity for time series classification (TSC) has remained limited. We ...",
-      "fetched": "2026-04-17T02:33:09.369598"
-    },
-    {
       "title": "Class Unlearning via Depth-Aware Removal of Forget-Specific Directions",
       "summary": "Machine unlearning aims to remove targeted knowledge from a trained model without the cost of retraining from scratch. In class unlearning, however, reducing accuracy on forget classes does not necess...",
       "fetched": "2026-04-17T02:33:09.369607"
@@ -99,7 +84,22 @@
       "title": "A neural operator framework for data-driven discovery of stability and receptivity in physical systems",
       "summary": "Understanding how complex systems respond to perturbations, such as whether they will remain stable or what their most sensitive patterns are, is a fundamental challenge across science and engineering...",
       "fetched": "2026-04-22T02:32:27.150241"
+    },
+    {
+      "title": "Storm Surge Modeling, Bias Correction, Graph Neural Networks, Graph Convolution Networks",
+      "summary": "Storm surge forecasting remains a critical challenge in mitigating the impacts of tropical cyclones on coastal regions, particularly given recent trends of rapid intensification and increasing nearsho...",
+      "fetched": "2026-04-23T02:35:42.819844"
+    },
+    {
+      "title": "A Field Guide to Decision Making",
+      "summary": "High-consequence decision making demands peak performance from individuals in positions of responsibility. Such executive authority bears the obligation to act despite uncertainty, limited resources, ...",
+      "fetched": "2026-04-23T02:35:42.819853"
+    },
+    {
+      "title": "ORPHEAS: A Cross-Lingual Greek-English Embedding Model for Retrieval-Augmented Generation",
+      "summary": "Effective retrieval-augmented generation across bilingual Greek--English applications requires embedding models capable of capturing both domain-specific semantic relationships and cross-lingual seman...",
+      "fetched": "2026-04-23T02:35:42.819855"
     }
   ],
-  "last_sync": "2026-04-22T02:32:27.224386"
+  "last_sync": "2026-04-23T02:35:42.871239"
 }
