@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Class Unlearning via Depth-Aware Removal of Forget-Specific Directions",
-      "summary": "Machine unlearning aims to remove targeted knowledge from a trained model without the cost of retraining from scratch. In class unlearning, however, reducing accuracy on forget classes does not necess...",
-      "fetched": "2026-04-17T02:33:09.369607"
-    },
-    {
-      "title": "Compressing Sequences in the Latent Embedding Space: $K$-Token Merging for Large Language Models",
-      "summary": "Large Language Models (LLMs) incur significant computational and memory costs when processing long prompts, as full self-attention scales quadratically with input length. Token compression aims to add...",
-      "fetched": "2026-04-17T02:33:09.369610"
-    },
-    {
-      "title": "MM-WebAgent: A Hierarchical Multimodal Web Agent for Webpage Generation",
-      "summary": "The rapid progress of Artificial Intelligence Generated Content (AIGC) tools enables images, videos, and visualizations to be created on demand for webpage design, offering a flexible and increasingly...",
-      "fetched": "2026-04-18T02:24:14.483303"
-    },
-    {
       "title": "Generalization in LLM Problem Solving: The Case of the Shortest Path",
       "summary": "Whether language models can systematically generalize remains actively debated. Yet empirical performance is jointly shaped by multiple factors such as training data, training paradigms, and inference...",
       "fetched": "2026-04-18T02:24:14.483314"
@@ -99,7 +84,22 @@
       "title": "ORPHEAS: A Cross-Lingual Greek-English Embedding Model for Retrieval-Augmented Generation",
       "summary": "Effective retrieval-augmented generation across bilingual Greek--English applications requires embedding models capable of capturing both domain-specific semantic relationships and cross-lingual seman...",
       "fetched": "2026-04-23T02:35:42.819855"
+    },
+    {
+      "title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
+      "summary": "How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention ...",
+      "fetched": "2026-04-24T02:36:25.049767"
+    },
+    {
+      "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
+      "summary": "Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior w...",
+      "fetched": "2026-04-24T02:36:25.049778"
+    },
+    {
+      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
+      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research ques...",
+      "fetched": "2026-04-24T02:36:25.049781"
     }
   ],
-  "last_sync": "2026-04-23T02:35:42.871239"
+  "last_sync": "2026-04-24T02:36:25.119348"
 }
