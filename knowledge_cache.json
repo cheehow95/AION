@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Generalization in LLM Problem Solving: The Case of the Shortest Path",
-      "summary": "Whether language models can systematically generalize remains actively debated. Yet empirical performance is jointly shaped by multiple factors such as training data, training paradigms, and inference...",
-      "fetched": "2026-04-19T02:38:20.464062"
-    },
-    {
-      "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
-      "summary": "LLM-as-judge frameworks are increasingly used for automatic NLG evaluation, yet their per-instance reliability remains poorly understood. We present a two-pronged diagnostic toolkit applied to SummEva...",
-      "fetched": "2026-04-19T02:38:20.464064"
-    },
-    {
-      "title": "\"Taking Stock at FAccT\": Using Participatory Design to Co-Create a Vision for the Fairness, Accountability and Transparency Community",
-      "summary": "As a relatively new forum, ACM FAccT has become a key space for activists and scholars to critically examine emerging AI and ML technologies. It brings together academics, civil society members, and g...",
-      "fetched": "2026-04-20T02:39:13.071507"
-    },
-    {
       "title": "Beyond Surface Statistics: Robust Conformal Prediction for LLMs via Internal Representations",
       "summary": "Large language models are increasingly deployed in settings where reliability matters, yet output-level uncertainty signals such as token probabilities, entropy, and self-consistency can become brittl...",
       "fetched": "2026-04-20T02:39:13.071518"
@@ -99,7 +84,22 @@
       "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
       "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research ques...",
       "fetched": "2026-04-25T02:26:04.493298"
+    },
+    {
+      "title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
+      "summary": "How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention ...",
+      "fetched": "2026-04-26T02:41:44.738316"
+    },
+    {
+      "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
+      "summary": "Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior w...",
+      "fetched": "2026-04-26T02:41:44.738325"
+    },
+    {
+      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
+      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research ques...",
+      "fetched": "2026-04-26T02:41:44.738328"
     }
   ],
-  "last_sync": "2026-04-25T02:26:04.533398"
+  "last_sync": "2026-04-26T02:41:44.863850"
 }
