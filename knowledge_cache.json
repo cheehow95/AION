@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Beyond Surface Statistics: Robust Conformal Prediction for LLMs via Internal Representations",
-      "summary": "Large language models are increasingly deployed in settings where reliability matters, yet output-level uncertainty signals such as token probabilities, entropy, and self-consistency can become brittl...",
-      "fetched": "2026-04-20T02:39:13.071518"
-    },
-    {
-      "title": "AIFIND: Artifact-Aware Interpreting Fine-Grained Alignment for Incremental Face Forgery Detection",
-      "summary": "As forgery types continue to emerge consistently, Incremental Face Forgery Detection (IFFD) has become a crucial paradigm. However, existing methods typically rely on data replay or coarse binary supe...",
-      "fetched": "2026-04-20T02:39:13.071520"
-    },
-    {
-      "title": "Understanding Human Actions through the Lens of Executable Models",
-      "summary": "Human-centred systems require an understanding of human actions in the physical world. Temporally extended sequences of actions are intentional and structured, yet existing methods for recognising wha...",
-      "fetched": "2026-04-21T02:34:04.781042"
-    },
-    {
       "title": "ExAI5G: A Logic-Based Explainable AI Framework for Intrusion Detection in 5G Networks",
       "summary": "Intrusion detection systems (IDSs) for 5G networks must handle complex, high-volume traffic. Although opaque \"black-box\" models can achieve high accuracy, their lack of transparency hinders trust and ...",
       "fetched": "2026-04-21T02:34:04.781049"
@@ -99,7 +84,22 @@
       "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
       "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research ques...",
       "fetched": "2026-04-26T02:41:44.738328"
+    },
+    {
+      "title": "Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond",
+      "summary": "As AI systems move from generating text to accomplishing goals through sustained interaction, the ability to model environment dynamics becomes a central bottleneck. Agents that manipulate objects, na...",
+      "fetched": "2026-04-27T02:43:53.395397"
+    },
+    {
+      "title": "An Undecidability Proof for the Plan Existence Problem",
+      "summary": "The plan existence problem asks, given a goal in the form of a formula in modal logic, an initial epistemic state (a pointed Kripke model), and a set of epistemic actions, whether there exists a seque...",
+      "fetched": "2026-04-27T02:43:53.395405"
+    },
+    {
+      "title": "Aligning Dense Retrievers with LLM Utility via DistillationAligning Dense Retrievers with LLM Utility via Distillation",
+      "summary": "Dense vector retrieval is the practical backbone of Retrieval- Augmented Generation (RAG), but similarity search can suffer from precision limitations. Conversely, utility-based approaches leveraging ...",
+      "fetched": "2026-04-27T02:43:53.395407"
     }
   ],
-  "last_sync": "2026-04-26T02:41:44.863850"
+  "last_sync": "2026-04-27T02:43:53.474935"
 }
