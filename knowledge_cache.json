@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "ExAI5G: A Logic-Based Explainable AI Framework for Intrusion Detection in 5G Networks",
-      "summary": "Intrusion detection systems (IDSs) for 5G networks must handle complex, high-volume traffic. Although opaque \"black-box\" models can achieve high accuracy, their lack of transparency hinders trust and ...",
-      "fetched": "2026-04-21T02:34:04.781049"
-    },
-    {
-      "title": "The Topological Dual of a Dataset: A Logic-to-Topology Encoding for AlphaGeometry-Style Data",
-      "summary": "AlphaGeometry represents a milestone in neuro-symbolic reasoning, yet its architecture faces a log-linear scaling bottleneck within its symbolic deduction engine that limits its efficiency as problem ...",
-      "fetched": "2026-04-21T02:34:04.781052"
-    },
-    {
-      "title": "EVPO: Explained Variance Policy Optimization for Adaptive Critic Utilization in LLM Post-Training",
-      "summary": "Reinforcement learning (RL) for LLM post-training faces a fundamental design choice: whether to use a learned critic as a baseline for policy optimization. Classical theory favors critic-based methods...",
-      "fetched": "2026-04-22T02:32:27.150228"
-    },
-    {
       "title": "Fairness Audits of Institutional Risk Models in Deployed ML Pipelines",
       "summary": "Fairness audits of institutional risk models are critical for understanding how deployed machine learning pipelines allocate resources. Drawing on multi-year collaboration with Centennial College, whe...",
       "fetched": "2026-04-22T02:32:27.150239"
@@ -99,7 +84,22 @@
       "title": "Aligning Dense Retrievers with LLM Utility via DistillationAligning Dense Retrievers with LLM Utility via Distillation",
       "summary": "Dense vector retrieval is the practical backbone of Retrieval- Augmented Generation (RAG), but similarity search can suffer from precision limitations. Conversely, utility-based approaches leveraging ...",
       "fetched": "2026-04-27T02:43:53.395407"
+    },
+    {
+      "title": "AgentWard: A Lifecycle Security Architecture for Autonomous AI Agents",
+      "summary": "Autonomous AI agents extend large language models into full runtime systems that load skills, ingest external content, maintain memory, plan multi-step actions, and invoke privileged tools. In such sy...",
+      "fetched": "2026-04-28T02:51:08.754814"
+    },
+    {
+      "title": "DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference",
+      "summary": "Long-context reasoning is a critical capability of large language models (LLMs), enabling applications such as long-document understanding, summarization, and code generation. However, efficient autor...",
+      "fetched": "2026-04-28T02:51:08.754823"
+    },
+    {
+      "title": "K-MetBench: A Multi-Dimensional Benchmark for Fine-Grained Evaluation of Expert Reasoning, Locality, and Multimodality in Meteorology",
+      "summary": "The development of practical (multimodal) large language model assistants for Korean weather forecasters is hindered by the absence of a multidimensional, expert-level evaluation framework grounded in...",
+      "fetched": "2026-04-28T02:51:08.754826"
     }
   ],
-  "last_sync": "2026-04-27T02:43:53.474935"
+  "last_sync": "2026-04-28T02:51:08.802650"
 }
