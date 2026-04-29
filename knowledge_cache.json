@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Fairness Audits of Institutional Risk Models in Deployed ML Pipelines",
-      "summary": "Fairness audits of institutional risk models are critical for understanding how deployed machine learning pipelines allocate resources. Drawing on multi-year collaboration with Centennial College, whe...",
-      "fetched": "2026-04-22T02:32:27.150239"
-    },
-    {
-      "title": "A neural operator framework for data-driven discovery of stability and receptivity in physical systems",
-      "summary": "Understanding how complex systems respond to perturbations, such as whether they will remain stable or what their most sensitive patterns are, is a fundamental challenge across science and engineering...",
-      "fetched": "2026-04-22T02:32:27.150241"
-    },
-    {
-      "title": "Storm Surge Modeling, Bias Correction, Graph Neural Networks, Graph Convolution Networks",
-      "summary": "Storm surge forecasting remains a critical challenge in mitigating the impacts of tropical cyclones on coastal regions, particularly given recent trends of rapid intensification and increasing nearsho...",
-      "fetched": "2026-04-23T02:35:42.819844"
-    },
-    {
       "title": "A Field Guide to Decision Making",
       "summary": "High-consequence decision making demands peak performance from individuals in positions of responsibility. Such executive authority bears the obligation to act despite uncertainty, limited resources, ...",
       "fetched": "2026-04-23T02:35:42.819853"
@@ -99,7 +84,22 @@
       "title": "K-MetBench: A Multi-Dimensional Benchmark for Fine-Grained Evaluation of Expert Reasoning, Locality, and Multimodality in Meteorology",
       "summary": "The development of practical (multimodal) large language model assistants for Korean weather forecasters is hindered by the absence of a multidimensional, expert-level evaluation framework grounded in...",
       "fetched": "2026-04-28T02:51:08.754826"
+    },
+    {
+      "title": "CGU-ILALab at FoodBench-QA 2026: Comparing Traditional and LLM-based Approaches for Recipe Nutrient Estimation",
+      "summary": "Accurate nutrient estimation from unstructured recipe text is an important yet challenging problem in dietary monitoring, due to ambiguous ingredient terminology and highly variable quantity expressio...",
+      "fetched": "2026-04-29T02:50:21.138288"
+    },
+    {
+      "title": "Measuring the Sensitivity of Classification Models with the Error Sensitivity Profile",
+      "summary": "The quality of training data is critical to the performance of machine learning models. In this paper, the Error Sensitivity Profile (ESP) is proposed. It quantifies the sensitivity of model performan...",
+      "fetched": "2026-04-29T02:50:21.138300"
+    },
+    {
+      "title": "Threat-Oriented Digital Twinning for Security Evaluation of Autonomous Platforms",
+      "summary": "Open, unclassified research on secure autonomy is constrained by limited access to operational platforms, contested communications infrastructure, and representative adversarial test conditions. This ...",
+      "fetched": "2026-04-29T02:50:21.138302"
     }
   ],
-  "last_sync": "2026-04-28T02:51:08.802650"
+  "last_sync": "2026-04-29T02:50:21.264175"
 }
