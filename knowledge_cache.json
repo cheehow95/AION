@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "A Field Guide to Decision Making",
-      "summary": "High-consequence decision making demands peak performance from individuals in positions of responsibility. Such executive authority bears the obligation to act despite uncertainty, limited resources, ...",
-      "fetched": "2026-04-23T02:35:42.819853"
-    },
-    {
-      "title": "ORPHEAS: A Cross-Lingual Greek-English Embedding Model for Retrieval-Augmented Generation",
-      "summary": "Effective retrieval-augmented generation across bilingual Greek--English applications requires embedding models capable of capturing both domain-specific semantic relationships and cross-lingual seman...",
-      "fetched": "2026-04-23T02:35:42.819855"
-    },
-    {
-      "title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
-      "summary": "How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention ...",
-      "fetched": "2026-04-24T02:36:25.049767"
-    },
-    {
       "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
       "summary": "Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior w...",
       "fetched": "2026-04-24T02:36:25.049778"
@@ -99,7 +84,22 @@
       "title": "Threat-Oriented Digital Twinning for Security Evaluation of Autonomous Platforms",
       "summary": "Open, unclassified research on secure autonomy is constrained by limited access to operational platforms, contested communications infrastructure, and representative adversarial test conditions. This ...",
       "fetched": "2026-04-29T02:50:21.138302"
+    },
+    {
+      "title": "Turning the TIDE: Cross-Architecture Distillation for Diffusion Large Language Models",
+      "summary": "Diffusion large language models (dLLMs) offer parallel decoding and bidirectional context, but state-of-the-art dLLMs require billions of parameters for competitive performance. While existing distill...",
+      "fetched": "2026-04-30T02:51:57.978407"
+    },
+    {
+      "title": "Causal Learning with Neural Assemblies",
+      "summary": "Can Neural Assemblies -- groups of neurons that fire together and strengthen through co-activation -- learn the direction of causal influence between variables? While established as a computationally ...",
+      "fetched": "2026-04-30T02:51:57.978419"
+    },
+    {
+      "title": "ClawGym: A Scalable Framework for Building Effective Claw Agents",
+      "summary": "Claw-style environments support multi-step workflows over local files, tools, and persistent workspace states. However, scalable development around these environments remains constrained by the absenc...",
+      "fetched": "2026-04-30T02:51:57.978421"
     }
   ],
-  "last_sync": "2026-04-29T02:50:21.264175"
+  "last_sync": "2026-04-30T02:51:58.013494"
 }
