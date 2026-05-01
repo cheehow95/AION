@@ -3,21 +3,6 @@
     {
       "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
       "summary": "Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior w...",
-      "fetched": "2026-04-24T02:36:25.049778"
-    },
-    {
-      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
-      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research ques...",
-      "fetched": "2026-04-24T02:36:25.049781"
-    },
-    {
-      "title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
-      "summary": "How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention ...",
-      "fetched": "2026-04-25T02:26:04.493287"
-    },
-    {
-      "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
-      "summary": "Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior w...",
       "fetched": "2026-04-25T02:26:04.493296"
     },
     {
@@ -99,7 +84,22 @@
       "title": "ClawGym: A Scalable Framework for Building Effective Claw Agents",
       "summary": "Claw-style environments support multi-step workflows over local files, tools, and persistent workspace states. However, scalable development around these environments remains constrained by the absenc...",
       "fetched": "2026-04-30T02:51:57.978421"
+    },
+    {
+      "title": "Computing Equilibrium beyond Unilateral Deviation",
+      "summary": "Most familiar equilibrium concepts, such as Nash and correlated equilibrium, guarantee only that no single player can improve their utility by deviating unilaterally. They offer no guarantees against ...",
+      "fetched": "2026-05-01T03:21:11.509037"
+    },
+    {
+      "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
+      "summary": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content...",
+      "fetched": "2026-05-01T03:21:11.509047"
+    },
+    {
+      "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
+      "summary": "Electroencephalogram (EEG) signals are vital for automated seizure detection, but their inherent noise makes robust representation learning challenging. Existing graph construction methods, whether co...",
+      "fetched": "2026-05-01T03:21:11.509049"
     }
   ],
-  "last_sync": "2026-04-30T02:51:58.013494"
+  "last_sync": "2026-05-01T03:21:11.539873"
 }
