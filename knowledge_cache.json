@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
-      "summary": "Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior w...",
-      "fetched": "2026-04-26T02:41:44.738325"
-    },
-    {
-      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
-      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research ques...",
-      "fetched": "2026-04-26T02:41:44.738328"
-    },
-    {
-      "title": "Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond",
-      "summary": "As AI systems move from generating text to accomplishing goals through sustained interaction, the ability to model environment dynamics becomes a central bottleneck. Agents that manipulate objects, na...",
-      "fetched": "2026-04-27T02:43:53.395397"
-    },
-    {
       "title": "An Undecidability Proof for the Plan Existence Problem",
       "summary": "The plan existence problem asks, given a goal in the form of a formula in modal logic, an initial epistemic state (a pointed Kripke model), and a set of epistemic actions, whether there exists a seque...",
       "fetched": "2026-04-27T02:43:53.395405"
@@ -99,7 +84,22 @@
       "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
       "summary": "Electroencephalogram (EEG) signals are vital for automated seizure detection, but their inherent noise makes robust representation learning challenging. Existing graph construction methods, whether co...",
       "fetched": "2026-05-02T02:39:31.709897"
+    },
+    {
+      "title": "Computing Equilibrium beyond Unilateral Deviation",
+      "summary": "Most familiar equilibrium concepts, such as Nash and correlated equilibrium, guarantee only that no single player can improve their utility by deviating unilaterally. They offer no guarantees against ...",
+      "fetched": "2026-05-03T02:51:40.339488"
+    },
+    {
+      "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
+      "summary": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content...",
+      "fetched": "2026-05-03T02:51:40.339497"
+    },
+    {
+      "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
+      "summary": "Electroencephalogram (EEG) signals are vital for automated seizure detection, but their inherent noise makes robust representation learning challenging. Existing graph construction methods, whether co...",
+      "fetched": "2026-05-03T02:51:40.339499"
     }
   ],
-  "last_sync": "2026-05-02T02:39:31.752402"
+  "last_sync": "2026-05-03T02:51:40.415730"
 }
