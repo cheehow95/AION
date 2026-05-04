@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "An Undecidability Proof for the Plan Existence Problem",
-      "summary": "The plan existence problem asks, given a goal in the form of a formula in modal logic, an initial epistemic state (a pointed Kripke model), and a set of epistemic actions, whether there exists a seque...",
-      "fetched": "2026-04-27T02:43:53.395405"
-    },
-    {
-      "title": "Aligning Dense Retrievers with LLM Utility via DistillationAligning Dense Retrievers with LLM Utility via Distillation",
-      "summary": "Dense vector retrieval is the practical backbone of Retrieval- Augmented Generation (RAG), but similarity search can suffer from precision limitations. Conversely, utility-based approaches leveraging ...",
-      "fetched": "2026-04-27T02:43:53.395407"
-    },
-    {
-      "title": "AgentWard: A Lifecycle Security Architecture for Autonomous AI Agents",
-      "summary": "Autonomous AI agents extend large language models into full runtime systems that load skills, ingest external content, maintain memory, plan multi-step actions, and invoke privileged tools. In such sy...",
-      "fetched": "2026-04-28T02:51:08.754814"
-    },
-    {
       "title": "DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference",
       "summary": "Long-context reasoning is a critical capability of large language models (LLMs), enabling applications such as long-document understanding, summarization, and code generation. However, efficient autor...",
       "fetched": "2026-04-28T02:51:08.754823"
@@ -99,7 +84,22 @@
       "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
       "summary": "Electroencephalogram (EEG) signals are vital for automated seizure detection, but their inherent noise makes robust representation learning challenging. Existing graph construction methods, whether co...",
       "fetched": "2026-05-03T02:51:40.339499"
+    },
+    {
+      "title": "Persistent Visual Memory: Sustaining Perception for Deep Generation in LVLMs",
+      "summary": "While autoregressive Large Vision-Language Models (LVLMs) demonstrate remarkable proficiency in multimodal tasks, they face a \"Visual Signal Dilution\" phenomenon, where the accumulation of textual his...",
+      "fetched": "2026-05-04T02:49:08.913399"
+    },
+    {
+      "title": "Can Coding Agents Reproduce Findings in Computational Materials Science?",
+      "summary": "Large language models are increasingly deployed as autonomous coding agents and have achieved remarkably strong performance on software engineering benchmarks. However, it is unclear whether such succ...",
+      "fetched": "2026-05-04T02:49:08.913409"
+    },
+    {
+      "title": "When RAG Chatbots Expose Their Backend: An Anonymized Case Study of Privacy and Security Risks in Patient-Facing Medical AI",
+      "summary": "Background: Patient-facing medical chatbots based on retrieval-augmented generation (RAG) are increasingly promoted to deliver accessible, grounded health information. AI-assisted development lowers t...",
+      "fetched": "2026-05-04T02:49:08.913411"
     }
   ],
-  "last_sync": "2026-05-03T02:51:40.415730"
+  "last_sync": "2026-05-04T02:49:08.940737"
 }
