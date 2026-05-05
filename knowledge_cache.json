@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference",
-      "summary": "Long-context reasoning is a critical capability of large language models (LLMs), enabling applications such as long-document understanding, summarization, and code generation. However, efficient autor...",
-      "fetched": "2026-04-28T02:51:08.754823"
-    },
-    {
-      "title": "K-MetBench: A Multi-Dimensional Benchmark for Fine-Grained Evaluation of Expert Reasoning, Locality, and Multimodality in Meteorology",
-      "summary": "The development of practical (multimodal) large language model assistants for Korean weather forecasters is hindered by the absence of a multidimensional, expert-level evaluation framework grounded in...",
-      "fetched": "2026-04-28T02:51:08.754826"
-    },
-    {
-      "title": "CGU-ILALab at FoodBench-QA 2026: Comparing Traditional and LLM-based Approaches for Recipe Nutrient Estimation",
-      "summary": "Accurate nutrient estimation from unstructured recipe text is an important yet challenging problem in dietary monitoring, due to ambiguous ingredient terminology and highly variable quantity expressio...",
-      "fetched": "2026-04-29T02:50:21.138288"
-    },
-    {
       "title": "Measuring the Sensitivity of Classification Models with the Error Sensitivity Profile",
       "summary": "The quality of training data is critical to the performance of machine learning models. In this paper, the Error Sensitivity Profile (ESP) is proposed. It quantifies the sensitivity of model performan...",
       "fetched": "2026-04-29T02:50:21.138300"
@@ -99,7 +84,22 @@
       "title": "When RAG Chatbots Expose Their Backend: An Anonymized Case Study of Privacy and Security Risks in Patient-Facing Medical AI",
       "summary": "Background: Patient-facing medical chatbots based on retrieval-augmented generation (RAG) are increasingly promoted to deliver accessible, grounded health information. AI-assisted development lowers t...",
       "fetched": "2026-05-04T02:49:08.913411"
+    },
+    {
+      "title": "Repurposing and Evaluating the (In)Feasibility of Dataset Poisoning enabled Watermarking for Contrastive Learning",
+      "summary": "Contrastive learning (CL) reduces annotation cost via auto-derived supervisory signals. Since large-scale in-house CL datasets are infeasible, reliance on third-party or internet data is common. Recen...",
+      "fetched": "2026-05-05T02:41:11.362661"
+    },
+    {
+      "title": "Remote Action Generation: Remote Control with Minimal Communication",
+      "summary": "We address the challenge of remote control where one or more actors, lacking direct reward access, are steered by a controller over a communication-constrained channel. The controller learns an optima...",
+      "fetched": "2026-05-05T02:41:11.362667"
+    },
+    {
+      "title": "RMGAP: Benchmarking the Generalization of Reward Models across Diverse Preferences",
+      "summary": "Reinforcement Learning from Human Feedback has become the standard paradigm for language model alignment, where reward models directly determine alignment effectiveness. In this work, we focus on how ...",
+      "fetched": "2026-05-05T02:41:11.362669"
     }
   ],
-  "last_sync": "2026-05-04T02:49:08.940737"
+  "last_sync": "2026-05-05T02:41:11.403318"
 }
