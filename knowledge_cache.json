@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Measuring the Sensitivity of Classification Models with the Error Sensitivity Profile",
-      "summary": "The quality of training data is critical to the performance of machine learning models. In this paper, the Error Sensitivity Profile (ESP) is proposed. It quantifies the sensitivity of model performan...",
-      "fetched": "2026-04-29T02:50:21.138300"
-    },
-    {
-      "title": "Threat-Oriented Digital Twinning for Security Evaluation of Autonomous Platforms",
-      "summary": "Open, unclassified research on secure autonomy is constrained by limited access to operational platforms, contested communications infrastructure, and representative adversarial test conditions. This ...",
-      "fetched": "2026-04-29T02:50:21.138302"
-    },
-    {
-      "title": "Turning the TIDE: Cross-Architecture Distillation for Diffusion Large Language Models",
-      "summary": "Diffusion large language models (dLLMs) offer parallel decoding and bidirectional context, but state-of-the-art dLLMs require billions of parameters for competitive performance. While existing distill...",
-      "fetched": "2026-04-30T02:51:57.978407"
-    },
-    {
       "title": "Causal Learning with Neural Assemblies",
       "summary": "Can Neural Assemblies -- groups of neurons that fire together and strengthen through co-activation -- learn the direction of causal influence between variables? While established as a computationally ...",
       "fetched": "2026-04-30T02:51:57.978419"
@@ -99,7 +84,22 @@
       "title": "RMGAP: Benchmarking the Generalization of Reward Models across Diverse Preferences",
       "summary": "Reinforcement Learning from Human Feedback has become the standard paradigm for language model alignment, where reward models directly determine alignment effectiveness. In this work, we focus on how ...",
       "fetched": "2026-05-05T02:41:11.362669"
+    },
+    {
+      "title": "Feature-Augmented Transformers for Robust AI-Text Detection Across Domains and Generators",
+      "summary": "AI-generated text is nowadays produced at scale across domains and heterogeneous generation pipelines, making robustness to distribution shift a central requirement for supervised binary detectors. We...",
+      "fetched": "2026-05-06T02:47:10.145408"
+    },
+    {
+      "title": "Label-Efficient School Detection from Aerial Imagery via Weakly Supervised Pretraining and Fine-Tuning",
+      "summary": "Accurate school detection is essential for supporting education initiatives, including infrastructure planning and expanding internet connectivity to underserved areas. However, many regions around th...",
+      "fetched": "2026-05-06T02:47:10.145416"
+    },
+    {
+      "title": "Inconsistent Databases and Argumentation Frameworks with Collective Attacks",
+      "summary": "The connection between subset-maximal repairs for inconsistent databases involving various integrity constraints and acceptable sets of arguments within argumentation frameworks has recently drawn gro...",
+      "fetched": "2026-05-06T02:47:10.145418"
     }
   ],
-  "last_sync": "2026-05-05T02:41:11.403318"
+  "last_sync": "2026-05-06T02:47:10.196504"
 }
