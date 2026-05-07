@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Causal Learning with Neural Assemblies",
-      "summary": "Can Neural Assemblies -- groups of neurons that fire together and strengthen through co-activation -- learn the direction of causal influence between variables? While established as a computationally ...",
-      "fetched": "2026-04-30T02:51:57.978419"
-    },
-    {
-      "title": "ClawGym: A Scalable Framework for Building Effective Claw Agents",
-      "summary": "Claw-style environments support multi-step workflows over local files, tools, and persistent workspace states. However, scalable development around these environments remains constrained by the absenc...",
-      "fetched": "2026-04-30T02:51:57.978421"
-    },
-    {
-      "title": "Computing Equilibrium beyond Unilateral Deviation",
-      "summary": "Most familiar equilibrium concepts, such as Nash and correlated equilibrium, guarantee only that no single player can improve their utility by deviating unilaterally. They offer no guarantees against ...",
-      "fetched": "2026-05-01T03:21:11.509037"
-    },
-    {
       "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
       "summary": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content...",
       "fetched": "2026-05-01T03:21:11.509047"
@@ -99,7 +84,22 @@
       "title": "Inconsistent Databases and Argumentation Frameworks with Collective Attacks",
       "summary": "The connection between subset-maximal repairs for inconsistent databases involving various integrity constraints and acceptable sets of arguments within argumentation frameworks has recently drawn gro...",
       "fetched": "2026-05-06T02:47:10.145418"
+    },
+    {
+      "title": "Taming Outlier Tokens in Diffusion Transformers",
+      "summary": "We study outlier tokens in Diffusion Transformers (DiTs) for image generation. Prior work has shown that Vision Transformers (ViTs) can produce a small number of high-norm tokens that attract dispropo...",
+      "fetched": "2026-05-07T02:48:53.003173"
+    },
+    {
+      "title": "Grokability in five inequalities",
+      "summary": "In this note, we report five mathematical discoveries made in collaboration with Grok, all of which have been subsequently verified by the authors. These include an improved lower bound on the maximal...",
+      "fetched": "2026-05-07T02:48:53.003191"
+    },
+    {
+      "title": "Almost-Orthogonality in Lp Spaces: A Case Study with Grok",
+      "summary": "Carbery proposed the following sharpened form of triangle inequality for many functions: for any $p\\ge 2$ and any finite sequence $(f_j)_j\\subset L^p$ we have \\[ \\Big\\|\\sum_j f_j\\Big\\|_p \\ \\le\\ \\left(...",
+      "fetched": "2026-05-07T02:48:53.003194"
     }
   ],
-  "last_sync": "2026-05-06T02:47:10.196504"
+  "last_sync": "2026-05-07T02:48:53.061286"
 }
