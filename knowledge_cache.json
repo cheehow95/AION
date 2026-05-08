@@ -3,21 +3,6 @@
     {
       "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
       "summary": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content...",
-      "fetched": "2026-05-01T03:21:11.509047"
-    },
-    {
-      "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
-      "summary": "Electroencephalogram (EEG) signals are vital for automated seizure detection, but their inherent noise makes robust representation learning challenging. Existing graph construction methods, whether co...",
-      "fetched": "2026-05-01T03:21:11.509049"
-    },
-    {
-      "title": "Computing Equilibrium beyond Unilateral Deviation",
-      "summary": "Most familiar equilibrium concepts, such as Nash and correlated equilibrium, guarantee only that no single player can improve their utility by deviating unilaterally. They offer no guarantees against ...",
-      "fetched": "2026-05-02T02:39:31.709878"
-    },
-    {
-      "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
-      "summary": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content...",
       "fetched": "2026-05-02T02:39:31.709893"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Almost-Orthogonality in Lp Spaces: A Case Study with Grok",
       "summary": "Carbery proposed the following sharpened form of triangle inequality for many functions: for any $p\\ge 2$ and any finite sequence $(f_j)_j\\subset L^p$ we have \\[ \\Big\\|\\sum_j f_j\\Big\\|_p \\ \\le\\ \\left(...",
       "fetched": "2026-05-07T02:48:53.003194"
+    },
+    {
+      "title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
+      "summary": "For artistic applications, video generation requires fine-grained control over both performance and cinematography, i.e., the actor's motion and the camera trajectory. We present ActCam, a zero-shot m...",
+      "fetched": "2026-05-08T02:52:16.878555"
+    },
+    {
+      "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
+      "summary": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin...",
+      "fetched": "2026-05-08T02:52:16.878566"
+    },
+    {
+      "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
+      "summary": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su...",
+      "fetched": "2026-05-08T02:52:16.878568"
     }
   ],
-  "last_sync": "2026-05-07T02:48:53.061286"
+  "last_sync": "2026-05-08T02:52:16.937133"
 }
