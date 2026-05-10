@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
-      "summary": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content...",
-      "fetched": "2026-05-03T02:51:40.339497"
-    },
-    {
-      "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
-      "summary": "Electroencephalogram (EEG) signals are vital for automated seizure detection, but their inherent noise makes robust representation learning challenging. Existing graph construction methods, whether co...",
-      "fetched": "2026-05-03T02:51:40.339499"
-    },
-    {
-      "title": "Persistent Visual Memory: Sustaining Perception for Deep Generation in LVLMs",
-      "summary": "While autoregressive Large Vision-Language Models (LVLMs) demonstrate remarkable proficiency in multimodal tasks, they face a \"Visual Signal Dilution\" phenomenon, where the accumulation of textual his...",
-      "fetched": "2026-05-04T02:49:08.913399"
-    },
-    {
       "title": "Can Coding Agents Reproduce Findings in Computational Materials Science?",
       "summary": "Large language models are increasingly deployed as autonomous coding agents and have achieved remarkably strong performance on software engineering benchmarks. However, it is unclear whether such succ...",
       "fetched": "2026-05-04T02:49:08.913409"
@@ -99,7 +84,22 @@
       "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
       "summary": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su...",
       "fetched": "2026-05-09T02:46:56.280467"
+    },
+    {
+      "title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
+      "summary": "For artistic applications, video generation requires fine-grained control over both performance and cinematography, i.e., the actor's motion and the camera trajectory. We present ActCam, a zero-shot m...",
+      "fetched": "2026-05-10T02:53:30.456670"
+    },
+    {
+      "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
+      "summary": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin...",
+      "fetched": "2026-05-10T02:53:30.456686"
+    },
+    {
+      "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
+      "summary": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su...",
+      "fetched": "2026-05-10T02:53:30.456689"
     }
   ],
-  "last_sync": "2026-05-09T02:46:56.319992"
+  "last_sync": "2026-05-10T02:53:30.494379"
 }
