@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Can Coding Agents Reproduce Findings in Computational Materials Science?",
-      "summary": "Large language models are increasingly deployed as autonomous coding agents and have achieved remarkably strong performance on software engineering benchmarks. However, it is unclear whether such succ...",
-      "fetched": "2026-05-04T02:49:08.913409"
-    },
-    {
-      "title": "When RAG Chatbots Expose Their Backend: An Anonymized Case Study of Privacy and Security Risks in Patient-Facing Medical AI",
-      "summary": "Background: Patient-facing medical chatbots based on retrieval-augmented generation (RAG) are increasingly promoted to deliver accessible, grounded health information. AI-assisted development lowers t...",
-      "fetched": "2026-05-04T02:49:08.913411"
-    },
-    {
-      "title": "Repurposing and Evaluating the (In)Feasibility of Dataset Poisoning enabled Watermarking for Contrastive Learning",
-      "summary": "Contrastive learning (CL) reduces annotation cost via auto-derived supervisory signals. Since large-scale in-house CL datasets are infeasible, reliance on third-party or internet data is common. Recen...",
-      "fetched": "2026-05-05T02:41:11.362661"
-    },
-    {
       "title": "Remote Action Generation: Remote Control with Minimal Communication",
       "summary": "We address the challenge of remote control where one or more actors, lacking direct reward access, are steered by a controller over a communication-constrained channel. The controller learns an optima...",
       "fetched": "2026-05-05T02:41:11.362667"
@@ -99,7 +84,22 @@
       "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
       "summary": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su...",
       "fetched": "2026-05-10T02:53:30.456689"
+    },
+    {
+      "title": "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction",
+      "summary": "Recent event-based image reconstruction methods predominantly rely on Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to process complementary event information. However, these arc...",
+      "fetched": "2026-05-11T03:29:03.648888"
+    },
+    {
+      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
+      "summary": "A standard technique for scaling inference-time reasoning is Self-Consistency, whereby multiple candidate answers are sampled from an LLM and the most common answer is selected. More recently, it has ...",
+      "fetched": "2026-05-11T03:29:03.648898"
+    },
+    {
+      "title": "Flow-OPD: On-Policy Distillation for Flow Matching Models",
+      "summary": "Existing Flow Matching (FM) text-to-image models suffer from two critical bottlenecks under multi-task alignment: the reward sparsity induced by scalar-valued rewards, and the gradient interference ar...",
+      "fetched": "2026-05-11T03:29:03.648901"
     }
   ],
-  "last_sync": "2026-05-10T02:53:30.494379"
+  "last_sync": "2026-05-11T03:29:03.685183"
 }
