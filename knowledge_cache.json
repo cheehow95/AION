@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Remote Action Generation: Remote Control with Minimal Communication",
-      "summary": "We address the challenge of remote control where one or more actors, lacking direct reward access, are steered by a controller over a communication-constrained channel. The controller learns an optima...",
-      "fetched": "2026-05-05T02:41:11.362667"
-    },
-    {
-      "title": "RMGAP: Benchmarking the Generalization of Reward Models across Diverse Preferences",
-      "summary": "Reinforcement Learning from Human Feedback has become the standard paradigm for language model alignment, where reward models directly determine alignment effectiveness. In this work, we focus on how ...",
-      "fetched": "2026-05-05T02:41:11.362669"
-    },
-    {
-      "title": "Feature-Augmented Transformers for Robust AI-Text Detection Across Domains and Generators",
-      "summary": "AI-generated text is nowadays produced at scale across domains and heterogeneous generation pipelines, making robustness to distribution shift a central requirement for supervised binary detectors. We...",
-      "fetched": "2026-05-06T02:47:10.145408"
-    },
-    {
       "title": "Label-Efficient School Detection from Aerial Imagery via Weakly Supervised Pretraining and Fine-Tuning",
       "summary": "Accurate school detection is essential for supporting education initiatives, including infrastructure planning and expanding internet connectivity to underserved areas. However, many regions around th...",
       "fetched": "2026-05-06T02:47:10.145416"
@@ -99,7 +84,22 @@
       "title": "Flow-OPD: On-Policy Distillation for Flow Matching Models",
       "summary": "Existing Flow Matching (FM) text-to-image models suffer from two critical bottlenecks under multi-task alignment: the reward sparsity induced by scalar-valued rewards, and the gradient interference ar...",
       "fetched": "2026-05-11T03:29:03.648901"
+    },
+    {
+      "title": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
+      "summary": "Knowledge graph embedding (KGE) models typically represent each relation as an operator on entity embeddings. In this work, we identify three structural axioms that any principled relation operator mu...",
+      "fetched": "2026-05-12T02:54:13.461619"
+    },
+    {
+      "title": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
+      "summary": "Generative tabular augmentation is appealing in data-scarce domains, yet the prevailing focus on distributional fidelity does not reliably translate into better downstream models. We formalize a fidel...",
+      "fetched": "2026-05-12T02:54:13.461628"
+    },
+    {
+      "title": "Positive Alignment: Artificial Intelligence for Human Flourishing",
+      "summary": "Existing alignment research is dominated by concerns about safety and preventing harm: safeguards, controllability, and compliance. This paradigm of alignment parallels early psychology's focus on men...",
+      "fetched": "2026-05-12T02:54:13.461630"
     }
   ],
-  "last_sync": "2026-05-11T03:29:03.685183"
+  "last_sync": "2026-05-12T02:54:13.517523"
 }
