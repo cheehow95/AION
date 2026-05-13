@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Label-Efficient School Detection from Aerial Imagery via Weakly Supervised Pretraining and Fine-Tuning",
-      "summary": "Accurate school detection is essential for supporting education initiatives, including infrastructure planning and expanding internet connectivity to underserved areas. However, many regions around th...",
-      "fetched": "2026-05-06T02:47:10.145416"
-    },
-    {
-      "title": "Inconsistent Databases and Argumentation Frameworks with Collective Attacks",
-      "summary": "The connection between subset-maximal repairs for inconsistent databases involving various integrity constraints and acceptable sets of arguments within argumentation frameworks has recently drawn gro...",
-      "fetched": "2026-05-06T02:47:10.145418"
-    },
-    {
-      "title": "Taming Outlier Tokens in Diffusion Transformers",
-      "summary": "We study outlier tokens in Diffusion Transformers (DiTs) for image generation. Prior work has shown that Vision Transformers (ViTs) can produce a small number of high-norm tokens that attract dispropo...",
-      "fetched": "2026-05-07T02:48:53.003173"
-    },
-    {
       "title": "Grokability in five inequalities",
       "summary": "In this note, we report five mathematical discoveries made in collaboration with Grok, all of which have been subsequently verified by the authors. These include an improved lower bound on the maximal...",
       "fetched": "2026-05-07T02:48:53.003191"
@@ -99,7 +84,22 @@
       "title": "Positive Alignment: Artificial Intelligence for Human Flourishing",
       "summary": "Existing alignment research is dominated by concerns about safety and preventing harm: safeguards, controllability, and compliance. This paradigm of alignment parallels early psychology's focus on men...",
       "fetched": "2026-05-12T02:54:13.461630"
+    },
+    {
+      "title": "AlphaGRPO: Unlocking Self-Reflective Multimodal Generation in UMMs via Decompositional Verifiable Reward",
+      "summary": "In this paper, we propose AlphaGRPO, a novel framework that applies Group Relative Policy Optimization (GRPO) to AR-Diffusion Unified Multimodal Models (UMMs) to enhance multimodal generation capabili...",
+      "fetched": "2026-05-13T03:22:53.051667"
+    },
+    {
+      "title": "Learning, Fast and Slow: Towards LLMs That Adapt Continually",
+      "summary": "Large language models (LLMs) are trained for downstream tasks by updating their parameters (e.g., via RL). However, updating parameters forces them to absorb task-specific information, which can resul...",
+      "fetched": "2026-05-13T03:22:53.051679"
+    },
+    {
+      "title": "Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training",
+      "summary": "In settings where labeled verifiable training data is the binding constraint, each checked example should be allocated carefully. The standard practice is to use this data directly on the model that w...",
+      "fetched": "2026-05-13T03:22:53.051682"
     }
   ],
-  "last_sync": "2026-05-12T02:54:13.517523"
+  "last_sync": "2026-05-13T03:22:53.092657"
 }
