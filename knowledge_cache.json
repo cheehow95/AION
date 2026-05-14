@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Grokability in five inequalities",
-      "summary": "In this note, we report five mathematical discoveries made in collaboration with Grok, all of which have been subsequently verified by the authors. These include an improved lower bound on the maximal...",
-      "fetched": "2026-05-07T02:48:53.003191"
-    },
-    {
-      "title": "Almost-Orthogonality in Lp Spaces: A Case Study with Grok",
-      "summary": "Carbery proposed the following sharpened form of triangle inequality for many functions: for any $p\\ge 2$ and any finite sequence $(f_j)_j\\subset L^p$ we have \\[ \\Big\\|\\sum_j f_j\\Big\\|_p \\ \\le\\ \\left(...",
-      "fetched": "2026-05-07T02:48:53.003194"
-    },
-    {
-      "title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
-      "summary": "For artistic applications, video generation requires fine-grained control over both performance and cinematography, i.e., the actor's motion and the camera trajectory. We present ActCam, a zero-shot m...",
-      "fetched": "2026-05-08T02:52:16.878555"
-    },
-    {
       "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
       "summary": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin...",
       "fetched": "2026-05-08T02:52:16.878566"
@@ -99,7 +84,22 @@
       "title": "Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training",
       "summary": "In settings where labeled verifiable training data is the binding constraint, each checked example should be allocated carefully. The standard practice is to use this data directly on the model that w...",
       "fetched": "2026-05-13T03:22:53.051682"
+    },
+    {
+      "title": "WARDEN: Endangered Indigenous Language Transcription and Translation with 6 Hours of Training Data",
+      "summary": "This paper introduces WARDEN, an early language model system capable of transcribing and translating Wardaman, an endangered Australian indigenous language into English. The significant challenge we f...",
+      "fetched": "2026-05-14T03:24:30.676487"
+    },
+    {
+      "title": "EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents",
+      "summary": "Voice agents, artificial intelligence systems that conduct spoken conversations to complete tasks, are increasingly deployed across enterprise applications. However, no existing benchmark jointly addr...",
+      "fetched": "2026-05-14T03:24:30.676496"
+    },
+    {
+      "title": "Topology-Preserving Neural Operator Learning via Hodge Decomposition",
+      "summary": "In this paper, we study solution operators of physical field equations on geometric meshes from a function-space perspective. We reveal that Hodge orthogonality fundamentally resolves spectral interfe...",
+      "fetched": "2026-05-14T03:24:30.676499"
     }
   ],
-  "last_sync": "2026-05-13T03:22:53.092657"
+  "last_sync": "2026-05-14T03:24:30.733520"
 }
