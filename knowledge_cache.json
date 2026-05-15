@@ -3,21 +3,6 @@
     {
       "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
       "summary": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin...",
-      "fetched": "2026-05-08T02:52:16.878566"
-    },
-    {
-      "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
-      "summary": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su...",
-      "fetched": "2026-05-08T02:52:16.878568"
-    },
-    {
-      "title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
-      "summary": "For artistic applications, video generation requires fine-grained control over both performance and cinematography, i.e., the actor's motion and the camera trajectory. We present ActCam, a zero-shot m...",
-      "fetched": "2026-05-09T02:46:56.280455"
-    },
-    {
-      "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
-      "summary": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin...",
       "fetched": "2026-05-09T02:46:56.280464"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Topology-Preserving Neural Operator Learning via Hodge Decomposition",
       "summary": "In this paper, we study solution operators of physical field equations on geometric meshes from a function-space perspective. We reveal that Hodge orthogonality fundamentally resolves spectral interfe...",
       "fetched": "2026-05-14T03:24:30.676499"
+    },
+    {
+      "title": "EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation",
+      "summary": "Multi-shot video generation extends single-shot generation to coherent visual narratives, yet maintaining consistent characters, objects, and locations across shots remains a challenge over long seque...",
+      "fetched": "2026-05-15T03:27:57.236543"
+    },
+    {
+      "title": "ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both",
+      "summary": "Visual reasoning, often interleaved with intermediate visual states, has emerged as a promising direction in the field. A straightforward approach is to directly generate images via unified models dur...",
+      "fetched": "2026-05-15T03:27:57.236553"
+    },
+    {
+      "title": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
+      "summary": "AI agents are being increasingly deployed in dynamic, open-ended environments that require adapting to new information as it arrives. To efficiently measure this capability for realistic use-cases, we...",
+      "fetched": "2026-05-15T03:27:57.236555"
     }
   ],
-  "last_sync": "2026-05-14T03:24:30.733520"
+  "last_sync": "2026-05-15T03:27:57.278336"
 }
