@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
-      "summary": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin...",
-      "fetched": "2026-05-10T02:53:30.456686"
-    },
-    {
-      "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
-      "summary": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su...",
-      "fetched": "2026-05-10T02:53:30.456689"
-    },
-    {
-      "title": "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction",
-      "summary": "Recent event-based image reconstruction methods predominantly rely on Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to process complementary event information. However, these arc...",
-      "fetched": "2026-05-11T03:29:03.648888"
-    },
-    {
       "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
       "summary": "A standard technique for scaling inference-time reasoning is Self-Consistency, whereby multiple candidate answers are sampled from an LLM and the most common answer is selected. More recently, it has ...",
       "fetched": "2026-05-11T03:29:03.648898"
@@ -99,7 +84,22 @@
       "title": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
       "summary": "AI agents are being increasingly deployed in dynamic, open-ended environments that require adapting to new information as it arrives. To efficiently measure this capability for realistic use-cases, we...",
       "fetched": "2026-05-16T02:51:17.192797"
+    },
+    {
+      "title": "EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation",
+      "summary": "Multi-shot video generation extends single-shot generation to coherent visual narratives, yet maintaining consistent characters, objects, and locations across shots remains a challenge over long seque...",
+      "fetched": "2026-05-17T03:23:59.739075"
+    },
+    {
+      "title": "ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both",
+      "summary": "Visual reasoning, often interleaved with intermediate visual states, has emerged as a promising direction in the field. A straightforward approach is to directly generate images via unified models dur...",
+      "fetched": "2026-05-17T03:23:59.739087"
+    },
+    {
+      "title": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
+      "summary": "AI agents are being increasingly deployed in dynamic, open-ended environments that require adapting to new information as it arrives. To efficiently measure this capability for realistic use-cases, we...",
+      "fetched": "2026-05-17T03:23:59.739089"
     }
   ],
-  "last_sync": "2026-05-16T02:51:17.221536"
+  "last_sync": "2026-05-17T03:23:59.797290"
 }
