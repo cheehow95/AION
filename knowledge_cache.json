@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
-      "summary": "A standard technique for scaling inference-time reasoning is Self-Consistency, whereby multiple candidate answers are sampled from an LLM and the most common answer is selected. More recently, it has ...",
-      "fetched": "2026-05-11T03:29:03.648898"
-    },
-    {
-      "title": "Flow-OPD: On-Policy Distillation for Flow Matching Models",
-      "summary": "Existing Flow Matching (FM) text-to-image models suffer from two critical bottlenecks under multi-task alignment: the reward sparsity induced by scalar-valued rewards, and the gradient interference ar...",
-      "fetched": "2026-05-11T03:29:03.648901"
-    },
-    {
-      "title": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
-      "summary": "Knowledge graph embedding (KGE) models typically represent each relation as an operator on entity embeddings. In this work, we identify three structural axioms that any principled relation operator mu...",
-      "fetched": "2026-05-12T02:54:13.461619"
-    },
-    {
       "title": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
       "summary": "Generative tabular augmentation is appealing in data-scarce domains, yet the prevailing focus on distributional fidelity does not reliably translate into better downstream models. We formalize a fidel...",
       "fetched": "2026-05-12T02:54:13.461628"
@@ -99,7 +84,22 @@
       "title": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
       "summary": "AI agents are being increasingly deployed in dynamic, open-ended environments that require adapting to new information as it arrives. To efficiently measure this capability for realistic use-cases, we...",
       "fetched": "2026-05-17T03:23:59.739089"
+    },
+    {
+      "title": "IVGT: Implicit Visual Geometry Transformer for Neural Scene Representation",
+      "summary": "Reconstructing coherent 3D geometry and appearance from unposed multi-view images is a fundamental yet challenging problem in computer vision. Most existing visual geometry foundation models predict e...",
+      "fetched": "2026-05-18T03:38:07.047011"
+    },
+    {
+      "title": "Designing Datacenter Power Delivery Hierarchies for the AI Era",
+      "summary": "Demand for AI accelerators is rapidly increasing rack power density, with projections approaching 1MW per deployment by 2027. This poses a major challenge for datacenter power delivery designers. As p...",
+      "fetched": "2026-05-18T03:38:07.047021"
+    },
+    {
+      "title": "A Generative AI Framework for Intelligent Utility Billing CO 2 Analytics and Sustainable Resource Optimisation",
+      "summary": "Distribution utilities are now expected to deliver bills that customers can actually read attach a defensible carbon number to every kWh sold and schedule load against grid stress and emissions constr...",
+      "fetched": "2026-05-18T03:38:07.047024"
     }
   ],
-  "last_sync": "2026-05-17T03:23:59.797290"
+  "last_sync": "2026-05-18T03:38:07.123454"
 }
