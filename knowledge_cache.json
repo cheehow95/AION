@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
-      "summary": "Generative tabular augmentation is appealing in data-scarce domains, yet the prevailing focus on distributional fidelity does not reliably translate into better downstream models. We formalize a fidel...",
-      "fetched": "2026-05-12T02:54:13.461628"
-    },
-    {
-      "title": "Positive Alignment: Artificial Intelligence for Human Flourishing",
-      "summary": "Existing alignment research is dominated by concerns about safety and preventing harm: safeguards, controllability, and compliance. This paradigm of alignment parallels early psychology's focus on men...",
-      "fetched": "2026-05-12T02:54:13.461630"
-    },
-    {
-      "title": "AlphaGRPO: Unlocking Self-Reflective Multimodal Generation in UMMs via Decompositional Verifiable Reward",
-      "summary": "In this paper, we propose AlphaGRPO, a novel framework that applies Group Relative Policy Optimization (GRPO) to AR-Diffusion Unified Multimodal Models (UMMs) to enhance multimodal generation capabili...",
-      "fetched": "2026-05-13T03:22:53.051667"
-    },
-    {
       "title": "Learning, Fast and Slow: Towards LLMs That Adapt Continually",
       "summary": "Large language models (LLMs) are trained for downstream tasks by updating their parameters (e.g., via RL). However, updating parameters forces them to absorb task-specific information, which can resul...",
       "fetched": "2026-05-13T03:22:53.051679"
@@ -99,7 +84,22 @@
       "title": "A Generative AI Framework for Intelligent Utility Billing CO 2 Analytics and Sustainable Resource Optimisation",
       "summary": "Distribution utilities are now expected to deliver bills that customers can actually read attach a defensible carbon number to every kWh sold and schedule load against grid stress and emissions constr...",
       "fetched": "2026-05-18T03:38:07.047024"
+    },
+    {
+      "title": "Are Sparse Autoencoder Benchmarks Reliable?",
+      "summary": "Sparse autoencoders (SAEs) are a core interpretability tool for large language models, and progress on SAE architectures depends on benchmarks that reliably distinguish better SAEs from worse ones. We...",
+      "fetched": "2026-05-19T03:31:22.791257"
+    },
+    {
+      "title": "Context Memorization for Efficient Long Context Generation",
+      "summary": "Modern large language model (LLM) applications increasingly rely on long conditioning prefixes to control model behavior at inference time. While prefix-augmented inference is effective, it incurs two...",
+      "fetched": "2026-05-19T03:31:22.791268"
+    },
+    {
+      "title": "A Simplex Witness Certificate for Constant Collapse in Variational Autoencoders",
+      "summary": "This note studies exact constant collapse in variational autoencoders, where the encoder mean becomes independent of the input. The goal is to make this specific failure mode pre-designable, monitorab...",
+      "fetched": "2026-05-19T03:31:22.791270"
     }
   ],
-  "last_sync": "2026-05-18T03:38:07.123454"
+  "last_sync": "2026-05-19T03:31:22.930339"
 }
