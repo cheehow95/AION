@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Learning, Fast and Slow: Towards LLMs That Adapt Continually",
-      "summary": "Large language models (LLMs) are trained for downstream tasks by updating their parameters (e.g., via RL). However, updating parameters forces them to absorb task-specific information, which can resul...",
-      "fetched": "2026-05-13T03:22:53.051679"
-    },
-    {
-      "title": "Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training",
-      "summary": "In settings where labeled verifiable training data is the binding constraint, each checked example should be allocated carefully. The standard practice is to use this data directly on the model that w...",
-      "fetched": "2026-05-13T03:22:53.051682"
-    },
-    {
-      "title": "WARDEN: Endangered Indigenous Language Transcription and Translation with 6 Hours of Training Data",
-      "summary": "This paper introduces WARDEN, an early language model system capable of transcribing and translating Wardaman, an endangered Australian indigenous language into English. The significant challenge we f...",
-      "fetched": "2026-05-14T03:24:30.676487"
-    },
-    {
       "title": "EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents",
       "summary": "Voice agents, artificial intelligence systems that conduct spoken conversations to complete tasks, are increasingly deployed across enterprise applications. However, no existing benchmark jointly addr...",
       "fetched": "2026-05-14T03:24:30.676496"
@@ -99,7 +84,22 @@
       "title": "A Simplex Witness Certificate for Constant Collapse in Variational Autoencoders",
       "summary": "This note studies exact constant collapse in variational autoencoders, where the encoder mean becomes independent of the input. The goal is to make this specific failure mode pre-designable, monitorab...",
       "fetched": "2026-05-19T03:31:22.791270"
+    },
+    {
+      "title": "Atoms of Thought: Universal EEG Representation Learning with Microstates",
+      "summary": "Learning universal representations from electroencephalogram (EEG) signals is a cutting-edge approach in the field of neuroinformatics and brain-computer interfaces (BCIs). Conventionally, EEG is trea...",
+      "fetched": "2026-05-20T03:32:15.561343"
+    },
+    {
+      "title": "A Methodology for Selecting and Composing Runtime Architecture Patterns for Production LLM Agents",
+      "summary": "Production LLM agents combine stochastic model outputs with deterministic software systems, yet the boundary between the two is rarely treated as a first-class architectural object. This paper names t...",
+      "fetched": "2026-05-20T03:32:15.561352"
+    },
+    {
+      "title": "Long-term Power Grid Planning via Answer Set Programming",
+      "summary": "The Power grid is a critical infrastructure underpinning all aspects of modern society and its services. Maintaining its effectiveness requires continuous adaptations. In particular, addressing sustai...",
+      "fetched": "2026-05-20T03:32:15.561354"
     }
   ],
-  "last_sync": "2026-05-19T03:31:22.930339"
+  "last_sync": "2026-05-20T03:32:15.597560"
 }
