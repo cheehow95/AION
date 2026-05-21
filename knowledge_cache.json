@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents",
-      "summary": "Voice agents, artificial intelligence systems that conduct spoken conversations to complete tasks, are increasingly deployed across enterprise applications. However, no existing benchmark jointly addr...",
-      "fetched": "2026-05-14T03:24:30.676496"
-    },
-    {
-      "title": "Topology-Preserving Neural Operator Learning via Hodge Decomposition",
-      "summary": "In this paper, we study solution operators of physical field equations on geometric meshes from a function-space perspective. We reveal that Hodge orthogonality fundamentally resolves spectral interfe...",
-      "fetched": "2026-05-14T03:24:30.676499"
-    },
-    {
-      "title": "EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation",
-      "summary": "Multi-shot video generation extends single-shot generation to coherent visual narratives, yet maintaining consistent characters, objects, and locations across shots remains a challenge over long seque...",
-      "fetched": "2026-05-15T03:27:57.236543"
-    },
-    {
       "title": "ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both",
       "summary": "Visual reasoning, often interleaved with intermediate visual states, has emerged as a promising direction in the field. A straightforward approach is to directly generate images via unified models dur...",
       "fetched": "2026-05-15T03:27:57.236553"
@@ -99,7 +84,22 @@
       "title": "Long-term Power Grid Planning via Answer Set Programming",
       "summary": "The Power grid is a critical infrastructure underpinning all aspects of modern society and its services. Maintaining its effectiveness requires continuous adaptations. In particular, addressing sustai...",
       "fetched": "2026-05-20T03:32:15.561354"
+    },
+    {
+      "title": "Variance Reduction for Expectations with Diffusion Teachers",
+      "summary": "Pretrained diffusion models serve as frozen teachers feeding downstream pipelines such as text-to-3D, single-step distillation, and data attribution. The teacher gradients these pipelines consume are ...",
+      "fetched": "2026-05-21T03:38:08.557587"
+    },
+    {
+      "title": "Quantifying Hyperparameter Transfer and the Importance of Embedding Layer Learning Rate",
+      "summary": "Hyperparameter transfer allows extrapolating optimal optimization hyperparameters from small to large scales, making it critical for training large language models (LLMs). This is done either by fitti...",
+      "fetched": "2026-05-21T03:38:08.557598"
+    },
+    {
+      "title": "DeepWeb-Bench: A Deep Research Benchmark Demanding Massive Cross-Source Evidence and Long-Horizon Derivation",
+      "summary": "Deep research, in which an agent searches the open web, collects evidence, and derives an answer through extended reasoning, is a prominent use case for frontier language models. Frontier deep researc...",
+      "fetched": "2026-05-21T03:38:08.557600"
     }
   ],
-  "last_sync": "2026-05-20T03:32:15.597560"
+  "last_sync": "2026-05-21T03:38:08.665791"
 }
