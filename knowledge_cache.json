@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both",
-      "summary": "Visual reasoning, often interleaved with intermediate visual states, has emerged as a promising direction in the field. A straightforward approach is to directly generate images via unified models dur...",
-      "fetched": "2026-05-17T03:23:59.739087"
-    },
-    {
-      "title": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
-      "summary": "AI agents are being increasingly deployed in dynamic, open-ended environments that require adapting to new information as it arrives. To efficiently measure this capability for realistic use-cases, we...",
-      "fetched": "2026-05-17T03:23:59.739089"
-    },
-    {
-      "title": "IVGT: Implicit Visual Geometry Transformer for Neural Scene Representation",
-      "summary": "Reconstructing coherent 3D geometry and appearance from unposed multi-view images is a fundamental yet challenging problem in computer vision. Most existing visual geometry foundation models predict e...",
-      "fetched": "2026-05-18T03:38:07.047011"
-    },
-    {
       "title": "Designing Datacenter Power Delivery Hierarchies for the AI Era",
       "summary": "Demand for AI accelerators is rapidly increasing rack power density, with projections approaching 1MW per deployment by 2027. This poses a major challenge for datacenter power delivery designers. As p...",
       "fetched": "2026-05-18T03:38:07.047021"
@@ -99,7 +84,22 @@
       "title": "Finite-Particle Convergence Rates for Conservative and Non-Conservative Drifting Models",
       "summary": "We propose and analyze a conservative drifting method for one-step generative modeling. The method replaces the original displacement-based drifting velocity by a kernel density estimator (KDE)-gradie...",
       "fetched": "2026-05-23T02:53:49.564433"
+    },
+    {
+      "title": "SkillOpt: Executive Strategy for Self-Evolving Agent Skills",
+      "summary": "Agent skills today are hand-crafted, generated one-shot, or evolved through loosely controlled self-revision, none of which behaves like a deep-learning optimizer for the skill, and none of which reli...",
+      "fetched": "2026-05-25T03:45:10.740430"
+    },
+    {
+      "title": "LLMs as Noisy Channels: A Shannon Perspective on Model Capacity and Scaling Laws",
+      "summary": "Existing scaling laws for Large Language Models (LLMs), predominantly monotonic power laws, fail to explain emerging non-monotonic phenomena such as catastrophic overtraining and quantization-induced ...",
+      "fetched": "2026-05-25T03:45:10.740442"
+    },
+    {
+      "title": "From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills",
+      "summary": "Language agents increasingly improve by reusing \\emph{skills} -- structured procedural artifacts distilled from past experience. In particular, \\emph{domain-level} and \\emph{model-generated} skills ar...",
+      "fetched": "2026-05-25T03:45:10.740444"
     }
   ],
-  "last_sync": "2026-05-24T03:33:29.994236"
+  "last_sync": "2026-05-25T03:45:10.797891"
 }
