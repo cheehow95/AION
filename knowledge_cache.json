@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Designing Datacenter Power Delivery Hierarchies for the AI Era",
-      "summary": "Demand for AI accelerators is rapidly increasing rack power density, with projections approaching 1MW per deployment by 2027. This poses a major challenge for datacenter power delivery designers. As p...",
-      "fetched": "2026-05-18T03:38:07.047021"
-    },
-    {
-      "title": "A Generative AI Framework for Intelligent Utility Billing CO 2 Analytics and Sustainable Resource Optimisation",
-      "summary": "Distribution utilities are now expected to deliver bills that customers can actually read attach a defensible carbon number to every kWh sold and schedule load against grid stress and emissions constr...",
-      "fetched": "2026-05-18T03:38:07.047024"
-    },
-    {
-      "title": "Are Sparse Autoencoder Benchmarks Reliable?",
-      "summary": "Sparse autoencoders (SAEs) are a core interpretability tool for large language models, and progress on SAE architectures depends on benchmarks that reliably distinguish better SAEs from worse ones. We...",
-      "fetched": "2026-05-19T03:31:22.791257"
-    },
-    {
       "title": "Context Memorization for Efficient Long Context Generation",
       "summary": "Modern large language model (LLM) applications increasingly rely on long conditioning prefixes to control model behavior at inference time. While prefix-augmented inference is effective, it incurs two...",
       "fetched": "2026-05-19T03:31:22.791268"
@@ -99,7 +84,22 @@
       "title": "From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills",
       "summary": "Language agents increasingly improve by reusing \\emph{skills} -- structured procedural artifacts distilled from past experience. In particular, \\emph{domain-level} and \\emph{model-generated} skills ar...",
       "fetched": "2026-05-25T03:45:10.740444"
+    },
+    {
+      "title": "SkillOpt: Executive Strategy for Self-Evolving Agent Skills",
+      "summary": "Agent skills today are hand-crafted, generated one-shot, or evolved through loosely controlled self-revision, none of which behaves like a deep-learning optimizer for the skill, and none of which reli...",
+      "fetched": "2026-05-26T03:30:18.453554"
+    },
+    {
+      "title": "LLMs as Noisy Channels: A Shannon Perspective on Model Capacity and Scaling Laws",
+      "summary": "Existing scaling laws for Large Language Models (LLMs), predominantly monotonic power laws, fail to explain emerging non-monotonic phenomena such as catastrophic overtraining and quantization-induced ...",
+      "fetched": "2026-05-26T03:30:18.453564"
+    },
+    {
+      "title": "From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills",
+      "summary": "Language agents increasingly improve by reusing \\emph{skills} -- structured procedural artifacts distilled from past experience. In particular, \\emph{domain-level} and \\emph{model-generated} skills ar...",
+      "fetched": "2026-05-26T03:30:18.453567"
     }
   ],
-  "last_sync": "2026-05-25T03:45:10.797891"
+  "last_sync": "2026-05-26T03:30:18.487326"
 }
