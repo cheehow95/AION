@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Context Memorization for Efficient Long Context Generation",
-      "summary": "Modern large language model (LLM) applications increasingly rely on long conditioning prefixes to control model behavior at inference time. While prefix-augmented inference is effective, it incurs two...",
-      "fetched": "2026-05-19T03:31:22.791268"
-    },
-    {
-      "title": "A Simplex Witness Certificate for Constant Collapse in Variational Autoencoders",
-      "summary": "This note studies exact constant collapse in variational autoencoders, where the encoder mean becomes independent of the input. The goal is to make this specific failure mode pre-designable, monitorab...",
-      "fetched": "2026-05-19T03:31:22.791270"
-    },
-    {
-      "title": "Atoms of Thought: Universal EEG Representation Learning with Microstates",
-      "summary": "Learning universal representations from electroencephalogram (EEG) signals is a cutting-edge approach in the field of neuroinformatics and brain-computer interfaces (BCIs). Conventionally, EEG is trea...",
-      "fetched": "2026-05-20T03:32:15.561343"
-    },
-    {
       "title": "A Methodology for Selecting and Composing Runtime Architecture Patterns for Production LLM Agents",
       "summary": "Production LLM agents combine stochastic model outputs with deterministic software systems, yet the boundary between the two is rarely treated as a first-class architectural object. This paper names t...",
       "fetched": "2026-05-20T03:32:15.561352"
@@ -99,7 +84,22 @@
       "title": "From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills",
       "summary": "Language agents increasingly improve by reusing \\emph{skills} -- structured procedural artifacts distilled from past experience. In particular, \\emph{domain-level} and \\emph{model-generated} skills ar...",
       "fetched": "2026-05-26T03:30:18.453567"
+    },
+    {
+      "title": "Algorithmic Monocultures in Hiring",
+      "summary": "Many employers screen job applicants with algorithms built by the same few algorithm vendors. We hypothesize that algorithmic monoculture leads to the same individuals and members of the same racial g...",
+      "fetched": "2026-05-27T03:44:13.810226"
+    },
+    {
+      "title": "MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation",
+      "summary": "Large language model (LLM) agents rely on reusable skills to solve complex tasks. However, existing skill creation approaches treat skills as isolated and static artifacts, limiting their reusability,...",
+      "fetched": "2026-05-27T03:44:13.810235"
+    },
+    {
+      "title": "LocateAnything: Fast and High-Quality Vision-Language Grounding with Parallel Box Decoding",
+      "summary": "Vision-language models (VLMs) commonly formulate visual grounding and detection as a coordinate-token generation problem, serializing each 2D box into multiple 1D tokens that are learned and decoded l...",
+      "fetched": "2026-05-27T03:44:13.810237"
     }
   ],
-  "last_sync": "2026-05-26T03:30:18.487326"
+  "last_sync": "2026-05-27T03:44:13.849953"
 }
