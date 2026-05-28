@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "A Methodology for Selecting and Composing Runtime Architecture Patterns for Production LLM Agents",
-      "summary": "Production LLM agents combine stochastic model outputs with deterministic software systems, yet the boundary between the two is rarely treated as a first-class architectural object. This paper names t...",
-      "fetched": "2026-05-20T03:32:15.561352"
-    },
-    {
-      "title": "Long-term Power Grid Planning via Answer Set Programming",
-      "summary": "The Power grid is a critical infrastructure underpinning all aspects of modern society and its services. Maintaining its effectiveness requires continuous adaptations. In particular, addressing sustai...",
-      "fetched": "2026-05-20T03:32:15.561354"
-    },
-    {
-      "title": "Variance Reduction for Expectations with Diffusion Teachers",
-      "summary": "Pretrained diffusion models serve as frozen teachers feeding downstream pipelines such as text-to-3D, single-step distillation, and data attribution. The teacher gradients these pipelines consume are ...",
-      "fetched": "2026-05-21T03:38:08.557587"
-    },
-    {
       "title": "Quantifying Hyperparameter Transfer and the Importance of Embedding Layer Learning Rate",
       "summary": "Hyperparameter transfer allows extrapolating optimal optimization hyperparameters from small to large scales, making it critical for training large language models (LLMs). This is done either by fitti...",
       "fetched": "2026-05-21T03:38:08.557598"
@@ -99,7 +84,22 @@
       "title": "LocateAnything: Fast and High-Quality Vision-Language Grounding with Parallel Box Decoding",
       "summary": "Vision-language models (VLMs) commonly formulate visual grounding and detection as a coordinate-token generation problem, serializing each 2D box into multiple 1D tokens that are learned and decoded l...",
       "fetched": "2026-05-27T03:44:13.810237"
+    },
+    {
+      "title": "Beyond Binary: Sim-to-Real Dexterous Manipulation with Physics-Grounded Contact Representation",
+      "summary": "A primary bottleneck in contact-rich manipulation is the difficulty of collecting real-world data. Sim-to-real reinforcement learning offers a scalable alternative, but the simulation-reality gap prev...",
+      "fetched": "2026-05-28T03:33:14.585044"
+    },
+    {
+      "title": "Calibrating Conservatism for Scalable Oversight",
+      "summary": "Agentic AI systems capable of autonomous planning and extended environmental interaction pose a fundamental control problem: how can humans maintain meaningful oversight of systems that may exceed the...",
+      "fetched": "2026-05-28T03:33:14.585056"
+    },
+    {
+      "title": "OmniVerifier-M1: Multimodal Meta-Verifier with Explicit Structured Recalibration",
+      "summary": "Visual outcomes are increasingly central to multimodal large language models, making reliable and fine-grained verification essential for scaling generalist foundation models. In this work, we investi...",
+      "fetched": "2026-05-28T03:33:14.585058"
     }
   ],
-  "last_sync": "2026-05-27T03:44:13.849953"
+  "last_sync": "2026-05-28T03:33:14.715636"
 }
