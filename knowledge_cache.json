@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Quantifying Hyperparameter Transfer and the Importance of Embedding Layer Learning Rate",
-      "summary": "Hyperparameter transfer allows extrapolating optimal optimization hyperparameters from small to large scales, making it critical for training large language models (LLMs). This is done either by fitti...",
-      "fetched": "2026-05-21T03:38:08.557598"
-    },
-    {
-      "title": "DeepWeb-Bench: A Deep Research Benchmark Demanding Massive Cross-Source Evidence and Long-Horizon Derivation",
-      "summary": "Deep research, in which an agent searches the open web, collects evidence, and derives an answer through extended reasoning, is a prominent use case for frontier language models. Frontier deep researc...",
-      "fetched": "2026-05-21T03:38:08.557600"
-    },
-    {
-      "title": "Vector Policy Optimization: Training for Diversity Improves Test-Time Search",
-      "summary": "Language models must now generalize out of the box to novel environments and work inside inference-scaling search procedures, such as AlphaEvolve, that select rollouts with a variety of task-specific ...",
-      "fetched": "2026-05-22T03:36:44.696034"
-    },
-    {
       "title": "The Matching Principle: A Geometric Theory of Loss Functions for Nuisance-Robust Representation Learning",
       "summary": "Robustness, domain adaptation, photometric and occlusion invariance, compositional generalisation, temporal robustness, alignment safety, and classical anisotropic regularisation are usually treated a...",
       "fetched": "2026-05-22T03:36:44.696045"
@@ -99,7 +84,22 @@
       "title": "OmniVerifier-M1: Multimodal Meta-Verifier with Explicit Structured Recalibration",
       "summary": "Visual outcomes are increasingly central to multimodal large language models, making reliable and fine-grained verification essential for scaling generalist foundation models. In this work, we investi...",
       "fetched": "2026-05-28T03:33:14.585058"
+    },
+    {
+      "title": "Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software",
+      "summary": "Are AI agents tools, co-authors, or researchers? We present a quantified case study ($N=1$): a physicist supervising an AI coding agent (Claude Code, Sonnet and Opus models) over 12 work days and 57 s...",
+      "fetched": "2026-05-29T03:33:09.607096"
+    },
+    {
+      "title": "VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion",
+      "summary": "Long-rollout causal video diffusion has converged on a fixed-size sliding-window KV cache, with recent progress innovating within this layout by changing which tokens occupy the window or how their po...",
+      "fetched": "2026-05-29T03:33:09.607103"
+    },
+    {
+      "title": "LLMSurgeon: Diagnosing Data Mixture of Large Language Models",
+      "summary": "The pretraining data mixture of Large Language Models (LLMs) constitutes their \"digital DNA\", shaping model behaviors, capabilities, and failure modes. Yet this composition is rarely disclosed, making...",
+      "fetched": "2026-05-29T03:33:09.607105"
     }
   ],
-  "last_sync": "2026-05-28T03:33:14.715636"
+  "last_sync": "2026-05-29T03:33:09.636169"
 }
