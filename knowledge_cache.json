@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "LLMs as Noisy Channels: A Shannon Perspective on Model Capacity and Scaling Laws",
-      "summary": "Existing scaling laws for Large Language Models (LLMs), predominantly monotonic power laws, fail to explain emerging non-monotonic phenomena such as catastrophic overtraining and quantization-induced ...",
-      "fetched": "2026-05-26T03:30:18.453564"
-    },
-    {
-      "title": "From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills",
-      "summary": "Language agents increasingly improve by reusing \\emph{skills} -- structured procedural artifacts distilled from past experience. In particular, \\emph{domain-level} and \\emph{model-generated} skills ar...",
-      "fetched": "2026-05-26T03:30:18.453567"
-    },
-    {
-      "title": "Algorithmic Monocultures in Hiring",
-      "summary": "Many employers screen job applicants with algorithms built by the same few algorithm vendors. We hypothesize that algorithmic monoculture leads to the same individuals and members of the same racial g...",
-      "fetched": "2026-05-27T03:44:13.810226"
-    },
-    {
       "title": "MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation",
       "summary": "Large language model (LLM) agents rely on reusable skills to solve complex tasks. However, existing skill creation approaches treat skills as isolated and static artifacts, limiting their reusability,...",
       "fetched": "2026-05-27T03:44:13.810235"
@@ -99,7 +84,22 @@
       "title": "Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories",
       "summary": "The past few decades have witnessed significant advances in the design of machine learning algorithms, from early studies on task-specific shallow models to more general deep Large Language Models (LL...",
       "fetched": "2026-06-03T04:03:02.681064"
+    },
+    {
+      "title": "HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers",
+      "summary": "For a humanoid robot to be deployed in the real world, the choice of command space (i.e., the interface between task planning and whole-body control) is crucial. Existing whole-body controllers typica...",
+      "fetched": "2026-06-06T03:26:14.205420"
+    },
+    {
+      "title": "Code2LoRA: Hypernetwork-Generated Adapters for Code Language Models under Software Evolution",
+      "summary": "Code language models need repository-level context to resolve imports, APIs, and project conventions. Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysi...",
+      "fetched": "2026-06-06T03:26:14.205431"
+    },
+    {
+      "title": "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies",
+      "summary": "Robot manipulation alternates between low-risk transit phases that call for fast execution and high-risk contact stages that demand slow, precise motion. Yet existing Vision-Language-Action models (VL...",
+      "fetched": "2026-06-06T03:26:14.205433"
     }
   ],
-  "last_sync": "2026-06-05T03:41:37.468682"
+  "last_sync": "2026-06-06T03:26:14.245010"
 }
