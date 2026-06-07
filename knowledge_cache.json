@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation",
-      "summary": "Large language model (LLM) agents rely on reusable skills to solve complex tasks. However, existing skill creation approaches treat skills as isolated and static artifacts, limiting their reusability,...",
-      "fetched": "2026-05-27T03:44:13.810235"
-    },
-    {
-      "title": "LocateAnything: Fast and High-Quality Vision-Language Grounding with Parallel Box Decoding",
-      "summary": "Vision-language models (VLMs) commonly formulate visual grounding and detection as a coordinate-token generation problem, serializing each 2D box into multiple 1D tokens that are learned and decoded l...",
-      "fetched": "2026-05-27T03:44:13.810237"
-    },
-    {
-      "title": "Beyond Binary: Sim-to-Real Dexterous Manipulation with Physics-Grounded Contact Representation",
-      "summary": "A primary bottleneck in contact-rich manipulation is the difficulty of collecting real-world data. Sim-to-real reinforcement learning offers a scalable alternative, but the simulation-reality gap prev...",
-      "fetched": "2026-05-28T03:33:14.585044"
-    },
-    {
       "title": "Calibrating Conservatism for Scalable Oversight",
       "summary": "Agentic AI systems capable of autonomous planning and extended environmental interaction pose a fundamental control problem: how can humans maintain meaningful oversight of systems that may exceed the...",
       "fetched": "2026-05-28T03:33:14.585056"
@@ -99,7 +84,22 @@
       "title": "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies",
       "summary": "Robot manipulation alternates between low-risk transit phases that call for fast execution and high-risk contact stages that demand slow, precise motion. Yet existing Vision-Language-Action models (VL...",
       "fetched": "2026-06-06T03:26:14.205433"
+    },
+    {
+      "title": "HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers",
+      "summary": "For a humanoid robot to be deployed in the real world, the choice of command space (i.e., the interface between task planning and whole-body control) is crucial. Existing whole-body controllers typica...",
+      "fetched": "2026-06-07T03:52:56.326816"
+    },
+    {
+      "title": "Code2LoRA: Hypernetwork-Generated Adapters for Code Language Models under Software Evolution",
+      "summary": "Code language models need repository-level context to resolve imports, APIs, and project conventions. Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysi...",
+      "fetched": "2026-06-07T03:52:56.326862"
+    },
+    {
+      "title": "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies",
+      "summary": "Robot manipulation alternates between low-risk transit phases that call for fast execution and high-risk contact stages that demand slow, precise motion. Yet existing Vision-Language-Action models (VL...",
+      "fetched": "2026-06-07T03:52:56.326865"
     }
   ],
-  "last_sync": "2026-06-06T03:26:14.245010"
+  "last_sync": "2026-06-07T03:52:56.362165"
 }
