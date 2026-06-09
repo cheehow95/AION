@@ -3,21 +3,6 @@
     {
       "title": "VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion",
       "summary": "Long-rollout causal video diffusion has converged on a fixed-size sliding-window KV cache, with recent progress innovating within this layout by changing which tokens occupy the window or how their po...",
-      "fetched": "2026-05-29T03:33:09.607103"
-    },
-    {
-      "title": "LLMSurgeon: Diagnosing Data Mixture of Large Language Models",
-      "summary": "The pretraining data mixture of Large Language Models (LLMs) constitutes their \"digital DNA\", shaping model behaviors, capabilities, and failure modes. Yet this composition is rarely disclosed, making...",
-      "fetched": "2026-05-29T03:33:09.607105"
-    },
-    {
-      "title": "Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software",
-      "summary": "Are AI agents tools, co-authors, or researchers? We present a quantified case study ($N=1$): a physicist supervising an AI coding agent (Claude Code, Sonnet and Opus models) over 12 work days and 57 s...",
-      "fetched": "2026-05-30T03:21:56.897282"
-    },
-    {
-      "title": "VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion",
-      "summary": "Long-rollout causal video diffusion has converged on a fixed-size sliding-window KV cache, with recent progress innovating within this layout by changing which tokens occupy the window or how their po...",
       "fetched": "2026-05-30T03:21:56.897295"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Sparse Subspace-to-Expert Sharing for Task-Agnostic Continual Learning",
       "summary": "Continual learning in Large Language Models (LLMs) is hindered by the plasticity-stability dilemma, where acquiring new capabilities often leads to catastrophic forgetting of previous knowledge. Exist...",
       "fetched": "2026-06-08T03:57:50.220053"
+    },
+    {
+      "title": "MeCo: One-Step MeanFlow-based Corrector for Multi-Channel Speech Separation",
+      "summary": "While discriminative models for multi-channel speech separation excel in reference-based metrics, they often exhibit suboptimal human listening quality. To address this, we propose a novel MeanFlow-ba...",
+      "fetched": "2026-06-09T03:27:30.055160"
+    },
+    {
+      "title": "(Auto)formalization is supposed to be easy: Trellis process semantics for spelling out rigorous proofs",
+      "summary": "We present Trellis: an autoformalization system that leverages LLM agents in a deterministically constrained workflow to enforce incremental progress in Lean autoformalization tasks through iterative ...",
+      "fetched": "2026-06-09T03:27:30.055170"
+    },
+    {
+      "title": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
+      "summary": "Ask a pretrained biomedical language model whether \"cortisol 28 ug/dL\" and \"stock-market volatility\" are related, and it returns a cosine similarity of 0.83 on a scale where 1.0 means identical. The t...",
+      "fetched": "2026-06-09T03:27:30.055172"
     }
   ],
-  "last_sync": "2026-06-08T03:57:50.294943"
+  "last_sync": "2026-06-09T03:27:30.117912"
 }
