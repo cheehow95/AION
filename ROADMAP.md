@@ -1,17 +1,17 @@
 # AION Development Roadmap
 
-Generated: 2026-06-11 03:55
+Generated: 2026-06-12 03:54
 
 ## 🔴 High Priority
 - [ ] Add Language Server Protocol (LSP) for IDE integration
 - [ ] Implement async streaming for LLM responses
 
 ## 🟡 Medium Priority
-- [ ] Add tests for src/domains/protein_solver.py
-- [ ] Add tests for src/domains/disorder.py
-- [ ] Add tests for src/domains/cellular.py
-- [ ] Add tests for src/domains/structure_api.py
-- [ ] Add tests for src/domains/relativity_engine.py
+- [ ] Add tests for src/search/search.py
+- [ ] Add tests for src/search/duckduckgo.py
+- [ ] Add tests for src/search/wikipedia.py
+- [ ] Add tests for src/swarm/coordination.py
+- [ ] Add tests for src/swarm/consensus.py
 - [ ] Add agent-to-agent message passing protocol
 - [ ] Implement persistent vector store with ChromaDB
 - [ ] Cache parsed ASTs for faster repeated execution
@@ -22,7 +22,7 @@ Generated: 2026-06-11 03:55
 
 ## 📊 Current Stats
 - Total Files: 267
-- Total Lines: 86535
+- Total Lines: 86539
 - Python Files: 238
 - AION Examples: 17
 - Test Files: 23
