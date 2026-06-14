@@ -3,21 +3,6 @@
     {
       "title": "Code2LoRA: Hypernetwork-Generated Adapters for Code Language Models under Software Evolution",
       "summary": "Code language models need repository-level context to resolve imports, APIs, and project conventions. Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysi...",
-      "fetched": "2026-06-06T03:26:14.205431"
-    },
-    {
-      "title": "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies",
-      "summary": "Robot manipulation alternates between low-risk transit phases that call for fast execution and high-risk contact stages that demand slow, precise motion. Yet existing Vision-Language-Action models (VL...",
-      "fetched": "2026-06-06T03:26:14.205433"
-    },
-    {
-      "title": "HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers",
-      "summary": "For a humanoid robot to be deployed in the real world, the choice of command space (i.e., the interface between task planning and whole-body control) is crucial. Existing whole-body controllers typica...",
-      "fetched": "2026-06-07T03:52:56.326816"
-    },
-    {
-      "title": "Code2LoRA: Hypernetwork-Generated Adapters for Code Language Models under Software Evolution",
-      "summary": "Code language models need repository-level context to resolve imports, APIs, and project conventions. Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysi...",
       "fetched": "2026-06-07T03:52:56.326862"
     },
     {
@@ -99,7 +84,22 @@
       "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
       "summary": "Spatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs). Tool-augmented agents attemp...",
       "fetched": "2026-06-13T03:39:39.579220"
+    },
+    {
+      "title": "Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning",
+      "summary": "Retrieval-augmented generation (RAG) has become a standard mechanism for grounding language models in external knowledge, yet conventional retrieval based on lexical or semantic similarity is poorly s...",
+      "fetched": "2026-06-14T04:00:53.268180"
+    },
+    {
+      "title": "Mana: Dexterous Manipulation of Articulated Tools",
+      "summary": "Articulated tool manipulation remains a major challenge in dexterous robotics due to the need to coordinate internal degrees of freedom and contact-rich interactions. While prior work has largely focu...",
+      "fetched": "2026-06-14T04:00:53.268187"
+    },
+    {
+      "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
+      "summary": "Spatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs). Tool-augmented agents attemp...",
+      "fetched": "2026-06-14T04:00:53.268189"
     }
   ],
-  "last_sync": "2026-06-13T03:39:39.612943"
+  "last_sync": "2026-06-14T04:00:53.307164"
 }
