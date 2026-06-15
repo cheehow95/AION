@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Code2LoRA: Hypernetwork-Generated Adapters for Code Language Models under Software Evolution",
-      "summary": "Code language models need repository-level context to resolve imports, APIs, and project conventions. Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysi...",
-      "fetched": "2026-06-07T03:52:56.326862"
-    },
-    {
-      "title": "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies",
-      "summary": "Robot manipulation alternates between low-risk transit phases that call for fast execution and high-risk contact stages that demand slow, precise motion. Yet existing Vision-Language-Action models (VL...",
-      "fetched": "2026-06-07T03:52:56.326865"
-    },
-    {
-      "title": "How reliable are LLMs when it comes to playing dice?",
-      "summary": "We investigate the probabilistic reasoning capabilities of large language models through a controlled benchmarking study on discrete probability problems. We constructed two datasets, respectively a s...",
-      "fetched": "2026-06-08T03:57:50.220042"
-    },
-    {
       "title": "MemDreamer: Decoupling Perception and Reasoning for Long Video Understanding via Hierarchical Graph Memory and Agentic Retrieval Mechanism",
       "summary": "Current Vision-Language Models struggle with hours-long videos because processing full-length visual sequences induces prohibitive token explosion and attention dilution. To overcome this, we introduc...",
       "fetched": "2026-06-08T03:57:50.220051"
@@ -99,7 +84,22 @@
       "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
       "summary": "Spatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs). Tool-augmented agents attemp...",
       "fetched": "2026-06-14T04:00:53.268189"
+    },
+    {
+      "title": "ClinHallu: A Benchmark for Diagnosing Stage-Wise Hallucinations in Medical MLLM Reasoning",
+      "summary": "Building trustworthy medical multimodal large language models (MLLMs) is critical for reliable clinical decision support. Existing medical hallucination benchmarks mainly focus on data collection, but...",
+      "fetched": "2026-06-15T04:13:40.966470"
+    },
+    {
+      "title": "Learning Coordinated Preference for Multi-Objective Multi-Agent Reinforcement Learning",
+      "summary": "Cooperative multi-objective multi-agent reinforcement learning (MOMARL) models team decision making under multiple, potentially conflicting objectives. In this setting, conflicts arise not only across...",
+      "fetched": "2026-06-15T04:13:40.966478"
+    },
+    {
+      "title": "Flood and Harvest: The Provable Necessity of Trivia for Generating Valuable Mathematics via the Lens of Language Generation in the Limit",
+      "summary": "AI systems coupled to proof assistants now generate formal mathematics at scale, and the gap between what a checker can verify and what a mathematician would value has become the binding constraint. W...",
+      "fetched": "2026-06-15T04:13:40.966480"
     }
   ],
-  "last_sync": "2026-06-14T04:00:53.307164"
+  "last_sync": "2026-06-15T04:13:41.015890"
 }
