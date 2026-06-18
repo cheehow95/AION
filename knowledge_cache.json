@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "MemDreamer: Decoupling Perception and Reasoning for Long Video Understanding via Hierarchical Graph Memory and Agentic Retrieval Mechanism",
-      "summary": "Current Vision-Language Models struggle with hours-long videos because processing full-length visual sequences induces prohibitive token explosion and attention dilution. To overcome this, we introduc...",
-      "fetched": "2026-06-08T03:57:50.220051"
-    },
-    {
-      "title": "Sparse Subspace-to-Expert Sharing for Task-Agnostic Continual Learning",
-      "summary": "Continual learning in Large Language Models (LLMs) is hindered by the plasticity-stability dilemma, where acquiring new capabilities often leads to catastrophic forgetting of previous knowledge. Exist...",
-      "fetched": "2026-06-08T03:57:50.220053"
-    },
-    {
-      "title": "MeCo: One-Step MeanFlow-based Corrector for Multi-Channel Speech Separation",
-      "summary": "While discriminative models for multi-channel speech separation excel in reference-based metrics, they often exhibit suboptimal human listening quality. To address this, we propose a novel MeanFlow-ba...",
-      "fetched": "2026-06-09T03:27:30.055160"
-    },
-    {
       "title": "(Auto)formalization is supposed to be easy: Trellis process semantics for spelling out rigorous proofs",
       "summary": "We present Trellis: an autoformalization system that leverages LLM agents in a deterministically constrained workflow to enforce incremental progress in Lean autoformalization tasks through iterative ...",
       "fetched": "2026-06-09T03:27:30.055170"
@@ -99,7 +84,22 @@
       "title": "Flood and Harvest: The Provable Necessity of Trivia for Generating Valuable Mathematics via the Lens of Language Generation in the Limit",
       "summary": "AI systems coupled to proof assistants now generate formal mathematics at scale, and the gap between what a checker can verify and what a mathematician would value has become the binding constraint. W...",
       "fetched": "2026-06-15T04:13:40.966480"
+    },
+    {
+      "title": "UBP2: Uncertainty-Balanced Preference Planning for Efficient Preference-based Reinforcement Learning",
+      "summary": "Preference-based RL provides an approach to learning reward models from pairwise comparisons of behaviors, bypassing the need for explicit reward design. However, existing methods typically rely on pa...",
+      "fetched": "2026-06-18T03:55:33.574392"
+    },
+    {
+      "title": "Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation",
+      "summary": "Post-training of reasoning language models is commonly driven by supervised distillation and reinforcement learning with verifiable rewards. Distillation often relies on chain-of-thought annotations t...",
+      "fetched": "2026-06-18T03:55:33.574399"
+    },
+    {
+      "title": "Reference-Driven Multi-Speaker Audio Scene Generation from In-the-Wild Priors",
+      "summary": "Existing multi-speaker dialogue systems bind speakers to utterances through structured supervision: per-turn tags, multi-stream transcriptions, or learnable speaker embeddings. These systems operate w...",
+      "fetched": "2026-06-18T03:55:33.574401"
     }
   ],
-  "last_sync": "2026-06-17T04:04:14.512523"
+  "last_sync": "2026-06-18T03:55:33.611811"
 }
