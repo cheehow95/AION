@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "(Auto)formalization is supposed to be easy: Trellis process semantics for spelling out rigorous proofs",
-      "summary": "We present Trellis: an autoformalization system that leverages LLM agents in a deterministically constrained workflow to enforce incremental progress in Lean autoformalization tasks through iterative ...",
-      "fetched": "2026-06-09T03:27:30.055170"
-    },
-    {
-      "title": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
-      "summary": "Ask a pretrained biomedical language model whether \"cortisol 28 ug/dL\" and \"stock-market volatility\" are related, and it returns a cosine similarity of 0.83 on a scale where 1.0 means identical. The t...",
-      "fetched": "2026-06-09T03:27:30.055172"
-    },
-    {
-      "title": "Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models",
-      "summary": "Vision-language models (VLMs) project images into hundreds to thousands of visual tokens, making decoder inference expensive in both attention computation and KV-cache memory. Existing visual-token re...",
-      "fetched": "2026-06-11T03:55:55.213949"
-    },
-    {
       "title": "FACTR 2: Learning External Force Sensing for Commodity Robot Arms Improves Policy Learning",
       "summary": "Contact-rich manipulation requires force sensitivity, but many robot arms lack dedicated force sensors due to their high cost. We present Neural External Torque Estimation (NEXT), a data-driven method...",
       "fetched": "2026-06-11T03:55:55.213959"
@@ -99,7 +84,22 @@
       "title": "Reference-Driven Multi-Speaker Audio Scene Generation from In-the-Wild Priors",
       "summary": "Existing multi-speaker dialogue systems bind speakers to utterances through structured supervision: per-turn tags, multi-stream transcriptions, or learnable speaker embeddings. These systems operate w...",
       "fetched": "2026-06-18T03:55:33.574401"
+    },
+    {
+      "title": "How Transparent is DiffusionGemma?",
+      "summary": "LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a ...",
+      "fetched": "2026-06-19T04:14:58.340522"
+    },
+    {
+      "title": "Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation",
+      "summary": "Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core o...",
+      "fetched": "2026-06-19T04:14:58.340537"
+    },
+    {
+      "title": "Toward Calibrated Mixture-of-Experts Under Distribution Shift",
+      "summary": "Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforc...",
+      "fetched": "2026-06-19T04:14:58.340540"
     }
   ],
-  "last_sync": "2026-06-18T03:55:33.611811"
+  "last_sync": "2026-06-19T04:14:58.413337"
 }
