@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "FACTR 2: Learning External Force Sensing for Commodity Robot Arms Improves Policy Learning",
-      "summary": "Contact-rich manipulation requires force sensitivity, but many robot arms lack dedicated force sensors due to their high cost. We present Neural External Torque Estimation (NEXT), a data-driven method...",
-      "fetched": "2026-06-11T03:55:55.213959"
-    },
-    {
-      "title": "DIRECT: When and Where Should You Allocate Test-Time Compute in Embodied Planners?",
-      "summary": "Vision-Language Models (VLMs) are increasingly deployed as high-level planners for embodied agents, with an emerging strategy of scaling test-time compute to improve capability. However, we observe th...",
-      "fetched": "2026-06-11T03:55:55.213961"
-    },
-    {
-      "title": "Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning",
-      "summary": "Retrieval-augmented generation (RAG) has become a standard mechanism for grounding language models in external knowledge, yet conventional retrieval based on lexical or semantic similarity is poorly s...",
-      "fetched": "2026-06-12T03:54:48.683583"
-    },
-    {
       "title": "Mana: Dexterous Manipulation of Articulated Tools",
       "summary": "Articulated tool manipulation remains a major challenge in dexterous robotics due to the need to coordinate internal degrees of freedom and contact-rich interactions. While prior work has largely focu...",
       "fetched": "2026-06-12T03:54:48.683590"
@@ -99,7 +84,22 @@
       "title": "Toward Calibrated Mixture-of-Experts Under Distribution Shift",
       "summary": "Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforc...",
       "fetched": "2026-06-19T04:14:58.340540"
+    },
+    {
+      "title": "How Transparent is DiffusionGemma?",
+      "summary": "LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a ...",
+      "fetched": "2026-06-20T03:36:44.344958"
+    },
+    {
+      "title": "Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation",
+      "summary": "Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core o...",
+      "fetched": "2026-06-20T03:36:44.344966"
+    },
+    {
+      "title": "Toward Calibrated Mixture-of-Experts Under Distribution Shift",
+      "summary": "Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforc...",
+      "fetched": "2026-06-20T03:36:44.344968"
     }
   ],
-  "last_sync": "2026-06-19T04:14:58.413337"
+  "last_sync": "2026-06-20T03:36:44.397276"
 }
