@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Mana: Dexterous Manipulation of Articulated Tools",
-      "summary": "Articulated tool manipulation remains a major challenge in dexterous robotics due to the need to coordinate internal degrees of freedom and contact-rich interactions. While prior work has largely focu...",
-      "fetched": "2026-06-14T04:00:53.268187"
-    },
-    {
-      "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
-      "summary": "Spatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs). Tool-augmented agents attemp...",
-      "fetched": "2026-06-14T04:00:53.268189"
-    },
-    {
-      "title": "ClinHallu: A Benchmark for Diagnosing Stage-Wise Hallucinations in Medical MLLM Reasoning",
-      "summary": "Building trustworthy medical multimodal large language models (MLLMs) is critical for reliable clinical decision support. Existing medical hallucination benchmarks mainly focus on data collection, but...",
-      "fetched": "2026-06-15T04:13:40.966470"
-    },
-    {
       "title": "Learning Coordinated Preference for Multi-Objective Multi-Agent Reinforcement Learning",
       "summary": "Cooperative multi-objective multi-agent reinforcement learning (MOMARL) models team decision making under multiple, potentially conflicting objectives. In this setting, conflicts arise not only across...",
       "fetched": "2026-06-15T04:13:40.966478"
@@ -99,7 +84,22 @@
       "title": "Toward Calibrated Mixture-of-Experts Under Distribution Shift",
       "summary": "Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforc...",
       "fetched": "2026-06-22T04:10:27.925237"
+    },
+    {
+      "title": "PaperClaw: Harnessing Agents for Autonomous Research and Human-in-the-Loop Refinement",
+      "summary": "Large language models have become capable reasoners and tool users that write and run code and search the literature, which makes automating the research process itself a realistic goal. We present PA...",
+      "fetched": "2026-06-23T03:30:56.653407"
+    },
+    {
+      "title": "On the Position Bias of On-Policy Distillation",
+      "summary": "On-Policy Distillation (OPD) improves the learning efficiency of standard reinforcement learning through dense, token-level supervision from teachers. In the standard KL objective of OPD, token-level ...",
+      "fetched": "2026-06-23T03:30:56.653415"
+    },
+    {
+      "title": "Text2DSL: LLM-Based Code Generation for Domain-Specific Languages",
+      "summary": "Domain-specific languages (DSLs) are widely used for managing operating system security policies, yet manually authoring rules in such languages demands high expertise and is error-prone. This paper f...",
+      "fetched": "2026-06-23T03:30:56.653418"
     }
   ],
-  "last_sync": "2026-06-22T04:10:27.963625"
+  "last_sync": "2026-06-23T03:30:56.692408"
 }
