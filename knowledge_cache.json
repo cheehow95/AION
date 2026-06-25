@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Learning Coordinated Preference for Multi-Objective Multi-Agent Reinforcement Learning",
-      "summary": "Cooperative multi-objective multi-agent reinforcement learning (MOMARL) models team decision making under multiple, potentially conflicting objectives. In this setting, conflicts arise not only across...",
-      "fetched": "2026-06-15T04:13:40.966478"
-    },
-    {
-      "title": "Flood and Harvest: The Provable Necessity of Trivia for Generating Valuable Mathematics via the Lens of Language Generation in the Limit",
-      "summary": "AI systems coupled to proof assistants now generate formal mathematics at scale, and the gap between what a checker can verify and what a mathematician would value has become the binding constraint. W...",
-      "fetched": "2026-06-15T04:13:40.966480"
-    },
-    {
-      "title": "UBP2: Uncertainty-Balanced Preference Planning for Efficient Preference-based Reinforcement Learning",
-      "summary": "Preference-based RL provides an approach to learning reward models from pairwise comparisons of behaviors, bypassing the need for explicit reward design. However, existing methods typically rely on pa...",
-      "fetched": "2026-06-18T03:55:33.574392"
-    },
-    {
       "title": "Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation",
       "summary": "Post-training of reasoning language models is commonly driven by supervised distillation and reinforcement learning with verifiable rewards. Distillation often relies on chain-of-thought annotations t...",
       "fetched": "2026-06-18T03:55:33.574399"
@@ -99,7 +84,22 @@
       "title": "Text2DSL: LLM-Based Code Generation for Domain-Specific Languages",
       "summary": "Domain-specific languages (DSLs) are widely used for managing operating system security policies, yet manually authoring rules in such languages demands high expertise and is error-prone. This paper f...",
       "fetched": "2026-06-23T03:30:56.653418"
+    },
+    {
+      "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+      "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and li...",
+      "fetched": "2026-06-25T03:30:29.863536"
+    },
+    {
+      "title": "On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity",
+      "summary": "On-policy self-distillation achieves strong pass@1 accuracy by using a single model as both teacher and student, with the teacher conditioned on a correct demonstration to provide dense token-level fe...",
+      "fetched": "2026-06-25T03:30:29.863543"
+    },
+    {
+      "title": "Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents",
+      "summary": "Process reward models enable fine-grained, step-level evaluation of LLMs, yet building them for agentic settings remains prohibitively difficult: long-horizon interactions, irreversible actions, and s...",
+      "fetched": "2026-06-25T03:30:29.863545"
     }
   ],
-  "last_sync": "2026-06-24T03:32:07.170813"
+  "last_sync": "2026-06-25T03:30:29.901659"
 }
