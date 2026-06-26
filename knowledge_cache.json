@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation",
-      "summary": "Post-training of reasoning language models is commonly driven by supervised distillation and reinforcement learning with verifiable rewards. Distillation often relies on chain-of-thought annotations t...",
-      "fetched": "2026-06-18T03:55:33.574399"
-    },
-    {
-      "title": "Reference-Driven Multi-Speaker Audio Scene Generation from In-the-Wild Priors",
-      "summary": "Existing multi-speaker dialogue systems bind speakers to utterances through structured supervision: per-turn tags, multi-stream transcriptions, or learnable speaker embeddings. These systems operate w...",
-      "fetched": "2026-06-18T03:55:33.574401"
-    },
-    {
-      "title": "How Transparent is DiffusionGemma?",
-      "summary": "LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a ...",
-      "fetched": "2026-06-19T04:14:58.340522"
-    },
-    {
       "title": "Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation",
       "summary": "Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core o...",
       "fetched": "2026-06-19T04:14:58.340537"
@@ -99,7 +84,22 @@
       "title": "Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents",
       "summary": "Process reward models enable fine-grained, step-level evaluation of LLMs, yet building them for agentic settings remains prohibitively difficult: long-horizon interactions, irreversible actions, and s...",
       "fetched": "2026-06-25T03:30:29.863545"
+    },
+    {
+      "title": "Autoregressive Boltzmann Generators",
+      "summary": "Efficient sampling of molecular systems at thermodynamic equilibrium is a hallmark challenge in statistical physics. This challenge has driven the development of Boltzmann Generators (BGs), which allo...",
+      "fetched": "2026-06-26T03:37:47.752624"
+    },
+    {
+      "title": "Error-Conditioned Neural Solvers",
+      "summary": "Neural surrogate models offer fast approximate mappings from PDE parameters to solutions, but they typically treat solving as a purely statistical task: once trained, they struggle to correct their ow...",
+      "fetched": "2026-06-26T03:37:47.752632"
+    },
+    {
+      "title": "Understanding Domain-Aware Distribution Alignment in Budgeted Entity Matching",
+      "summary": "Entity Matching (EM) is a core operation in the data integration pipeline, where records from different sources are compared to determine whether they refer to the same real-world entity. Recent work ...",
+      "fetched": "2026-06-26T03:37:47.752633"
     }
   ],
-  "last_sync": "2026-06-25T03:30:29.901659"
+  "last_sync": "2026-06-26T03:37:47.818599"
 }
