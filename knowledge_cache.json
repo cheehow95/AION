@@ -3,21 +3,6 @@
     {
       "title": "Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation",
       "summary": "Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core o...",
-      "fetched": "2026-06-21T04:09:25.715112"
-    },
-    {
-      "title": "Toward Calibrated Mixture-of-Experts Under Distribution Shift",
-      "summary": "Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforc...",
-      "fetched": "2026-06-21T04:09:25.715114"
-    },
-    {
-      "title": "How Transparent is DiffusionGemma?",
-      "summary": "LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a ...",
-      "fetched": "2026-06-22T04:10:27.925227"
-    },
-    {
-      "title": "Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation",
-      "summary": "Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core o...",
       "fetched": "2026-06-22T04:10:27.925235"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Understanding Domain-Aware Distribution Alignment in Budgeted Entity Matching",
       "summary": "Entity Matching (EM) is a core operation in the data integration pipeline, where records from different sources are compared to determine whether they refer to the same real-world entity. Recent work ...",
       "fetched": "2026-06-28T03:44:23.791575"
+    },
+    {
+      "title": "MCP Server Architecture Patterns for LLM-Integrated Applications",
+      "summary": "The Model Context Protocol (MCP), introduced by Anthropic in November 2024, defines a standardized interface for connecting large language models (LLMs) to external tools, data sources, and services. ...",
+      "fetched": "2026-06-30T03:35:38.492746"
+    },
+    {
+      "title": "Always-OnAgents:A Survey of Persistent Memory, State, and Governance in LLMAgents",
+      "summary": "Always-on agents are systems whose future behavior depends on durable state accumulated across earlier interactions. We treat them as persistent-state systems: the operative system includes retrievabl...",
+      "fetched": "2026-06-30T03:35:38.492758"
+    },
+    {
+      "title": "Research Entity Extraction and Topic Detection from UKRI Grant Proposals",
+      "summary": "This paper presents preliminary findings from a UKRI-funded Metascience project comparing three LLM-based approaches, GPT-4o, Mistral, and a bespoke algorithm, DSIT-Taxonomies, for extracting and clas...",
+      "fetched": "2026-06-30T03:35:38.492761"
     }
   ],
-  "last_sync": "2026-06-29T03:52:22.333659"
+  "last_sync": "2026-06-30T03:35:38.530094"
 }
