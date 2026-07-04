@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation",
-      "summary": "Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core o...",
-      "fetched": "2026-06-22T04:10:27.925235"
-    },
-    {
-      "title": "Toward Calibrated Mixture-of-Experts Under Distribution Shift",
-      "summary": "Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforc...",
-      "fetched": "2026-06-22T04:10:27.925237"
-    },
-    {
-      "title": "PaperClaw: Harnessing Agents for Autonomous Research and Human-in-the-Loop Refinement",
-      "summary": "Large language models have become capable reasoners and tool users that write and run code and search the literature, which makes automating the research process itself a realistic goal. We present PA...",
-      "fetched": "2026-06-23T03:30:56.653407"
-    },
-    {
       "title": "On the Position Bias of On-Policy Distillation",
       "summary": "On-Policy Distillation (OPD) improves the learning efficiency of standard reinforcement learning through dense, token-level supervision from teachers. In the standard KL objective of OPD, token-level ...",
       "fetched": "2026-06-23T03:30:56.653415"
@@ -99,7 +84,22 @@
       "title": "Research Entity Extraction and Topic Detection from UKRI Grant Proposals",
       "summary": "This paper presents preliminary findings from a UKRI-funded Metascience project comparing three LLM-based approaches, GPT-4o, Mistral, and a bespoke algorithm, DSIT-Taxonomies, for extracting and clas...",
       "fetched": "2026-06-30T03:35:38.492761"
+    },
+    {
+      "title": "Distributed Attacks in Persistent-State AI Control",
+      "summary": "As AI coding agents become more autonomous, they increasingly ship code iteratively, with the codebase persisting across sessions. This persistence creates a new attack surface: a misaligned or prompt...",
+      "fetched": "2026-07-04T02:50:18.831047"
+    },
+    {
+      "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
+      "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
+      "fetched": "2026-07-04T02:50:18.831056"
+    },
+    {
+      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
+      "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
+      "fetched": "2026-07-04T02:50:18.831058"
     }
   ],
-  "last_sync": "2026-07-03T02:54:07.395669"
+  "last_sync": "2026-07-04T02:50:18.869685"
 }
