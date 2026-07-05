@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "On the Position Bias of On-Policy Distillation",
-      "summary": "On-Policy Distillation (OPD) improves the learning efficiency of standard reinforcement learning through dense, token-level supervision from teachers. In the standard KL objective of OPD, token-level ...",
-      "fetched": "2026-06-23T03:30:56.653415"
-    },
-    {
-      "title": "Text2DSL: LLM-Based Code Generation for Domain-Specific Languages",
-      "summary": "Domain-specific languages (DSLs) are widely used for managing operating system security policies, yet manually authoring rules in such languages demands high expertise and is error-prone. This paper f...",
-      "fetched": "2026-06-23T03:30:56.653418"
-    },
-    {
-      "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
-      "summary": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and li...",
-      "fetched": "2026-06-25T03:30:29.863536"
-    },
-    {
       "title": "On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity",
       "summary": "On-policy self-distillation achieves strong pass@1 accuracy by using a single model as both teacher and student, with the teacher conditioned on a correct demonstration to provide dense token-level fe...",
       "fetched": "2026-06-25T03:30:29.863543"
@@ -99,7 +84,22 @@
       "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
       "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
       "fetched": "2026-07-04T02:50:18.831058"
+    },
+    {
+      "title": "Distributed Attacks in Persistent-State AI Control",
+      "summary": "As AI coding agents become more autonomous, they increasingly ship code iteratively, with the codebase persisting across sessions. This persistence creates a new attack surface: a misaligned or prompt...",
+      "fetched": "2026-07-05T03:20:16.623679"
+    },
+    {
+      "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
+      "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
+      "fetched": "2026-07-05T03:20:16.623687"
+    },
+    {
+      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
+      "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
+      "fetched": "2026-07-05T03:20:16.623689"
     }
   ],
-  "last_sync": "2026-07-04T02:50:18.869685"
+  "last_sync": "2026-07-05T03:20:16.683126"
 }
