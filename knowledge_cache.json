@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity",
-      "summary": "On-policy self-distillation achieves strong pass@1 accuracy by using a single model as both teacher and student, with the teacher conditioned on a correct demonstration to provide dense token-level fe...",
-      "fetched": "2026-06-25T03:30:29.863543"
-    },
-    {
-      "title": "Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents",
-      "summary": "Process reward models enable fine-grained, step-level evaluation of LLMs, yet building them for agentic settings remains prohibitively difficult: long-horizon interactions, irreversible actions, and s...",
-      "fetched": "2026-06-25T03:30:29.863545"
-    },
-    {
-      "title": "Autoregressive Boltzmann Generators",
-      "summary": "Efficient sampling of molecular systems at thermodynamic equilibrium is a hallmark challenge in statistical physics. This challenge has driven the development of Boltzmann Generators (BGs), which allo...",
-      "fetched": "2026-06-26T03:37:47.752624"
-    },
-    {
       "title": "Error-Conditioned Neural Solvers",
       "summary": "Neural surrogate models offer fast approximate mappings from PDE parameters to solutions, but they typically treat solving as a purely statistical task: once trained, they struggle to correct their ow...",
       "fetched": "2026-06-26T03:37:47.752632"
@@ -99,7 +84,22 @@
       "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
       "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
       "fetched": "2026-07-05T03:20:16.623689"
+    },
+    {
+      "title": "Distributed Attacks in Persistent-State AI Control",
+      "summary": "As AI coding agents become more autonomous, they increasingly ship code iteratively, with the codebase persisting across sessions. This persistence creates a new attack surface: a misaligned or prompt...",
+      "fetched": "2026-07-06T03:28:05.573006"
+    },
+    {
+      "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
+      "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
+      "fetched": "2026-07-06T03:28:05.573057"
+    },
+    {
+      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
+      "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
+      "fetched": "2026-07-06T03:28:05.573061"
     }
   ],
-  "last_sync": "2026-07-05T03:20:16.683126"
+  "last_sync": "2026-07-06T03:28:05.705989"
 }
