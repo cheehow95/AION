@@ -3,21 +3,6 @@
     {
       "title": "Error-Conditioned Neural Solvers",
       "summary": "Neural surrogate models offer fast approximate mappings from PDE parameters to solutions, but they typically treat solving as a purely statistical task: once trained, they struggle to correct their ow...",
-      "fetched": "2026-06-27T03:23:24.802459"
-    },
-    {
-      "title": "Understanding Domain-Aware Distribution Alignment in Budgeted Entity Matching",
-      "summary": "Entity Matching (EM) is a core operation in the data integration pipeline, where records from different sources are compared to determine whether they refer to the same real-world entity. Recent work ...",
-      "fetched": "2026-06-27T03:23:24.802461"
-    },
-    {
-      "title": "Autoregressive Boltzmann Generators",
-      "summary": "Efficient sampling of molecular systems at thermodynamic equilibrium is a hallmark challenge in statistical physics. This challenge has driven the development of Boltzmann Generators (BGs), which allo...",
-      "fetched": "2026-06-28T03:44:23.791559"
-    },
-    {
-      "title": "Error-Conditioned Neural Solvers",
-      "summary": "Neural surrogate models offer fast approximate mappings from PDE parameters to solutions, but they typically treat solving as a purely statistical task: once trained, they struggle to correct their ow...",
       "fetched": "2026-06-28T03:44:23.791572"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Interpretable Human-Label-Free Deep Learning for Real-Bogus Classification with Uncertainty Quantification",
       "summary": "Time-domain surveys generate many transient candidates, making Real-Bogus classification a critical step in automated discovery pipelines. Reliable labels are costly, while community labels can be noi...",
       "fetched": "2026-07-07T03:18:32.774796"
+    },
+    {
+      "title": "ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation",
+      "summary": "Unified 3D foundation models aspire to generate 3D assets and reason about them in language within a single backbone, but their text-3D interaction remains largely implicit. Existing methods concatena...",
+      "fetched": "2026-07-08T02:36:11.250668"
+    },
+    {
+      "title": "Graph Convolutional Attention: A Spectral Perspective on Graph Denoising and Diffusion",
+      "summary": "Denoising graphs is a fundamental problem in graph learning and the core operation of graph diffusion models. Attention-based architectures like graph transformers have recently shown promise in denoi...",
+      "fetched": "2026-07-08T02:36:11.250677"
+    },
+    {
+      "title": "Rethinking Indic AI from a Lens of Cultural Heritage Preservation",
+      "summary": "As Artificial Intelligence (AI) makes inroads into different parts of the Indian subcontinent, there is significant interest in studying how AI impacts the linguistic and cultural foundations of this ...",
+      "fetched": "2026-07-08T02:36:11.250680"
     }
   ],
-  "last_sync": "2026-07-07T03:18:32.804263"
+  "last_sync": "2026-07-08T02:36:11.290453"
 }
