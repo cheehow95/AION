@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Error-Conditioned Neural Solvers",
-      "summary": "Neural surrogate models offer fast approximate mappings from PDE parameters to solutions, but they typically treat solving as a purely statistical task: once trained, they struggle to correct their ow...",
-      "fetched": "2026-06-28T03:44:23.791572"
-    },
-    {
-      "title": "Understanding Domain-Aware Distribution Alignment in Budgeted Entity Matching",
-      "summary": "Entity Matching (EM) is a core operation in the data integration pipeline, where records from different sources are compared to determine whether they refer to the same real-world entity. Recent work ...",
-      "fetched": "2026-06-28T03:44:23.791575"
-    },
-    {
-      "title": "MCP Server Architecture Patterns for LLM-Integrated Applications",
-      "summary": "The Model Context Protocol (MCP), introduced by Anthropic in November 2024, defines a standardized interface for connecting large language models (LLMs) to external tools, data sources, and services. ...",
-      "fetched": "2026-06-30T03:35:38.492746"
-    },
-    {
       "title": "Always-OnAgents:A Survey of Persistent Memory, State, and Governance in LLMAgents",
       "summary": "Always-on agents are systems whose future behavior depends on durable state accumulated across earlier interactions. We treat them as persistent-state systems: the operative system includes retrievabl...",
       "fetched": "2026-06-30T03:35:38.492758"
@@ -99,7 +84,22 @@
       "title": "Rethinking Indic AI from a Lens of Cultural Heritage Preservation",
       "summary": "As Artificial Intelligence (AI) makes inroads into different parts of the Indian subcontinent, there is significant interest in studying how AI impacts the linguistic and cultural foundations of this ...",
       "fetched": "2026-07-08T02:36:11.250680"
+    },
+    {
+      "title": "Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning",
+      "summary": "Structure-property relationships are foundational to biology, chemistry and materials science, where function, reactivity and physical response emerge from spatial, chemical and periodic organization....",
+      "fetched": "2026-07-09T02:55:07.167594"
+    },
+    {
+      "title": "Co-LMLM: Continuous-Query Limited Memory Language Models",
+      "summary": "Limited memory language models (LMLMs) externalize factual knowledge during pretraining to a knowledge base (KB), rather than memorizing it in their weights. During generation, the model then fetches ...",
+      "fetched": "2026-07-09T02:55:07.167605"
+    },
+    {
+      "title": "Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass",
+      "summary": "Analytical workloads operating on data stored in external database systems face a fundamental bottleneck: data access is guarded entirely by the database driver, like JDBC or ODBC, forcing all reads t...",
+      "fetched": "2026-07-09T02:55:07.167607"
     }
   ],
-  "last_sync": "2026-07-08T02:36:11.290453"
+  "last_sync": "2026-07-09T02:55:07.312972"
 }
