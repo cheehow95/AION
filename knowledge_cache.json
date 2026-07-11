@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Always-OnAgents:A Survey of Persistent Memory, State, and Governance in LLMAgents",
-      "summary": "Always-on agents are systems whose future behavior depends on durable state accumulated across earlier interactions. We treat them as persistent-state systems: the operative system includes retrievabl...",
-      "fetched": "2026-06-30T03:35:38.492758"
-    },
-    {
-      "title": "Research Entity Extraction and Topic Detection from UKRI Grant Proposals",
-      "summary": "This paper presents preliminary findings from a UKRI-funded Metascience project comparing three LLM-based approaches, GPT-4o, Mistral, and a bespoke algorithm, DSIT-Taxonomies, for extracting and clas...",
-      "fetched": "2026-06-30T03:35:38.492761"
-    },
-    {
-      "title": "Distributed Attacks in Persistent-State AI Control",
-      "summary": "As AI coding agents become more autonomous, they increasingly ship code iteratively, with the codebase persisting across sessions. This persistence creates a new attack surface: a misaligned or prompt...",
-      "fetched": "2026-07-04T02:50:18.831047"
-    },
-    {
       "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
       "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
       "fetched": "2026-07-04T02:50:18.831056"
@@ -99,7 +84,22 @@
       "title": "Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass",
       "summary": "Analytical workloads operating on data stored in external database systems face a fundamental bottleneck: data access is guarded entirely by the database driver, like JDBC or ODBC, forcing all reads t...",
       "fetched": "2026-07-09T02:55:07.167607"
+    },
+    {
+      "title": "OpenCoF: Learning to Reason Through Video Generation",
+      "summary": "Reasoning has become a core capability for large models, especially when reliable decisions require understanding logical consequences. Recent video generation models offer a reasoning path distinct f...",
+      "fetched": "2026-07-11T02:33:52.786567"
+    },
+    {
+      "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
+      "summary": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say lit...",
+      "fetched": "2026-07-11T02:33:52.786579"
+    },
+    {
+      "title": "SLORR: Simple and Efficient In-Training Low-Rank Regularization",
+      "summary": "Low-rank factorization is widely used to compress neural networks, but modern models are often not naturally amenable to aggressive factorization without significant accuracy loss. Existing training-t...",
+      "fetched": "2026-07-11T02:33:52.786582"
     }
   ],
-  "last_sync": "2026-07-10T02:57:37.196604"
+  "last_sync": "2026-07-11T02:33:52.867983"
 }
