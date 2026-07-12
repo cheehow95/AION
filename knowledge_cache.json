@@ -3,21 +3,6 @@
     {
       "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
       "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
-      "fetched": "2026-07-04T02:50:18.831056"
-    },
-    {
-      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
-      "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
-      "fetched": "2026-07-04T02:50:18.831058"
-    },
-    {
-      "title": "Distributed Attacks in Persistent-State AI Control",
-      "summary": "As AI coding agents become more autonomous, they increasingly ship code iteratively, with the codebase persisting across sessions. This persistence creates a new attack surface: a misaligned or prompt...",
-      "fetched": "2026-07-05T03:20:16.623679"
-    },
-    {
-      "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
-      "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
       "fetched": "2026-07-05T03:20:16.623687"
     },
     {
@@ -99,7 +84,22 @@
       "title": "SLORR: Simple and Efficient In-Training Low-Rank Regularization",
       "summary": "Low-rank factorization is widely used to compress neural networks, but modern models are often not naturally amenable to aggressive factorization without significant accuracy loss. Existing training-t...",
       "fetched": "2026-07-11T02:33:52.786582"
+    },
+    {
+      "title": "OpenCoF: Learning to Reason Through Video Generation",
+      "summary": "Reasoning has become a core capability for large models, especially when reliable decisions require understanding logical consequences. Recent video generation models offer a reasoning path distinct f...",
+      "fetched": "2026-07-12T02:41:14.579890"
+    },
+    {
+      "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
+      "summary": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say lit...",
+      "fetched": "2026-07-12T02:41:14.579900"
+    },
+    {
+      "title": "SLORR: Simple and Efficient In-Training Low-Rank Regularization",
+      "summary": "Low-rank factorization is widely used to compress neural networks, but modern models are often not naturally amenable to aggressive factorization without significant accuracy loss. Existing training-t...",
+      "fetched": "2026-07-12T02:41:14.579903"
     }
   ],
-  "last_sync": "2026-07-11T02:33:52.867983"
+  "last_sync": "2026-07-12T02:41:14.858122"
 }
