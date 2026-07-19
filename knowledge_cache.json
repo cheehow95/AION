@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "LACUNA: A Testbed for Evaluating Localization Precision for LLM Unlearning",
-      "summary": "LLMs memorize sensitive training data, including personally identifiable information (PII), creating a pressing need for reliable post hoc removal methods. Unlearning has emerged as a promising soluti...",
-      "fetched": "2026-07-06T03:28:05.573057"
-    },
-    {
-      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
-      "summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly out...",
-      "fetched": "2026-07-06T03:28:05.573061"
-    },
-    {
-      "title": "From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model",
-      "summary": "Real-world robot deployment rarely maintains the training-stage camera setup, where cameras often experience repositioning or remounting depending on actual scenarios. Existing view-robust Vision-Lang...",
-      "fetched": "2026-07-07T03:18:32.774783"
-    },
-    {
       "title": "Weak-to-Strong Generalization via Direct On-Policy Distillation",
       "summary": "Reinforcement learning with verifiable rewards (RLVR) is a powerful recipe for improving language-model reasoning, but it is expensive to repeat on every new strong model because the target model must...",
       "fetched": "2026-07-07T03:18:32.774794"
@@ -99,7 +84,22 @@
       "title": "Pretraining Data Can Be Poisoned through Computational Propaganda",
       "summary": "Poisoning pretraining data can introduce harmful behaviors to LMs that are difficult to detect and mitigate. Prior work on poisoning pretraining data has largely exploited established data sources suc...",
       "fetched": "2026-07-18T02:24:57.335612"
+    },
+    {
+      "title": "RoboTTT: Context Scaling for Robot Policies",
+      "summary": "Recent robot foundation models operate with single-step or short-history visuomotor context. We introduce Test-Time-Training Robot Policies (RoboTTT), a robot model and training recipe that scale visu...",
+      "fetched": "2026-07-19T02:37:38.742604"
+    },
+    {
+      "title": "SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions",
+      "summary": "Editing the figures in a research paper is a routine and time-consuming part of everyday research practice: authors relabel components, rearrange panels, and restyle visuals as they revise their manus...",
+      "fetched": "2026-07-19T02:37:38.742613"
+    },
+    {
+      "title": "Pretraining Data Can Be Poisoned through Computational Propaganda",
+      "summary": "Poisoning pretraining data can introduce harmful behaviors to LMs that are difficult to detect and mitigate. Prior work on poisoning pretraining data has largely exploited established data sources suc...",
+      "fetched": "2026-07-19T02:37:38.742616"
     }
   ],
-  "last_sync": "2026-07-18T02:24:57.374291"
+  "last_sync": "2026-07-19T02:37:38.775723"
 }
