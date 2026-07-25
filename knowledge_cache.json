@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Weak-to-Strong Generalization via Direct On-Policy Distillation",
-      "summary": "Reinforcement learning with verifiable rewards (RLVR) is a powerful recipe for improving language-model reasoning, but it is expensive to repeat on every new strong model because the target model must...",
-      "fetched": "2026-07-07T03:18:32.774794"
-    },
-    {
-      "title": "Interpretable Human-Label-Free Deep Learning for Real-Bogus Classification with Uncertainty Quantification",
-      "summary": "Time-domain surveys generate many transient candidates, making Real-Bogus classification a critical step in automated discovery pipelines. Reliable labels are costly, while community labels can be noi...",
-      "fetched": "2026-07-07T03:18:32.774796"
-    },
-    {
-      "title": "ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation",
-      "summary": "Unified 3D foundation models aspire to generate 3D assets and reason about them in language within a single backbone, but their text-3D interaction remains largely implicit. Existing methods concatena...",
-      "fetched": "2026-07-08T02:36:11.250668"
-    },
-    {
       "title": "Graph Convolutional Attention: A Spectral Perspective on Graph Denoising and Diffusion",
       "summary": "Denoising graphs is a fundamental problem in graph learning and the core operation of graph diffusion models. Attention-based architectures like graph transformers have recently shown promise in denoi...",
       "fetched": "2026-07-08T02:36:11.250677"
@@ -99,7 +84,22 @@
       "title": "Pretraining Data Can Be Poisoned through Computational Propaganda",
       "summary": "Poisoning pretraining data can introduce harmful behaviors to LMs that are difficult to detect and mitigate. Prior work on poisoning pretraining data has largely exploited established data sources suc...",
       "fetched": "2026-07-19T02:37:38.742616"
+    },
+    {
+      "title": "3D-Aware VLMs with Implicit and Explicit Geometries",
+      "summary": "Despite rapid progress, most existing vision-language models (VLMs) built from 2D visual inputs often struggle when handling various 3D tasks that require fine-grained spatial understanding and reason...",
+      "fetched": "2026-07-25T02:33:30.911970"
+    },
+    {
+      "title": "GraphVid: Interactive Graph-Controllable Video Generation",
+      "summary": "Controllable video generation remains challenging due to the difficulty of specifying precise multi-object interactions using text prompts or motion-control inputs that primarily constrain pixel movem...",
+      "fetched": "2026-07-25T02:33:30.911979"
+    },
+    {
+      "title": "Barzilai-Borwein Fails Superlinear Convergence on an Open Set of Quadratics for Every Dimension $n\\geq 4$",
+      "summary": "Barzilai--Borwein (BB) method has shown strong practical performance in continuous optimization, yet its convergence dynamics remains poorly understood. In particular, a central unresolved question is...",
+      "fetched": "2026-07-25T02:33:30.911982"
     }
   ],
-  "last_sync": "2026-07-24T02:35:40.133472"
+  "last_sync": "2026-07-25T02:33:30.969952"
 }
