@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Graph Convolutional Attention: A Spectral Perspective on Graph Denoising and Diffusion",
-      "summary": "Denoising graphs is a fundamental problem in graph learning and the core operation of graph diffusion models. Attention-based architectures like graph transformers have recently shown promise in denoi...",
-      "fetched": "2026-07-08T02:36:11.250677"
-    },
-    {
-      "title": "Rethinking Indic AI from a Lens of Cultural Heritage Preservation",
-      "summary": "As Artificial Intelligence (AI) makes inroads into different parts of the Indian subcontinent, there is significant interest in studying how AI impacts the linguistic and cultural foundations of this ...",
-      "fetched": "2026-07-08T02:36:11.250680"
-    },
-    {
-      "title": "Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning",
-      "summary": "Structure-property relationships are foundational to biology, chemistry and materials science, where function, reactivity and physical response emerge from spatial, chemical and periodic organization....",
-      "fetched": "2026-07-09T02:55:07.167594"
-    },
-    {
       "title": "Co-LMLM: Continuous-Query Limited Memory Language Models",
       "summary": "Limited memory language models (LMLMs) externalize factual knowledge during pretraining to a knowledge base (KB), rather than memorizing it in their weights. During generation, the model then fetches ...",
       "fetched": "2026-07-09T02:55:07.167605"
@@ -99,7 +84,22 @@
       "title": "Barzilai-Borwein Fails Superlinear Convergence on an Open Set of Quadratics for Every Dimension $n\\geq 4$",
       "summary": "Barzilai--Borwein (BB) method has shown strong practical performance in continuous optimization, yet its convergence dynamics remains poorly understood. In particular, a central unresolved question is...",
       "fetched": "2026-07-25T02:33:30.911982"
+    },
+    {
+      "title": "SM4RT: Learning Structured Motion Geometry for 4D Reconstruction",
+      "summary": "Geometry Foundation Models (GFMs) have substantially advanced monocular 3D reconstruction, yet extending this capability to 4D dynamic understanding remains a fundamental challenge. Most existing moti...",
+      "fetched": "2026-07-28T02:28:06.264205"
+    },
+    {
+      "title": "Explainable Reinforcement Learning for assisting Air Traffic Controllers",
+      "summary": "To effectively integrate AI into high-stakes, critical environments such as healthcare, autonomous driving, and aviation--and to advance toward higher levels of automation and seamless human-AI collab...",
+      "fetched": "2026-07-28T02:28:06.264210"
+    },
+    {
+      "title": "The Regression Tax: Decomposing Why Skills Help and Hurt LLM Agents",
+      "summary": "Adding procedural skills to an LLM agent is typically evaluated by average improvement in task success. However, this metric hides an important cost: skills can also make agents worse. We measure both...",
+      "fetched": "2026-07-28T02:28:06.264212"
     }
   ],
-  "last_sync": "2026-07-27T02:50:14.077772"
+  "last_sync": "2026-07-28T02:28:06.334728"
 }
