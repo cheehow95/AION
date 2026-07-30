@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Co-LMLM: Continuous-Query Limited Memory Language Models",
-      "summary": "Limited memory language models (LMLMs) externalize factual knowledge during pretraining to a knowledge base (KB), rather than memorizing it in their weights. During generation, the model then fetches ...",
-      "fetched": "2026-07-09T02:55:07.167605"
-    },
-    {
-      "title": "Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass",
-      "summary": "Analytical workloads operating on data stored in external database systems face a fundamental bottleneck: data access is guarded entirely by the database driver, like JDBC or ODBC, forcing all reads t...",
-      "fetched": "2026-07-09T02:55:07.167607"
-    },
-    {
-      "title": "OpenCoF: Learning to Reason Through Video Generation",
-      "summary": "Reasoning has become a core capability for large models, especially when reliable decisions require understanding logical consequences. Recent video generation models offer a reasoning path distinct f...",
-      "fetched": "2026-07-11T02:33:52.786567"
-    },
-    {
       "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
       "summary": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say lit...",
       "fetched": "2026-07-11T02:33:52.786579"
@@ -99,7 +84,22 @@
       "title": "The Regression Tax: Decomposing Why Skills Help and Hurt LLM Agents",
       "summary": "Adding procedural skills to an LLM agent is typically evaluated by average improvement in task success. However, this metric hides an important cost: skills can also make agents worse. We measure both...",
       "fetched": "2026-07-28T02:28:06.264212"
+    },
+    {
+      "title": "Pass the Baton: Trajectory-Relayed On-Policy Distillation",
+      "summary": "On-policy distillation (OPD) grounds token-level supervision in the student's own trajectory, yet suffers from prefix failure: once the student commits to a wrong reasoning direction, all subsequent g...",
+      "fetched": "2026-07-30T02:20:06.308265"
+    },
+    {
+      "title": "$\u03c0\\mathbf{R}^2$: Reactive Real-time Flow Policies",
+      "summary": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input...",
+      "fetched": "2026-07-30T02:20:06.308274"
+    },
+    {
+      "title": "Desktop-Delta Bench: Do Computer-Use Models Understand Desktop GUI Transitions?",
+      "summary": "Computer-use agents (CUAs) increasingly act through desktop GUIs to complete long-horizon tasks. Current benchmarks primarily measure end-task success or single-frame grounding. Neither isolates wheth...",
+      "fetched": "2026-07-30T02:20:06.308276"
     }
   ],
-  "last_sync": "2026-07-29T02:32:08.480327"
+  "last_sync": "2026-07-30T02:20:06.383962"
 }
