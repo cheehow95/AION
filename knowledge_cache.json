@@ -3,21 +3,6 @@
     {
       "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
       "summary": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say lit...",
-      "fetched": "2026-07-11T02:33:52.786579"
-    },
-    {
-      "title": "SLORR: Simple and Efficient In-Training Low-Rank Regularization",
-      "summary": "Low-rank factorization is widely used to compress neural networks, but modern models are often not naturally amenable to aggressive factorization without significant accuracy loss. Existing training-t...",
-      "fetched": "2026-07-11T02:33:52.786582"
-    },
-    {
-      "title": "OpenCoF: Learning to Reason Through Video Generation",
-      "summary": "Reasoning has become a core capability for large models, especially when reliable decisions require understanding logical consequences. Recent video generation models offer a reasoning path distinct f...",
-      "fetched": "2026-07-12T02:41:14.579890"
-    },
-    {
-      "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
-      "summary": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say lit...",
       "fetched": "2026-07-12T02:41:14.579900"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Desktop-Delta Bench: Do Computer-Use Models Understand Desktop GUI Transitions?",
       "summary": "Computer-use agents (CUAs) increasingly act through desktop GUIs to complete long-horizon tasks. Current benchmarks primarily measure end-task success or single-frame grounding. Neither isolates wheth...",
       "fetched": "2026-07-30T02:20:06.308276"
+    },
+    {
+      "title": "Correcting What You Cannot See: Credit Assignment for Perception Distillation in Multimodal Reasoners",
+      "summary": "On-policy distillation provides dense supervision for multimodal reasoners, but its trajectory-level reward cannot determine whether a failed answer arose from perception or subsequent reasoning. Perc...",
+      "fetched": "2026-07-31T02:43:51.887467"
+    },
+    {
+      "title": "Paying for Honesty Without Knowing the Truth: Reputation-Penalty Design for LLM Marketplace Agents",
+      "summary": "LLM agents increasingly act as autonomous merchants that write their own product listings, and under competitive pressure, they fabricate attributes to win sales. Even under instructions to be honest,...",
+      "fetched": "2026-07-31T02:43:51.887475"
+    },
+    {
+      "title": "PathView-Bench: Can Multimodal Large Language Models Achieve Fine-grained Multiscale Understanding of Pathology Images?",
+      "summary": "Multimodal large language models (MLLMs) are increasingly used to analyze pathology images. However, dominant multimodal benchmarks in pathology mainly score final diagnostic answers, captions, or rep...",
+      "fetched": "2026-07-31T02:43:51.887477"
     }
   ],
-  "last_sync": "2026-07-30T02:20:06.383962"
+  "last_sync": "2026-07-31T02:43:51.921456"
 }
