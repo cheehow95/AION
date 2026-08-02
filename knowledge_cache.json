@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
-      "summary": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say lit...",
-      "fetched": "2026-07-12T02:41:14.579900"
-    },
-    {
-      "title": "SLORR: Simple and Efficient In-Training Low-Rank Regularization",
-      "summary": "Low-rank factorization is widely used to compress neural networks, but modern models are often not naturally amenable to aggressive factorization without significant accuracy loss. Existing training-t...",
-      "fetched": "2026-07-12T02:41:14.579903"
-    },
-    {
-      "title": "RoboTTT: Context Scaling for Robot Policies",
-      "summary": "Recent robot foundation models operate with single-step or short-history visuomotor context. We introduce Test-Time-Training Robot Policies (RoboTTT), a robot model and training recipe that scale visu...",
-      "fetched": "2026-07-18T02:24:57.335603"
-    },
-    {
       "title": "SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions",
       "summary": "Editing the figures in a research paper is a routine and time-consuming part of everyday research practice: authors relabel components, rearrange panels, and restyle visuals as they revise their manus...",
       "fetched": "2026-07-18T02:24:57.335610"
@@ -99,7 +84,22 @@
       "title": "PathView-Bench: Can Multimodal Large Language Models Achieve Fine-grained Multiscale Understanding of Pathology Images?",
       "summary": "Multimodal large language models (MLLMs) are increasingly used to analyze pathology images. However, dominant multimodal benchmarks in pathology mainly score final diagnostic answers, captions, or rep...",
       "fetched": "2026-07-31T02:43:51.887477"
+    },
+    {
+      "title": "Learning to Trace Seiberg Dualities",
+      "summary": "Dualities play an important role in establishing both microscopic and emergent phenomena in a wide range of physical systems. In practice, though, it can often be computationally challenging to establ...",
+      "fetched": "2026-08-02T02:41:31.717087"
+    },
+    {
+      "title": "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval",
+      "summary": "Long visual context poses a challenge for vision-language models: performance degrades as the number of distractors grows, and processing all tokens at once is computationally infeasible under GPU mem...",
+      "fetched": "2026-08-02T02:41:31.717097"
+    },
+    {
+      "title": "PAC-MAN: Perception-Aware CBF-RL for Whole-Body Safety in Humanoid Dodgeball",
+      "summary": "We present PAC-MAN, a perception-aware CBF-RL framework that couples control-barrier safety with deployment-realistic onboard sensing for whole-body humanoid dodgeball. The deployed policy sees the ba...",
+      "fetched": "2026-08-02T02:41:31.717099"
     }
   ],
-  "last_sync": "2026-08-01T02:42:37.432268"
+  "last_sync": "2026-08-02T02:41:31.792154"
 }
