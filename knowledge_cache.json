@@ -3,21 +3,6 @@
     {
       "title": "SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions",
       "summary": "Editing the figures in a research paper is a routine and time-consuming part of everyday research practice: authors relabel components, rearrange panels, and restyle visuals as they revise their manus...",
-      "fetched": "2026-07-18T02:24:57.335610"
-    },
-    {
-      "title": "Pretraining Data Can Be Poisoned through Computational Propaganda",
-      "summary": "Poisoning pretraining data can introduce harmful behaviors to LMs that are difficult to detect and mitigate. Prior work on poisoning pretraining data has largely exploited established data sources suc...",
-      "fetched": "2026-07-18T02:24:57.335612"
-    },
-    {
-      "title": "RoboTTT: Context Scaling for Robot Policies",
-      "summary": "Recent robot foundation models operate with single-step or short-history visuomotor context. We introduce Test-Time-Training Robot Policies (RoboTTT), a robot model and training recipe that scale visu...",
-      "fetched": "2026-07-19T02:37:38.742604"
-    },
-    {
-      "title": "SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions",
-      "summary": "Editing the figures in a research paper is a routine and time-consuming part of everyday research practice: authors relabel components, rearrange panels, and restyle visuals as they revise their manus...",
       "fetched": "2026-07-19T02:37:38.742613"
     },
     {
@@ -99,7 +84,22 @@
       "title": "PAC-MAN: Perception-Aware CBF-RL for Whole-Body Safety in Humanoid Dodgeball",
       "summary": "We present PAC-MAN, a perception-aware CBF-RL framework that couples control-barrier safety with deployment-realistic onboard sensing for whole-body humanoid dodgeball. The deployed policy sees the ba...",
       "fetched": "2026-08-02T02:41:31.717099"
+    },
+    {
+      "title": "Role-Decoupled Attention Residuals: Separating Matching and Content Retrieval Across Depth",
+      "summary": "Depth-routing residual architectures allow Transformer layers to retrieve earlier representations instead of inheriting only the immediately preceding state. Existing Block Attention Residuals, howeve...",
+      "fetched": "2026-08-04T02:26:12.323177"
+    },
+    {
+      "title": "Control Under Compression: Reliability Frontiers for Tool-Using Agents",
+      "summary": "Tool-using language-model agents are governed not only by task prompts but also by persistent system-side instructions that specify tools, arguments, policies, execution protocols, and recovery. Compr...",
+      "fetched": "2026-08-04T02:26:12.323186"
+    },
+    {
+      "title": "Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception",
+      "summary": "Multimodal Large Language Models (MLLMs) are increasingly expected to solve structured perception tasks that require visual recognition, language-to-object binding, object cardinality preservation, an...",
+      "fetched": "2026-08-04T02:26:12.323188"
     }
   ],
-  "last_sync": "2026-08-03T02:42:15.319457"
+  "last_sync": "2026-08-04T02:26:12.380123"
 }
