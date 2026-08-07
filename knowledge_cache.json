@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions",
-      "summary": "Editing the figures in a research paper is a routine and time-consuming part of everyday research practice: authors relabel components, rearrange panels, and restyle visuals as they revise their manus...",
-      "fetched": "2026-07-19T02:37:38.742613"
-    },
-    {
-      "title": "Pretraining Data Can Be Poisoned through Computational Propaganda",
-      "summary": "Poisoning pretraining data can introduce harmful behaviors to LMs that are difficult to detect and mitigate. Prior work on poisoning pretraining data has largely exploited established data sources suc...",
-      "fetched": "2026-07-19T02:37:38.742616"
-    },
-    {
-      "title": "3D-Aware VLMs with Implicit and Explicit Geometries",
-      "summary": "Despite rapid progress, most existing vision-language models (VLMs) built from 2D visual inputs often struggle when handling various 3D tasks that require fine-grained spatial understanding and reason...",
-      "fetched": "2026-07-25T02:33:30.911970"
-    },
-    {
       "title": "GraphVid: Interactive Graph-Controllable Video Generation",
       "summary": "Controllable video generation remains challenging due to the difficulty of specifying precise multi-object interactions using text prompts or motion-control inputs that primarily constrain pixel movem...",
       "fetched": "2026-07-25T02:33:30.911979"
@@ -99,7 +84,22 @@
       "title": "Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception",
       "summary": "Multimodal Large Language Models (MLLMs) are increasingly expected to solve structured perception tasks that require visual recognition, language-to-object binding, object cardinality preservation, an...",
       "fetched": "2026-08-04T02:26:12.323188"
+    },
+    {
+      "title": "The Illusion of Visual Tool-Use: A Causal Audit of Thinking with Images",
+      "summary": "The \"thinking-with-images\" paradigm equips multimodal LLMs with active visual operations such as crop-and-zoom. However, models using these operations often achieve only marginal or negative gains ove...",
+      "fetched": "2026-08-07T02:36:06.839483"
+    },
+    {
+      "title": "Improving the Realism of Synthetic Clinical Benchmarks Under Utility Constraints",
+      "summary": "Synthetic clinical benchmarks for enterprise AI agents can pass existing utility checks and still remain structurally unrealistic, especially in privacy-sensitive healthcare settings where operational...",
+      "fetched": "2026-08-07T02:36:06.839492"
+    },
+    {
+      "title": "Toward Deployable Bangla Sign Language Recognition with Expert-Validated Data and a Lightweight Attention-Based Model",
+      "summary": "Deaf and hard-of-hearing people in Bangladesh communicate mainly through Bangla Sign Language (BdSL). Automatic BdSL recognition on personal devices could widen access to education and services. Exist...",
+      "fetched": "2026-08-07T02:36:06.839495"
     }
   ],
-  "last_sync": "2026-08-06T02:28:33.733177"
+  "last_sync": "2026-08-07T02:36:06.875733"
 }
