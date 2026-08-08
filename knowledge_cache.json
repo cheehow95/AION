@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "GraphVid: Interactive Graph-Controllable Video Generation",
-      "summary": "Controllable video generation remains challenging due to the difficulty of specifying precise multi-object interactions using text prompts or motion-control inputs that primarily constrain pixel movem...",
-      "fetched": "2026-07-25T02:33:30.911979"
-    },
-    {
-      "title": "Barzilai-Borwein Fails Superlinear Convergence on an Open Set of Quadratics for Every Dimension $n\\geq 4$",
-      "summary": "Barzilai--Borwein (BB) method has shown strong practical performance in continuous optimization, yet its convergence dynamics remains poorly understood. In particular, a central unresolved question is...",
-      "fetched": "2026-07-25T02:33:30.911982"
-    },
-    {
-      "title": "SM4RT: Learning Structured Motion Geometry for 4D Reconstruction",
-      "summary": "Geometry Foundation Models (GFMs) have substantially advanced monocular 3D reconstruction, yet extending this capability to 4D dynamic understanding remains a fundamental challenge. Most existing moti...",
-      "fetched": "2026-07-28T02:28:06.264205"
-    },
-    {
       "title": "Explainable Reinforcement Learning for assisting Air Traffic Controllers",
       "summary": "To effectively integrate AI into high-stakes, critical environments such as healthcare, autonomous driving, and aviation--and to advance toward higher levels of automation and seamless human-AI collab...",
       "fetched": "2026-07-28T02:28:06.264210"
@@ -99,7 +84,22 @@
       "title": "Toward Deployable Bangla Sign Language Recognition with Expert-Validated Data and a Lightweight Attention-Based Model",
       "summary": "Deaf and hard-of-hearing people in Bangladesh communicate mainly through Bangla Sign Language (BdSL). Automatic BdSL recognition on personal devices could widen access to education and services. Exist...",
       "fetched": "2026-08-07T02:36:06.839495"
+    },
+    {
+      "title": "Learning When to Trust via Selective Context Preference Optimization",
+      "summary": "Language models increasingly condition their answers on external signals, and a single misleading one can turn a correct answer wrong. The obvious remedy, training models to resist such signals, hides...",
+      "fetched": "2026-08-08T01:27:20.926508"
+    },
+    {
+      "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
+      "summary": "Electronic health record (EHR) feature engineering is a major bottleneck in clinical research and AI, accounting for 39-45% of data scientists' workload. This is especially pronounced in heart failure...",
+      "fetched": "2026-08-08T01:27:20.926517"
+    },
+    {
+      "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
+      "summary": "The use of e-commerce mobile applications is expanding in Nigeria, creating both opportunities and risks, including fraud and reduced user control over digital technologies, raising concerns about dig...",
+      "fetched": "2026-08-08T01:27:20.926519"
     }
   ],
-  "last_sync": "2026-08-07T02:36:06.875733"
+  "last_sync": "2026-08-08T01:27:20.962980"
 }
