@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Explainable Reinforcement Learning for assisting Air Traffic Controllers",
-      "summary": "To effectively integrate AI into high-stakes, critical environments such as healthcare, autonomous driving, and aviation--and to advance toward higher levels of automation and seamless human-AI collab...",
-      "fetched": "2026-07-28T02:28:06.264210"
-    },
-    {
-      "title": "The Regression Tax: Decomposing Why Skills Help and Hurt LLM Agents",
-      "summary": "Adding procedural skills to an LLM agent is typically evaluated by average improvement in task success. However, this metric hides an important cost: skills can also make agents worse. We measure both...",
-      "fetched": "2026-07-28T02:28:06.264212"
-    },
-    {
-      "title": "Pass the Baton: Trajectory-Relayed On-Policy Distillation",
-      "summary": "On-policy distillation (OPD) grounds token-level supervision in the student's own trajectory, yet suffers from prefix failure: once the student commits to a wrong reasoning direction, all subsequent g...",
-      "fetched": "2026-07-30T02:20:06.308265"
-    },
-    {
       "title": "$\u03c0\\mathbf{R}^2$: Reactive Real-time Flow Policies",
       "summary": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input...",
       "fetched": "2026-07-30T02:20:06.308274"
@@ -99,7 +84,22 @@
       "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
       "summary": "The use of e-commerce mobile applications is expanding in Nigeria, creating both opportunities and risks, including fraud and reduced user control over digital technologies, raising concerns about dig...",
       "fetched": "2026-08-08T01:27:20.926519"
+    },
+    {
+      "title": "Learning When to Trust via Selective Context Preference Optimization",
+      "summary": "Language models increasingly condition their answers on external signals, and a single misleading one can turn a correct answer wrong. The obvious remedy, training models to resist such signals, hides...",
+      "fetched": "2026-08-09T01:39:34.468858"
+    },
+    {
+      "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
+      "summary": "Electronic health record (EHR) feature engineering is a major bottleneck in clinical research and AI, accounting for 39-45% of data scientists' workload. This is especially pronounced in heart failure...",
+      "fetched": "2026-08-09T01:39:34.468916"
+    },
+    {
+      "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
+      "summary": "The use of e-commerce mobile applications is expanding in Nigeria, creating both opportunities and risks, including fraud and reduced user control over digital technologies, raising concerns about dig...",
+      "fetched": "2026-08-09T01:39:34.468920"
     }
   ],
-  "last_sync": "2026-08-08T01:27:20.962980"
+  "last_sync": "2026-08-09T01:39:34.500261"
 }
