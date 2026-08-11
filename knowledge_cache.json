@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "$\u03c0\\mathbf{R}^2$: Reactive Real-time Flow Policies",
-      "summary": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input...",
-      "fetched": "2026-07-30T02:20:06.308274"
-    },
-    {
-      "title": "Desktop-Delta Bench: Do Computer-Use Models Understand Desktop GUI Transitions?",
-      "summary": "Computer-use agents (CUAs) increasingly act through desktop GUIs to complete long-horizon tasks. Current benchmarks primarily measure end-task success or single-frame grounding. Neither isolates wheth...",
-      "fetched": "2026-07-30T02:20:06.308276"
-    },
-    {
-      "title": "Correcting What You Cannot See: Credit Assignment for Perception Distillation in Multimodal Reasoners",
-      "summary": "On-policy distillation provides dense supervision for multimodal reasoners, but its trajectory-level reward cannot determine whether a failed answer arose from perception or subsequent reasoning. Perc...",
-      "fetched": "2026-07-31T02:43:51.887467"
-    },
-    {
       "title": "Paying for Honesty Without Knowing the Truth: Reputation-Penalty Design for LLM Marketplace Agents",
       "summary": "LLM agents increasingly act as autonomous merchants that write their own product listings, and under competitive pressure, they fabricate attributes to win sales. Even under instructions to be honest,...",
       "fetched": "2026-07-31T02:43:51.887475"
@@ -99,7 +84,22 @@
       "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
       "summary": "The use of e-commerce mobile applications is expanding in Nigeria, creating both opportunities and risks, including fraud and reduced user control over digital technologies, raising concerns about dig...",
       "fetched": "2026-08-09T01:39:34.468920"
+    },
+    {
+      "title": "CreativeInstruct: Scalably Teaching LLMs to Balance Quality, Creativity, and Diversity",
+      "summary": "While post-training improves the capabilities of large language models (LLMs), it generally lowers their output diversity and creativity, negatively impacting tasks that explicitly require creativity ...",
+      "fetched": "2026-08-11T01:39:39.387435"
+    },
+    {
+      "title": "CoinRAG: Contextualized Information Nugget KV Cache Reuse for Long-Context RAG",
+      "summary": "Recent optimization studies on Retrieval-Augmented Generation (RAG) have exploited chunk-level KV cache reuse to avoid processing long retrieved contexts for higher efficiency, while significant infor...",
+      "fetched": "2026-08-11T01:39:39.387445"
+    },
+    {
+      "title": "Interaction Creates Dynamical AI Behavior Absent in Isolation",
+      "summary": "What will happen when AI agents interact in daily life, e.g. when one AI starts bossing another around? We find a counterintuitive answer that opens new avenues for out-of-equilibrium Physics. When a ...",
+      "fetched": "2026-08-11T01:39:39.387447"
     }
   ],
-  "last_sync": "2026-08-10T01:42:49.447945"
+  "last_sync": "2026-08-11T01:39:39.422874"
 }
