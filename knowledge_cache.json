@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Paying for Honesty Without Knowing the Truth: Reputation-Penalty Design for LLM Marketplace Agents",
-      "summary": "LLM agents increasingly act as autonomous merchants that write their own product listings, and under competitive pressure, they fabricate attributes to win sales. Even under instructions to be honest,...",
-      "fetched": "2026-07-31T02:43:51.887475"
-    },
-    {
-      "title": "PathView-Bench: Can Multimodal Large Language Models Achieve Fine-grained Multiscale Understanding of Pathology Images?",
-      "summary": "Multimodal large language models (MLLMs) are increasingly used to analyze pathology images. However, dominant multimodal benchmarks in pathology mainly score final diagnostic answers, captions, or rep...",
-      "fetched": "2026-07-31T02:43:51.887477"
-    },
-    {
-      "title": "Learning to Trace Seiberg Dualities",
-      "summary": "Dualities play an important role in establishing both microscopic and emergent phenomena in a wide range of physical systems. In practice, though, it can often be computationally challenging to establ...",
-      "fetched": "2026-08-02T02:41:31.717087"
-    },
-    {
       "title": "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval",
       "summary": "Long visual context poses a challenge for vision-language models: performance degrades as the number of distractors grows, and processing all tokens at once is computationally infeasible under GPU mem...",
       "fetched": "2026-08-02T02:41:31.717097"
@@ -99,7 +84,22 @@
       "title": "Interaction Creates Dynamical AI Behavior Absent in Isolation",
       "summary": "What will happen when AI agents interact in daily life, e.g. when one AI starts bossing another around? We find a counterintuitive answer that opens new avenues for out-of-equilibrium Physics. When a ...",
       "fetched": "2026-08-11T01:39:39.387447"
+    },
+    {
+      "title": "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design",
+      "summary": "Transforming multimodal sources into condensed and structured media outputs can be fundamentally conceptualized as a long-horizon agentic process centered on a model-harness system. While an ideal har...",
+      "fetched": "2026-08-15T01:09:14.538635"
+    },
+    {
+      "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
+      "summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workf...",
+      "fetched": "2026-08-15T01:09:14.538645"
+    },
+    {
+      "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
+      "summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences b...",
+      "fetched": "2026-08-15T01:09:14.538647"
     }
   ],
-  "last_sync": "2026-08-14T01:50:46.192262"
+  "last_sync": "2026-08-15T01:09:14.571176"
 }
