@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Control Under Compression: Reliability Frontiers for Tool-Using Agents",
-      "summary": "Tool-using language-model agents are governed not only by task prompts but also by persistent system-side instructions that specify tools, arguments, policies, execution protocols, and recovery. Compr...",
-      "fetched": "2026-08-04T02:26:12.323186"
-    },
-    {
-      "title": "Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception",
-      "summary": "Multimodal Large Language Models (MLLMs) are increasingly expected to solve structured perception tasks that require visual recognition, language-to-object binding, object cardinality preservation, an...",
-      "fetched": "2026-08-04T02:26:12.323188"
-    },
-    {
-      "title": "The Illusion of Visual Tool-Use: A Causal Audit of Thinking with Images",
-      "summary": "The \"thinking-with-images\" paradigm equips multimodal LLMs with active visual operations such as crop-and-zoom. However, models using these operations often achieve only marginal or negative gains ove...",
-      "fetched": "2026-08-07T02:36:06.839483"
-    },
-    {
       "title": "Improving the Realism of Synthetic Clinical Benchmarks Under Utility Constraints",
       "summary": "Synthetic clinical benchmarks for enterprise AI agents can pass existing utility checks and still remain structurally unrealistic, especially in privacy-sensitive healthcare settings where operational...",
       "fetched": "2026-08-07T02:36:06.839492"
@@ -99,7 +84,22 @@
       "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
       "summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences b...",
       "fetched": "2026-08-16T01:13:25.558405"
+    },
+    {
+      "title": "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design",
+      "summary": "Transforming multimodal sources into condensed and structured media outputs can be fundamentally conceptualized as a long-horizon agentic process centered on a model-harness system. While an ideal har...",
+      "fetched": "2026-08-17T01:10:39.659585"
+    },
+    {
+      "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
+      "summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workf...",
+      "fetched": "2026-08-17T01:10:39.659594"
+    },
+    {
+      "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
+      "summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences b...",
+      "fetched": "2026-08-17T01:10:39.659597"
     }
   ],
-  "last_sync": "2026-08-16T01:13:25.612109"
+  "last_sync": "2026-08-17T01:10:39.704896"
 }
