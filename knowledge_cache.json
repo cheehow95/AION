@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Improving the Realism of Synthetic Clinical Benchmarks Under Utility Constraints",
-      "summary": "Synthetic clinical benchmarks for enterprise AI agents can pass existing utility checks and still remain structurally unrealistic, especially in privacy-sensitive healthcare settings where operational...",
-      "fetched": "2026-08-07T02:36:06.839492"
-    },
-    {
-      "title": "Toward Deployable Bangla Sign Language Recognition with Expert-Validated Data and a Lightweight Attention-Based Model",
-      "summary": "Deaf and hard-of-hearing people in Bangladesh communicate mainly through Bangla Sign Language (BdSL). Automatic BdSL recognition on personal devices could widen access to education and services. Exist...",
-      "fetched": "2026-08-07T02:36:06.839495"
-    },
-    {
-      "title": "Learning When to Trust via Selective Context Preference Optimization",
-      "summary": "Language models increasingly condition their answers on external signals, and a single misleading one can turn a correct answer wrong. The obvious remedy, training models to resist such signals, hides...",
-      "fetched": "2026-08-08T01:27:20.926508"
-    },
-    {
       "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
       "summary": "Electronic health record (EHR) feature engineering is a major bottleneck in clinical research and AI, accounting for 39-45% of data scientists' workload. This is especially pronounced in heart failure...",
       "fetched": "2026-08-08T01:27:20.926517"
@@ -99,7 +84,22 @@
       "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
       "summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences b...",
       "fetched": "2026-08-17T01:10:39.659597"
+    },
+    {
+      "title": "Decoding the Past: An Uncertainty-Aware Deep Learning Framework for Sex Attribution in Prehistoric Hand Stencils",
+      "summary": "Determining the biological sex of the individuals who created Upper Paleolithic hand stencils remains a challenging problem due to the absence of ground truth, population differences between contempor...",
+      "fetched": "2026-08-18T01:08:42.782262"
+    },
+    {
+      "title": "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
+      "summary": "Interactive game world models typically autoregress visual observations directly in pixel or latent space, forcing structured properties such as pose, geometry, and occlusion to be implicitly maintain...",
+      "fetched": "2026-08-18T01:08:42.782273"
+    },
+    {
+      "title": "Handover of In-Context Learning State Across Session Boundaries",
+      "summary": "This study investigates the methodological and theoretical properties of session handover in applications that use large language models. A task may continue in a new session when the context reaches ...",
+      "fetched": "2026-08-18T01:08:42.782275"
     }
   ],
-  "last_sync": "2026-08-17T01:10:39.704896"
+  "last_sync": "2026-08-18T01:08:42.814337"
 }
