@@ -3,21 +3,6 @@
     {
       "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
       "summary": "Electronic health record (EHR) feature engineering is a major bottleneck in clinical research and AI, accounting for 39-45% of data scientists' workload. This is especially pronounced in heart failure...",
-      "fetched": "2026-08-08T01:27:20.926517"
-    },
-    {
-      "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
-      "summary": "The use of e-commerce mobile applications is expanding in Nigeria, creating both opportunities and risks, including fraud and reduced user control over digital technologies, raising concerns about dig...",
-      "fetched": "2026-08-08T01:27:20.926519"
-    },
-    {
-      "title": "Learning When to Trust via Selective Context Preference Optimization",
-      "summary": "Language models increasingly condition their answers on external signals, and a single misleading one can turn a correct answer wrong. The obvious remedy, training models to resist such signals, hides...",
-      "fetched": "2026-08-09T01:39:34.468858"
-    },
-    {
-      "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
-      "summary": "Electronic health record (EHR) feature engineering is a major bottleneck in clinical research and AI, accounting for 39-45% of data scientists' workload. This is especially pronounced in heart failure...",
       "fetched": "2026-08-09T01:39:34.468916"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Handover of In-Context Learning State Across Session Boundaries",
       "summary": "This study investigates the methodological and theoretical properties of session handover in applications that use large language models. A task may continue in a new session when the context reaches ...",
       "fetched": "2026-08-18T01:08:42.782275"
+    },
+    {
+      "title": "Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory",
+      "summary": "Long-horizon robot manipulation chains many contact-rich skills into one multi-stage task. Vision-language-action (VLA) models increasingly master the individual skills, yet the chain still fails: err...",
+      "fetched": "2026-08-19T01:09:54.914749"
+    },
+    {
+      "title": "Improving the matrix multiplication exponent with modern optimization and AlphaEvolve",
+      "summary": "The current best bounds on the matrix multiplication exponent $\u03c9$ are obtained through a refinement of the laser method called combination loss analysis (Duan et al., 2022; Williams et al., 2024; Alma...",
+      "fetched": "2026-08-19T01:09:54.914761"
+    },
+    {
+      "title": "AutoSR: Automatic Symbolic Regression by Searching Research States",
+      "summary": "We introduce Automatic Symbolic Regression (AutoSR), a fully automated system that instantiates Research-Space Symbolic Regression by searching persistent scientific investigations rather than isolate...",
+      "fetched": "2026-08-19T01:09:54.914763"
     }
   ],
-  "last_sync": "2026-08-18T01:08:42.814337"
+  "last_sync": "2026-08-19T01:09:54.956259"
 }
