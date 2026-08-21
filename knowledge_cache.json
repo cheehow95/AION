@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "CoinRAG: Contextualized Information Nugget KV Cache Reuse for Long-Context RAG",
-      "summary": "Recent optimization studies on Retrieval-Augmented Generation (RAG) have exploited chunk-level KV cache reuse to avoid processing long retrieved contexts for higher efficiency, while significant infor...",
-      "fetched": "2026-08-11T01:39:39.387445"
-    },
-    {
-      "title": "Interaction Creates Dynamical AI Behavior Absent in Isolation",
-      "summary": "What will happen when AI agents interact in daily life, e.g. when one AI starts bossing another around? We find a counterintuitive answer that opens new avenues for out-of-equilibrium Physics. When a ...",
-      "fetched": "2026-08-11T01:39:39.387447"
-    },
-    {
-      "title": "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design",
-      "summary": "Transforming multimodal sources into condensed and structured media outputs can be fundamentally conceptualized as a long-horizon agentic process centered on a model-harness system. While an ideal har...",
-      "fetched": "2026-08-15T01:09:14.538635"
-    },
-    {
       "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
       "summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workf...",
       "fetched": "2026-08-15T01:09:14.538645"
@@ -99,7 +84,22 @@
       "title": "Delegation Asymmetry in Agentic Recommender Systems: Measuring Two-Sided Receptivity in Online Dating",
       "summary": "Autonomous LLM agents that converse on a user's behalf are an emerging design pattern in matching platforms, yet their viability depends on a condition rarely examined: users must accept not only dele...",
       "fetched": "2026-08-20T01:08:41.054235"
+    },
+    {
+      "title": "SPADE: Self-Play in Adaptive Synthetic Executable Environments",
+      "summary": "Continuous self-improvement requires an ever-expanding pool of self-generated, diverse, adaptive goals. For language agents, existing training environment pools (hand-curated, statically synthesized, ...",
+      "fetched": "2026-08-21T01:12:51.149004"
+    },
+    {
+      "title": "ADEPT: Accelerating Dexterity via Pre-Training and Post-Training using Reinforcement Learning",
+      "summary": "We introduce Accelerating Dexterity via Pre-Training (ADEPT), a large-scale reinforcement learning (RL) framework for learning sim-to-real transferable dexterity across high degree-of-freedom (DoF) ro...",
+      "fetched": "2026-08-21T01:12:51.149016"
+    },
+    {
+      "title": "Beyond Teacher Likelihood: Group-Calibrated On-Policy Distillation for Long-Context Reasoning",
+      "summary": "On-policy distillation (OPD) trains a student on its own responses using dense token-level guidance from a stronger teacher. In long-context tasks, however, token-level teacher support can favor local...",
+      "fetched": "2026-08-21T01:12:51.149018"
     }
   ],
-  "last_sync": "2026-08-20T01:08:41.133959"
+  "last_sync": "2026-08-21T01:12:51.181664"
 }
