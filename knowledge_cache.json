@@ -3,21 +3,6 @@
     {
       "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
       "summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workf...",
-      "fetched": "2026-08-16T01:13:25.558403"
-    },
-    {
-      "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
-      "summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences b...",
-      "fetched": "2026-08-16T01:13:25.558405"
-    },
-    {
-      "title": "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design",
-      "summary": "Transforming multimodal sources into condensed and structured media outputs can be fundamentally conceptualized as a long-horizon agentic process centered on a model-harness system. While an ideal har...",
-      "fetched": "2026-08-17T01:10:39.659585"
-    },
-    {
-      "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
-      "summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workf...",
       "fetched": "2026-08-17T01:10:39.659594"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Inducing Task Models from Computer-Use Traces",
       "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
       "fetched": "2026-08-22T01:08:52.617786"
+    },
+    {
+      "title": "G-CARL: Grounded Checklist-Aligned Reward Learning for Patient-Oriented Medical Report Interpretation",
+      "summary": "Personalized interpretation of medical reports has emerged as an increasingly important need among patients. Addressing this need requires both evidence-grounded medical factuality and context-depende...",
+      "fetched": "2026-08-23T01:14:50.050246"
+    },
+    {
+      "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
+      "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
+      "fetched": "2026-08-23T01:14:50.050257"
+    },
+    {
+      "title": "Inducing Task Models from Computer-Use Traces",
+      "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
+      "fetched": "2026-08-23T01:14:50.050261"
     }
   ],
-  "last_sync": "2026-08-22T01:08:52.655325"
+  "last_sync": "2026-08-23T01:14:50.101699"
 }
