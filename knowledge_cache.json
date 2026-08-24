@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
-      "summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workf...",
-      "fetched": "2026-08-17T01:10:39.659594"
-    },
-    {
-      "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
-      "summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences b...",
-      "fetched": "2026-08-17T01:10:39.659597"
-    },
-    {
-      "title": "Decoding the Past: An Uncertainty-Aware Deep Learning Framework for Sex Attribution in Prehistoric Hand Stencils",
-      "summary": "Determining the biological sex of the individuals who created Upper Paleolithic hand stencils remains a challenging problem due to the absence of ground truth, population differences between contempor...",
-      "fetched": "2026-08-18T01:08:42.782262"
-    },
-    {
       "title": "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
       "summary": "Interactive game world models typically autoregress visual observations directly in pixel or latent space, forcing structured properties such as pose, geometry, and occlusion to be implicitly maintain...",
       "fetched": "2026-08-18T01:08:42.782273"
@@ -99,7 +84,22 @@
       "title": "Inducing Task Models from Computer-Use Traces",
       "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
       "fetched": "2026-08-23T01:14:50.050261"
+    },
+    {
+      "title": "G-CARL: Grounded Checklist-Aligned Reward Learning for Patient-Oriented Medical Report Interpretation",
+      "summary": "Personalized interpretation of medical reports has emerged as an increasingly important need among patients. Addressing this need requires both evidence-grounded medical factuality and context-depende...",
+      "fetched": "2026-08-24T01:12:29.372383"
+    },
+    {
+      "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
+      "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
+      "fetched": "2026-08-24T01:12:29.372393"
+    },
+    {
+      "title": "Inducing Task Models from Computer-Use Traces",
+      "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
+      "fetched": "2026-08-24T01:12:29.372395"
     }
   ],
-  "last_sync": "2026-08-23T01:14:50.101699"
+  "last_sync": "2026-08-24T01:12:29.404789"
 }
