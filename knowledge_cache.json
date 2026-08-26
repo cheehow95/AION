@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
-      "summary": "Interactive game world models typically autoregress visual observations directly in pixel or latent space, forcing structured properties such as pose, geometry, and occlusion to be implicitly maintain...",
-      "fetched": "2026-08-18T01:08:42.782273"
-    },
-    {
-      "title": "Handover of In-Context Learning State Across Session Boundaries",
-      "summary": "This study investigates the methodological and theoretical properties of session handover in applications that use large language models. A task may continue in a new session when the context reaches ...",
-      "fetched": "2026-08-18T01:08:42.782275"
-    },
-    {
-      "title": "Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory",
-      "summary": "Long-horizon robot manipulation chains many contact-rich skills into one multi-stage task. Vision-language-action (VLA) models increasingly master the individual skills, yet the chain still fails: err...",
-      "fetched": "2026-08-19T01:09:54.914749"
-    },
-    {
       "title": "Improving the matrix multiplication exponent with modern optimization and AlphaEvolve",
       "summary": "The current best bounds on the matrix multiplication exponent $\u03c9$ are obtained through a refinement of the laser method called combination loss analysis (Duan et al., 2022; Williams et al., 2024; Alma...",
       "fetched": "2026-08-19T01:09:54.914761"
@@ -99,7 +84,22 @@
       "title": "Inducing Task Models from Computer-Use Traces",
       "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
       "fetched": "2026-08-24T01:12:29.372395"
+    },
+    {
+      "title": "How to Train a Critic Stably and Efficiently",
+      "summary": "Group-based reinforcement learning methods such as GRPO for large language models avoid training a critic by sampling multiple responses for each prompt. A reliable critic could instead estimate token...",
+      "fetched": "2026-08-26T01:13:26.781243"
+    },
+    {
+      "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
+      "summary": "An interactive world model must follow the user's actions, remember the places it has shown, and stream in real time. The tension is structural: control wants a short horizon, memory wants an unbounde...",
+      "fetched": "2026-08-26T01:13:26.781254"
+    },
+    {
+      "title": "SWE Refactor Bench: Can Coding Agents Complete a Long-Horizon, Whole-Repository Stack Migration?",
+      "summary": "Modern software systems accumulate technical debt over decades of development, which makes migration expensive and largely manual. As coding agents become increasingly capable at bug fixing, can they ...",
+      "fetched": "2026-08-26T01:13:26.781256"
     }
   ],
-  "last_sync": "2026-08-25T01:11:01.411091"
+  "last_sync": "2026-08-26T01:13:26.814507"
 }
