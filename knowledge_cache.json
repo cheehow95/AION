@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Improving the matrix multiplication exponent with modern optimization and AlphaEvolve",
-      "summary": "The current best bounds on the matrix multiplication exponent $\u03c9$ are obtained through a refinement of the laser method called combination loss analysis (Duan et al., 2022; Williams et al., 2024; Alma...",
-      "fetched": "2026-08-19T01:09:54.914761"
-    },
-    {
-      "title": "AutoSR: Automatic Symbolic Regression by Searching Research States",
-      "summary": "We introduce Automatic Symbolic Regression (AutoSR), a fully automated system that instantiates Research-Space Symbolic Regression by searching persistent scientific investigations rather than isolate...",
-      "fetched": "2026-08-19T01:09:54.914763"
-    },
-    {
-      "title": "From Corpora to Co-Evolving Capabilities: Capability-Centric Data Design for Generalist Image Generation",
-      "summary": "Large-scale image generation has benefited from advances in data scale, quality, rebalancing, and recaptioning, yet conventional pipelines typically optimize task-specific datasets in isolation. A cen...",
-      "fetched": "2026-08-20T01:08:41.054223"
-    },
-    {
       "title": "On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification",
       "summary": "Memory-based self-improving agents--those that learn from an online stream of tasks and improve over time by maintaining a textual memory bank--have shown great promise in recent literature. However, ...",
       "fetched": "2026-08-20T01:08:41.054233"
@@ -99,7 +84,22 @@
       "title": "SWE Refactor Bench: Can Coding Agents Complete a Long-Horizon, Whole-Repository Stack Migration?",
       "summary": "Modern software systems accumulate technical debt over decades of development, which makes migration expensive and largely manual. As coding agents become increasingly capable at bug fixing, can they ...",
       "fetched": "2026-08-26T01:13:26.781256"
+    },
+    {
+      "title": "VBVR-Pro: A Scalable and Verifiable Suite for Native Visual Reasoning",
+      "summary": "Native visual reasoning treats visual generation as the medium of reasoning itself: visual states (i.e. images and videos) are not merely inputs to be understood or outputs to be rendered, but first-c...",
+      "fetched": "2026-08-27T07:41:27.864652"
+    },
+    {
+      "title": "A Visual Dependence-Aware Framework for Multimodal Unsupervised Continual Post-Training",
+      "summary": "In this paper, we explore a novel task of Multimodal Unsupervised Continual Post-Training (MU-CPT), enabling deployed MLLMs to continually evolve from streaming unlabeled data. Existing unsupervised p...",
+      "fetched": "2026-08-27T07:41:27.864659"
+    },
+    {
+      "title": "MyoMechanix: Biomechanically-Grounded Compositional Skilled Activity Understanding and Coaching",
+      "summary": "Existing action quality assessment (AQA) datasets and methods rely primarily on visual inputs such as RGB and pose, overlooking physiological dynamics such as muscle mechanics and often modeling actio...",
+      "fetched": "2026-08-27T07:41:27.864660"
     }
   ],
-  "last_sync": "2026-08-26T01:13:26.814507"
+  "last_sync": "2026-08-27T07:41:27.968359"
 }
