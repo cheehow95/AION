@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification",
-      "summary": "Memory-based self-improving agents--those that learn from an online stream of tasks and improve over time by maintaining a textual memory bank--have shown great promise in recent literature. However, ...",
-      "fetched": "2026-08-20T01:08:41.054233"
-    },
-    {
-      "title": "Delegation Asymmetry in Agentic Recommender Systems: Measuring Two-Sided Receptivity in Online Dating",
-      "summary": "Autonomous LLM agents that converse on a user's behalf are an emerging design pattern in matching platforms, yet their viability depends on a condition rarely examined: users must accept not only dele...",
-      "fetched": "2026-08-20T01:08:41.054235"
-    },
-    {
-      "title": "SPADE: Self-Play in Adaptive Synthetic Executable Environments",
-      "summary": "Continuous self-improvement requires an ever-expanding pool of self-generated, diverse, adaptive goals. For language agents, existing training environment pools (hand-curated, statically synthesized, ...",
-      "fetched": "2026-08-21T01:12:51.149004"
-    },
-    {
       "title": "ADEPT: Accelerating Dexterity via Pre-Training and Post-Training using Reinforcement Learning",
       "summary": "We introduce Accelerating Dexterity via Pre-Training (ADEPT), a large-scale reinforcement learning (RL) framework for learning sim-to-real transferable dexterity across high degree-of-freedom (DoF) ro...",
       "fetched": "2026-08-21T01:12:51.149016"
@@ -99,7 +84,22 @@
       "title": "MyoMechanix: Biomechanically-Grounded Compositional Skilled Activity Understanding and Coaching",
       "summary": "Existing action quality assessment (AQA) datasets and methods rely primarily on visual inputs such as RGB and pose, overlooking physiological dynamics such as muscle mechanics and often modeling actio...",
       "fetched": "2026-08-27T07:41:27.864660"
+    },
+    {
+      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+      "summary": "Agent skills package specialized knowledge and workflows into reusable resources that extend AI agent capabilities. Recent work automatically discovers such skills from agent experience, which enables...",
+      "fetched": "2026-08-28T09:43:14.625816"
+    },
+    {
+      "title": "SWE-Prime: Fewer Trajectories, Better Performance",
+      "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
+      "fetched": "2026-08-28T09:43:14.625824"
+    },
+    {
+      "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
+      "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
+      "fetched": "2026-08-28T09:43:14.625826"
     }
   ],
-  "last_sync": "2026-08-27T07:41:27.968359"
+  "last_sync": "2026-08-28T09:43:14.655843"
 }
