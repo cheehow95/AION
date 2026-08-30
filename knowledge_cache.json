@@ -3,21 +3,6 @@
     {
       "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
       "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
-      "fetched": "2026-08-22T01:08:52.617783"
-    },
-    {
-      "title": "Inducing Task Models from Computer-Use Traces",
-      "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
-      "fetched": "2026-08-22T01:08:52.617786"
-    },
-    {
-      "title": "G-CARL: Grounded Checklist-Aligned Reward Learning for Patient-Oriented Medical Report Interpretation",
-      "summary": "Personalized interpretation of medical reports has emerged as an increasingly important need among patients. Addressing this need requires both evidence-grounded medical factuality and context-depende...",
-      "fetched": "2026-08-23T01:14:50.050246"
-    },
-    {
-      "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
-      "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
       "fetched": "2026-08-23T01:14:50.050257"
     },
     {
@@ -99,7 +84,22 @@
       "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
       "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
       "fetched": "2026-08-29T05:46:22.883619"
+    },
+    {
+      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+      "summary": "Agent skills package specialized knowledge and workflows into reusable resources that extend AI agent capabilities. Recent work automatically discovers such skills from agent experience, which enables...",
+      "fetched": "2026-08-30T03:49:49.576281"
+    },
+    {
+      "title": "SWE-Prime: Fewer Trajectories, Better Performance",
+      "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
+      "fetched": "2026-08-30T03:49:49.576293"
+    },
+    {
+      "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
+      "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
+      "fetched": "2026-08-30T03:49:49.576295"
     }
   ],
-  "last_sync": "2026-08-29T05:46:22.982283"
+  "last_sync": "2026-08-30T03:49:49.632988"
 }
