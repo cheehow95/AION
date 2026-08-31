@@ -3,21 +3,6 @@
     {
       "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
       "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
-      "fetched": "2026-08-23T01:14:50.050257"
-    },
-    {
-      "title": "Inducing Task Models from Computer-Use Traces",
-      "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
-      "fetched": "2026-08-23T01:14:50.050261"
-    },
-    {
-      "title": "G-CARL: Grounded Checklist-Aligned Reward Learning for Patient-Oriented Medical Report Interpretation",
-      "summary": "Personalized interpretation of medical reports has emerged as an increasingly important need among patients. Addressing this need requires both evidence-grounded medical factuality and context-depende...",
-      "fetched": "2026-08-24T01:12:29.372383"
-    },
-    {
-      "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
-      "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
       "fetched": "2026-08-24T01:12:29.372393"
     },
     {
@@ -99,7 +84,22 @@
       "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
       "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
       "fetched": "2026-08-30T03:49:49.576295"
+    },
+    {
+      "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+      "summary": "Tendon-driven hands are anthropomorphic, and moving the actuators off the joints is what makes a hand of this capability affordable to build. Two effects produce that saving. Routing force through a c...",
+      "fetched": "2026-08-31T03:52:25.109785"
+    },
+    {
+      "title": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
+      "summary": "Synthetic data can improve statistical inference when real data are scarce, but naively treating synthetic samples as real data can introduce bias and lead to unreliable inference. We develop a genera...",
+      "fetched": "2026-08-31T03:52:25.109797"
+    },
+    {
+      "title": "Blog: Survey of Optimizers",
+      "summary": "Neural-network optimization in 2025-2026 is no longer well described as a succession of new Adam variants. The design space has expanded from coordinates to matrices and layers, from fixed training ho...",
+      "fetched": "2026-08-31T03:52:25.109798"
     }
   ],
-  "last_sync": "2026-08-30T03:49:49.632988"
+  "last_sync": "2026-08-31T03:52:25.257047"
 }
