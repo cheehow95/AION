@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
-      "summary": "Travel behavior research increasingly combines digital data collection with predictive modeling, yet these stages are often developed and evaluated separately. This study proposes a three-agent workfl...",
-      "fetched": "2026-08-24T01:12:29.372393"
-    },
-    {
-      "title": "Inducing Task Models from Computer-Use Traces",
-      "summary": "Naturalistic computer-use traces, passively recorded screenshots and mouse or keyboard actions, are a valuable resource for deriving symbolic, auditable, and reusable models of how everyday work is do...",
-      "fetched": "2026-08-24T01:12:29.372395"
-    },
-    {
-      "title": "How to Train a Critic Stably and Efficiently",
-      "summary": "Group-based reinforcement learning methods such as GRPO for large language models avoid training a critic by sampling multiple responses for each prompt. A reliable critic could instead estimate token...",
-      "fetched": "2026-08-26T01:13:26.781243"
-    },
-    {
       "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
       "summary": "An interactive world model must follow the user's actions, remember the places it has shown, and stream in real time. The tension is structural: control wants a short horizon, memory wants an unbounde...",
       "fetched": "2026-08-26T01:13:26.781254"
@@ -99,7 +84,22 @@
       "title": "Blog: Survey of Optimizers",
       "summary": "Neural-network optimization in 2025-2026 is no longer well described as a succession of new Adam variants. The design space has expanded from coordinates to matrices and layers, from fixed training ho...",
       "fetched": "2026-08-31T03:52:25.109798"
+    },
+    {
+      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+      "summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a prov...",
+      "fetched": "2026-09-04T03:04:08.020634"
+    },
+    {
+      "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+      "summary": "Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to ...",
+      "fetched": "2026-09-04T03:04:08.020642"
+    },
+    {
+      "title": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
+      "summary": "Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three de...",
+      "fetched": "2026-09-04T03:04:08.020643"
     }
   ],
-  "last_sync": "2026-09-03T03:06:55.036126"
+  "last_sync": "2026-09-04T03:04:08.100605"
 }
