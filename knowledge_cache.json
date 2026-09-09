@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
-      "summary": "An interactive world model must follow the user's actions, remember the places it has shown, and stream in real time. The tension is structural: control wants a short horizon, memory wants an unbounde...",
-      "fetched": "2026-08-26T01:13:26.781254"
-    },
-    {
-      "title": "SWE Refactor Bench: Can Coding Agents Complete a Long-Horizon, Whole-Repository Stack Migration?",
-      "summary": "Modern software systems accumulate technical debt over decades of development, which makes migration expensive and largely manual. As coding agents become increasingly capable at bug fixing, can they ...",
-      "fetched": "2026-08-26T01:13:26.781256"
-    },
-    {
-      "title": "VBVR-Pro: A Scalable and Verifiable Suite for Native Visual Reasoning",
-      "summary": "Native visual reasoning treats visual generation as the medium of reasoning itself: visual states (i.e. images and videos) are not merely inputs to be understood or outputs to be rendered, but first-c...",
-      "fetched": "2026-08-27T07:41:27.864652"
-    },
-    {
       "title": "A Visual Dependence-Aware Framework for Multimodal Unsupervised Continual Post-Training",
       "summary": "In this paper, we explore a novel task of Multimodal Unsupervised Continual Post-Training (MU-CPT), enabling deployed MLLMs to continually evolve from streaming unlabeled data. Existing unsupervised p...",
       "fetched": "2026-08-27T07:41:27.864659"
@@ -99,7 +84,22 @@
       "title": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
       "summary": "Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three de...",
       "fetched": "2026-09-04T03:04:08.020643"
+    },
+    {
+      "title": "The Surprising Effectiveness of Approximate Value Iteration in Self-Play",
+      "summary": "Combining search with function approximation has driven major advances in game-playing programs, making self-play algorithms more competitive than ever. Still, the computational overhead of the most p...",
+      "fetched": "2026-09-09T03:15:42.841035"
+    },
+    {
+      "title": "Measuring LLM Sycophancy under Sustained Multi-Turn Pressure",
+      "summary": "Large language models (LLMs) may abandon correct positions when users push back, exhibiting a failure mode known as sycophancy. Existing evaluations typically use short, pre-specified conversations an...",
+      "fetched": "2026-09-09T03:15:42.841046"
+    },
+    {
+      "title": "GoDeep: Annotation-Free Open-Vocabulary 3D Scene Understanding via Language-Space Lifting",
+      "summary": "Open vocabulary 3D semantic segmentation methods typically lift CLIP features into 3D. This embeds points in a joint vision-language space known to behave like a bag-of-words on compositional tasks. F...",
+      "fetched": "2026-09-09T03:15:42.841049"
     }
   ],
-  "last_sync": "2026-09-08T03:13:20.431626"
+  "last_sync": "2026-09-09T03:15:42.900799"
 }
