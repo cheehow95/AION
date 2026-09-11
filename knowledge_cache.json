@@ -3,21 +3,6 @@
     {
       "title": "SWE-Prime: Fewer Trajectories, Better Performance",
       "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
-      "fetched": "2026-08-28T09:43:14.625824"
-    },
-    {
-      "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
-      "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
-      "fetched": "2026-08-28T09:43:14.625826"
-    },
-    {
-      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
-      "summary": "Agent skills package specialized knowledge and workflows into reusable resources that extend AI agent capabilities. Recent work automatically discovers such skills from agent experience, which enables...",
-      "fetched": "2026-08-29T05:46:22.883607"
-    },
-    {
-      "title": "SWE-Prime: Fewer Trajectories, Better Performance",
-      "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
       "fetched": "2026-08-29T05:46:22.883617"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Semigroup-JEPA: Latent Dynamics Consistency for Zero-Shot Physics Generalization",
       "summary": "Joint-Embedding Predictive Architecture (JEPA) world models learn a compact latent representation of the world that supports prediction and planning, but their capability to learn physics and generate...",
       "fetched": "2026-09-10T03:15:16.631767"
+    },
+    {
+      "title": "GPU-CFR: 80x Faster Counterfactual Regret Minimization by Compiling the Game to Static Dataflow and CUDA Graph Replay",
+      "summary": "Counterfactual regret minimization (CFR) is one of the few large numerical workloads that still runs faster on CPUs than on GPUs. Each iteration sweeps a game tree with up to billions of states in mil...",
+      "fetched": "2026-09-11T03:10:52.441163"
+    },
+    {
+      "title": "General Quantification of Covariate and Concept Shifts",
+      "summary": "Generalization under distribution shift remains a core challenge in modern machine learning, yet existing learning bound theory is limited to narrow, idealized settings and is non-estimable from sampl...",
+      "fetched": "2026-09-11T03:10:52.441176"
+    },
+    {
+      "title": "Can Edge-Deployable Vision-Language Models Identify Species?",
+      "summary": "Camera traps often run in the field on edge hardware with limited or no connectivity, making small, locally-deployable vision-language models (VLMs) -- not frontier-scale ones -- the practically relev...",
+      "fetched": "2026-09-11T03:10:52.441177"
     }
   ],
-  "last_sync": "2026-09-10T03:15:16.668209"
+  "last_sync": "2026-09-11T03:10:52.516576"
 }
