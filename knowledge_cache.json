@@ -3,21 +3,6 @@
     {
       "title": "SWE-Prime: Fewer Trajectories, Better Performance",
       "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
-      "fetched": "2026-08-29T05:46:22.883617"
-    },
-    {
-      "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
-      "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
-      "fetched": "2026-08-29T05:46:22.883619"
-    },
-    {
-      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
-      "summary": "Agent skills package specialized knowledge and workflows into reusable resources that extend AI agent capabilities. Recent work automatically discovers such skills from agent experience, which enables...",
-      "fetched": "2026-08-30T03:49:49.576281"
-    },
-    {
-      "title": "SWE-Prime: Fewer Trajectories, Better Performance",
-      "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
       "fetched": "2026-08-30T03:49:49.576293"
     },
     {
@@ -99,7 +84,22 @@
       "title": "Can Edge-Deployable Vision-Language Models Identify Species?",
       "summary": "Camera traps often run in the field on edge hardware with limited or no connectivity, making small, locally-deployable vision-language models (VLMs) -- not frontier-scale ones -- the practically relev...",
       "fetched": "2026-09-11T03:10:52.441177"
+    },
+    {
+      "title": "Agentic Societies Need a Social Harness",
+      "summary": "An agentic society is a collection of AI agents that coordinate autonomously across trust boundaries, on behalf of different principals whose objectives may only partially align. We show experimentall...",
+      "fetched": "2026-09-16T03:30:01.189998"
+    },
+    {
+      "title": "ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents",
+      "summary": "We introduce and release ScienceBuddy, an interactive scientific research workspace that brings continually improving scientific agents into researchers' everyday workflows. ScienceBuddy supports rese...",
+      "fetched": "2026-09-16T03:30:01.190006"
+    },
+    {
+      "title": "PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control",
+      "summary": "Interactive control for video generation is moving from coarse prompts toward fine-grained, physically meaningful manipulation of dynamic scenes. Yet existing controllable methods either require the f...",
+      "fetched": "2026-09-16T03:30:01.190009"
     }
   ],
-  "last_sync": "2026-09-15T03:33:54.114811"
+  "last_sync": "2026-09-16T03:30:01.222697"
 }
