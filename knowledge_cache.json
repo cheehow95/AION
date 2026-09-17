@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "SWE-Prime: Fewer Trajectories, Better Performance",
-      "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT...",
-      "fetched": "2026-08-30T03:49:49.576293"
-    },
-    {
-      "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
-      "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Al...",
-      "fetched": "2026-08-30T03:49:49.576295"
-    },
-    {
-      "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-      "summary": "Tendon-driven hands are anthropomorphic, and moving the actuators off the joints is what makes a hand of this capability affordable to build. Two effects produce that saving. Routing force through a c...",
-      "fetched": "2026-08-31T03:52:25.109785"
-    },
-    {
       "title": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
       "summary": "Synthetic data can improve statistical inference when real data are scarce, but naively treating synthetic samples as real data can introduce bias and lead to unreliable inference. We develop a genera...",
       "fetched": "2026-08-31T03:52:25.109797"
@@ -99,7 +84,22 @@
       "title": "PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control",
       "summary": "Interactive control for video generation is moving from coarse prompts toward fine-grained, physically meaningful manipulation of dynamic scenes. Yet existing controllable methods either require the f...",
       "fetched": "2026-09-16T03:30:01.190009"
+    },
+    {
+      "title": "Objective vs. Search: Decomposing What Makes a Good Tokeniser",
+      "summary": "Two dominant tokenisation algorithms are used by modern language models: byte-pair encoding (BPE) and UnigramLM. These differ along two orthogonal axes: their optimisation objective (compression vs. l...",
+      "fetched": "2026-09-17T03:35:42.844528"
+    },
+    {
+      "title": "A Zeroth-Order Paradigm for LLM Preference Alignment",
+      "summary": "Direct preference alignment methods are widely used to align large language models (LLMs) with human preferences because of their computational and memory efficiency. However, likelihood displacement ...",
+      "fetched": "2026-09-17T03:35:42.844534"
+    },
+    {
+      "title": "Dreaming the Sound of Contact: Leveraging Video and Audio Generation for Zero-Shot Force-Aware Manipulation and Data Generation",
+      "summary": "Recent advances in video generation allow robots to learn manipulation trajectories from generated videos. However, these approaches produce purely kinematic trajectories that lack force information, ...",
+      "fetched": "2026-09-17T03:35:42.844537"
     }
   ],
-  "last_sync": "2026-09-16T03:30:01.222697"
+  "last_sync": "2026-09-17T03:35:42.877397"
 }
