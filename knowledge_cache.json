@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
-      "summary": "Synthetic data can improve statistical inference when real data are scarce, but naively treating synthetic samples as real data can introduce bias and lead to unreliable inference. We develop a genera...",
-      "fetched": "2026-08-31T03:52:25.109797"
-    },
-    {
-      "title": "Blog: Survey of Optimizers",
-      "summary": "Neural-network optimization in 2025-2026 is no longer well described as a succession of new Adam variants. The design space has expanded from coordinates to matrices and layers, from fixed training ho...",
-      "fetched": "2026-08-31T03:52:25.109798"
-    },
-    {
-      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
-      "summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a prov...",
-      "fetched": "2026-09-04T03:04:08.020634"
-    },
-    {
       "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
       "summary": "Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to ...",
       "fetched": "2026-09-04T03:04:08.020642"
@@ -99,7 +84,22 @@
       "title": "Dreaming the Sound of Contact: Leveraging Video and Audio Generation for Zero-Shot Force-Aware Manipulation and Data Generation",
       "summary": "Recent advances in video generation allow robots to learn manipulation trajectories from generated videos. However, these approaches produce purely kinematic trajectories that lack force information, ...",
       "fetched": "2026-09-17T03:35:42.844537"
+    },
+    {
+      "title": "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation",
+      "summary": "Coding agents have emerged as a promising paradigm for robot manipulation: a language model writes the robot controller as a program, and agents built in this way now operate robots without robot-spec...",
+      "fetched": "2026-09-18T03:21:25.241025"
+    },
+    {
+      "title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
+      "summary": "Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades perf...",
+      "fetched": "2026-09-18T03:21:25.241037"
+    },
+    {
+      "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
+      "summary": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a ...",
+      "fetched": "2026-09-18T03:21:25.241040"
     }
   ],
-  "last_sync": "2026-09-17T03:35:42.877397"
+  "last_sync": "2026-09-18T03:21:25.281021"
 }
