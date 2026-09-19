@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
-      "summary": "Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to ...",
-      "fetched": "2026-09-04T03:04:08.020642"
-    },
-    {
-      "title": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
-      "summary": "Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three de...",
-      "fetched": "2026-09-04T03:04:08.020643"
-    },
-    {
-      "title": "The Surprising Effectiveness of Approximate Value Iteration in Self-Play",
-      "summary": "Combining search with function approximation has driven major advances in game-playing programs, making self-play algorithms more competitive than ever. Still, the computational overhead of the most p...",
-      "fetched": "2026-09-09T03:15:42.841035"
-    },
-    {
       "title": "Measuring LLM Sycophancy under Sustained Multi-Turn Pressure",
       "summary": "Large language models (LLMs) may abandon correct positions when users push back, exhibiting a failure mode known as sycophancy. Existing evaluations typically use short, pre-specified conversations an...",
       "fetched": "2026-09-09T03:15:42.841046"
@@ -99,7 +84,22 @@
       "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
       "summary": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a ...",
       "fetched": "2026-09-18T03:21:25.241040"
+    },
+    {
+      "title": "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation",
+      "summary": "Coding agents have emerged as a promising paradigm for robot manipulation: a language model writes the robot controller as a program, and agents built in this way now operate robots without robot-spec...",
+      "fetched": "2026-09-19T03:17:42.141140"
+    },
+    {
+      "title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
+      "summary": "Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades perf...",
+      "fetched": "2026-09-19T03:17:42.141150"
+    },
+    {
+      "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
+      "summary": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a ...",
+      "fetched": "2026-09-19T03:17:42.141152"
     }
   ],
-  "last_sync": "2026-09-18T03:21:25.281021"
+  "last_sync": "2026-09-19T03:17:42.177893"
 }
