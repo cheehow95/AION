@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Measuring LLM Sycophancy under Sustained Multi-Turn Pressure",
-      "summary": "Large language models (LLMs) may abandon correct positions when users push back, exhibiting a failure mode known as sycophancy. Existing evaluations typically use short, pre-specified conversations an...",
-      "fetched": "2026-09-09T03:15:42.841046"
-    },
-    {
-      "title": "GoDeep: Annotation-Free Open-Vocabulary 3D Scene Understanding via Language-Space Lifting",
-      "summary": "Open vocabulary 3D semantic segmentation methods typically lift CLIP features into 3D. This embeds points in a joint vision-language space known to behave like a bag-of-words on compositional tasks. F...",
-      "fetched": "2026-09-09T03:15:42.841049"
-    },
-    {
-      "title": "Show-Harness: Just a VLM Agent Can Play Robots",
-      "summary": "Foundation vision-language models (VLMs) exhibit broad intelligence about the world, yet translating this intelligence into robot control remains challenging. We present Show-Harness, an Embodied Harn...",
-      "fetched": "2026-09-10T03:15:16.631755"
-    },
-    {
       "title": "IBIB: A Protocol for Measuring Enterprise AI Systems by Serving Route, Not Model Identifier",
       "summary": "Enterprises deploy systems, not checkpoints. Usable capability depends jointly on weights, serving route, precision, output contract, and harness, yet all 18 audited benchmarks score advertised model ...",
       "fetched": "2026-09-10T03:15:16.631765"
@@ -99,7 +84,22 @@
       "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
       "summary": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a ...",
       "fetched": "2026-09-19T03:17:42.141152"
+    },
+    {
+      "title": "The Endless Exam: Mathematical Constructions from Today's Models toward Superintelligence",
+      "summary": "We introduce the Endless Exam, a benchmark for measuring mathematical progress from today's models toward artificial superintelligence through fourteen parameterised construction families. Each submit...",
+      "fetched": "2026-09-22T03:28:39.991214"
+    },
+    {
+      "title": "QLoRA Fine-Tuning of Ministral LLM for Sequence-to-Function Protein Annotation",
+      "summary": "Functional annotation of newly sequenced proteins remains a bottleneck in molecular biology: the number of sequences in public repositories grows far faster than the capacity for manual curation. Most...",
+      "fetched": "2026-09-22T03:28:39.991223"
+    },
+    {
+      "title": "Not All Task Vectors Need Equal Rank: Energy-Proportional Allocation for Model Merging",
+      "summary": "Model merging aims to combine multiple fine-tuned models derived from a common pretrained model into a single multi-task model without additional joint training. Recent spectral merging methods improv...",
+      "fetched": "2026-09-22T03:28:39.991225"
     }
   ],
-  "last_sync": "2026-09-21T03:29:45.695376"
+  "last_sync": "2026-09-22T03:28:40.031016"
 }
