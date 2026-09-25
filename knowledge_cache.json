@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "IBIB: A Protocol for Measuring Enterprise AI Systems by Serving Route, Not Model Identifier",
-      "summary": "Enterprises deploy systems, not checkpoints. Usable capability depends jointly on weights, serving route, precision, output contract, and harness, yet all 18 audited benchmarks score advertised model ...",
-      "fetched": "2026-09-10T03:15:16.631765"
-    },
-    {
-      "title": "Semigroup-JEPA: Latent Dynamics Consistency for Zero-Shot Physics Generalization",
-      "summary": "Joint-Embedding Predictive Architecture (JEPA) world models learn a compact latent representation of the world that supports prediction and planning, but their capability to learn physics and generate...",
-      "fetched": "2026-09-10T03:15:16.631767"
-    },
-    {
-      "title": "GPU-CFR: 80x Faster Counterfactual Regret Minimization by Compiling the Game to Static Dataflow and CUDA Graph Replay",
-      "summary": "Counterfactual regret minimization (CFR) is one of the few large numerical workloads that still runs faster on CPUs than on GPUs. Each iteration sweeps a game tree with up to billions of states in mil...",
-      "fetched": "2026-09-11T03:10:52.441163"
-    },
-    {
       "title": "General Quantification of Covariate and Concept Shifts",
       "summary": "Generalization under distribution shift remains a core challenge in modern machine learning, yet existing learning bound theory is limited to narrow, idealized settings and is non-estimable from sampl...",
       "fetched": "2026-09-11T03:10:52.441176"
@@ -99,7 +84,22 @@
       "title": "Not All Task Vectors Need Equal Rank: Energy-Proportional Allocation for Model Merging",
       "summary": "Model merging aims to combine multiple fine-tuned models derived from a common pretrained model into a single multi-task model without additional joint training. Recent spectral merging methods improv...",
       "fetched": "2026-09-22T03:28:39.991225"
+    },
+    {
+      "title": "LLM Agents Can Easily Tamper With Their Own Traces",
+      "summary": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own ...",
+      "fetched": "2026-09-25T03:37:07.700144"
+    },
+    {
+      "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
+      "summary": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low...",
+      "fetched": "2026-09-25T03:37:07.700151"
+    },
+    {
+      "title": "RAPID: Robot Agentic Programming from Demonstrations",
+      "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
+      "fetched": "2026-09-25T03:37:07.700153"
     }
   ],
-  "last_sync": "2026-09-24T03:19:20.812043"
+  "last_sync": "2026-09-25T03:37:07.740594"
 }
