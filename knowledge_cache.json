@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "General Quantification of Covariate and Concept Shifts",
-      "summary": "Generalization under distribution shift remains a core challenge in modern machine learning, yet existing learning bound theory is limited to narrow, idealized settings and is non-estimable from sampl...",
-      "fetched": "2026-09-11T03:10:52.441176"
-    },
-    {
-      "title": "Can Edge-Deployable Vision-Language Models Identify Species?",
-      "summary": "Camera traps often run in the field on edge hardware with limited or no connectivity, making small, locally-deployable vision-language models (VLMs) -- not frontier-scale ones -- the practically relev...",
-      "fetched": "2026-09-11T03:10:52.441177"
-    },
-    {
-      "title": "Agentic Societies Need a Social Harness",
-      "summary": "An agentic society is a collection of AI agents that coordinate autonomously across trust boundaries, on behalf of different principals whose objectives may only partially align. We show experimentall...",
-      "fetched": "2026-09-16T03:30:01.189998"
-    },
-    {
       "title": "ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents",
       "summary": "We introduce and release ScienceBuddy, an interactive scientific research workspace that brings continually improving scientific agents into researchers' everyday workflows. ScienceBuddy supports rese...",
       "fetched": "2026-09-16T03:30:01.190006"
@@ -99,7 +84,22 @@
       "title": "RAPID: Robot Agentic Programming from Demonstrations",
       "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
       "fetched": "2026-09-25T03:37:07.700153"
+    },
+    {
+      "title": "LLM Agents Can Easily Tamper With Their Own Traces",
+      "summary": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own ...",
+      "fetched": "2026-09-26T03:42:22.255394"
+    },
+    {
+      "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
+      "summary": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low...",
+      "fetched": "2026-09-26T03:42:22.255398"
+    },
+    {
+      "title": "RAPID: Robot Agentic Programming from Demonstrations",
+      "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
+      "fetched": "2026-09-26T03:42:22.255399"
     }
   ],
-  "last_sync": "2026-09-25T03:37:07.740594"
+  "last_sync": "2026-09-26T03:42:22.324982"
 }
