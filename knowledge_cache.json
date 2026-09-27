@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents",
-      "summary": "We introduce and release ScienceBuddy, an interactive scientific research workspace that brings continually improving scientific agents into researchers' everyday workflows. ScienceBuddy supports rese...",
-      "fetched": "2026-09-16T03:30:01.190006"
-    },
-    {
-      "title": "PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control",
-      "summary": "Interactive control for video generation is moving from coarse prompts toward fine-grained, physically meaningful manipulation of dynamic scenes. Yet existing controllable methods either require the f...",
-      "fetched": "2026-09-16T03:30:01.190009"
-    },
-    {
-      "title": "Objective vs. Search: Decomposing What Makes a Good Tokeniser",
-      "summary": "Two dominant tokenisation algorithms are used by modern language models: byte-pair encoding (BPE) and UnigramLM. These differ along two orthogonal axes: their optimisation objective (compression vs. l...",
-      "fetched": "2026-09-17T03:35:42.844528"
-    },
-    {
       "title": "A Zeroth-Order Paradigm for LLM Preference Alignment",
       "summary": "Direct preference alignment methods are widely used to align large language models (LLMs) with human preferences because of their computational and memory efficiency. However, likelihood displacement ...",
       "fetched": "2026-09-17T03:35:42.844534"
@@ -99,7 +84,22 @@
       "title": "RAPID: Robot Agentic Programming from Demonstrations",
       "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
       "fetched": "2026-09-26T03:42:22.255399"
+    },
+    {
+      "title": "LLM Agents Can Easily Tamper With Their Own Traces",
+      "summary": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own ...",
+      "fetched": "2026-09-27T03:51:19.588876"
+    },
+    {
+      "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
+      "summary": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low...",
+      "fetched": "2026-09-27T03:51:19.588882"
+    },
+    {
+      "title": "RAPID: Robot Agentic Programming from Demonstrations",
+      "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
+      "fetched": "2026-09-27T03:51:19.588886"
     }
   ],
-  "last_sync": "2026-09-26T03:42:22.324982"
+  "last_sync": "2026-09-27T03:51:19.725913"
 }
