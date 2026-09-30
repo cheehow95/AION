@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "A Zeroth-Order Paradigm for LLM Preference Alignment",
-      "summary": "Direct preference alignment methods are widely used to align large language models (LLMs) with human preferences because of their computational and memory efficiency. However, likelihood displacement ...",
-      "fetched": "2026-09-17T03:35:42.844534"
-    },
-    {
-      "title": "Dreaming the Sound of Contact: Leveraging Video and Audio Generation for Zero-Shot Force-Aware Manipulation and Data Generation",
-      "summary": "Recent advances in video generation allow robots to learn manipulation trajectories from generated videos. However, these approaches produce purely kinematic trajectories that lack force information, ...",
-      "fetched": "2026-09-17T03:35:42.844537"
-    },
-    {
-      "title": "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation",
-      "summary": "Coding agents have emerged as a promising paradigm for robot manipulation: a language model writes the robot controller as a program, and agents built in this way now operate robots without robot-spec...",
-      "fetched": "2026-09-18T03:21:25.241025"
-    },
-    {
       "title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
       "summary": "Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades perf...",
       "fetched": "2026-09-18T03:21:25.241037"
@@ -99,7 +84,22 @@
       "title": "RAPID: Robot Agentic Programming from Demonstrations",
       "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
       "fetched": "2026-09-27T03:51:19.588886"
+    },
+    {
+      "title": "Skill-Space Shooting for Autonomous Robot Policy Improvement",
+      "summary": "Robots deployed in the physical world must be able to improve beyond their initial training as they encounter new situations and failures. For this improvement to scale across tasks, it must make effe...",
+      "fetched": "2026-09-30T04:09:08.429829"
+    },
+    {
+      "title": "STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantization",
+      "summary": "Linear attention replaces growing KV caches with fixed-size recurrent states, yet these persistent states can become a substantial memory bottleneck under concurrent serving. Directly quantizing recur...",
+      "fetched": "2026-09-30T04:09:08.429839"
+    },
+    {
+      "title": "LeapQuant: Efficient Linear Attention with Accurate Recurrent State Quantization",
+      "summary": "Recent LLMs increasingly adopt hybrid designs that replace standard attention with linear attention, such as Gated DeltaNet (GDN) and Kimi Delta Attention (KDA). Although they compress the context int...",
+      "fetched": "2026-09-30T04:09:08.429840"
     }
   ],
-  "last_sync": "2026-09-29T04:25:52.218134"
+  "last_sync": "2026-09-30T04:09:08.511157"
 }
