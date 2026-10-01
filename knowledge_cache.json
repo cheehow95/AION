@@ -3,21 +3,6 @@
     {
       "title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
       "summary": "Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades perf...",
-      "fetched": "2026-09-18T03:21:25.241037"
-    },
-    {
-      "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
-      "summary": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a ...",
-      "fetched": "2026-09-18T03:21:25.241040"
-    },
-    {
-      "title": "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation",
-      "summary": "Coding agents have emerged as a promising paradigm for robot manipulation: a language model writes the robot controller as a program, and agents built in this way now operate robots without robot-spec...",
-      "fetched": "2026-09-19T03:17:42.141140"
-    },
-    {
-      "title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
-      "summary": "Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades perf...",
       "fetched": "2026-09-19T03:17:42.141150"
     },
     {
@@ -99,7 +84,22 @@
       "title": "LeapQuant: Efficient Linear Attention with Accurate Recurrent State Quantization",
       "summary": "Recent LLMs increasingly adopt hybrid designs that replace standard attention with linear attention, such as Gated DeltaNet (GDN) and Kimi Delta Attention (KDA). Although they compress the context int...",
       "fetched": "2026-09-30T04:09:08.429840"
+    },
+    {
+      "title": "Semifactual Credit-Augmented Policy Optimization",
+      "summary": "Reinforcement learning with verifiable rewards (RLVR) has improved the reasoning capabilities of large language models (LLMs), yet their predictions remain sensitive to task-irrelevant prompt features...",
+      "fetched": "2026-10-01T04:21:07.661887"
+    },
+    {
+      "title": "ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing",
+      "summary": "Recent video generation is increasingly realistic and controllable, yet video editing remains less developed, particularly for precise local edits that must preserve the original scene dynamics. Video...",
+      "fetched": "2026-10-01T04:21:07.661899"
+    },
+    {
+      "title": "Turbo Harness: Instance-Adaptive Harness Optimization",
+      "summary": "Automating the search for effective harnesses is an important step toward enabling agents to recursively self-improve. Existing harness optimizations typically produce a single global harness that is ...",
+      "fetched": "2026-10-01T04:21:07.661901"
     }
   ],
-  "last_sync": "2026-09-30T04:09:08.511157"
+  "last_sync": "2026-10-01T04:21:07.925104"
 }
