@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision",
-      "summary": "Complex robotic manipulation tasks frequently require a long-term memory of past events and actions. As conditioning on full histories renders policies prone to spurious correlations and degrades perf...",
-      "fetched": "2026-09-19T03:17:42.141150"
-    },
-    {
-      "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
-      "summary": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a ...",
-      "fetched": "2026-09-19T03:17:42.141152"
-    },
-    {
-      "title": "The Endless Exam: Mathematical Constructions from Today's Models toward Superintelligence",
-      "summary": "We introduce the Endless Exam, a benchmark for measuring mathematical progress from today's models toward artificial superintelligence through fourteen parameterised construction families. Each submit...",
-      "fetched": "2026-09-22T03:28:39.991214"
-    },
-    {
       "title": "QLoRA Fine-Tuning of Ministral LLM for Sequence-to-Function Protein Annotation",
       "summary": "Functional annotation of newly sequenced proteins remains a bottleneck in molecular biology: the number of sequences in public repositories grows far faster than the capacity for manual curation. Most...",
       "fetched": "2026-09-22T03:28:39.991223"
@@ -99,7 +84,22 @@
       "title": "Turbo Harness: Instance-Adaptive Harness Optimization",
       "summary": "Automating the search for effective harnesses is an important step toward enabling agents to recursively self-improve. Existing harness optimizations typically produce a single global harness that is ...",
       "fetched": "2026-10-01T04:21:07.661901"
+    },
+    {
+      "title": "Less Decoder is More Encoder: Geometric Representation Learning from Novel View Synthesis",
+      "summary": "This paper examines the role of Novel View Synthesis (NVS) in geometric representation learning. In principle, NVS should reason about 3D scene structure, thereby enabling transferable multi-view geom...",
+      "fetched": "2026-10-05T04:14:37.752994"
+    },
+    {
+      "title": "4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes",
+      "summary": "We introduce 4DCodeBench, a benchmark for 4D inverse graphics through code generation, in which agents reconstruct dynamic scenes from video as executable graphics programs. To accomplish this, agents...",
+      "fetched": "2026-10-05T04:14:37.753005"
+    },
+    {
+      "title": "What Should World Models Forget? Stratified Retention for Continual Adaptation",
+      "summary": "Continual learning treats degradation on previously seen data as evidence of failure, a convention inherited from settings with a stationary prediction target, where a correct label remains correct in...",
+      "fetched": "2026-10-05T04:14:37.753007"
     }
   ],
-  "last_sync": "2026-10-04T04:29:29.778231"
+  "last_sync": "2026-10-05T04:14:37.796016"
 }
