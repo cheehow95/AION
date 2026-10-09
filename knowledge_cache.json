@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "QLoRA Fine-Tuning of Ministral LLM for Sequence-to-Function Protein Annotation",
-      "summary": "Functional annotation of newly sequenced proteins remains a bottleneck in molecular biology: the number of sequences in public repositories grows far faster than the capacity for manual curation. Most...",
-      "fetched": "2026-09-22T03:28:39.991223"
-    },
-    {
-      "title": "Not All Task Vectors Need Equal Rank: Energy-Proportional Allocation for Model Merging",
-      "summary": "Model merging aims to combine multiple fine-tuned models derived from a common pretrained model into a single multi-task model without additional joint training. Recent spectral merging methods improv...",
-      "fetched": "2026-09-22T03:28:39.991225"
-    },
-    {
-      "title": "LLM Agents Can Easily Tamper With Their Own Traces",
-      "summary": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own ...",
-      "fetched": "2026-09-25T03:37:07.700144"
-    },
-    {
       "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
       "summary": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low...",
       "fetched": "2026-09-25T03:37:07.700151"
@@ -99,7 +84,22 @@
       "title": "What Should World Models Forget? Stratified Retention for Continual Adaptation",
       "summary": "Continual learning treats degradation on previously seen data as evidence of failure, a convention inherited from settings with a stationary prediction target, where a correct label remains correct in...",
       "fetched": "2026-10-05T04:14:37.753007"
+    },
+    {
+      "title": "On the estimation and validity of AI time horizons---a statistical look at the METR plot",
+      "summary": "METR's 50\\% time horizon measures the human completion time of software tasks that an AI solves with 50\\% probability, allowing AI capabilities to be expressed in interpretable units. On 228 tasks and...",
+      "fetched": "2026-10-09T04:44:08.874960"
+    },
+    {
+      "title": "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic, and Google Agent Security Incidents",
+      "summary": "In 2026, cybersecurity evaluations involving OpenAI, Anthropic, and Google agents reached real systems outside their authorized test scope. The paths were different. OpenAI agents exploited research i...",
+      "fetched": "2026-10-09T04:44:08.874971"
+    },
+    {
+      "title": "BrickBench: Evaluating Agentic Brick Design",
+      "summary": "We propose BrickBench, a benchmark for agentic text-conditioned LEGO-set design. Given a prompt, an agent is tasked with producing an assembly that not only satisfies semantic and design criteria, but...",
+      "fetched": "2026-10-09T04:44:08.874973"
     }
   ],
-  "last_sync": "2026-10-08T04:41:09.326633"
+  "last_sync": "2026-10-09T04:44:08.960092"
 }
