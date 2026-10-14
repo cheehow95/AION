@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
-      "summary": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low...",
-      "fetched": "2026-09-27T03:51:19.588882"
-    },
-    {
-      "title": "RAPID: Robot Agentic Programming from Demonstrations",
-      "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrati...",
-      "fetched": "2026-09-27T03:51:19.588886"
-    },
-    {
-      "title": "Skill-Space Shooting for Autonomous Robot Policy Improvement",
-      "summary": "Robots deployed in the physical world must be able to improve beyond their initial training as they encounter new situations and failures. For this improvement to scale across tasks, it must make effe...",
-      "fetched": "2026-09-30T04:09:08.429829"
-    },
-    {
       "title": "STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantization",
       "summary": "Linear attention replaces growing KV caches with fixed-size recurrent states, yet these persistent states can become a substantial memory bottleneck under concurrent serving. Directly quantizing recur...",
       "fetched": "2026-09-30T04:09:08.429839"
@@ -99,7 +84,22 @@
       "title": "Revisiting Tabular Deep Regression: Objectives and the Limits of Global Early Stopping",
       "summary": "While deep learning models for tabular data have recently received significant research attention, the choice of objective functions for regression tasks remains an understudied degree of freedom. Sev...",
       "fetched": "2026-10-12T04:30:28.476375"
+    },
+    {
+      "title": "AutoNovo: Agentic Program Search Discovers Transferable Nucleic Acid Design Algorithms",
+      "summary": "In-silico optimization of nucleic acids relies on predictive oracles that imperfectly capture biological function, so sequences optimized against one model may exploit model-specific artifacts and fai...",
+      "fetched": "2026-10-14T03:40:35.018164"
+    },
+    {
+      "title": "Learning to GUIDE the Group: Self-Learning LLM Facilitation Across Multi-Party Tasks",
+      "summary": "As large language models are increasingly adopted as multi-party communication facilitators, there is a growing demand for agents capable of balancing diverse group dynamics across contexts. However, ...",
+      "fetched": "2026-10-14T03:40:35.018173"
+    },
+    {
+      "title": "Look Back to Move Forward: Learning to Revisit for Agentic Compositional Image Generation",
+      "summary": "Text-to-image models have made remarkable progress in visual fidelity and instruction following, yet complex compositional generation remains challenging. Existing agentic approaches address this limi...",
+      "fetched": "2026-10-14T03:40:35.018176"
     }
   ],
-  "last_sync": "2026-10-13T05:37:26.640402"
+  "last_sync": "2026-10-14T03:40:35.092293"
 }
