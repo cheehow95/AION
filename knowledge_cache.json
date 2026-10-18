@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantization",
-      "summary": "Linear attention replaces growing KV caches with fixed-size recurrent states, yet these persistent states can become a substantial memory bottleneck under concurrent serving. Directly quantizing recur...",
-      "fetched": "2026-09-30T04:09:08.429839"
-    },
-    {
-      "title": "LeapQuant: Efficient Linear Attention with Accurate Recurrent State Quantization",
-      "summary": "Recent LLMs increasingly adopt hybrid designs that replace standard attention with linear attention, such as Gated DeltaNet (GDN) and Kimi Delta Attention (KDA). Although they compress the context int...",
-      "fetched": "2026-09-30T04:09:08.429840"
-    },
-    {
-      "title": "Semifactual Credit-Augmented Policy Optimization",
-      "summary": "Reinforcement learning with verifiable rewards (RLVR) has improved the reasoning capabilities of large language models (LLMs), yet their predictions remain sensitive to task-irrelevant prompt features...",
-      "fetched": "2026-10-01T04:21:07.661887"
-    },
-    {
       "title": "ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing",
       "summary": "Recent video generation is increasingly realistic and controllable, yet video editing remains less developed, particularly for precise local edits that must preserve the original scene dynamics. Video...",
       "fetched": "2026-10-01T04:21:07.661899"
@@ -99,7 +84,22 @@
       "title": "Look Back to Move Forward: Learning to Revisit for Agentic Compositional Image Generation",
       "summary": "Text-to-image models have made remarkable progress in visual fidelity and instruction following, yet complex compositional generation remains challenging. Existing agentic approaches address this limi...",
       "fetched": "2026-10-14T03:40:35.018176"
+    },
+    {
+      "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
+      "summary": "Personalization is essential for general-purpose robots to transition into household environments and achieve true practicality. While general robotic manipulation has been extensively studied, person...",
+      "fetched": "2026-10-18T03:10:40.699712"
+    },
+    {
+      "title": "Discovering state-of-the-art quantum circuits with large language models",
+      "summary": "Significant efforts are currently being directed toward the implementation of large-scale quantum information processors, but realizing useful quantum advantage also requires the development of effici...",
+      "fetched": "2026-10-18T03:10:40.699724"
+    },
+    {
+      "title": "T2-z: Test-Time Optimization of Environment Latents for Robotic World Models",
+      "summary": "Predicting how the world responds to an action requires more than what can be seen: robots must account for environmental factors that are neither directly observable nor explicitly specified, from ph...",
+      "fetched": "2026-10-18T03:10:40.699725"
     }
   ],
-  "last_sync": "2026-10-17T03:08:07.547794"
+  "last_sync": "2026-10-18T03:10:40.776249"
 }
