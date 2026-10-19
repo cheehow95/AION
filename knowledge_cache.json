@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing",
-      "summary": "Recent video generation is increasingly realistic and controllable, yet video editing remains less developed, particularly for precise local edits that must preserve the original scene dynamics. Video...",
-      "fetched": "2026-10-01T04:21:07.661899"
-    },
-    {
-      "title": "Turbo Harness: Instance-Adaptive Harness Optimization",
-      "summary": "Automating the search for effective harnesses is an important step toward enabling agents to recursively self-improve. Existing harness optimizations typically produce a single global harness that is ...",
-      "fetched": "2026-10-01T04:21:07.661901"
-    },
-    {
-      "title": "Less Decoder is More Encoder: Geometric Representation Learning from Novel View Synthesis",
-      "summary": "This paper examines the role of Novel View Synthesis (NVS) in geometric representation learning. In principle, NVS should reason about 3D scene structure, thereby enabling transferable multi-view geom...",
-      "fetched": "2026-10-05T04:14:37.752994"
-    },
-    {
       "title": "4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes",
       "summary": "We introduce 4DCodeBench, a benchmark for 4D inverse graphics through code generation, in which agents reconstruct dynamic scenes from video as executable graphics programs. To accomplish this, agents...",
       "fetched": "2026-10-05T04:14:37.753005"
@@ -99,7 +84,22 @@
       "title": "T2-z: Test-Time Optimization of Environment Latents for Robotic World Models",
       "summary": "Predicting how the world responds to an action requires more than what can be seen: robots must account for environmental factors that are neither directly observable nor explicitly specified, from ph...",
       "fetched": "2026-10-18T03:10:40.699725"
+    },
+    {
+      "title": "Rethinking the design space of Vanilla Pixel Diffusion Transformers",
+      "summary": "Pixel-space diffusion models have recently re-emerged as a compelling alternative to latent diffusion, avoiding the lossy latent bottleneck and separately trained autoencoder. JiT shows that a vanilla...",
+      "fetched": "2026-10-19T03:24:24.134734"
+    },
+    {
+      "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
+      "summary": "Fine-tuning large language models (LLMs) can induce behaviors beyond those explicitly targeted. For example, training a model to respond more warmly can make it more sycophantic, and training it to wr...",
+      "fetched": "2026-10-19T03:24:24.134746"
+    },
+    {
+      "title": "AI-Driven Reproducibility and Analytical Robustness in Scientific Discovery",
+      "summary": "Reproducible and analytically robust research findings are essential to scientific progress, but evaluating these properties typically requires costly manual effort. We investigate whether LLM agents ...",
+      "fetched": "2026-10-19T03:24:24.134748"
     }
   ],
-  "last_sync": "2026-10-18T03:10:40.776249"
+  "last_sync": "2026-10-19T03:24:24.256407"
 }
