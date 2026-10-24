@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic, and Google Agent Security Incidents",
-      "summary": "In 2026, cybersecurity evaluations involving OpenAI, Anthropic, and Google agents reached real systems outside their authorized test scope. The paths were different. OpenAI agents exploited research i...",
-      "fetched": "2026-10-11T04:12:34.100699"
-    },
-    {
-      "title": "BrickBench: Evaluating Agentic Brick Design",
-      "summary": "We propose BrickBench, a benchmark for agentic text-conditioned LEGO-set design. Given a prompt, an agent is tasked with producing an assembly that not only satisfies semantic and design criteria, but...",
-      "fetched": "2026-10-11T04:12:34.100701"
-    },
-    {
-      "title": "Can Language Models Play the Wikipedia Game?",
-      "summary": "Language models increasingly support or automate information retrieval from document collections too large to index. This task is difficult when it requires specialist linguistic or scientific knowled...",
-      "fetched": "2026-10-12T04:30:28.476360"
-    },
-    {
       "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
       "summary": "Interpreting machine learning model predictions is a central challenge, particularly for black-box vision models. Concept-based attribution methods interpret models using human-understandable concepts...",
       "fetched": "2026-10-12T04:30:28.476372"
@@ -99,7 +84,22 @@
       "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
       "summary": "Meta-reinforcement learning aims to train agents that adapt quickly to unseen tasks from limited interaction, but this requires representing task evidence over long interaction histories. Classical re...",
       "fetched": "2026-10-23T03:31:35.374708"
+    },
+    {
+      "title": "Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning",
+      "summary": "Test-time scaling has emerged as a key inference strategy for reasoning models, where a model generates a large number of candidate solutions in the hope of finding at least one correct solution. Runn...",
+      "fetched": "2026-10-24T03:25:38.043248"
+    },
+    {
+      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "summary": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on cali...",
+      "fetched": "2026-10-24T03:25:38.043261"
+    },
+    {
+      "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
+      "summary": "Meta-reinforcement learning aims to train agents that adapt quickly to unseen tasks from limited interaction, but this requires representing task evidence over long interaction histories. Classical re...",
+      "fetched": "2026-10-24T03:25:38.043262"
     }
   ],
-  "last_sync": "2026-10-23T03:31:35.461568"
+  "last_sync": "2026-10-24T03:25:38.140958"
 }
