@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
-      "summary": "Interpreting machine learning model predictions is a central challenge, particularly for black-box vision models. Concept-based attribution methods interpret models using human-understandable concepts...",
-      "fetched": "2026-10-12T04:30:28.476372"
-    },
-    {
-      "title": "Revisiting Tabular Deep Regression: Objectives and the Limits of Global Early Stopping",
-      "summary": "While deep learning models for tabular data have recently received significant research attention, the choice of objective functions for regression tasks remains an understudied degree of freedom. Sev...",
-      "fetched": "2026-10-12T04:30:28.476375"
-    },
-    {
-      "title": "AutoNovo: Agentic Program Search Discovers Transferable Nucleic Acid Design Algorithms",
-      "summary": "In-silico optimization of nucleic acids relies on predictive oracles that imperfectly capture biological function, so sequences optimized against one model may exploit model-specific artifacts and fai...",
-      "fetched": "2026-10-14T03:40:35.018164"
-    },
-    {
       "title": "Learning to GUIDE the Group: Self-Learning LLM Facilitation Across Multi-Party Tasks",
       "summary": "As large language models are increasingly adopted as multi-party communication facilitators, there is a growing demand for agents capable of balancing diverse group dynamics across contexts. However, ...",
       "fetched": "2026-10-14T03:40:35.018173"
@@ -99,7 +84,22 @@
       "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
       "summary": "Meta-reinforcement learning aims to train agents that adapt quickly to unseen tasks from limited interaction, but this requires representing task evidence over long interaction histories. Classical re...",
       "fetched": "2026-10-24T03:25:38.043262"
+    },
+    {
+      "title": "SceneBloom: Agentic Indoor Environment Generation with Realistic and Diverse Layouts for Embodied Learning",
+      "summary": "Training generalizable embodied agents requires realistic, varied, and simulation-ready indoor environments. Language-guided methods support semantic planning and object-level reasoning, but precise s...",
+      "fetched": "2026-10-26T03:23:13.749577"
+    },
+    {
+      "title": "RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms",
+      "summary": "Robust reinforcement learning (RL) is critical for reliable real-world deployment, where policies may fail under diverse shifts and disruptions. Existing robust RL algorithms offer a rich set of mecha...",
+      "fetched": "2026-10-26T03:23:13.749589"
+    },
+    {
+      "title": "DexPort: A Hand-Held Skill Interface for Dexterous Hand Data Collection",
+      "summary": "Collecting high-quality demonstrations remains a central bottleneck for learning dexterous manipulation. Teleoperation records executable robot actions, but it requires a complete robot setup and plac...",
+      "fetched": "2026-10-26T03:23:13.749591"
     }
   ],
-  "last_sync": "2026-10-25T03:21:22.922035"
+  "last_sync": "2026-10-26T03:23:13.851219"
 }
