@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Learning to GUIDE the Group: Self-Learning LLM Facilitation Across Multi-Party Tasks",
-      "summary": "As large language models are increasingly adopted as multi-party communication facilitators, there is a growing demand for agents capable of balancing diverse group dynamics across contexts. However, ...",
-      "fetched": "2026-10-14T03:40:35.018173"
-    },
-    {
-      "title": "Look Back to Move Forward: Learning to Revisit for Agentic Compositional Image Generation",
-      "summary": "Text-to-image models have made remarkable progress in visual fidelity and instruction following, yet complex compositional generation remains challenging. Existing agentic approaches address this limi...",
-      "fetched": "2026-10-14T03:40:35.018176"
-    },
-    {
-      "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
-      "summary": "Personalization is essential for general-purpose robots to transition into household environments and achieve true practicality. While general robotic manipulation has been extensively studied, person...",
-      "fetched": "2026-10-18T03:10:40.699712"
-    },
-    {
       "title": "Discovering state-of-the-art quantum circuits with large language models",
       "summary": "Significant efforts are currently being directed toward the implementation of large-scale quantum information processors, but realizing useful quantum advantage also requires the development of effici...",
       "fetched": "2026-10-18T03:10:40.699724"
@@ -99,7 +84,22 @@
       "title": "DexPort: A Hand-Held Skill Interface for Dexterous Hand Data Collection",
       "summary": "Collecting high-quality demonstrations remains a central bottleneck for learning dexterous manipulation. Teleoperation records executable robot actions, but it requires a complete robot setup and plac...",
       "fetched": "2026-10-26T03:23:13.749591"
+    },
+    {
+      "title": "Rethinking Neural Thickets Without Weight Perturbations",
+      "summary": "The Neural Thickets hypothesis posits that pretrained language models lie in dense neighborhoods of task-specific experts in weight space, which random Gaussian perturbations can uncover. We reproduce...",
+      "fetched": "2026-10-31T04:14:08.650934"
+    },
+    {
+      "title": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
+      "summary": "Pixel-space generative Transformers typically use one token per image patch, so capturing finer detail requires more tokens and makes global attention increasingly expensive. We observe that finer det...",
+      "fetched": "2026-10-31T04:14:08.650943"
+    },
+    {
+      "title": "Luggage re-identification: A study of strategies towards a real-world application",
+      "summary": "Luggage re-identification (ReID) is a critical task in video surveillance for forensics, security or border management (suspicious or abandoned luggage recognition), as well as luggage management (los...",
+      "fetched": "2026-10-31T04:14:08.650946"
     }
   ],
-  "last_sync": "2026-10-30T04:32:11.118354"
+  "last_sync": "2026-10-31T04:14:08.685430"
 }
