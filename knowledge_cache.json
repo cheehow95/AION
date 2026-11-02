@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Discovering state-of-the-art quantum circuits with large language models",
-      "summary": "Significant efforts are currently being directed toward the implementation of large-scale quantum information processors, but realizing useful quantum advantage also requires the development of effici...",
-      "fetched": "2026-10-18T03:10:40.699724"
-    },
-    {
-      "title": "T2-z: Test-Time Optimization of Environment Latents for Robotic World Models",
-      "summary": "Predicting how the world responds to an action requires more than what can be seen: robots must account for environmental factors that are neither directly observable nor explicitly specified, from ph...",
-      "fetched": "2026-10-18T03:10:40.699725"
-    },
-    {
-      "title": "Rethinking the design space of Vanilla Pixel Diffusion Transformers",
-      "summary": "Pixel-space diffusion models have recently re-emerged as a compelling alternative to latent diffusion, avoiding the lossy latent bottleneck and separately trained autoencoder. JiT shows that a vanilla...",
-      "fetched": "2026-10-19T03:24:24.134734"
-    },
-    {
       "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
       "summary": "Fine-tuning large language models (LLMs) can induce behaviors beyond those explicitly targeted. For example, training a model to respond more warmly can make it more sycophantic, and training it to wr...",
       "fetched": "2026-10-19T03:24:24.134746"
@@ -99,7 +84,22 @@
       "title": "Luggage re-identification: A study of strategies towards a real-world application",
       "summary": "Luggage re-identification (ReID) is a critical task in video surveillance for forensics, security or border management (suspicious or abandoned luggage recognition), as well as luggage management (los...",
       "fetched": "2026-10-31T04:14:08.650946"
+    },
+    {
+      "title": "Different Models, Shared Failures: Auditing Frozen-Encoder Pools for Medical Segmentation",
+      "summary": "Average segmentation accuracy and model count do not reveal whether models fail on the same cases. We present CoFailMed, an audit of correlated failures in pretrained-encoder pools for medical segment...",
+      "fetched": "2026-11-02T04:37:20.573749"
+    },
+    {
+      "title": "Clinical-Protocol-Aware Cyber Resilience for Connected Clinical Technologies Under AI-Enabled Adversarial Conditions",
+      "summary": "Healthcare increasingly relies on connected medical devices, clinical information systems, cloud services, and distributed-care technologies, creating cybersecurity risks across clinical workflows. AI...",
+      "fetched": "2026-11-02T04:37:20.573760"
+    },
+    {
+      "title": "Multimodal In-Context Learning with Explicit Rule Induction",
+      "summary": "A central challenge in multimodal in-context learning (MICL) arises from tasks that are ill-defined without context and require uncovering the underlying rules from demonstrations. Existing methods pr...",
+      "fetched": "2026-11-02T04:37:20.573763"
     }
   ],
-  "last_sync": "2026-11-01T04:34:55.546048"
+  "last_sync": "2026-11-02T04:37:20.672561"
 }
