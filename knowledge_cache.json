@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
-      "summary": "Fine-tuning large language models (LLMs) can induce behaviors beyond those explicitly targeted. For example, training a model to respond more warmly can make it more sycophantic, and training it to wr...",
-      "fetched": "2026-10-19T03:24:24.134746"
-    },
-    {
-      "title": "AI-Driven Reproducibility and Analytical Robustness in Scientific Discovery",
-      "summary": "Reproducible and analytically robust research findings are essential to scientific progress, but evaluating these properties typically requires costly manual effort. We investigate whether LLM agents ...",
-      "fetched": "2026-10-19T03:24:24.134748"
-    },
-    {
-      "title": "Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation",
-      "summary": "Existing sequential recommenders usually allocate a fixed computational budget to every item in a user's interaction history, regardless of the item's contribution to the final prediction. We challeng...",
-      "fetched": "2026-10-22T03:26:16.462806"
-    },
-    {
       "title": "PhysiCalWorld: In-Context Physics Calibration for World Models",
       "summary": "Existing world models typically perceive a scene through current visual frame or a narrow history window. However, these observations may not reveal the physics properties that determine transition dy...",
       "fetched": "2026-10-22T03:26:16.462814"
@@ -99,7 +84,22 @@
       "title": "Multimodal In-Context Learning with Explicit Rule Induction",
       "summary": "A central challenge in multimodal in-context learning (MICL) arises from tasks that are ill-defined without context and require uncovering the underlying rules from demonstrations. Existing methods pr...",
       "fetched": "2026-11-02T04:37:20.573763"
+    },
+    {
+      "title": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+      "summary": "LLM-guided evolutionary search uses AI agents to improve programs for mathematical and computational problems by iteratively refining solutions and combining high-scoring methods. However, the process...",
+      "fetched": "2026-11-06T05:17:27.299171"
+    },
+    {
+      "title": "Scientist World: Grow a Research World for AI-Scientists",
+      "summary": "AI-Scientists arrived, but a world for them to grow in did not. Human scientists take theirs for granted $-$ centuries of open problems and shared ideas, waiting in the scientific literature. To AI-Sc...",
+      "fetched": "2026-11-06T05:17:27.299179"
+    },
+    {
+      "title": "XStack: A Benchmark for ML Repo Migration",
+      "summary": "ML code should run where researchers choose, not where it was first written. Today, machine learning code mainly lives in two ecosystems, PyTorch on NVIDIA GPUs and JAX on Google TPUs. Migrating repos...",
+      "fetched": "2026-11-06T05:17:27.299181"
     }
   ],
-  "last_sync": "2026-11-05T05:17:58.098061"
+  "last_sync": "2026-11-06T05:17:27.331946"
 }
