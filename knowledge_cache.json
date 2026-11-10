@@ -3,21 +3,6 @@
     {
       "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
       "summary": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on cali...",
-      "fetched": "2026-10-23T03:31:35.374706"
-    },
-    {
-      "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
-      "summary": "Meta-reinforcement learning aims to train agents that adapt quickly to unseen tasks from limited interaction, but this requires representing task evidence over long interaction histories. Classical re...",
-      "fetched": "2026-10-23T03:31:35.374708"
-    },
-    {
-      "title": "Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning",
-      "summary": "Test-time scaling has emerged as a key inference strategy for reasoning models, where a model generates a large number of candidate solutions in the hope of finding at least one correct solution. Runn...",
-      "fetched": "2026-10-24T03:25:38.043248"
-    },
-    {
-      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
-      "summary": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on cali...",
       "fetched": "2026-10-24T03:25:38.043261"
     },
     {
@@ -99,7 +84,22 @@
       "title": "XStack: A Benchmark for ML Repo Migration",
       "summary": "ML code should run where researchers choose, not where it was first written. Today, machine learning code mainly lives in two ecosystems, PyTorch on NVIDIA GPUs and JAX on Google TPUs. Migrating repos...",
       "fetched": "2026-11-07T04:47:48.733355"
+    },
+    {
+      "title": "Leveraging Complementary Event Frame and Voxel Representations for RGB-Guided Multimodal Pre-training",
+      "summary": "In this paper, we propose CM3AE 2.0, a unified RGB Frame and Event-Voxel/-Frame pre-training framework. By jointly learning multimodal spatiotemporal representations and exploiting latent cross-modal ...",
+      "fetched": "2026-11-10T06:03:05.038659"
+    },
+    {
+      "title": "Feeling Easier, Working Harder: Cognitive Load in AI-Assisted Code Comprehension",
+      "summary": "Software developers spend significant time reading and understanding code, increasingly supplemented by generative AI. While these tools aim to reduce the difficulty of reading code, interacting with ...",
+      "fetched": "2026-11-10T06:03:05.038673"
+    },
+    {
+      "title": "Grasp-Taxonomy Conditioning as a Mode Switch for Dexterous Grasping of Climbing Holds",
+      "summary": "Dexterous grasping in robotics relies on distinct hand configurations depending on object geometry. We introduce BetaGrasp, a 3D diffusion policy that conditions a DP3-style point-cloud policy on a fo...",
+      "fetched": "2026-11-10T06:03:05.038677"
     }
   ],
-  "last_sync": "2026-11-09T04:48:52.154189"
+  "last_sync": "2026-11-10T06:03:05.120431"
 }
