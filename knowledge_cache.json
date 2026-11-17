@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
-      "summary": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on cali...",
-      "fetched": "2026-10-24T03:25:38.043261"
-    },
-    {
-      "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
-      "summary": "Meta-reinforcement learning aims to train agents that adapt quickly to unseen tasks from limited interaction, but this requires representing task evidence over long interaction histories. Classical re...",
-      "fetched": "2026-10-24T03:25:38.043262"
-    },
-    {
-      "title": "SceneBloom: Agentic Indoor Environment Generation with Realistic and Diverse Layouts for Embodied Learning",
-      "summary": "Training generalizable embodied agents requires realistic, varied, and simulation-ready indoor environments. Language-guided methods support semantic planning and object-level reasoning, but precise s...",
-      "fetched": "2026-10-26T03:23:13.749577"
-    },
-    {
       "title": "RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms",
       "summary": "Robust reinforcement learning (RL) is critical for reliable real-world deployment, where policies may fail under diverse shifts and disruptions. Existing robust RL algorithms offer a rich set of mecha...",
       "fetched": "2026-10-26T03:23:13.749589"
@@ -99,7 +84,22 @@
       "title": "Grasp-Taxonomy Conditioning as a Mode Switch for Dexterous Grasping of Climbing Holds",
       "summary": "Dexterous grasping in robotics relies on distinct hand configurations depending on object geometry. We introduce BetaGrasp, a 3D diffusion policy that conditions a DP3-style point-cloud policy on a fo...",
       "fetched": "2026-11-10T06:03:05.038677"
+    },
+    {
+      "title": "GainCtrl: Predicting Remaining Gains for Efficient LLM Agent Execution",
+      "summary": "Large language models (LLMs) are widely used to power agents that interact with tools and environments to solve complex tasks. Repeated attempts improve the quality of tool-using agents, but continued...",
+      "fetched": "2026-11-17T06:42:55.209959"
+    },
+    {
+      "title": "MemEmo: Evaluating Emotion in Memory Systems",
+      "summary": "Memory systems address the challenge of context loss in Large Language Models during prolonged interactions. However, as an essential tool for warm companionship and personalized services, the effecti...",
+      "fetched": "2026-11-17T06:42:55.209966"
+    },
+    {
+      "title": "Routing Beyond Task Categories: A Cost-Aware LAB-Bench Study",
+      "summary": "We tested whether features of biology questions or of a model's first answer can improve accuracy within an inference budget. In a LAB-Bench pilot, we compared a category router with one that adds six...",
+      "fetched": "2026-11-17T06:42:55.209968"
     }
   ],
-  "last_sync": "2026-11-16T04:55:22.260572"
+  "last_sync": "2026-11-17T06:42:55.226240"
 }
