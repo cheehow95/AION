@@ -1,17 +1,17 @@
 # AION Development Roadmap
 
-Generated: 2026-11-20 05:50
+Generated: 2026-11-21 05:45
 
 ## 🔴 High Priority
 - [ ] Add Language Server Protocol (LSP) for IDE integration
 - [ ] Implement async streaming for LLM responses
 
 ## 🟡 Medium Priority
+- [ ] Add tests for src/context/context_manager.py
+- [ ] Add tests for src/context/hyper_context.py
 - [ ] Add tests for src/context/context_compression.py
 - [ ] Add tests for src/context/context_chunking.py
-- [ ] Add tests for src/context/hyper_context.py
-- [ ] Add tests for src/context/context_manager.py
-- [ ] Add tests for src/postgres/migrations.py
+- [ ] Add tests for src/gen_ui/state_manager.py
 - [ ] Add agent-to-agent message passing protocol
 - [ ] Implement persistent vector store with ChromaDB
 - [ ] Cache parsed ASTs for faster repeated execution
@@ -22,7 +22,7 @@ Generated: 2026-11-20 05:50
 
 ## 📊 Current Stats
 - Total Files: 267
-- Total Lines: 87183
+- Total Lines: 87187
 - Python Files: 238
 - AION Examples: 17
 - Test Files: 23
