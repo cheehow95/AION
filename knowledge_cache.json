@@ -1,21 +1,6 @@
 {
   "discoveries": [
     {
-      "title": "Scientist World: Grow a Research World for AI-Scientists",
-      "summary": "AI-Scientists arrived, but a world for them to grow in did not. Human scientists take theirs for granted $-$ centuries of open problems and shared ideas, waiting in the scientific literature. To AI-Sc...",
-      "fetched": "2026-11-07T04:47:48.733354"
-    },
-    {
-      "title": "XStack: A Benchmark for ML Repo Migration",
-      "summary": "ML code should run where researchers choose, not where it was first written. Today, machine learning code mainly lives in two ecosystems, PyTorch on NVIDIA GPUs and JAX on Google TPUs. Migrating repos...",
-      "fetched": "2026-11-07T04:47:48.733355"
-    },
-    {
-      "title": "Leveraging Complementary Event Frame and Voxel Representations for RGB-Guided Multimodal Pre-training",
-      "summary": "In this paper, we propose CM3AE 2.0, a unified RGB Frame and Event-Voxel/-Frame pre-training framework. By jointly learning multimodal spatiotemporal representations and exploiting latent cross-modal ...",
-      "fetched": "2026-11-10T06:03:05.038659"
-    },
-    {
       "title": "Feeling Easier, Working Harder: Cognitive Load in AI-Assisted Code Comprehension",
       "summary": "Software developers spend significant time reading and understanding code, increasingly supplemented by generative AI. While these tools aim to reduce the difficulty of reading code, interacting with ...",
       "fetched": "2026-11-10T06:03:05.038673"
@@ -99,7 +84,22 @@
       "title": "Model Carving: Training Transformers That Optimize Their Own Topology",
       "summary": "Machine learning has largely kept separate the choice of architecture and the process of training. A classic Transformer, for instance, trains a fixed set of attention and MLP sublayers at every layer...",
       "fetched": "2026-11-23T05:54:59.651469"
+    },
+    {
+      "title": "OmniAct: One Policy, One Million Embodiments",
+      "summary": "A single policy that controls diverse robots must not only transfer task knowledge across embodiments, but also adapt its behavior to each robot's capabilities. Existing approaches facilitate transfer...",
+      "fetched": "2026-11-25T07:07:56.780442"
+    },
+    {
+      "title": "MetaFORGE: A Meta-Learning Framework for Harness Optimization in Automated Code Generation for Parallel Computing",
+      "summary": "Large language models (LLMs) can generate parallel programs, but their correctness and performance depend strongly on the instructions that guide generation. We present \\textsc{MetaFORGE}, an executio...",
+      "fetched": "2026-11-25T07:07:56.780454"
+    },
+    {
+      "title": "Draft Calibration for Speculative Decoding: Accelerating LLM Serving by Matching Draft and Target Distributions",
+      "summary": "Speculative decoding accelerates large language model (LLM) inference by employing a lightweight draft model to propose draft tokens and allowing the target model to verify the new tokens in parallel ...",
+      "fetched": "2026-11-25T07:07:56.780456"
     }
   ],
-  "last_sync": "2026-11-24T08:33:30.644309"
+  "last_sync": "2026-11-25T07:07:56.960337"
 }
